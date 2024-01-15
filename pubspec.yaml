@@ -40,6 +40,14 @@ dependencies:
   google_fonts: ^6.1.0
   toptom_components:
     path: toptom_components/
+  auto_size_text: ^3.0.0
+  toptom_flutter_fields:
+    git:
+      url: https://github.com/AlexHCJP/toptom_flutter_fields.git
+      ref: main
+  flutter_code_editor: ^0.3.1
+  flutter_highlight: ^0.7.0
+  markdown_widget: ^2.3.2+3
 
 dev_dependencies:
   flutter_test:

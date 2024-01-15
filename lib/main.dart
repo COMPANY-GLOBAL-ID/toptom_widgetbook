@@ -17,7 +17,6 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(
-
       directories: directories,
       addons: [
         ThemeAddon(
@@ -29,7 +28,7 @@ class WidgetbookApp extends StatelessWidget {
                 bottomSheetTheme: const BottomSheetThemeData(surfaceTintColor: Colors.white),
                 appBarTheme: const AppBarTheme(surfaceTintColor: Colors.white),
                 textTheme: GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme).copyWith(
-                    bodyMedium: const TextStyle( letterSpacing: 0, color: Colors.black)
+                  bodyMedium: const TextStyle( letterSpacing: 0, color: Colors.black)
                 ),
                 colorScheme: const ColorScheme.light().copyWith(
                   surfaceTint: Colors.transparent,
@@ -40,6 +39,25 @@ class WidgetbookApp extends StatelessWidget {
                 )
               ),
             ),
+            WidgetbookTheme(
+              name: 'Dark',
+              data: ThemeData.dark().copyWith(
+                  scaffoldBackgroundColor: Colors.black45,
+                  bottomSheetTheme: const BottomSheetThemeData(surfaceTintColor: Colors.black45),
+                  appBarTheme: const AppBarTheme(surfaceTintColor: Colors.black45),
+                  textTheme: GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme).copyWith(
+                      bodyMedium: const TextStyle( letterSpacing: 0, color: Colors.black45)
+                  ),
+                  colorScheme: const ColorScheme.light().copyWith(
+                    surfaceTint: Colors.transparent,
+                    primary: const Color.fromRGBO(250, 77, 30, 1),
+                    secondary: const Color.fromRGBO(122, 130, 152, 1),
+                    secondaryContainer: const Color.fromRGBO(243, 244, 245, 1),
+                    onPrimary: Colors.black45,
+                  )
+              ),
+            ),
+
           ],
           themeBuilder: (context, theme, child) {
             return Theme(

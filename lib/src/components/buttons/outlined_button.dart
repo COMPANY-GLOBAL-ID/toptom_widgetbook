@@ -6,7 +6,7 @@ import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(
-  name: 'OutlinedButton',
+  name: 'Outlined Button',
   type: Container,
 )
 Widget outlinedButton(BuildContext context) {

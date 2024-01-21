@@ -40,6 +40,8 @@ dependencies:
   google_fonts: ^6.1.0
   toptom_components:
     path: toptom_components/
+  toptom_theme:
+    path: toptom_theme/
   auto_size_text: ^3.0.0
   toptom_flutter_fields:
     git:

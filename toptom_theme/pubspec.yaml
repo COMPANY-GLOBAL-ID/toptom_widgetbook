@@ -1,4 +1,4 @@
-name: toptom_components
+name: toptom_theme
 description: "A new Flutter project."
 version: 0.0.1
 homepage:
@@ -8,11 +8,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  auto_size_text: ^3.0.0
   flutter:
     sdk: flutter
-  toptom_theme:
-    path: ../toptom_theme/
 
 dev_dependencies:
   flutter_test:

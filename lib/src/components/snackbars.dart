@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:toptom_components/buttons/elevated_button.dart';
 import 'package:toptom_components/extends/num.dart';
 import 'package:toptom_theme/toptom_theme.dart';
-import 'package:toptom_widgetbook/extends/snackbar.dart';
+import 'package:toptom_widgetbook/src/extends/snackbar.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 

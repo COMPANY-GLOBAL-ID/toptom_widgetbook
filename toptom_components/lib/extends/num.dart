@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 extension NumWidgetExtension on num {
   SizedBox get w => SizedBox(width: toDouble());
@@ -8,4 +9,6 @@ extension NumWidgetExtension on num {
   EdgeInsets get hp => EdgeInsets.symmetric(horizontal: toDouble());
   EdgeInsets get vp => EdgeInsets.symmetric(vertical: toDouble());
   EdgeInsets get p => EdgeInsets.all(toDouble());
+
+  String get price => NumberFormat("#,###" ).format(toDouble());
 }

@@ -344,14 +344,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
-  graphic:
-    dependency: "direct main"
-    description:
-      name: graphic
-      sha256: "1443f5b89e802c5ae6e6ffdbc0091f3808d74557b4794595b1aa8ffcf944cced"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.1"
   graphs:
     dependency: transitive
     description:
@@ -481,7 +473,7 @@ packages:
     source: hosted
     version: "2.3.2+3"
   mask_text_input_formatter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: mask_text_input_formatter
       sha256: "4b40b7cbf1859a5e16a6c441faa00f36842068eca185985b2b30e61432058ef4"
@@ -552,14 +544,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.3"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      sha256: bbb1934c0cbb03091af082a6389ca2080345291ef07a5fa6d6e078ba8682f977
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   path_parsing:
     dependency: transitive
     description:
@@ -625,7 +609,7 @@ packages:
     source: hosted
     version: "6.0.2"
   pin_code_fields:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pin_code_fields
       sha256: "4c0db7fbc889e622e7c71ea54b9ee624bb70c7365b532abea0271b17ea75b729"
@@ -765,22 +749,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  syncfusion_flutter_charts:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_charts
-      sha256: "7bd20c8352919e042bafca6cd8765519f410d3abf0529d3ddab6333110665dc7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "24.1.46+1"
-  syncfusion_flutter_core:
-    dependency: transitive
-    description:
-      name: syncfusion_flutter_core
-      sha256: "205a4dda469ffd1b579cc9400a9b6df266c049cf9401da53944060c0515ea91e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "24.1.46"
   term_glyph:
     dependency: transitive
     description:
@@ -811,15 +779,6 @@ packages:
       path: toptom_components
       relative: true
     source: path
-    version: "0.0.1"
-  toptom_flutter_fields:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: main
-      resolved-ref: c118a5ccf5a0b762c97b4a29aa90130220ae45f2
-      url: "https://github.com/AlexHCJP/toptom_flutter_fields.git"
-    source: git
     version: "0.0.1"
   toptom_theme:
     dependency: "direct main"

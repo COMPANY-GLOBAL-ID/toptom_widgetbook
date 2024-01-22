@@ -50,6 +50,9 @@ dependencies:
   flutter_code_editor: ^0.3.1
   flutter_highlight: ^0.7.0
   markdown_widget: ^2.3.2+3
+  graphic: ^2.2.1
+  syncfusion_flutter_charts: ^24.1.46+1
+  fl_chart: ^0.66.0
 
 dev_dependencies:
   flutter_test:

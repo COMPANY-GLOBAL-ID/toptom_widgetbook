@@ -18,6 +18,7 @@ class WidgetbookApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppColor(
       colorScheme: AppColorScheme(
+          primary: Color.fromRGBO(250, 77, 30, 1),
           success: Color.fromRGBO(25, 175, 102, 1),
           onSuccess: Colors.white,
           warning: Color.fromRGBO(248, 191, 0, 1),
@@ -26,7 +27,9 @@ class WidgetbookApp extends StatelessWidget {
           onStandard: Colors.white,
           error: Color.fromRGBO(243, 87, 70, 1),
           onError: Colors.white,
-          shadow: Colors.grey.shade300
+          errorSecondary: Color.fromRGBO(243, 195, 195, 1),
+          shadow: Colors.grey.shade300,
+          secondary: Color.fromRGBO(139, 145, 169, 1)
       ),
       child: Widgetbook.material(
         directories: directories,

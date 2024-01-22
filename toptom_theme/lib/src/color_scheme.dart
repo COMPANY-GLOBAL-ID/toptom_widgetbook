@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 class AppColorScheme {
+  final Color primary;
   final Color success;
   final Color onSuccess;
   final Color warning;
@@ -10,10 +11,13 @@ class AppColorScheme {
   final Color onStandard;
   final Color error;
   final Color onError;
+  final Color errorSecondary;
   final Color shadow;
+  final Color secondary;
 
 
   AppColorScheme({
+    required this.primary,
     required this.success,
     required this.onSuccess,
     required this.warning,
@@ -22,6 +26,8 @@ class AppColorScheme {
     required this.onStandard,
     required this.error,
     required this.onError,
-    required this.shadow
+    required this.errorSecondary,
+    required this.shadow,
+    required this.secondary
   });
 }

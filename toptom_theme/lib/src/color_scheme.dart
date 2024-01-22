@@ -14,6 +14,7 @@ class AppColorScheme {
   final Color errorSecondary;
   final Color shadow;
   final Color secondary;
+  final Color textPrimary;
 
 
   AppColorScheme({
@@ -28,6 +29,7 @@ class AppColorScheme {
     required this.onError,
     required this.errorSecondary,
     required this.shadow,
-    required this.secondary
+    required this.secondary,
+    required this.textPrimary
   });
 }

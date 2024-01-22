@@ -29,7 +29,8 @@ class WidgetbookApp extends StatelessWidget {
           onError: Colors.white,
           errorSecondary: Color.fromRGBO(243, 195, 195, 1),
           shadow: Colors.grey.shade300,
-          secondary: Color.fromRGBO(139, 145, 169, 1)
+          secondary: Color.fromRGBO(139, 145, 169, 1),
+          textPrimary: Color.fromRGBO(14, 17, 23, 1)
       ),
       child: Widgetbook.material(
         directories: directories,

@@ -1,19 +1,18 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 
-class CustomTheme extends InheritedWidget {
-  final CustomThemeData themeData;
+class TopTomTheme extends InheritedWidget {
+  final TopTomThemeData themeData;
 
-
-  const CustomTheme({
+  const TopTomTheme({
     super.key,
     required this.themeData,
-    required super.child
+    required super.child,
   });
 
-  static CustomThemeData of(BuildContext context) {
-    final CustomTheme? result = context.dependOnInheritedWidgetOfExactType<CustomTheme>();
+  static TopTomThemeData of(BuildContext context) {
+    final TopTomTheme? result =
+        context.dependOnInheritedWidgetOfExactType<TopTomTheme>();
     assert(result != null, 'No CustomThemeData found in context');
     return result!.themeData;
   }
@@ -24,18 +23,22 @@ class CustomTheme extends InheritedWidget {
   }
 }
 
-class CustomThemeData {
+class TopTomThemeData {
   final AppColorScheme colorScheme;
+  final AppShadowScheme shadowScheme;
 
-  CustomThemeData({
-    required this.colorScheme
+  TopTomThemeData({
+    required this.colorScheme,
+    required this.shadowScheme,
   });
 
-  factory CustomThemeData.copyWith({
-    required AppColorScheme colorScheme
+  factory TopTomThemeData.copyWith({
+    required AppColorScheme colorScheme,
+    required AppShadowScheme shadowScheme,
   }) {
-    return CustomThemeData(
-        colorScheme: colorScheme
+    return TopTomThemeData(
+      colorScheme: colorScheme,
+      shadowScheme: shadowScheme,
     );
   }
 }

@@ -38,8 +38,8 @@ class ToptomBarChart extends StatelessWidget {
                       interval: 1,
                       showTitles: true,
                       getTitlesWidget: (double int, TitleMeta meta) {
-                        Color backgroundColor = CustomTheme.of(context).colorScheme.primary;
-                        Color foregroundColor = CustomTheme.of(context).colorScheme.onStandard;
+                        Color backgroundColor = TopTomTheme.of(context).colorScheme.primary;
+                        Color foregroundColor = TopTomTheme.of(context).colorScheme.onStandard;
                         return GestureDetector(
                           onTap: () {
                             print(int);
@@ -75,11 +75,11 @@ class ToptomBarChart extends StatelessWidget {
                         })),
               ),
               extraLinesData: ExtraLinesData(extraLinesOnTop: false, horizontalLines: [
-                HorizontalLine(y: 0, color: CustomTheme.of(context).colorScheme.shadow),
-                HorizontalLine(y: 25, color: CustomTheme.of(context).colorScheme.shadow),
-                HorizontalLine(y: 50, color: CustomTheme.of(context).colorScheme.shadow),
-                HorizontalLine(y: 75, color: CustomTheme.of(context).colorScheme.shadow),
-                HorizontalLine(y: 100, color: CustomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 0, color: TopTomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 25, color: TopTomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 50, color: TopTomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 75, color: TopTomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 100, color: TopTomTheme.of(context).colorScheme.shadow),
               ]),
               barTouchData: BarTouchData(enabled: false),
               borderData: FlBorderData(show: false),
@@ -107,7 +107,7 @@ class ToptomBarChart extends StatelessWidget {
             BarChartRodData(
               fromY: 0,
               toY: randomValue,
-              color: CustomTheme.of(context).colorScheme.primary.withOpacity(0.7),
+              color: TopTomTheme.of(context).colorScheme.primary.withOpacity(0.7),
               width: MediaQuery.of(context).size.width * 0.08,
               borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
             ),

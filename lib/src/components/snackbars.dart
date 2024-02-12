@@ -90,20 +90,20 @@ enum SnackBarType {
   
   Color toBackgroundColor(BuildContext context) {
     return switch(this) {
-      SnackBarType.standard => CustomTheme.of(context).colorScheme.standard,
-      SnackBarType.success => CustomTheme.of(context).colorScheme.success,
-      SnackBarType.danger => CustomTheme.of(context).colorScheme.error,
-      SnackBarType.warning => CustomTheme.of(context).colorScheme.warning,
+      SnackBarType.standard => TopTomTheme.of(context).colorScheme.standard,
+      SnackBarType.success => TopTomTheme.of(context).colorScheme.success,
+      SnackBarType.danger => TopTomTheme.of(context).colorScheme.error,
+      SnackBarType.warning => TopTomTheme.of(context).colorScheme.warning,
       SnackBarType.white => Colors.white,
     };
   }
 
   Color toForegroundColor(BuildContext context) {
     return switch(this) {
-      SnackBarType.standard => CustomTheme.of(context).colorScheme.onStandard,
-      SnackBarType.success => CustomTheme.of(context).colorScheme.onSuccess,
-      SnackBarType.danger => CustomTheme.of(context).colorScheme.onError,
-      SnackBarType.warning => CustomTheme.of(context).colorScheme.onWarning,
+      SnackBarType.standard => TopTomTheme.of(context).colorScheme.onStandard,
+      SnackBarType.success => TopTomTheme.of(context).colorScheme.onSuccess,
+      SnackBarType.danger => TopTomTheme.of(context).colorScheme.onError,
+      SnackBarType.warning => TopTomTheme.of(context).colorScheme.onWarning,
       SnackBarType.white => Colors.black,
     };
   }

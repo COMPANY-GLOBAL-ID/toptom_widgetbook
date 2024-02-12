@@ -17,7 +17,7 @@ class ToptomElevatedButton extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(spreadRadius: 1, blurRadius: 10, color: CustomTheme.of(context).colorScheme.shadow)
+          BoxShadow(spreadRadius: 1, blurRadius: 10, color: TopTomTheme.of(context).colorScheme.shadow)
         ],
         borderRadius: BorderRadius.circular(10),
       ),

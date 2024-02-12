@@ -31,7 +31,7 @@ class CustomTile extends StatelessWidget {
       child: Container(
         margin: 10.vp,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-        decoration: BoxDecoration(borderRadius: 12.br, color: CustomTheme.of(context).colorScheme.onStandard),
+        decoration: BoxDecoration(borderRadius: 12.br, color: TopTomTheme.of(context).colorScheme.onStandard),
         child: Row(
           children: [
             if(icon != null) ...[
@@ -43,7 +43,7 @@ class CustomTile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: CustomTheme.of(context).colorScheme.textPrimary
+                  color: TopTomTheme.of(context).colorScheme.textPrimary
                 )
               )
             ),
@@ -54,7 +54,7 @@ class CustomTile extends StatelessWidget {
                 style: trailingStyle ?? TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
-                    color: CustomTheme.of(context).colorScheme.primary
+                    color: TopTomTheme.of(context).colorScheme.primary
                 ),
               )
             ]

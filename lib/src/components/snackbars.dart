@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/buttons/elevated_button.dart';
 import 'package:toptom_components/extends/num.dart';
+import 'package:toptom_theme/theme.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 import 'package:toptom_widgetbook/src/extends/snackbar.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -49,9 +50,7 @@ Widget textFields(BuildContext context) {
               ),
             );
           }),
-
           Divider(),
-
           ...SnackBarType.values.map((e) {
             return Padding(
               padding: 5.vp,
@@ -91,20 +90,20 @@ enum SnackBarType {
   
   Color toBackgroundColor(BuildContext context) {
     return switch(this) {
-      SnackBarType.standard => AppColor.of(context).colorScheme.standard,
-      SnackBarType.success => AppColor.of(context).colorScheme.success,
-      SnackBarType.danger => AppColor.of(context).colorScheme.error,
-      SnackBarType.warning => AppColor.of(context).colorScheme.warning,
+      SnackBarType.standard => CustomTheme.of(context).colorScheme.standard,
+      SnackBarType.success => CustomTheme.of(context).colorScheme.success,
+      SnackBarType.danger => CustomTheme.of(context).colorScheme.error,
+      SnackBarType.warning => CustomTheme.of(context).colorScheme.warning,
       SnackBarType.white => Colors.white,
     };
   }
 
   Color toForegroundColor(BuildContext context) {
     return switch(this) {
-      SnackBarType.standard => AppColor.of(context).colorScheme.onStandard,
-      SnackBarType.success => AppColor.of(context).colorScheme.onSuccess,
-      SnackBarType.danger => AppColor.of(context).colorScheme.onError,
-      SnackBarType.warning => AppColor.of(context).colorScheme.onWarning,
+      SnackBarType.standard => CustomTheme.of(context).colorScheme.onStandard,
+      SnackBarType.success => CustomTheme.of(context).colorScheme.onSuccess,
+      SnackBarType.danger => CustomTheme.of(context).colorScheme.onError,
+      SnackBarType.warning => CustomTheme.of(context).colorScheme.onWarning,
       SnackBarType.white => Colors.black,
     };
   }

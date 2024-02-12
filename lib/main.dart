@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toptom_theme/theme.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -16,21 +17,23 @@ class WidgetbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppColor(
-      colorScheme: AppColorScheme(
-          primary: Color.fromRGBO(250, 77, 30, 1),
-          success: Color.fromRGBO(25, 175, 102, 1),
-          onSuccess: Colors.white,
-          warning: Color.fromRGBO(248, 191, 0, 1),
-          onWarning: Colors.white,
-          standard: Color.fromRGBO(35, 31, 32, 1),
-          onStandard: Colors.white,
-          error: Color.fromRGBO(243, 87, 70, 1),
-          onError: Colors.white,
-          errorSecondary: Color.fromRGBO(243, 195, 195, 1),
-          shadow: Colors.grey.shade300,
-          secondary: Color.fromRGBO(139, 145, 169, 1),
-          textPrimary: Color.fromRGBO(14, 17, 23, 1)
+    return CustomTheme(
+      themeData: CustomThemeData(
+        colorScheme: AppColorScheme(
+            primary: Color.fromRGBO(250, 77, 30, 1),
+            success: Color.fromRGBO(25, 175, 102, 1),
+            onSuccess: Colors.white,
+            warning: Color.fromRGBO(248, 191, 0, 1),
+            onWarning: Colors.white,
+            standard: Color.fromRGBO(35, 31, 32, 1),
+            onStandard: Colors.white,
+            error: Color.fromRGBO(243, 87, 70, 1),
+            onError: Colors.white,
+            errorSecondary: Color.fromRGBO(243, 195, 195, 1),
+            shadow: Colors.grey.shade300,
+            secondary: Color.fromRGBO(139, 145, 169, 1),
+            textPrimary: Color.fromRGBO(14, 17, 23, 1)
+        ),
       ),
       child: Widgetbook.material(
         directories: directories,

@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/extends/num.dart';
+import 'package:toptom_theme/theme.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 
 class ToptomBarChart extends StatelessWidget {
@@ -37,8 +38,8 @@ class ToptomBarChart extends StatelessWidget {
                       interval: 1,
                       showTitles: true,
                       getTitlesWidget: (double int, TitleMeta meta) {
-                        Color backgroundColor = AppColor.of(context).colorScheme.primary;
-                        Color foregroundColor = AppColor.of(context).colorScheme.onStandard;
+                        Color backgroundColor = CustomTheme.of(context).colorScheme.primary;
+                        Color foregroundColor = CustomTheme.of(context).colorScheme.onStandard;
                         return GestureDetector(
                           onTap: () {
                             print(int);
@@ -74,11 +75,11 @@ class ToptomBarChart extends StatelessWidget {
                         })),
               ),
               extraLinesData: ExtraLinesData(extraLinesOnTop: false, horizontalLines: [
-                HorizontalLine(y: 0, color: AppColor.of(context).colorScheme.shadow),
-                HorizontalLine(y: 25, color: AppColor.of(context).colorScheme.shadow),
-                HorizontalLine(y: 50, color: AppColor.of(context).colorScheme.shadow),
-                HorizontalLine(y: 75, color: AppColor.of(context).colorScheme.shadow),
-                HorizontalLine(y: 100, color: AppColor.of(context).colorScheme.shadow),
+                HorizontalLine(y: 0, color: CustomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 25, color: CustomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 50, color: CustomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 75, color: CustomTheme.of(context).colorScheme.shadow),
+                HorizontalLine(y: 100, color: CustomTheme.of(context).colorScheme.shadow),
               ]),
               barTouchData: BarTouchData(enabled: false),
               borderData: FlBorderData(show: false),
@@ -106,7 +107,7 @@ class ToptomBarChart extends StatelessWidget {
             BarChartRodData(
               fromY: 0,
               toY: randomValue,
-              color: AppColor.of(context).colorScheme.primary.withOpacity(0.7),
+              color: CustomTheme.of(context).colorScheme.primary.withOpacity(0.7),
               width: MediaQuery.of(context).size.width * 0.08,
               borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toptom_theme/theme.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 
 class ToptomElevatedButton extends StatelessWidget {
@@ -16,7 +17,7 @@ class ToptomElevatedButton extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(spreadRadius: 1, blurRadius: 10, color: AppColor.of(context).colorScheme.shadow)
+          BoxShadow(spreadRadius: 1, blurRadius: 10, color: CustomTheme.of(context).colorScheme.shadow)
         ],
         borderRadius: BorderRadius.circular(10),
       ),

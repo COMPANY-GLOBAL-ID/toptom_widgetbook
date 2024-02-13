@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/extends/num.dart';
 
@@ -13,7 +12,7 @@ class MoreButton extends StatelessWidget {
   final EdgeInsets? padding;
   final EdgeInsets? margin;
 
-  MoreButton({
+  const MoreButton({
     super.key,
     required this.title,
     this.onPressed,
@@ -66,7 +65,7 @@ class MoreButton extends StatelessWidget {
                   width: 1,
                 ),
                 10.w,
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios_outlined,
                   size: 15,
                 )

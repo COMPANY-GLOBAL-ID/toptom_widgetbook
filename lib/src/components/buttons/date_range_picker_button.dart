@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -36,7 +35,7 @@ Widget dateRangePickerButton(BuildContext context) {
   return Column(
     children: [
       IconButton(
-        icon: Icon(Icons.calendar_month),
+        icon: const Icon(Icons.calendar_month),
         onPressed: () async {
           DateTimeRange? range = await showDateRangePicker(
               context: context,

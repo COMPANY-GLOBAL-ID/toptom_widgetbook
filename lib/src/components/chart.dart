@@ -1,13 +1,10 @@
-import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/chart/bar_chart.dart';
 import 'package:toptom_components/extends/num.dart';
 import 'package:toptom_components/picker/data_range_picker_button.dart';
 import 'package:toptom_theme/theme.dart';
-import 'package:toptom_theme/toptom_theme.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(
@@ -15,10 +12,12 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   type: BarChart,
 )
 Widget textFields(BuildContext context) {
-  return CourierFinancesScreen();
+  return const CourierFinancesScreen();
 }
 
 class CourierFinancesScreen extends StatefulWidget {
+  const CourierFinancesScreen({super.key});
+
   @override
   State<CourierFinancesScreen> createState() => _CourierFinancesScreenState();
 }
@@ -79,7 +78,7 @@ class ChartExample extends StatelessWidget {
         BarChartRodData(
           fromY: 0,
           toY: pilates > 0 ? pilates : 5,
-          color: CustomTheme.of(context).colorScheme.primary.withOpacity(0.7),
+          color: TopTomTheme.of(context).colorScheme.primary.withOpacity(0.7),
           width: MediaQuery.of(context).size.width * 0.08,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
         ),
@@ -98,7 +97,7 @@ class ChartExample extends StatelessWidget {
             child: DecoratedBox(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [BoxShadow(color: CustomTheme.of(context).colorScheme.shadow, blurRadius: 10)],
+                    boxShadow: [BoxShadow(color: TopTomTheme.of(context).colorScheme.shadow, blurRadius: 10)],
                     color: Colors.white),
                 child: ClipRRect(
                   child: Padding(
@@ -109,11 +108,11 @@ class ChartExample extends StatelessWidget {
                       children: [
                         Text(
                           'Заработано за 10 февраля',
-                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: CustomTheme.of(context).colorScheme.secondary),
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600, color: TopTomTheme.of(context).colorScheme.secondary),
                         ),
                         Text(
                           '${19500.price} ₸',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),

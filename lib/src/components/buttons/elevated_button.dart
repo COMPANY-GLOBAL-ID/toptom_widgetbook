@@ -35,7 +35,7 @@ Widget outlinedButton(BuildContext context) {
         10.h,
         ToptomElevatedButton(
           onPressed: () {},
-          child: CupertinoActivityIndicator(color: Colors.white)
+          child: const CupertinoActivityIndicator(color: Colors.white)
         )
       ],
     ),

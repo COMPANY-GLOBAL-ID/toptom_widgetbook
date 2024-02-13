@@ -1,19 +1,18 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:toptom_theme/toptom_theme.dart';
 
-class CustomTheme extends InheritedWidget {
-  final CustomThemeData themeData;
+class TopTomTheme extends InheritedWidget {
+  final TopTomThemeData themeData;
 
-
-  const CustomTheme({
+  const TopTomTheme({
     super.key,
     required this.themeData,
-    required super.child
+    required super.child,
   });
 
-  static CustomThemeData of(BuildContext context) {
-    final CustomTheme? result = context.dependOnInheritedWidgetOfExactType<CustomTheme>();
+  static TopTomThemeData of(BuildContext context) {
+    final TopTomTheme? result =
+        context.dependOnInheritedWidgetOfExactType<TopTomTheme>();
     assert(result != null, 'No CustomThemeData found in context');
     return result!.themeData;
   }
@@ -24,18 +23,30 @@ class CustomTheme extends InheritedWidget {
   }
 }
 
-class CustomThemeData {
+class TopTomThemeData {
   final AppColorScheme colorScheme;
+  final AppShadowScheme shadowSchemeTop;
+  final AppShadowScheme shadowSchemeBottom;
+  final AppBorderRadius borderRadius;
 
-  CustomThemeData({
-    required this.colorScheme
+  TopTomThemeData({
+    required this.colorScheme,
+    required this.shadowSchemeTop,
+    required this.shadowSchemeBottom,
+    required this.borderRadius,
   });
 
-  factory CustomThemeData.copyWith({
-    required AppColorScheme colorScheme
+  factory TopTomThemeData.copyWith({
+    required AppColorScheme colorScheme,
+    required AppShadowScheme shadowSchemeTop,
+    required AppShadowScheme shadowSchemeBottom,
+    required AppBorderRadius borderRadius,
   }) {
-    return CustomThemeData(
-        colorScheme: colorScheme
+    return TopTomThemeData(
+      colorScheme: colorScheme,
+      shadowSchemeTop: shadowSchemeTop,
+      shadowSchemeBottom: shadowSchemeBottom,
+      borderRadius: borderRadius,
     );
   }
 }

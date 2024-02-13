@@ -22,24 +22,24 @@ class AppBorderRadius {
   });
 
   AppBorderRadius copyWith({
-    required BorderRadius rd,
-    required BorderRadius rdLg,
-    required BorderRadius rdXl,
-    required BorderRadius rd2Xl,
-    required BorderRadius rd3Xl,
-    required BorderRadius rd4Xl,
-    required BorderRadius rd5Xl,
-    required BorderRadius rd6Xl,
+    required BorderRadius? rd,
+    required BorderRadius? rdLg,
+    required BorderRadius? rdXl,
+    required BorderRadius? rd2Xl,
+    required BorderRadius? rd3Xl,
+    required BorderRadius? rd4Xl,
+    required BorderRadius? rd5Xl,
+    required BorderRadius? rd6Xl,
   }) {
     return AppBorderRadius(
-      rd: rd,
-      rdLg: rdLg,
-      rdXl: rdXl,
-      rd2Xl: rd2Xl,
-      rd3Xl: rd3Xl,
-      rd4Xl: rd4Xl,
-      rd5Xl: rd5Xl,
-      rd6Xl: rd6Xl,
+      rd: rd ?? this.rd,
+      rdLg: rdLg ?? this.rdLg,
+      rdXl: rdXl ?? this.rdXl,
+      rd2Xl: rd2Xl ?? this.rd2Xl,
+      rd3Xl: rd3Xl ?? this.rd3Xl,
+      rd4Xl: rd4Xl ?? this.rd4Xl,
+      rd5Xl: rd5Xl ?? this.rd5Xl,
+      rd6Xl: rd6Xl ?? this.rd5Xl,
     );
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_theme/ui_const/top_colors.dart';
+import 'package:toptom_theme/top_kits/constants/top_colors.dart';
 
 class AppColorScheme {
   final Color primary;

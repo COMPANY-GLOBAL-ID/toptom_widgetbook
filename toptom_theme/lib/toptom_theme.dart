@@ -3,5 +3,5 @@ library toptom_theme;
 export 'src/app_color_scheme.dart';
 export 'src/app_shadow_scheme.dart';
 export 'src/app_border_radius.dart';
-export 'ui_const/top_colors.dart';
-export 'ui_const/top_shadows.dart';
+export 'top_kits/constants/top_colors.dart';
+export 'top_kits/constants/top_shadows.dart';

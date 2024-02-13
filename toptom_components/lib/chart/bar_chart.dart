@@ -5,7 +5,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/extends/num.dart';
 import 'package:toptom_theme/theme.dart';
-import 'package:toptom_theme/toptom_theme.dart';
 
 class ToptomBarChart extends StatelessWidget {
   final DateTimeRange dateRange;
@@ -30,8 +29,8 @@ class ToptomBarChart extends StatelessWidget {
               alignment: BarChartAlignment.spaceEvenly,
               titlesData: FlTitlesData(
                 show: true,
-                leftTitles: AxisTitles(),
-                topTitles: AxisTitles(),
+                leftTitles: const AxisTitles(),
+                topTitles: const AxisTitles(),
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
                       reservedSize: barWidth + 10,
@@ -45,7 +44,7 @@ class ToptomBarChart extends StatelessWidget {
                             print(int);
                           },
                           child: Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: const EdgeInsets.only(top: 10),
                             width: barWidth,
                             height: barWidth,
                             decoration: BoxDecoration(color: backgroundColor, borderRadius: 4.br),
@@ -70,7 +69,7 @@ class ToptomBarChart extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Text('${(int * 100).price} ₸',
-                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
                           );
                         })),
               ),
@@ -114,7 +113,7 @@ class ToptomBarChart extends StatelessWidget {
           ],
         ),
       );
-      currentDate = currentDate.add(Duration(days: 1));
+      currentDate = currentDate.add(const Duration(days: 1));
     }
 
     return barGroups;

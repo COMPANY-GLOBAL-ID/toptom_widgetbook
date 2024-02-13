@@ -77,7 +77,7 @@ Widget textFields(BuildContext context) {
             ),
           ),
           10.h,
-          Divider(),
+          const Divider(),
           Text('Checkbox', style: Theme.of(context).textTheme.titleLarge),
           Text('Can use in all situation', style: Theme.of(context).textTheme.bodyMedium),
           10.h,
@@ -130,7 +130,7 @@ class ToptomCheckboxTile extends StatelessWidget {
   final void Function(bool?) onChanged;
   final void Function()? onDelete;
 
-  ToptomCheckboxTile({
+  const ToptomCheckboxTile({
     super.key,
     required this.title,
     required this.value,

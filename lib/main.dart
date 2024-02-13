@@ -21,8 +21,9 @@ class WidgetbookApp extends StatelessWidget {
     return TopTomTheme(
       themeData: TopTomThemeData(
         colorScheme: AppColorScheme.main(),
-        //рефакторить эту часть направление темы штука опциональная возможно
-        shadowScheme: AppShadowScheme.top(),
+        shadowSchemeTop: AppShadowScheme.top(),
+        shadowSchemeBottom: AppShadowScheme.bottom(),
+        borderRadius: AppBorderRadius.main(),
       ),
       child: Widgetbook.material(
         directories: directories,

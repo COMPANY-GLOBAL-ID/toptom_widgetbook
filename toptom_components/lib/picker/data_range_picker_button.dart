@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DateRangePickerButton extends StatefulWidget {
@@ -24,7 +23,7 @@ class _DateRangePickerButtonState extends State<DateRangePickerButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.calendar_month),
+      icon: const Icon(Icons.calendar_month),
       onPressed: () async {
         DateTimeRange? range = await showDateRangePicker(
           context: context,

@@ -25,20 +25,28 @@ class TopTomTheme extends InheritedWidget {
 
 class TopTomThemeData {
   final AppColorScheme colorScheme;
-  final AppShadowScheme shadowScheme;
+  final AppShadowScheme shadowSchemeTop;
+  final AppShadowScheme shadowSchemeBottom;
+  final AppBorderRadius borderRadius;
 
   TopTomThemeData({
     required this.colorScheme,
-    required this.shadowScheme,
+    required this.shadowSchemeTop,
+    required this.shadowSchemeBottom,
+    required this.borderRadius,
   });
 
   factory TopTomThemeData.copyWith({
     required AppColorScheme colorScheme,
-    required AppShadowScheme shadowScheme,
+    required AppShadowScheme shadowSchemeTop,
+    required AppShadowScheme shadowSchemeBottom,
+    required AppBorderRadius borderRadius,
   }) {
     return TopTomThemeData(
       colorScheme: colorScheme,
-      shadowScheme: shadowScheme,
+      shadowSchemeTop: shadowSchemeTop,
+      shadowSchemeBottom: shadowSchemeBottom,
+      borderRadius: borderRadius,
     );
   }
 }

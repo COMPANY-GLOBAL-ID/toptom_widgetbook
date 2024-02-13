@@ -1,10 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:toptom_components/extends/num.dart';
 import 'package:toptom_theme/theme.dart';
-import 'package:toptom_theme/toptom_theme.dart';
 
 class CustomTile extends StatelessWidget {
   final String title;

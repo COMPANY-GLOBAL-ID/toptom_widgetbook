@@ -1,13 +1,10 @@
-import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_components/chart/bar_chart.dart';
 import 'package:toptom_components/extends/num.dart';
 import 'package:toptom_components/picker/data_range_picker_button.dart';
 import 'package:toptom_theme/theme.dart';
-import 'package:toptom_theme/toptom_theme.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(
@@ -15,10 +12,12 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   type: BarChart,
 )
 Widget textFields(BuildContext context) {
-  return CourierFinancesScreen();
+  return const CourierFinancesScreen();
 }
 
 class CourierFinancesScreen extends StatefulWidget {
+  const CourierFinancesScreen({super.key});
+
   @override
   State<CourierFinancesScreen> createState() => _CourierFinancesScreenState();
 }
@@ -113,7 +112,7 @@ class ChartExample extends StatelessWidget {
                         ),
                         Text(
                           '${19500.price} ₸',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),

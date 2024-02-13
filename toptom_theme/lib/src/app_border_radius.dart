@@ -21,7 +21,7 @@ class AppBorderRadius {
     required this.rd6Xl,
   });
 
-  factory AppBorderRadius.copyWith({
+  AppBorderRadius copyWith({
     required BorderRadius rd,
     required BorderRadius rdLg,
     required BorderRadius rdXl,

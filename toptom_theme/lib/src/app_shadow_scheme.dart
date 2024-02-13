@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_theme/toptom_theme.dart';
 
 class AppShadowScheme {
   final List<BoxShadow> small;
@@ -16,7 +17,7 @@ class AppShadowScheme {
     required this.controls,
   });
 
-  factory AppShadowScheme.copyWith({
+  AppShadowScheme copyWith({
     required List<BoxShadow> small,
     required List<BoxShadow> medium,
     required List<BoxShadow> large,
@@ -32,152 +33,49 @@ class AppShadowScheme {
     );
   }
 
-  factory AppShadowScheme.bottom() {
+  factory AppShadowScheme.top() {
     return const AppShadowScheme(
-      small: [
-        BoxShadow(
-          color: Color(0x44537133),
-          offset: Offset(0, 2),
-          blurRadius: 2,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 1,
-          spreadRadius: 0,
-        ),
-      ],
+      small: [TopShadows.smallTop, TopShadows.smallSecond],
       medium: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, 4),
-          blurRadius: 8,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 16,
-          spreadRadius: 0,
-        ),
+        TopShadows.mediumTop,
+        TopShadows.mediumSecond,
       ],
       large: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, 12),
-          blurRadius: 20,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 20,
-          spreadRadius: 0,
-        ),
+        TopShadows.largeTop,
+        TopShadows.largeSecond,
       ],
       xLarge: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, 32),
-          blurRadius: 32,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 32,
-          spreadRadius: 0,
-        ),
+        TopShadows.xLargeTop,
+        TopShadows.largeSecond,
       ],
       controls: [
-        BoxShadow(
-          color: Color(0x44537133),
-          offset: Offset(0, 2),
-          blurRadius: 2,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 1,
-          spreadRadius: 0,
-        ),
+        TopShadows.controlsTop,
+        TopShadows.controlsSecond,
       ],
     );
   }
 
-  factory AppShadowScheme.top() {
+  factory AppShadowScheme.bottom() {
     return const AppShadowScheme(
       small: [
-        BoxShadow(
-          color: Color(0x44537133),
-          offset: Offset(0, -2),
-          blurRadius: 2,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 1,
-          spreadRadius: 0,
-        ),
+        TopShadows.smallBottom,
+        TopShadows.smallSecond,
       ],
       medium: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, -4),
-          blurRadius: 8,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 16,
-          spreadRadius: 0,
-        ),
+        TopShadows.mediumBottom,
+        TopShadows.mediumSecond,
       ],
       large: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, -12),
-          blurRadius: 20,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 20,
-          spreadRadius: 0,
-        ),
+        TopShadows.largeBottom,
+        TopShadows.largeSecond,
       ],
       xLarge: [
-        BoxShadow(
-          color: Color(0x4453710D),
-          offset: Offset(0, -32),
-          blurRadius: 32,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 32,
-          spreadRadius: 0,
-        ),
+        TopShadows.xLargeBottom,
+        TopShadows.xLargeSecond,
       ],
       controls: [
-        BoxShadow(
-          color: Color(0x44537133),
-          offset: Offset(0, 2),
-          blurRadius: 2,
-          spreadRadius: 0,
-        ),
-        BoxShadow(
-          color: Color(0x4453711A),
-          offset: Offset(0, 0),
-          blurRadius: 1,
-          spreadRadius: 0,
-        ),
+        TopShadows.controlsBottom,
+        TopShadows.controlsSecond,
       ],
     );
   }

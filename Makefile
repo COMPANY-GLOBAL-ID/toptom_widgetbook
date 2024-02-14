@@ -18,3 +18,6 @@ pods:
 
 repair:
 	flutter pub cache repair
+
+build:
+	dart run build_runner watch

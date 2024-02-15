@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 
 class BorderRadiusWidget extends StatelessWidget {
@@ -18,4 +19,29 @@ class BorderRadiusWidget extends StatelessWidget {
       ),
     );
   }
+
+  //factory
+  factory BorderRadiusWidget.rd() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd);
+
+  factory BorderRadiusWidget.rdLg() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rdLg);
+
+  factory BorderRadiusWidget.rdXl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rdXl);
+
+  factory BorderRadiusWidget.rd2Xl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd2Xl);
+
+  factory BorderRadiusWidget.rd3Xl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd3Xl);
+
+  factory BorderRadiusWidget.rd4Xl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd4Xl);
+
+  factory BorderRadiusWidget.rd5Xl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd5Xl);
+
+  factory BorderRadiusWidget.rd6Xl() =>
+      const BorderRadiusWidget(radius: ConstantsKit.rd6Xl);
 }

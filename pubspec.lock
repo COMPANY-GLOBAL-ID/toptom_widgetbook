@@ -773,20 +773,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  toptom_components:
-    dependency: "direct main"
-    description:
-      path: toptom_components
-      relative: true
-    source: path
-    version: "0.0.1"
-  toptom_theme:
-    dependency: "direct main"
-    description:
-      path: toptom_theme
-      relative: true
-    source: path
-    version: "0.0.1"
   tuple:
     dependency: transitive
     description:

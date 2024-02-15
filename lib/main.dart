@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/top_kit/components/border_radius_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_black.dart';
+import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
 import 'package:toptom_widgetbook/top_kit/theme_kit/core_theme.dart';
 
 void main() {
@@ -55,10 +58,10 @@ class WidgetbookApp extends StatelessWidget {
             //
             const Text('Buttons'),
             Row(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 Expanded(
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonAccept.acceptXl(
                         title: 'Button label',
@@ -83,6 +86,7 @@ class WidgetbookApp extends StatelessWidget {
                 ),
                 Expanded(
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonBlack.acceptXl(
                         title: 'Button label',
@@ -159,6 +163,58 @@ class WidgetbookApp extends StatelessWidget {
                         onPressed: null,
                       )
                     ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ButtonDefault.defaultXl(
+                        title: 'Button label',
+                        onPressed: () {},
+                        prefixIcon: IconsKit.clipIcon,
+                        suffixIcon: IconsKit.clipIcon,
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonDefault.defaultL(
+                        title: 'Button label',
+                        onPressed: () {},
+                        prefixIcon: IconsKit.clipIcon,
+                        suffixIcon: IconsKit.clipIcon,
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonDefault.defaultM(
+                        title: 'Button label',
+                        onPressed: () {},
+                        prefixIcon: IconsKit.clipIcon,
+                        suffixIcon: IconsKit.clipIcon,
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonDefault.defaultM(
+                        title: 'Button label',
+                        onPressed: () {},
+                        prefixIcon: IconsKit.clipIcon,
+                        suffixIcon: IconsKit.clipIcon,
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonDefault.defaultM(
+                        title: 'Button label',
+                        onPressed: null,
+                        prefixIcon: IconsKit.clipIcon,
+                        suffixIcon: IconsKit.clipIcon,
+                      ),
+                    ],
+                  ),
+                ),
+                const Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [],
                   ),
                 ),
               ],

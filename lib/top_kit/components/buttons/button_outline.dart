@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
@@ -23,12 +24,13 @@ class ButtonOutline extends StatelessWidget {
       style: buttonStyle,
       child: Text(
         title,
-        style: onPressed != null ?
-            TextStylesKit.buttonXl.copyWith(
-              color: ColorKit.colorMain,
-            ) : TextStylesKit.buttonXl.copyWith(
-              color: ColorKit.colorTextSecondary,
-            ),
+        style: onPressed != null
+            ? TextStylesKit.buttonXl.copyWith(
+                color: ColorKit.colorMain,
+              )
+            : TextStylesKit.buttonXl.copyWith(
+                color: ColorKit.colorTextSecondary,
+              ),
       ),
     );
   }
@@ -42,12 +44,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 20,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingXl,
         ),
       );
 
@@ -59,12 +56,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 12,
-              horizontal: 16,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingM,
         ),
       );
 
@@ -76,12 +68,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 12,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingL,
         ),
       );
 }

@@ -19,12 +19,13 @@ class ColorKit {
 
   //HELPER COLORS
   static const boxBorderGrey = Color.fromRGBO(68, 83, 113, 0.15);
-  static const boxBackgroundGrey  = Color.fromRGBO(249, 250, 251, 1);
+  static const boxBackgroundGrey = Color.fromRGBO(249, 250, 251, 1);
   static const focusedButtonColor = Color.fromRGBO(221, 60, 16, 1);
   static const pressButtonColor = Color.fromRGBO(218, 64, 23, 1);
   static const focusedBlackButtonColor = Color.fromRGBO(60, 58, 67, 1);
   static const pressBlackButtonColor = Color.fromRGBO(0, 0, 0, 1);
   static const focusedButtonGhost = Color.fromRGBO(255, 202, 188, 1);
   static const pressButtonGhost = Color.fromRGBO(255, 182, 161, 1);
-
+  static const deafautButtonPrimary = Color.fromRGBO(233, 233, 237, 1);
+  static const defaultFocusColor = Color.fromRGBO(220, 220, 224, 1);
 }

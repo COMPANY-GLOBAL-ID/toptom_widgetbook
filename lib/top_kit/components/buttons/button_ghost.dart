@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
@@ -43,12 +44,7 @@ class ButtonGhost extends StatelessWidget {
         onPressed: onPressed,
         title: title,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 16,
-              horizontal: 20,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingXl,
         ),
       );
 
@@ -60,12 +56,7 @@ class ButtonGhost extends StatelessWidget {
         onPressed: onPressed,
         title: title,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 12,
-              horizontal: 16,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingL,
         ),
       );
 
@@ -77,12 +68,7 @@ class ButtonGhost extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: MaterialStatePropertyAll(
-            EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 12,
-            ),
-          ),
+          padding: ButtonStyleKit.paddingM,
         ),
       );
 }

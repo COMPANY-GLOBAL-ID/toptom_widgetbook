@@ -8,8 +8,4 @@ class ConstantsKit {
   static const double rd4Xl = 24;
   static const double rd5Xl = 28;
   static const double rd6Xl = 32;
-
-  //Size
-  // static const double buttonHeiht = 56;
-
 }

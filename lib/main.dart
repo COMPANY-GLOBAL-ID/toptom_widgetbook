@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/top_kit/components/border_radius_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_black.dart';

@@ -194,16 +194,9 @@ class WidgetbookApp extends StatelessWidget {
                         suffixIcon: IconsKit.clipIcon,
                       ),
                       const SizedBox(height: 10),
-                      ButtonDefault.defaultM(
+                      ButtonDefault.defaultS(
                         title: 'Button label',
                         onPressed: () {},
-                        prefixIcon: IconsKit.clipIcon,
-                        suffixIcon: IconsKit.clipIcon,
-                      ),
-                      const SizedBox(height: 10),
-                      ButtonDefault.defaultM(
-                        title: 'Button label',
-                        onPressed: null,
                         prefixIcon: IconsKit.clipIcon,
                         suffixIcon: IconsKit.clipIcon,
                       ),

@@ -36,7 +36,7 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonStyleKit.paddingXl,
+          padding: ButtonStyleKit.paddingXlSquare,
           backgroundColor: ButtonStyleKit.defaultStyle,
         ),
         child: Row(
@@ -90,7 +90,7 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonStyleKit.paddingL,
+          padding: ButtonStyleKit.paddingLSquare,
           backgroundColor: ButtonStyleKit.defaultStyle,
         ),
         child: Row(
@@ -107,7 +107,7 @@ class ButtonDefault extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 12,
+                width: 14,
               ),
             ],
             Text(
@@ -119,7 +119,7 @@ class ButtonDefault extends StatelessWidget {
             ),
             if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
               const SizedBox(
-                width: 12,
+                width: 14,
               ),
               SvgPicture.asset(
                 suffixIcon,
@@ -144,7 +144,7 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonStyleKit.paddingM,
+          padding: ButtonStyleKit.paddingMSquare,
           backgroundColor: ButtonStyleKit.defaultStyle,
         ),
         child: Row(
@@ -153,15 +153,15 @@ class ButtonDefault extends StatelessWidget {
             if (prefixIcon != null && prefixIcon.isNotEmpty) ...[
               SvgPicture.asset(
                 prefixIcon,
-                height: 12.5,
-                width: 12.5,
+                height: 14.7,
+                width: 14.9,
                 colorFilter: const ColorFilter.mode(
                   ColorKit.colorTextSecondary,
                   BlendMode.srcIn,
                 ),
               ),
               const SizedBox(
-                width: 10,
+                width: 8,
               ),
             ],
             Text(
@@ -173,12 +173,12 @@ class ButtonDefault extends StatelessWidget {
             ),
             if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
               const SizedBox(
-                width: 10,
+                width: 8,
               ),
               SvgPicture.asset(
                 suffixIcon,
-                height: 12.5,
-                width: 12.5,
+                height: 14.7,
+                width: 14.9,
                 colorFilter: const ColorFilter.mode(
                   ColorKit.colorTextSecondary,
                   BlendMode.srcIn,
@@ -198,7 +198,7 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonStyleKit.paddingS,
+          padding: ButtonStyleKit.paddingSSquare,
           backgroundColor: ButtonStyleKit.defaultStyle,
         ),
         child: Row(
@@ -215,19 +215,19 @@ class ButtonDefault extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 8,
+                width: 4,
               ),
             ],
             Text(
               title,
-              style: TextStylesKit.buttonXl.copyWith(
+              style: TextStylesKit.buttonS.copyWith(
                 color: ColorKit.colorTextSecondary,
               ),
               textAlign: TextAlign.start,
             ),
             if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
               const SizedBox(
-                width: 8,
+                width: 4,
               ),
               SvgPicture.asset(
                 suffixIcon,

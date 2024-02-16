@@ -56,7 +56,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonStyleKit.paddingM,
+          padding: ButtonStyleKit.paddingL,
         ),
       );
 
@@ -68,7 +68,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonStyleKit.paddingL,
+          padding: ButtonStyleKit.paddingM,
         ),
       );
 }

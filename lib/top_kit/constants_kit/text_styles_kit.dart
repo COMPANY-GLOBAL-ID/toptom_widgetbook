@@ -15,4 +15,11 @@ class TextStylesKit {
     fontWeight: FontWeight.w500,
     height: 20 / 14,
   );
+
+  static const buttonS = TextStyle(
+    fontSize: 12,
+    color: ColorKit.colorWhite,
+    fontWeight: FontWeight.w500,
+    height: 16 / 12,
+  );
 }

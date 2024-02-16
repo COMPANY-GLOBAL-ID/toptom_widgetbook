@@ -5,7 +5,7 @@ import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
 class ButtonStyleKit {
   //border
-  static final border = MaterialStateProperty.all(
+  static final borderDefault = MaterialStateProperty.all(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(ConstantsKit.rdLg),
     ),
@@ -19,6 +19,10 @@ class ButtonStyleKit {
     ),
   );
 
+  static const paddingXlSquare = MaterialStatePropertyAll(
+    EdgeInsets.all(16),
+  );
+
   static const paddingL = MaterialStatePropertyAll(
     EdgeInsets.symmetric(
       vertical: 12,
@@ -26,15 +30,23 @@ class ButtonStyleKit {
     ),
   );
 
-  static const paddingM = MaterialStatePropertyAll(
-    EdgeInsets.all(4),
+  static const paddingLSquare = MaterialStatePropertyAll(
+    EdgeInsets.all(12),
   );
 
-  static const paddingS = MaterialStatePropertyAll(
+  static const paddingM = MaterialStatePropertyAll(
     EdgeInsets.symmetric(
-      vertical: 8,
       horizontal: 12,
+      vertical: 8,
     ),
+  );
+
+  static const paddingMSquare = MaterialStatePropertyAll(
+    EdgeInsets.all(8),
+  );
+
+  static const paddingSSquare = MaterialStatePropertyAll(
+    EdgeInsets.all(4),
   );
 
   //accept

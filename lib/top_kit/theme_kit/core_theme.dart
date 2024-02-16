@@ -17,7 +17,7 @@ class CoreTheme {
     //
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonStyleKit.border,
+        shape: ButtonStyleKit.borderDefault,
         backgroundColor: ButtonStyleKit.acceptStyle,
       ),
     ),
@@ -28,7 +28,7 @@ class CoreTheme {
         overlayColor: const MaterialStatePropertyAll(Colors.transparent),
         backgroundColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
         textStyle: ButtonStyleKit.outlineTextStyle,
-        shape: ButtonStyleKit.border,
+        shape: ButtonStyleKit.borderDefault,
         side: ButtonStyleKit.outlineSideStyle,
       ),
     ),
@@ -36,7 +36,7 @@ class CoreTheme {
     //
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonStyleKit.border,
+        shape: ButtonStyleKit.borderDefault,
         overlayColor: ButtonStyleKit.textButtonOverlayStyle,
       ),
     ),

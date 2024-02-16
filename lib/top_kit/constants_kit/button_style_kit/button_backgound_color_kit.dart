@@ -1,55 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
-class ButtonStyleKit {
-  //border
-  static final borderDefault = MaterialStateProperty.all(
-    RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(ConstantsKit.rdLg),
-    ),
-  );
-
-  //paddings
-  static const paddingXl = MaterialStatePropertyAll(
-    EdgeInsets.symmetric(
-      vertical: 16,
-      horizontal: 20,
-    ),
-  );
-
-  static const paddingXlSquare = MaterialStatePropertyAll(
-    EdgeInsets.all(16),
-  );
-
-  static const paddingL = MaterialStatePropertyAll(
-    EdgeInsets.symmetric(
-      vertical: 12,
-      horizontal: 16,
-    ),
-  );
-
-  static const paddingLSquare = MaterialStatePropertyAll(
-    EdgeInsets.all(12),
-  );
-
-  static const paddingM = MaterialStatePropertyAll(
-    EdgeInsets.symmetric(
-      horizontal: 12,
-      vertical: 8,
-    ),
-  );
-
-  static const paddingMSquare = MaterialStatePropertyAll(
-    EdgeInsets.all(8),
-  );
-
-  static const paddingSSquare = MaterialStatePropertyAll(
-    EdgeInsets.all(4),
-  );
-
-  //accept
+class ButtonBackgroundColorKit {
   static final acceptStyle = MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
@@ -65,7 +17,6 @@ class ButtonStyleKit {
     },
   );
 
-  //black
   static final blackStyle = MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
@@ -81,7 +32,6 @@ class ButtonStyleKit {
     },
   );
 
-  //outline
   static final outlineSideStyle = MaterialStateProperty.resolveWith<BorderSide>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
@@ -109,31 +59,6 @@ class ButtonStyleKit {
     },
   );
 
-  //outline text
-  static final outlineTextStyle = MaterialStateProperty.resolveWith<TextStyle>(
-    (Set<MaterialState> states) {
-      if (states.contains(MaterialState.pressed)) {
-        return TextStylesKit.buttonXl.copyWith(
-          color: ColorKit.pressButtonColor,
-        );
-      }
-      if (states.contains(MaterialState.focused)) {
-        return TextStylesKit.buttonXl.copyWith(
-          color: ColorKit.focusedButtonColor,
-        );
-      }
-      if (states.contains(MaterialState.disabled)) {
-        return TextStylesKit.buttonXl.copyWith(
-          color: ColorKit.colorStrokePrimary,
-        );
-      }
-      return TextStylesKit.buttonXl.copyWith(
-        color: ColorKit.colorMain,
-      );
-    },
-  );
-
-  //text
   static final textButtonOverlayStyle =
       MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
@@ -147,7 +72,6 @@ class ButtonStyleKit {
     },
   );
 
-  //default
   static final defaultStyle = MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
@@ -160,6 +84,21 @@ class ButtonStyleKit {
         return ColorKit.colorStrokePrimary;
       }
       return ColorKit.deafautButtonPrimary;
+    },
+  );
+
+  static final closeIcon = MaterialStateProperty.resolveWith<Color>(
+    (Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return ColorKit.colorTextPrimary;
+      }
+      if (states.contains(MaterialState.focused)) {
+        return ColorKit.defaultFocusColor;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return ColorKit.colorStrokePrimary;
+      }
+      return ColorKit.colorOverlayPrimary;
     },
   );
 }

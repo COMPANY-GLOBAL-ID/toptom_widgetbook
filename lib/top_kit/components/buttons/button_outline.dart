@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_padding_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
@@ -44,7 +44,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonStyleKit.paddingXl,
+          padding: ButtonPaddingKit.paddingXl,
         ),
       );
 
@@ -56,7 +56,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonStyleKit.paddingL,
+          padding: ButtonPaddingKit.paddingL,
         ),
       );
 
@@ -68,7 +68,7 @@ class ButtonOutline extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonStyleKit.paddingM,
+          padding: ButtonPaddingKit.paddingM,
         ),
       );
 }

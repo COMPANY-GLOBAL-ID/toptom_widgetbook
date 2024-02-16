@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit.dart';
+
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_backgound_color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_border_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_text_style_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 
 class CoreTheme {
@@ -17,8 +20,8 @@ class CoreTheme {
     //
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonStyleKit.borderDefault,
-        backgroundColor: ButtonStyleKit.acceptStyle,
+        shape: ButtonBorderKit.borderDefault,
+        backgroundColor: ButtonBackgroundColorKit.blackStyle,
       ),
     ),
 
@@ -27,17 +30,17 @@ class CoreTheme {
       style: ButtonStyle(
         overlayColor: const MaterialStatePropertyAll(Colors.transparent),
         backgroundColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
-        textStyle: ButtonStyleKit.outlineTextStyle,
-        shape: ButtonStyleKit.borderDefault,
-        side: ButtonStyleKit.outlineSideStyle,
+        textStyle: ButtonTextStyleKit.outlineTextStyle,
+        shape: ButtonBorderKit.borderDefault,
+        side: ButtonBackgroundColorKit.outlineSideStyle,
       ),
     ),
 
     //
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonStyleKit.borderDefault,
-        overlayColor: ButtonStyleKit.textButtonOverlayStyle,
+        shape: ButtonBorderKit.borderDefault,
+        overlayColor: ButtonBackgroundColorKit.textButtonOverlayStyle,
       ),
     ),
   );

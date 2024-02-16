@@ -4,7 +4,9 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart'
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_black.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
+import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
 import 'package:toptom_widgetbook/top_kit/theme_kit/core_theme.dart';
 
@@ -203,10 +205,15 @@ class WidgetbookApp extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: [],
+                    children: [
+                      ButtonIcon.l(
+                        assetName: IconsKit.clipIcon,
+                        onPressed: () {},
+                      )
+                    ],
                   ),
                 ),
               ],

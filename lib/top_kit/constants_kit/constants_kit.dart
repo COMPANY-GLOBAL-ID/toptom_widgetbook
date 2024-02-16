@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ConstantsKit {
   //Radius
   static const double rd = 4;
@@ -8,4 +10,10 @@ class ConstantsKit {
   static const double rd4Xl = 24;
   static const double rd5Xl = 28;
   static const double rd6Xl = 32;
+
+  //Size
+  static const sizeXl = Size(56, 56);
+  static const sizeL = Size(48, 48);
+  static const sizeM = Size(40, 40);
+  static const sizeS = Size(24, 24);
 }

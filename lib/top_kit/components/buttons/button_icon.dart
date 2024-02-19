@@ -299,7 +299,7 @@ class ButtonIcon extends StatelessWidget {
     );
   }
 
-  factory  ButtonIcon.outlineS({
+  factory ButtonIcon.outlineS({
     required String assetName,
     required VoidCallback onPressed,
   }) {

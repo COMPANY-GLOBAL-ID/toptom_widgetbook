@@ -47,10 +47,9 @@ class CoreTheme {
 
     //
     checkboxTheme: CheckboxThemeData(
-      checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
-      shape: BorderKit.borderDefaultS,
-      side: SideStatesKit.sideKit,
-      fillColor: BackgroundStatesColorKit.checkboxFillColor
-    ),
+        checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
+        shape: BorderKit.borderDefaultS,
+        side: SideStatesKit.sideKit,
+        fillColor: BackgroundStatesColorKit.checkboxFillColor),
   );
 }

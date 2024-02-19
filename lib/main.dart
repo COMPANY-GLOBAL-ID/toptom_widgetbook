@@ -6,6 +6,7 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
+import 'package:toptom_widgetbook/top_kit/components/text_area_widget.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
 import 'package:toptom_widgetbook/top_kit/theme_kit/core_theme.dart';
@@ -216,6 +217,71 @@ class WidgetbookApp extends StatelessWidget {
                     ],
                   ),
                 ),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            const Text("TextArea"),
+            const SizedBox(height: 10,),
+            Row(
+              children: [
+                const SizedBox(width: 8,),
+                Expanded(
+                    child: TextAreaWidget.maxLinesXl()
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                  child: TextAreaWidget.maxLinesL(),
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                  child: TextAreaWidget.maxLinesS(),
+                ),
+                const SizedBox(width: 8,),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
+              children: [
+                const SizedBox(width: 8,),
+                Expanded(
+                  child: TextAreaWidget.maxLinesXl(),
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                  child: TextAreaWidget.maxLinesL(),
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                    child: TextAreaWidget.maxLinesS()
+                ),
+                const SizedBox(width: 8,),
+              ],
+            ),
+            const SizedBox(height: 10,),
+            Row(
+              children: [
+                const SizedBox(width: 8,),
+                Expanded(
+                  child:TextAreaWidget.maxLinesXl(
+                      enabled: false,
+                      filled: true,
+                  ),
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                  child: TextAreaWidget.maxLinesL(
+                      enabled: false,
+                      filled: true,
+                  ),
+                ),
+                const SizedBox(width: 8), // Add spacing between text fields
+                Expanded(
+                  child: TextAreaWidget.maxLinesS(
+                      enabled: false,
+                      filled: true,
+                  ),
+                ),
+                const SizedBox(width: 8,),
               ],
             ),
           ],

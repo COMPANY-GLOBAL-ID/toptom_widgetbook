@@ -28,5 +28,7 @@ class ColorKit {
   static const pressButtonGhost = Color.fromRGBO(255, 182, 161, 1);
   static const deafautButtonPrimary = Color.fromRGBO(233, 233, 237, 1);
   static const defaultFocusColor = Color.fromRGBO(220, 220, 224, 1);
+  static const closePressColor = Color.fromRGBO(0, 0, 0, 1);
+  static const colorOverlayAlpha = Color.fromRGBO(206, 208, 212, 1);
 
 }

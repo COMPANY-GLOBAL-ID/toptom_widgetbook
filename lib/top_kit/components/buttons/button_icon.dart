@@ -43,7 +43,6 @@ class ButtonIcon extends StatelessWidget {
   }
 
   //factory
-
   factory ButtonIcon.l({
     required String assetName,
     required VoidCallback onPressed,
@@ -51,12 +50,46 @@ class ButtonIcon extends StatelessWidget {
       ButtonIcon(
         assetName: assetName,
         onPressed: onPressed,
-        heightIcon: 24,
-        widthIcon: 24,
+        heightIcon: ConstantsKit.iconL,
+        widthIcon: ConstantsKit.iconL,
         buttonStyle: ButtonStyle(
-          backgroundColor: ButtonBackgroundColorKit.closeIcon,
+          backgroundColor: ButtonBackgroundColorKit.closeIconColor,
           minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeL),
           padding: ButtonPaddingKit.paddingLSquare,
         ),
       );
+
+  factory ButtonIcon.m({
+    required String assetName,
+    required VoidCallback onPressed,
+  }) =>
+      ButtonIcon(
+        assetName: assetName,
+        onPressed: onPressed,
+        heightIcon: ConstantsKit.iconL,
+        widthIcon: ConstantsKit.iconL,
+        buttonStyle: ButtonStyle(
+          backgroundColor: ButtonBackgroundColorKit.closeIconColor,
+          minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeM),
+          padding: ButtonPaddingKit.paddingMsSquare,
+        ),
+      );
+
+  factory ButtonIcon.s({
+    required String assetName,
+    required VoidCallback onPressed,
+  }) =>
+      ButtonIcon(
+        assetName: assetName,
+        onPressed: onPressed,
+        heightIcon: ConstantsKit.iconS,
+        widthIcon: ConstantsKit.iconS,
+        buttonStyle: ButtonStyle(
+          backgroundColor: ButtonBackgroundColorKit.closeIconColor,
+          minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeS),
+          padding: ButtonPaddingKit.paddingSSquare,
+        ),
+      );
+
+  
 }

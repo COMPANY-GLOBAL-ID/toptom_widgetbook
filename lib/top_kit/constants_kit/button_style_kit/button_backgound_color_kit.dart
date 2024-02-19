@@ -87,16 +87,13 @@ class ButtonBackgroundColorKit {
     },
   );
 
-  static final closeIcon = MaterialStateProperty.resolveWith<Color>(
+  static final closeIconColor = MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
+        return ColorKit.closePressColor;
+      }
+      if (states.contains(MaterialState.hovered)) {
         return ColorKit.colorTextPrimary;
-      }
-      if (states.contains(MaterialState.focused)) {
-        return ColorKit.defaultFocusColor;
-      }
-      if (states.contains(MaterialState.disabled)) {
-        return ColorKit.colorStrokePrimary;
       }
       return ColorKit.colorOverlayPrimary;
     },

@@ -34,6 +34,10 @@ class ButtonPaddingKit {
     EdgeInsets.all(8),
   );
 
+  static const paddingMsSquare = MaterialStatePropertyAll(
+    EdgeInsets.all(6),
+  );
+
   static const paddingSSquare = MaterialStatePropertyAll(
     EdgeInsets.all(4),
   );

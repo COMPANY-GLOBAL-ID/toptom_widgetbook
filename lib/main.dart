@@ -6,7 +6,6 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
 import 'package:toptom_widgetbook/top_kit/theme_kit/core_theme.dart';
 
@@ -14,8 +13,15 @@ void main() {
   runApp(const WidgetbookApp());
 }
 
-class WidgetbookApp extends StatelessWidget {
+class WidgetbookApp extends StatefulWidget {
   const WidgetbookApp({super.key});
+
+  @override
+  State<WidgetbookApp> createState() => _WidgetbookAppState();
+}
+
+class _WidgetbookAppState extends State<WidgetbookApp> {
+  bool _checkBoxValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -210,14 +216,42 @@ class WidgetbookApp extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonIcon.l(
-                        assetName: IconsKit.clipIcon,
+                        assetName: IconsKit.cross,
                         onPressed: () {},
-                      )
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.m(
+                        assetName: IconsKit.cross,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.s(
+                        assetName: IconsKit.cross,
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 ),
+                const SizedBox(height: 10),
               ],
             ),
+            const Text(
+              'Checkbox',
+              textAlign: TextAlign.center,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Checkbox(
+                  value: _checkBoxValue,
+                  onChanged: (value) {
+                    setState(() {
+                      _checkBoxValue = value!;
+                    });
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -22,7 +22,7 @@ class BorderRadiusWidget extends StatelessWidget {
 
   //factory
   factory BorderRadiusWidget.rd() =>
-      const BorderRadiusWidget(radius: ConstantsKit.rd);
+      const BorderRadiusWidget(radius: ConstantsKit.rdM);
 
   factory BorderRadiusWidget.rdLg() =>
       const BorderRadiusWidget(radius: ConstantsKit.rdLg);

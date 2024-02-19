@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 
-class ButtonBackgroundColorKit {
+class BackgroundStatesColorKit {
   static final acceptStyle = MaterialStateProperty.resolveWith<Color>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.pressed)) {
@@ -29,33 +29,6 @@ class ButtonBackgroundColorKit {
         return ColorKit.colorStrokePrimary;
       }
       return ColorKit.colorTextPrimary;
-    },
-  );
-
-  static final outlineSideStyle = MaterialStateProperty.resolveWith<BorderSide>(
-    (Set<MaterialState> states) {
-      if (states.contains(MaterialState.pressed)) {
-        return const BorderSide(
-          color: ColorKit.pressButtonColor,
-          width: 1,
-        );
-      }
-      if (states.contains(MaterialState.focused)) {
-        return const BorderSide(
-          color: ColorKit.focusedButtonColor,
-          width: 1,
-        );
-      }
-      if (states.contains(MaterialState.disabled)) {
-        return const BorderSide(
-          color: ColorKit.colorStrokePrimary,
-          width: 1,
-        );
-      }
-      return const BorderSide(
-        color: ColorKit.colorMain,
-        width: 1,
-      );
     },
   );
 
@@ -96,6 +69,60 @@ class ButtonBackgroundColorKit {
         return ColorKit.colorTextPrimary;
       }
       return ColorKit.colorOverlayPrimary;
+    },
+  );
+
+  static final checkboxFillColor = MaterialStateProperty.resolveWith<Color>(
+    (Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return ColorKit.colorMain;
+      }
+      if (states.contains(MaterialState.focused)) {
+        return ColorKit.colorMain;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return ColorKit.colorStrokePrimary;
+      }
+      return ColorKit.colorWhite;
+    },
+  );
+
+  static final iconButtonWhite = MaterialStateProperty.resolveWith<Color>(
+    (Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return ColorKit.colorOverlayPrimary;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return ColorKit.colorOverlayPrimary;
+      }
+      return ColorKit.colorWhite;
+    },
+  );
+
+  static final iconButtonDefault = MaterialStateProperty.resolveWith<Color>(
+    (Set<MaterialState> states) {
+      if (states.contains(MaterialState.focused)) {
+        return ColorKit.colorMain.withOpacity(0.5);
+      }
+      if (states.contains(MaterialState.pressed)) {
+        return ColorKit.focusedButtonColor;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return ColorKit.colorOverlayPrimary;
+      }
+      return ColorKit.colorMain;
+    },
+  );
+
+  static final iconOutlineColor = MaterialStateProperty.resolveWith<Color>(
+    (Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return ColorKit.colorOverlayPrimary;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return ColorKit.colorOverlayPrimary;
+      }
+      return ColorKit.colorWhite;
     },
   );
 }

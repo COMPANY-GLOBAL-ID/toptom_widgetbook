@@ -8,6 +8,10 @@ class BorderKit {
     borderRadius: BorderRadius.circular(ConstantsKit.rdLg),
   );
 
+  static final borderDefaultM = RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+  );
+
   static final borderDefaultS = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(ConstantsKit.rdS),
   );

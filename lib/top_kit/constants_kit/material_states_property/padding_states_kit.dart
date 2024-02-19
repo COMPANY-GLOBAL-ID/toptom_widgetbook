@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ButtonPaddingKit {
+class PaddingStatesKit {
   static const paddingXl = MaterialStatePropertyAll(
     EdgeInsets.symmetric(
       vertical: 16,

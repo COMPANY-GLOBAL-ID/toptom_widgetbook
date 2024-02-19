@@ -251,7 +251,90 @@ class _WidgetbookAppState extends State<WidgetbookApp> {
                   },
                 ),
               ],
-            )
+            ),
+            const Text(
+              'Icon Button',
+              textAlign: TextAlign.center,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      ButtonIcon.whiteXl(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.whiteL(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.whiteM(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.whiteS(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      ButtonIcon.defaultXl(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.defaultL(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.defaultM(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.defaultS(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      ButtonIcon.outlineXl(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.outlineL(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.outlineM(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 10),
+                      ButtonIcon.outlineS(
+                        assetName: IconsKit.arrowRigth,
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

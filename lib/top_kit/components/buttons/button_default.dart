@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_backgound_color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_padding_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/backgound_states_color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/padding_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
@@ -37,8 +37,8 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonPaddingKit.paddingXlSquare,
-          backgroundColor: ButtonBackgroundColorKit.defaultStyle,
+          padding: PaddingStatesKit.paddingXlSquare,
+          backgroundColor: BackgroundStatesColorKit.defaultStyle,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -91,8 +91,8 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonPaddingKit.paddingLSquare,
-          backgroundColor: ButtonBackgroundColorKit.defaultStyle,
+          padding: PaddingStatesKit.paddingLSquare,
+          backgroundColor: BackgroundStatesColorKit.defaultStyle,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -145,8 +145,8 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonPaddingKit.paddingMSquare,
-          backgroundColor: ButtonBackgroundColorKit.defaultStyle,
+          padding: PaddingStatesKit.paddingMSquare,
+          backgroundColor: BackgroundStatesColorKit.defaultStyle,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -199,8 +199,8 @@ class ButtonDefault extends StatelessWidget {
       ButtonDefault(
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
-          padding: ButtonPaddingKit.paddingSSquare,
-          backgroundColor: ButtonBackgroundColorKit.defaultStyle,
+          padding: PaddingStatesKit.paddingSSquare,
+          backgroundColor: BackgroundStatesColorKit.defaultStyle,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

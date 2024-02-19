@@ -4,6 +4,7 @@ class ConstantsKit {
   //Radius
   static const double rdS = 2;
   static const double rdM = 4;
+  static const double rdLgS = 6;
   static const double rdLg = 8;
   static const double rdXl = 12;
   static const double rd2Xl = 16;

@@ -80,6 +80,9 @@ class BackgroundStatesColorKit {
       if (states.contains(MaterialState.focused)) {
         return ColorKit.colorMain;
       }
+      if (states.contains(MaterialState.selected)) {
+        return ColorKit.colorMain;
+      }
       if (states.contains(MaterialState.disabled)) {
         return ColorKit.colorStrokePrimary;
       }

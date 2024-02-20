@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_backgound_color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_padding_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/backgound_states_color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/padding_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
 class ButtonAccept extends StatelessWidget {
@@ -39,8 +39,8 @@ class ButtonAccept extends StatelessWidget {
         onPressed: onPressed,
         textStyle: TextStylesKit.buttonXl,
         buttonStyle: ButtonStyle(
-          padding: ButtonPaddingKit.paddingXl,
-          backgroundColor: ButtonBackgroundColorKit.acceptStyle,
+          padding: PaddingStatesKit.paddingXl,
+          backgroundColor: BackgroundStatesColorKit.acceptStyle,
         ),
       );
 
@@ -53,8 +53,8 @@ class ButtonAccept extends StatelessWidget {
         onPressed: onPressed,
         textStyle: TextStylesKit.buttonXl,
         buttonStyle: ButtonStyle(
-          backgroundColor: ButtonBackgroundColorKit.acceptStyle,
-          padding: ButtonPaddingKit.paddingL,
+          backgroundColor: BackgroundStatesColorKit.acceptStyle,
+          padding: PaddingStatesKit.paddingL,
         ),
       );
 
@@ -67,8 +67,8 @@ class ButtonAccept extends StatelessWidget {
         onPressed: onPressed,
         textStyle: TextStylesKit.buttonM,
         buttonStyle: ButtonStyle(
-          backgroundColor: ButtonBackgroundColorKit.acceptStyle,
-          padding: ButtonPaddingKit.paddingM,
+          backgroundColor: BackgroundStatesColorKit.acceptStyle,
+          padding: PaddingStatesKit.paddingM,
         ),
       );
 }

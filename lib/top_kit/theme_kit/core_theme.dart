@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_backgound_color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_border_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_text_style_kit.dart';
+
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/backgound_states_color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/border_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/text_style_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/text_area_kit.dart';
+
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/side_states_kit.dart';
 
 class CoreTheme {
   static final coreTheme = ThemeData(
     useMaterial3: false,
     fontFamily: 'NotoSans-Regular',
     scaffoldBackgroundColor: ColorKit.colorWhite,
+    colorScheme: const ColorScheme(
+      primary: ColorKit.colorMain,
+      secondary: ColorKit.colorTextSecondary,
+      background: ColorKit.colorWhite,
+      surface: ColorKit.colorWhite,
+      error: ColorKit.colorErrorPrimary,
+      onPrimary: ColorKit.colorWhite,
+      onSecondary: ColorKit.colorWhite,
+      onBackground: ColorKit.colorTextPrimary,
+      onError: ColorKit.colorWhite,
+      brightness: Brightness.light,
+      onSurface: ColorKit.colorTextPrimary,
+    ),
 
     //
     appBarTheme: const AppBarTheme(
@@ -19,8 +36,8 @@ class CoreTheme {
     //
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonBorderKit.borderDefault,
-        backgroundColor: ButtonBackgroundColorKit.blackStyle,
+        shape: BorderKit.borderDefault,
+        backgroundColor: BackgroundStatesColorKit.blackStyle,
       ),
     ),
 
@@ -29,54 +46,54 @@ class CoreTheme {
       style: ButtonStyle(
         overlayColor: const MaterialStatePropertyAll(Colors.transparent),
         backgroundColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
-        textStyle: ButtonTextStyleKit.outlineTextStyle,
-        shape: ButtonBorderKit.borderDefault,
-        side: ButtonBackgroundColorKit.outlineSideStyle,
+        textStyle: TextStyleStatesKit.outlineTextStyle,
+        shape: BorderKit.borderDefault,
+        side: SideStatesKit.outlineSideStyle,
       ),
     ),
+
+    //
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        shape: ButtonBorderKit.borderDefault,
-        overlayColor: ButtonBackgroundColorKit.textButtonOverlayStyle,
+        shape: BorderKit.borderDefault,
+        overlayColor: BackgroundStatesColorKit.textButtonOverlayStyle,
       ),
     ),
+
+    //
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          gapPadding: 12,
-          borderSide: const BorderSide(
-            color: Colors.transparent,
-          )
-      ),
-      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          gapPadding: 12,
-          borderSide: const BorderSide(
-              color: Colors.black
-          )
-      ),
-      focusedBorder:OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-          gapPadding: 12,
-          borderSide: const BorderSide(
-            color: Colors.redAccent,
-          )
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        gapPadding: 12,
+      border: defaultOutlineInputBorder.copyWith(
         borderSide: const BorderSide(
-          color: Colors.red,
+            color: ColorKit.colorStrokePrimary
         ),
       ),
-      errorStyle: const TextStyle(color: Colors.red),
-      disabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        gapPadding: 12,
+      enabledBorder: defaultOutlineInputBorder.copyWith(
         borderSide: const BorderSide(
-          color: Color(0xFFF5F5F5),
+            color: ColorKit.colorStrokePrimary
         ),
       ),
+      focusedBorder: defaultOutlineInputBorder.copyWith(
+        borderSide: const BorderSide(
+          color: ColorKit.colorMain
+        ),
+      ),
+      errorBorder: defaultOutlineInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorErrorPrimary
+          ),
+      ),
+      errorStyle: const TextStyle(color: ColorKit.colorErrorPrimary),
+      disabledBorder: defaultOutlineInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorOverlaySecondary
+          ),
+      ),
+  ),
+    checkboxTheme: CheckboxThemeData(
+      checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
+      fillColor: BackgroundStatesColorKit.checkboxFillColor,
+      shape: BorderKit.borderDefaultS,
+      side: SideStatesKit.sideKit,
     ),
   );
 }

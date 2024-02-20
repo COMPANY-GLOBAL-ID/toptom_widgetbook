@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/button_style_kit/button_padding_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/padding_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
@@ -44,7 +44,7 @@ class ButtonGhost extends StatelessWidget {
         onPressed: onPressed,
         title: title,
         buttonStyle: const ButtonStyle(
-          padding: ButtonPaddingKit.paddingXl,
+          padding: PaddingStatesKit.paddingXl,
         ),
       );
 
@@ -56,7 +56,7 @@ class ButtonGhost extends StatelessWidget {
         onPressed: onPressed,
         title: title,
         buttonStyle: const ButtonStyle(
-          padding: ButtonPaddingKit.paddingL,
+          padding: PaddingStatesKit.paddingL,
         ),
       );
 
@@ -68,7 +68,7 @@ class ButtonGhost extends StatelessWidget {
         title: title,
         onPressed: onPressed,
         buttonStyle: const ButtonStyle(
-          padding: ButtonPaddingKit.paddingM,
+          padding: PaddingStatesKit.paddingM,
         ),
       );
 }

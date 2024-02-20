@@ -7,7 +7,6 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
 import 'package:toptom_widgetbook/top_kit/components/toast_notification_frame.dart';
-import 'package:toptom_widgetbook/top_kit/components/top_date_picker.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
 
@@ -341,37 +340,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
               message: 'message',
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(16),
-          //   child: ElevatedButton(
-          //     onPressed: () async {
-          //       showDatePicker(
-          //         context: context,
-          //         initialDate: DateTime.now(),
-          //         firstDate: DateTime(2000),
-          //         lastDate: DateTime(2100),
-          //       );
-          //     },
-          //     child: const Text(
-          //       'Picker Data',
-          //     ),
-          //   ),
-          // ),
           const Text(
             'Date picker',
             textAlign: TextAlign.center,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: TopDatePicker(
-              initialDate: DateTime.now(),
-              firstDate: DateTime(2000),
-              lastDate: DateTime(2100),
-              onDateChanged: (date) {
-                print(date);
-              },
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.all(16),
+          //   child:
+          // )
         ],
       ),
     );

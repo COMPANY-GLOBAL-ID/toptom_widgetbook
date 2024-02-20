@@ -1,3 +1,4 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/components/border_radius_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart';
@@ -6,6 +7,7 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
+import 'package:toptom_widgetbook/top_kit/components/double_input.dart';
 import 'package:toptom_widgetbook/top_kit/components/toast_notification_frame.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
@@ -18,6 +20,8 @@ class PresentationScreen extends StatefulWidget {
 }
 
 class _PresentationScreenState extends State<PresentationScreen> {
+  final minController = TextEditingController();
+  final maxController = TextEditingController();
   bool _checkBoxValue = false;
 
   @override
@@ -340,14 +344,29 @@ class _PresentationScreenState extends State<PresentationScreen> {
               message: 'message',
             ),
           ),
-          const Text(
-            'Date picker',
-            textAlign: TextAlign.center,
-          ),
+
+          //https://pub.dev/packages/calendar_date_picker2/example
           // Padding(
           //   padding: const EdgeInsets.all(16),
-          //   child:
+          //   child: TextButton(
+          //     onPressed: () async {
+          //       showDialog(context: context, builder: (context) => CalendarDatePicker2());
+
+          //     },
+          //     child: const Text('Date picker'),
+          //   ),
           // )
+          const Text(
+            'Double input',
+            textAlign: TextAlign.center,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: DoubleInput(
+              minController: minController,
+              maxController: maxController,
+            ),
+          )
         ],
       ),
     );

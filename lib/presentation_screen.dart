@@ -8,6 +8,7 @@ import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
 import 'package:toptom_widgetbook/top_kit/components/double_input.dart';
+import 'package:toptom_widgetbook/top_kit/components/text_area_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/toast_notification_frame.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
@@ -366,7 +367,89 @@ class _PresentationScreenState extends State<PresentationScreen> {
               minController: minController,
               maxController: maxController,
             ),
-          )
+          ),
+          const Text("TextArea"),
+          const SizedBox(height: 10,),
+          Row(
+            children: [
+              const SizedBox(width: 8,),
+              Expanded(
+                  child: TextAreaWidget.maxLinesXl(
+                    hintText: "Text Area",
+                    enabled: true,
+                  )
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                child: TextAreaWidget.maxLinesL(
+                  hintText: "Text Area",
+                  enabled: true,
+                ),
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                child: TextAreaWidget.maxLinesS(
+                  hintText: "Text Area",
+                  enabled: true,
+                ),
+              ),
+              const SizedBox(width: 8,),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            children: [
+              const SizedBox(width: 8,),
+              Expanded(
+                child: TextAreaWidget.maxLinesXl(
+                  hintText: "Text Area",
+                  enabled: true,
+                ),
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                child: TextAreaWidget.maxLinesL(
+                  hintText: "Text Area",
+                  enabled: true,
+                ),
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                  child: TextAreaWidget.maxLinesS(
+                    hintText: "Text Area",
+                    enabled: true,
+                  )
+              ),
+              const SizedBox(width: 8,),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            children: [
+              const SizedBox(width: 8,),
+              Expanded(
+                child:TextAreaWidget.maxLinesXl(
+                  hintText: "Text Area",
+                  enabled: false,
+                ),
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                child: TextAreaWidget.maxLinesL(
+                  hintText: "Text Area",
+                  enabled: false,
+                ),
+              ),
+              const SizedBox(width: 8), // Add spacing between text fields
+              Expanded(
+                child: TextAreaWidget.maxLinesS(
+                  hintText: "Text Area",
+                  enabled: false,
+                ),
+              ),
+              const SizedBox(width: 8,),
+            ],
+          ),
         ],
       ),
     );

@@ -22,4 +22,18 @@ class TextStylesKit {
     fontWeight: FontWeight.w500,
     height: 16 / 12,
   );
+
+  static const selectedBottomM = TextStyle(
+    fontSize: 12,
+    color: ColorKit.colorYelowStar,
+    fontWeight: FontWeight.w600,
+    height: 20/12,
+  );
+
+  static const unSelectedBottomM = TextStyle(
+    fontSize: 12,
+    color: ColorKit.closePressColor,
+    fontWeight: FontWeight.w600,
+    height: 20/12,
+  );
 }

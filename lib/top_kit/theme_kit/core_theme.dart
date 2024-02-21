@@ -4,6 +4,8 @@ import 'package:toptom_widgetbook/top_kit/constants_kit/border_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/text_style_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/side_states_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
+
 
 
 class CoreTheme {
@@ -87,11 +89,23 @@ class CoreTheme {
           ),
       ),
   ),
+
+    //
     checkboxTheme: CheckboxThemeData(
       checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
       fillColor: BackgroundStatesColorKit.checkboxFillColor,
       shape: BorderKit.borderDefaultS,
       side: SideStatesKit.sideKit,
+    ),
+
+    //
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: ColorKit.colorWhite,
+      selectedLabelStyle: TextStylesKit.selectedBottomM,
+      unselectedLabelStyle: TextStylesKit.unSelectedBottomM,
+      showUnselectedLabels: true,
+      elevation: 10,
     ),
   );
 }

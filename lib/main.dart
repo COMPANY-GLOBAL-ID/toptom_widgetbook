@@ -14,7 +14,7 @@ class WidgetbookApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CoreTheme.coreTheme,
-      home: PresentationScreen()
+      home: PresentationScreen(),
     );
   }
 }

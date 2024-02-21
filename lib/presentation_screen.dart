@@ -1,5 +1,6 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/components/badge_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/border_radius_widget.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart';
 import 'package:toptom_widgetbook/top_kit/components/buttons/button_black.dart';
@@ -448,6 +449,114 @@ class _PresentationScreenState extends State<PresentationScreen> {
                 ),
               ),
               const SizedBox(width: 8,),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          const Text("Badge"),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              ),
+              SizedBox(width: 8,),
+              BadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              ),
+              SizedBox(width: 8,),
+              BadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus4
+              ),
+              const SizedBox(width: 8,),
+              BadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus4
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorError
+              ),
+              const SizedBox(width: 8,),
+              BadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorError
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          const Text("Secondary Badge"),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SecondaryBadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              ),
+              const SizedBox(width: 8,),
+              SecondaryBadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SecondaryBadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              ),
+              const SizedBox(width: 8,),
+              SecondaryBadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SecondaryBadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus3
+              ),
+              const SizedBox(width: 8,),
+              SecondaryBadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.badgeColorStatus3
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SecondaryBadgeWidget.paddingMBadge(
+                  statusText: 'Status text', color: ColorKit.colorErrorPrimary
+              ),
+              const SizedBox(width: 8,),
+              SecondaryBadgeWidget.paddingSBadge(
+                  statusText: 'Status text', color: ColorKit.colorErrorPrimary
+              ),
             ],
           ),
         ],

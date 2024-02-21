@@ -11,12 +11,12 @@ class BadgeWidget extends StatelessWidget {
     super.key,
     required this.color,
     required this.statusText,
-    required this.textStyle,
+    this.textStyle,
     required this.padding,
   });
   final Color color;
   final String statusText;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   final EdgeInsets padding;
 
   @override
@@ -30,67 +30,43 @@ class BadgeWidget extends StatelessWidget {
       child: Text(statusText,style: textStyle,),
     );
   }
-  factory BadgeWidget.paddingMBadge({
+  factory BadgeWidget.primaryMBadge({
     required String statusText,
     required Color color,
 }) => BadgeWidget(
       color: color,
       textStyle: TextStylesKit.buttonS,
       statusText: statusText,
-      padding: PaddingStatesKit.paddingMBadge
+      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
   );
 
-  factory BadgeWidget.paddingSBadge({
+  factory BadgeWidget.primarySBadge({
     required String statusText,
     required Color color,
   }) => BadgeWidget(
       color: color,
       textStyle: TextStylesKit.buttonS,
       statusText: statusText,
-      padding: PaddingStatesKit.paddingSBadge
+      padding: const EdgeInsets.all(1)
   );
-}
 
-class SecondaryBadgeWidget extends StatelessWidget {
-  const SecondaryBadgeWidget({
-    super.key,
-    required this.color,
-    required this.statusText,
-    required this.textStyle,
-    required this.padding,
-  });
-  final Color color;
-  final String statusText;
-  final TextStyle textStyle;
-  final EdgeInsets padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(ConstantsKit.rdM),
-        color: color,
-      ),
-      child: Text(statusText,style: textStyle,),
-    );
-  }
-  factory SecondaryBadgeWidget.paddingMBadge({
+  factory BadgeWidget.secondaryMBadge({
     required String statusText,
     required Color color,
-  }) => SecondaryBadgeWidget(
+  }) => BadgeWidget(
       color: ColorKit.colorBackgroundSecondary,
       textStyle: TextStylesKit.buttonS.copyWith(color: color),
       statusText: statusText,
-      padding: PaddingStatesKit.paddingMBadge
+      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
   );
-  factory SecondaryBadgeWidget.paddingSBadge({
+
+  factory BadgeWidget.secondarySBadge({
     required String statusText,
     required Color color,
-  }) => SecondaryBadgeWidget(
+  }) => BadgeWidget(
       color: ColorKit.colorBackgroundSecondary,
       textStyle: TextStylesKit.buttonS.copyWith(color: color),
       statusText: statusText,
-      padding: PaddingStatesKit.paddingSBadge
+      padding: const EdgeInsets.all(1)
   );
 }

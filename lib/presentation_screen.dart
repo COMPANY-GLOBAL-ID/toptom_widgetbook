@@ -457,11 +457,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.paddingMBadge(
+              BadgeWidget.primaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorInfo
               ),
-              SizedBox(width: 8,),
-              BadgeWidget.paddingSBadge(
+              const SizedBox(width: 8,),
+              BadgeWidget.primarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorInfo
               ),
             ],
@@ -470,11 +470,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.paddingMBadge(
+              BadgeWidget.primaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus2
               ),
-              SizedBox(width: 8,),
-              BadgeWidget.paddingSBadge(
+              const SizedBox(width: 8,),
+              BadgeWidget.primarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus2
               ),
             ],
@@ -483,11 +483,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.paddingMBadge(
+              BadgeWidget.primaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus4
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.paddingSBadge(
+              BadgeWidget.primarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus4
               ),
             ],
@@ -496,11 +496,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.paddingMBadge(
+              BadgeWidget.primaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorError
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.paddingSBadge(
+              BadgeWidget.primarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorError
               ),
             ],
@@ -511,11 +511,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SecondaryBadgeWidget.paddingMBadge(
+              BadgeWidget.secondaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorInfo
               ),
               const SizedBox(width: 8,),
-              SecondaryBadgeWidget.paddingSBadge(
+              BadgeWidget.secondarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorInfo
               ),
             ],
@@ -524,11 +524,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SecondaryBadgeWidget.paddingMBadge(
+              BadgeWidget.secondaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus2
               ),
               const SizedBox(width: 8,),
-              SecondaryBadgeWidget.paddingSBadge(
+              BadgeWidget.secondarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus2
               ),
             ],
@@ -537,11 +537,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SecondaryBadgeWidget.paddingMBadge(
+              BadgeWidget.secondaryMBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus3
               ),
               const SizedBox(width: 8,),
-              SecondaryBadgeWidget.paddingSBadge(
+              BadgeWidget.secondarySBadge(
                   statusText: 'Status text', color: ColorKit.badgeColorStatus3
               ),
             ],
@@ -550,11 +550,11 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SecondaryBadgeWidget.paddingMBadge(
+              BadgeWidget.secondaryMBadge(
                   statusText: 'Status text', color: ColorKit.colorErrorPrimary
               ),
               const SizedBox(width: 8,),
-              SecondaryBadgeWidget.paddingSBadge(
+              BadgeWidget.secondarySBadge(
                   statusText: 'Status text', color: ColorKit.colorErrorPrimary
               ),
             ],

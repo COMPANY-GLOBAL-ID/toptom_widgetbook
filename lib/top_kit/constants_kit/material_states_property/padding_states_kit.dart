@@ -41,10 +41,4 @@ class PaddingStatesKit {
   static const paddingSSquare = MaterialStatePropertyAll(
     EdgeInsets.all(4),
   );
-
-  //not material paddings
-
-  static const paddingMBadge = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
-
-  static const paddingSBadge = EdgeInsets.all(1);
 }

@@ -378,7 +378,7 @@ class _PresentationScreenState extends State<PresentationScreen> {
                   child: TextAreaWidget.maxLinesXl(
                     hintText: "Text Area",
                     enabled: true,
-                  )
+                  ),
               ),
               const SizedBox(width: 8), // Add spacing between text fields
               Expanded(
@@ -457,12 +457,12 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.primaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              BadgeWidget.primaryM(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.primarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              BadgeWidget.primaryS(
+                  statusText: 'Status text', color: ColorKit.badgeColorInfo,
               ),
             ],
           ),
@@ -470,12 +470,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.primaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              BadgeWidget.primaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus2,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.primarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              BadgeWidget.primaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus2,
               ),
             ],
           ),
@@ -483,12 +485,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.primaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus4
+              BadgeWidget.primaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus4,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.primarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus4
+              BadgeWidget.primaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus4,
               ),
             ],
           ),
@@ -496,12 +500,28 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.primaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorError
+              BadgeWidget.primaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorError,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.primarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorError
+              BadgeWidget.primaryS(
+                  statusText: 'Status text', color: ColorKit.badgeColorError,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.primaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorWarning,
+              ),
+              const SizedBox(width: 8,),
+              BadgeWidget.primaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorWarning,
               ),
             ],
           ),
@@ -511,12 +531,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.secondaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              BadgeWidget.secondaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorInfo,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.secondarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorInfo
+              BadgeWidget.secondaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorInfo,
               ),
             ],
           ),
@@ -524,12 +546,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.secondaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              BadgeWidget.secondaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus2,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.secondarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus2
+              BadgeWidget.secondaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus2,
               ),
             ],
           ),
@@ -537,12 +561,14 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.secondaryMBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus3
+              BadgeWidget.secondaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus3,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.secondarySBadge(
-                  statusText: 'Status text', color: ColorKit.badgeColorStatus3
+              BadgeWidget.secondaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorStatus3,
               ),
             ],
           ),
@@ -550,12 +576,29 @@ class _PresentationScreenState extends State<PresentationScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BadgeWidget.secondaryMBadge(
-                  statusText: 'Status text', color: ColorKit.colorErrorPrimary
+              BadgeWidget.secondaryM(
+                statusText: 'Status text',
+                color: ColorKit.colorErrorPrimary,
               ),
               const SizedBox(width: 8,),
-              BadgeWidget.secondarySBadge(
-                  statusText: 'Status text', color: ColorKit.colorErrorPrimary
+              BadgeWidget.secondaryS(
+                statusText: 'Status text',
+                color: ColorKit.colorErrorPrimary,
+              ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BadgeWidget.secondaryM(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorWarning,
+              ),
+              const SizedBox(width: 8,),
+              BadgeWidget.secondaryS(
+                statusText: 'Status text',
+                color: ColorKit.badgeColorWarning,
               ),
             ],
           ),

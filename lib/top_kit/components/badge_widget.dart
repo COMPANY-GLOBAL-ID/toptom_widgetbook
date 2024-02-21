@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/padding_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/text_styles_kit.dart';
 
-import '../constants_kit/color_kit.dart';
 
 
 class BadgeWidget extends StatelessWidget {
@@ -21,16 +20,18 @@ class BadgeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
+    return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(ConstantsKit.rdM),
         color: color,
       ),
-      child: Text(statusText,style: textStyle,),
+      child: Padding(
+        padding: padding,
+        child: Text(statusText, style: textStyle),
+      ),
     );
   }
-  factory BadgeWidget.primaryMBadge({
+  factory BadgeWidget.primaryM({
     required String statusText,
     required Color color,
 }) => BadgeWidget(
@@ -40,17 +41,17 @@ class BadgeWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
   );
 
-  factory BadgeWidget.primarySBadge({
+  factory BadgeWidget.primaryS({
     required String statusText,
     required Color color,
   }) => BadgeWidget(
       color: color,
       textStyle: TextStylesKit.buttonS,
       statusText: statusText,
-      padding: const EdgeInsets.all(1)
+      padding: const EdgeInsets.symmetric(horizontal: 6)
   );
 
-  factory BadgeWidget.secondaryMBadge({
+  factory BadgeWidget.secondaryM({
     required String statusText,
     required Color color,
   }) => BadgeWidget(
@@ -60,13 +61,13 @@ class BadgeWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
   );
 
-  factory BadgeWidget.secondarySBadge({
+  factory BadgeWidget.secondaryS({
     required String statusText,
     required Color color,
   }) => BadgeWidget(
       color: ColorKit.colorBackgroundSecondary,
       textStyle: TextStylesKit.buttonS.copyWith(color: color),
       statusText: statusText,
-      padding: const EdgeInsets.all(1)
+      padding: const EdgeInsets.symmetric(horizontal: 6)
   );
 }

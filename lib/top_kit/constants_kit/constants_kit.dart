@@ -19,6 +19,13 @@ class ConstantsKit {
   static const sizeM = Size(40, 40);
   static const sizeMs = Size(36, 36);
   static const sizeS = Size(24, 24);
+
+
+  // maxLines
+  static const maxLinesXl = 4;
+  static const maxLinesL = 3;
+  static const maxLinesS = 2;
+
   static const double iconL = 24;
   static const double iconS = 16;
 }

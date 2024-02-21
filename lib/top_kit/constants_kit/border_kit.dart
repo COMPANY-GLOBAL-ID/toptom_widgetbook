@@ -15,4 +15,10 @@ class BorderKit {
   static final borderDefaultS = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(ConstantsKit.rdS),
   );
+
+  // text input
+  static final OutlineInputBorder defaultTextInputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(ConstantsKit.rdLg),
+    gapPadding: 12,
+  );
 }

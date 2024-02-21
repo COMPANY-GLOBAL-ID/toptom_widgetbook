@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/backgound_states_color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/border_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/text_style_states_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
 import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/side_states_kit.dart';
+
 
 class CoreTheme {
   static final coreTheme = ThemeData(
@@ -59,6 +59,34 @@ class CoreTheme {
     ),
 
     //
+    inputDecorationTheme: InputDecorationTheme(
+      border: BorderKit.defaultTextInputBorder.copyWith(
+        borderSide: const BorderSide(
+            color: ColorKit.colorStrokePrimary
+        ),
+      ),
+      enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
+        borderSide: const BorderSide(
+            color: ColorKit.colorStrokePrimary
+        ),
+      ),
+      focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        borderSide: const BorderSide(
+          color: ColorKit.colorMain
+        ),
+      ),
+      errorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorErrorPrimary
+          ),
+      ),
+      errorStyle: const TextStyle(color: ColorKit.colorErrorPrimary),
+      disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorOverlaySecondary
+          ),
+      ),
+  ),
     checkboxTheme: CheckboxThemeData(
       checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
       fillColor: BackgroundStatesColorKit.checkboxFillColor,

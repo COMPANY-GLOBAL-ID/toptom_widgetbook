@@ -28,6 +28,10 @@ class ConstantsKit {
 
   static const double iconL = 24;
   static const double iconS = 16;
+
+  // EdgeInsets
+  static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
+  static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
 }
 
 // enum RadiusType {

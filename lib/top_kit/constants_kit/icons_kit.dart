@@ -3,5 +3,10 @@ class IconsKit {
   static const cross = 'assets/icons/cross.svg';
   static const arrowRigth = 'assets/icons/arrow_right.svg';
   static const info = 'assets/icons/info.svg';
-static const tenge = 'assets/icons/tenge.svg';
+  static const tenge = 'assets/icons/tenge.svg';
+  static const home = 'assets/icons/home.svg';
+  static const catalog = 'assets/icons/catalog.svg';
+  static const chat = 'assets/icons/chat.svg';
+  static const starFilled = 'assets/icons/starfilled.svg';
+  static const user = 'assets/icons/user.svg';
 }

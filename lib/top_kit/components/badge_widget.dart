@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit_export.dart';
+import 'package:toptom_widgetbook/top_kit/export.dart';
+
 
 class BadgeWidget extends StatelessWidget {
   const BadgeWidget({
@@ -34,7 +35,7 @@ class BadgeWidget extends StatelessWidget {
       color: color,
       textStyle: TextStylesKit.buttonS,
       statusText: statusText,
-      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
+      padding: ConstantsKit.EdgeInsetsM,
   );
 
   factory BadgeWidget.primaryS({
@@ -44,7 +45,7 @@ class BadgeWidget extends StatelessWidget {
       color: color,
       textStyle: TextStylesKit.buttonS,
       statusText: statusText,
-      padding: const EdgeInsets.symmetric(horizontal: 6)
+      padding: ConstantsKit.EdgeInsetsS,
   );
 
   factory BadgeWidget.secondaryM({
@@ -54,7 +55,7 @@ class BadgeWidget extends StatelessWidget {
       color: ColorKit.colorBackgroundSecondary,
       textStyle: TextStylesKit.buttonS.copyWith(color: color),
       statusText: statusText,
-      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4)
+      padding: ConstantsKit.EdgeInsetsM,
   );
 
   factory BadgeWidget.secondaryS({
@@ -64,6 +65,6 @@ class BadgeWidget extends StatelessWidget {
       color: ColorKit.colorBackgroundSecondary,
       textStyle: TextStylesKit.buttonS.copyWith(color: color),
       statusText: statusText,
-      padding: const EdgeInsets.symmetric(horizontal: 6)
+      padding: ConstantsKit.EdgeInsetsS,
   );
 }

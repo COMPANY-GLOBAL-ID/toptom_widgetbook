@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/presentation_screen.dart';
-import 'package:toptom_widgetbook/top_kit/theme_kit/core_theme.dart';
+import 'package:toptom_widgetbook/presentation/export.dart';
+import 'package:toptom_widgetbook/top_kit/export.dart';
+
 
 void main() {
   runApp(const WidgetbookApp());
@@ -14,7 +15,7 @@ class WidgetbookApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CoreTheme.coreTheme,
-      home: PresentationScreen(),
+      home: const PresentationScreen(),
     );
   }
 }

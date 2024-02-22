@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit_export.dart';
 
 class TextStylesKit {
   static const buttonXl = TextStyle(
@@ -25,14 +25,12 @@ class TextStylesKit {
 
   static const selectedBottomM = TextStyle(
     fontSize: 12,
-    color: ColorKit.colorYelowStar,
     fontWeight: FontWeight.w600,
     height: 20/12,
   );
 
   static const unSelectedBottomM = TextStyle(
     fontSize: 12,
-    color: ColorKit.closePressColor,
     fontWeight: FontWeight.w600,
     height: 20/12,
   );

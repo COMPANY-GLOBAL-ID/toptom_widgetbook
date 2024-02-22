@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/components/border_radius_widget.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_accept.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_black.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_default.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_ghost.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_outline.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
+import 'package:toptom_widgetbook/top_kit/components/components_export.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit_export.dart';
+
 
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});

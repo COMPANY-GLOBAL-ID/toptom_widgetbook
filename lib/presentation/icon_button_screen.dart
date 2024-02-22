@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/components/buttons/button_icon.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/icons_kit.dart';
+import 'package:toptom_widgetbook/top_kit/constants_kit/constants_kit_export.dart';
+import 'package:toptom_widgetbook/top_kit/components/components_export.dart';
 
 class IconButtonScreen extends StatefulWidget {
   const IconButtonScreen({super.key});

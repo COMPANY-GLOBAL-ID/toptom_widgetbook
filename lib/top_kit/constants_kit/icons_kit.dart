@@ -7,6 +7,6 @@ class IconsKit {
   static const home = 'assets/icons/home.svg';
   static const catalog = 'assets/icons/catalog.svg';
   static const chat = 'assets/icons/chat.svg';
-  static const starFilled = 'assets/icons/star.svg';
+  static const starFilled = 'assets/icons/starfilled.svg';
   static const user = 'assets/icons/user.svg';
 }

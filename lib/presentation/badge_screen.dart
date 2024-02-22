@@ -11,7 +11,7 @@ class BadgeScreen extends StatelessWidget {
       appBar: AppBar(),
       body: ListView(
         children: [
-          const Text("Badge"),
+          const Text("Primary Badge"),
           const SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

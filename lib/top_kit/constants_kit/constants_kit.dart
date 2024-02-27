@@ -27,7 +27,13 @@ class ConstantsKit {
   static const maxLinesS = 2;
 
   static const double iconL = 24;
+  static const double iconLg = 18;
   static const double iconS = 16;
+  static const double iconM = 12;
+
+  // EdgeInsets
+  static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
+  static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
 }
 
 // enum RadiusType {

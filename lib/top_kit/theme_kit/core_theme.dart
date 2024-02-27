@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/backgound_states_color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/border_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/text_style_states_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/color_kit.dart';
-import 'package:toptom_widgetbook/top_kit/constants_kit/material_states_property/side_states_kit.dart';
+import 'package:toptom_widgetbook/top_kit/export.dart';
 
 
 class CoreTheme {
@@ -80,6 +76,11 @@ class CoreTheme {
               color: ColorKit.colorErrorPrimary
           ),
       ),
+      focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorErrorPrimary
+          ),
+      ),
       errorStyle: const TextStyle(color: ColorKit.colorErrorPrimary),
       disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
@@ -87,11 +88,25 @@ class CoreTheme {
           ),
       ),
   ),
+
+    //
     checkboxTheme: CheckboxThemeData(
       checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
       fillColor: BackgroundStatesColorKit.checkboxFillColor,
       shape: BorderKit.borderDefaultS,
       side: SideStatesKit.sideKit,
+    ),
+
+    //
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: ColorKit.colorWhite,
+      selectedLabelStyle: TextStylesKit.selectedBottomM,
+      unselectedLabelStyle: TextStylesKit.unSelectedBottomM,
+      unselectedItemColor: ColorKit.closePressColor,
+      selectedItemColor: ColorKit.colorYelowStar,
+      showUnselectedLabels: true,
+      elevation: 10,
     ),
   );
 }

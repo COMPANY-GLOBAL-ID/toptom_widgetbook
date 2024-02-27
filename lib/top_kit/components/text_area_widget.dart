@@ -7,30 +7,38 @@ class TextAreaWidget extends StatelessWidget {
     super.key,
     required this.enabled,
     required this.maxLines,
+    required this.controller,
     required this.hintText,
     this.hintStyle,
     required this.filled,
+    required this.errorText,
     this.textStyle,
     this.validator,
   });
 
+  final TextEditingController controller;
   final int maxLines;
   final bool enabled;
   final String hintText;
   final TextStyle? hintStyle;
   final TextStyle? textStyle;
   final bool filled;
+  final String? errorText;
   final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
+    TextStyle? hintTextStyle = errorText != null ? hintStyle?.copyWith(color: ColorKit.colorErrorPrimary) : hintStyle;
+    TextStyle? textColorStyle = errorText != null ? hintStyle?.copyWith(color: ColorKit.colorErrorPrimary) : textStyle;
     return TextFormField(
+      controller: controller,
       validator: validator,
-      style: textStyle,
+      style: textColorStyle,
       enabled: enabled,
       maxLines: maxLines,
       decoration: InputDecoration(
-        hintStyle: hintStyle,
+        errorText: errorText,
+        hintStyle: hintTextStyle,
         hintText: hintText,
         filled: !enabled,
         fillColor: filled ? ColorKit.colorOverlaySecondary : null,
@@ -39,10 +47,14 @@ class TextAreaWidget extends StatelessWidget {
   }
 
   factory TextAreaWidget.maxLinesXl({
+    required TextEditingController controller,
     required String hintText,
     required bool enabled,
+    required String? errorText,
   }) =>
       TextAreaWidget(
+        controller: controller,
+        errorText: errorText,
         hintStyle:
             TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary),
         textStyle:
@@ -54,10 +66,14 @@ class TextAreaWidget extends StatelessWidget {
       );
 
   factory TextAreaWidget.maxLinesL({
+    required TextEditingController controller,
     required String hintText,
     required bool enabled,
+    required String? errorText,
   }) =>
       TextAreaWidget(
+        controller: controller,
+        errorText: errorText,
         hintStyle:
             TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextSecondary),
         textStyle:
@@ -69,10 +85,14 @@ class TextAreaWidget extends StatelessWidget {
       );
 
   factory TextAreaWidget.maxLinesS({
+    required TextEditingController controller,
     required String hintText,
     required bool enabled,
+    required String? errorText,
   }) =>
       TextAreaWidget(
+        controller: controller,
+        errorText: errorText,
           hintStyle: TextStylesKit.buttonS
               .copyWith(color: ColorKit.colorTextSecondary),
           textStyle:
@@ -80,5 +100,6 @@ class TextAreaWidget extends StatelessWidget {
           hintText: hintText,
           enabled: enabled,
           maxLines: ConstantsKit.maxLinesS,
-          filled: !enabled);
+          filled: !enabled
+      );
 }

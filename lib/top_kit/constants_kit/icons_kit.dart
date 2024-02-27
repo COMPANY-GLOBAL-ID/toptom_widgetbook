@@ -9,4 +9,7 @@ class IconsKit {
   static const chat = 'assets/icons/chat.svg';
   static const starFilled = 'assets/icons/starfilled.svg';
   static const user = 'assets/icons/user.svg';
+  static const search = 'assets/icons/search.svg';
+  static const passwordHide = 'assets/icons/password_hide.svg';
+  static const errorIcon = 'assets/icons/error_icon.svg';
 }

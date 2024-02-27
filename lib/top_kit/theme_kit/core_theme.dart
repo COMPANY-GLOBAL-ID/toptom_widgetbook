@@ -76,6 +76,11 @@ class CoreTheme {
               color: ColorKit.colorErrorPrimary
           ),
       ),
+      focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(
+              color: ColorKit.colorErrorPrimary
+          ),
+      ),
       errorStyle: const TextStyle(color: ColorKit.colorErrorPrimary),
       disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(

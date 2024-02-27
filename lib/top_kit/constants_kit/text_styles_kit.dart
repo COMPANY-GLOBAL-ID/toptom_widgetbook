@@ -35,4 +35,10 @@ class TextStylesKit {
     fontWeight: FontWeight.w600,
     height: 20/12,
   );
+
+  static const errorStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 20 / 14
+  );
 }

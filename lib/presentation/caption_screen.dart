@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/components/input_widget.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
 
@@ -104,6 +103,7 @@ class _CaptionScreenState extends State<CaptionScreen> {
                   errorText: null,
                   enabled: true,
                   suffixIcon: IconsKit.search,
+                  onIconPressed: (){},
                 ),
               ),
               const SizedBox(width: 10,),
@@ -114,6 +114,7 @@ class _CaptionScreenState extends State<CaptionScreen> {
                   hintText: 'Search Input',
                   enabled: true,
                   suffixIcon: IconsKit.search,
+                  onIconPressed: (){},
                 ),
               ),
               const SizedBox(width: 10,),
@@ -124,6 +125,7 @@ class _CaptionScreenState extends State<CaptionScreen> {
                   hintText: 'Search Input',
                   enabled: true,
                   suffixIcon: IconsKit.search,
+                  onIconPressed: null,
                 ),
               ),
               const SizedBox(width: 10,),

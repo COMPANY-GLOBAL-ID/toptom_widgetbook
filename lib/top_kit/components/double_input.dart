@@ -32,7 +32,7 @@ class _DoubleInputState extends State<DoubleInput> {
         DecoratedBox(
           decoration: BoxDecoration(
             border: Border.all(color: ColorKit.colorStrokePrimary),
-            borderRadius: BorderRadius.circular(ConstantsKit.rdXl),
+            borderRadius: BorderRadius.circular(RadiusType.rdXl.radius),
           ),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -52,7 +52,7 @@ class _DoubleInputState extends State<DoubleInput> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(ConstantsKit.rdS),
+                      borderRadius: BorderRadius.circular(RadiusType.rdS.radius),
                       color: ColorKit.colorStrokePrimary,
                     ),
                     child: const SizedBox(

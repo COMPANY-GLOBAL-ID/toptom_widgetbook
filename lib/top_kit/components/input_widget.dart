@@ -225,31 +225,31 @@ class InputWidget extends StatelessWidget {
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
-          borderRadius: BorderRadius.circular(ConstantsKit.rdM)
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorStrokePrimary
           ),
-          borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         errorBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
               color: ColorKit.colorErrorPrimary
           ),
-          borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
               color: ColorKit.colorErrorPrimary
           ),
-          borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
               color: ColorKit.colorOverlaySecondary,
           ),
-          borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         suffixIcon: finalSuffixIcon,
         prefixIcon: finalPrefixIcon,

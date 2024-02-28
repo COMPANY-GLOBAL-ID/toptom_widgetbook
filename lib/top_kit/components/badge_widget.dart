@@ -19,7 +19,7 @@ class BadgeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(ConstantsKit.rdM),
+        borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         color: color,
       ),
       child: Padding(

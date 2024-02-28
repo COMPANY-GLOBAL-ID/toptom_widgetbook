@@ -20,7 +20,7 @@ class ToastNotificationFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(ConstantsKit.rdLgS),
+        borderRadius: BorderRadius.circular(RadiusType.rdLgS.radius),
         color: backgroundColor,
       ),
       child: Padding(

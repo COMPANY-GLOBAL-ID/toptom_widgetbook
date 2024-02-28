@@ -9,6 +9,7 @@ export 'components/border_radius_widget.dart';
 export 'components/double_input.dart';
 export 'components/text_area_widget.dart';
 export 'components/toast_notification_frame.dart';
+export 'components/input_widget.dart';
 export 'constants_kit/material_states_property/backgound_states_color_kit.dart';
 export 'constants_kit/material_states_property/padding_states_kit.dart';
 export 'constants_kit/material_states_property/side_states_kit.dart';

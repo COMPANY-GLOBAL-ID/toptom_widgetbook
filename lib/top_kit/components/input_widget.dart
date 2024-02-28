@@ -25,11 +25,12 @@ class InputWidget extends StatelessWidget {
   }
   factory InputWidget.maxLinesXl({
     required TextEditingController controller,
-    required String hintText,
-    required String? errorText,
+    String? hintText,
+    String? errorText,
     required bool enabled,
     String? suffixIcon,
     String? prefixIcon,
+    VoidCallback? onIconPressed,
   }) {
     Widget? finalSuffixIcon;
     Widget? finalPrefixIcon;
@@ -41,7 +42,7 @@ class InputWidget extends StatelessWidget {
 
     finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
         IconButton(
-          onPressed: (){},
+          onPressed: onIconPressed,
           icon: SvgPicture.asset(
             suffixIcon,
             height: ConstantsKit.iconLg,
@@ -52,7 +53,7 @@ class InputWidget extends StatelessWidget {
 
     finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
         IconButton(
-          onPressed: (){},
+          onPressed: onIconPressed,
           icon: SvgPicture.asset(
             prefixIcon,
             height: ConstantsKit.iconLg,
@@ -100,11 +101,12 @@ class InputWidget extends StatelessWidget {
 
   factory InputWidget.maxLinesL({
     required TextEditingController controller,
-    required String hintText,
+    String? hintText,
     required bool enabled,
     String? suffixIcon,
     String? prefixIcon,
-    required String? errorText,
+    String? errorText,
+    VoidCallback? onIconPressed,
   }) {
     Widget? finalSuffixIcon;
     Widget? finalPrefixIcon;
@@ -116,7 +118,7 @@ class InputWidget extends StatelessWidget {
 
     finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
         IconButton(
-          onPressed: (){},
+          onPressed: onIconPressed,
           icon: SvgPicture.asset(
             suffixIcon,
             height: ConstantsKit.iconLg,
@@ -127,7 +129,7 @@ class InputWidget extends StatelessWidget {
 
     finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
         IconButton(
-          onPressed: (){},
+          onPressed: onIconPressed,
           icon: SvgPicture.asset(
             prefixIcon,
             height: ConstantsKit.iconLg,
@@ -168,12 +170,13 @@ class InputWidget extends StatelessWidget {
   }
 
   factory InputWidget.maxLinesS({
-    required String hintText,
+    String? hintText,
     required bool enabled,
     required TextEditingController controller,
     String? suffixIcon,
     String? prefixIcon,
-    required String? errorText,
+    String? errorText,
+    VoidCallback? onIconPressed,
   }) {
     Widget? finalSuffixIcon;
     Widget? finalPrefixIcon;
@@ -185,7 +188,7 @@ class InputWidget extends StatelessWidget {
 
     finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
           IconButton(
-            onPressed: (){},
+            onPressed: onIconPressed,
             icon: SvgPicture.asset(
               suffixIcon,
               height: ConstantsKit.iconM,
@@ -196,7 +199,7 @@ class InputWidget extends StatelessWidget {
 
     finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
          IconButton(
-           onPressed: (){},
+           onPressed: onIconPressed,
            icon: SvgPicture.asset(
               prefixIcon,
               height: ConstantsKit.iconM,
@@ -274,17 +277,18 @@ class InputWidget extends StatelessWidget {
   }
 
   factory InputWidget.maxLinesLabelXl({
-    required String labelText,
-    required String hintText,
+    String? labelText,
+    String? hintText,
     required bool enabled,
     required TextEditingController controller,
-    required String? errorText,
+    String? errorText,
+    VoidCallback? onIconPressed
   }) {
     Widget? suffixIcon;
 
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
-        onPressed: (){},
+        onPressed: onIconPressed,
         icon: SvgPicture.asset(
           IconsKit.errorIcon,
           height: 20,
@@ -329,17 +333,18 @@ class InputWidget extends StatelessWidget {
   }
 
   factory InputWidget.maxLinesLabelL({
-    required String labelText,
-    required String hintText,
+    String? labelText,
+    String? hintText,
     required bool enabled,
     required TextEditingController controller,
-    required String? errorText,
+    String? errorText,
+    VoidCallback? onIconPressed,
   }) {
     Widget? suffixIcon;
 
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
-        onPressed: (){},
+        onPressed: onIconPressed,
         icon: SvgPicture.asset(
           IconsKit.errorIcon,
           height: 20,
@@ -384,17 +389,18 @@ class InputWidget extends StatelessWidget {
   }
 
   factory InputWidget.maxLinesLabelS({
-    required String labelText,
-    required String hintText,
+    String? labelText,
+    String? hintText,
     required bool enabled,
     required TextEditingController controller,
-    required String? errorText,
+    String? errorText,
+    VoidCallback? onIconPressed,
   }) {
     Widget? suffixIcon;
 
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
-        onPressed: (){},
+        onPressed: onIconPressed,
         icon: SvgPicture.asset(
           IconsKit.errorIcon,
           height: 13.33,

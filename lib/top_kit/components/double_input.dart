@@ -66,7 +66,7 @@ class _DoubleInputState extends State<DoubleInput> {
                     contoroller: widget.maxController,
                     onChanged: (value) {
                       setState(() {
-                        _minPrice = double.tryParse(value) ?? _minPrice;
+                        _maxPrice = double.tryParse(value) ?? _maxPrice;
                       });
                     },
                   ),

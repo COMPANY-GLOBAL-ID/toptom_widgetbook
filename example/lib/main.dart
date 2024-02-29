@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import 'core/directories.dart';
@@ -14,7 +15,20 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(
-      addons: [],
+      addons: [
+        ThemeAddon(
+          themes: [
+            WidgetbookTheme(name: 'CORE THEMA', data: CoreTheme.coreTheme)
+          ],
+          themeBuilder: (context, theme, child) {
+            // Wrap use cases with the custom theme's InheritedWidget
+            return Theme(
+              data: theme,
+              child: child,
+            );
+          },
+        ),
+      ],
       directories: directories
     );
   }

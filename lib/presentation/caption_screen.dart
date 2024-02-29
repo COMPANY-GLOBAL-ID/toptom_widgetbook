@@ -74,6 +74,7 @@ class _CaptionScreenState extends State<CaptionScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      scrollDirection: Axis.vertical,
         children: [
           const Text(
             'Notification',

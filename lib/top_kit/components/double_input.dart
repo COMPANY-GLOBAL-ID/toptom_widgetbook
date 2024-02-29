@@ -140,56 +140,18 @@ class DoubleInput extends StatefulWidget {
 }
 
 class _DoubleInputState extends State<DoubleInput> {
-  double _startValue = 0;
-  double _endValue = 600;
-  final double _minPrice = 0.0;
-  final double _maxPrice = 1000.0;
-
-  void updateStartValue(double newValue) {
-    setState(() {
-      _startValue = newValue;
-    });
-  }
+  double _startValue = 10;
+  double _endValue = 200;
+  final double _minValue = 0;
+  final double _maxValue = 1000;
 
   @override
   void initState() {
     super.initState();
-    widget.minController.addListener(_setStartValue);
-    widget.maxController.addListener(_setEndValue);
+    widget.minController.text = _startValue.toStringAsFixed(0);
+    widget.maxController.text = _endValue.toStringAsFixed(0);
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    widget.minController.dispose();
-    widget.maxController.dispose();
-  }
-
-  _setStartValue() {
-    if (double.parse(widget.minController.text).roundToDouble() <=
-        double.parse(widget.maxController.text).roundToDouble() &&
-        double.parse(widget.minController.text).roundToDouble() >= _minPrice &&
-        double.parse(widget.maxController.text).roundToDouble() >= _minPrice &&
-        double.parse(widget.minController.text).roundToDouble() <= _maxPrice &&
-        double.parse(widget.maxController.text).roundToDouble() <= _maxPrice) {
-      setState(() {
-        _startValue = double.parse(widget.minController.text).roundToDouble();
-      });
-    }
-  }
-
-  _setEndValue() {
-    if (double.parse(widget.minController.text).roundToDouble() <=
-        double.parse(widget.maxController.text).roundToDouble() &&
-        double.parse(widget.minController.text).roundToDouble() >= _minPrice &&
-        double.parse(widget.maxController.text).roundToDouble() >= _minPrice &&
-        double.parse(widget.minController.text).roundToDouble() <= _maxPrice &&
-        double.parse(widget.maxController.text).roundToDouble() <= _maxPrice) {
-      setState(() {
-        _endValue = double.parse(widget.maxController.text).roundToDouble();
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -213,7 +175,13 @@ class _DoubleInputState extends State<DoubleInput> {
                     isDense: widget.isDense,
                     onChanged: (value){
                       setState(() {
-                        _startValue = double.tryParse(value) ?? _startValue;
+                        _startValue = double.tryParse(value) ?? _minValue;
+                        _startValue = _startValue.clamp(_minValue, _maxValue);
+                        widget.minController.text = _startValue.toStringAsFixed(0);
+                        if (_startValue > _endValue) {
+                          _endValue = _startValue;
+                          widget.maxController.text = _endValue.toStringAsFixed(0);
+                        }
                       });
                     },
                     enabled: widget.enabled,
@@ -240,7 +208,13 @@ class _DoubleInputState extends State<DoubleInput> {
                     isDense: widget.isDense,
                     onChanged: (value){
                       setState(() {
-                        _endValue = double.tryParse(value) ?? _endValue;
+                        _endValue = double.tryParse(value) ?? _maxValue;
+                        _endValue = _endValue.clamp(_minValue, _maxValue);
+                        widget.maxController.text = _endValue.toStringAsFixed(0);
+                        if (_endValue < _startValue) {
+                          _startValue = _endValue;
+                          widget.minController.text = _startValue.toStringAsFixed(0);
+                        }
                       });
                     },
                     enabled: widget.enabled,
@@ -258,15 +232,15 @@ class _DoubleInputState extends State<DoubleInput> {
         if(widget.enabled == true)
         RangeSlider(
           values: RangeValues(_startValue, _endValue),
-          min: _minPrice,
-          max: _maxPrice,
+          min: _minValue,
+          max: _maxValue,
           onChanged: (RangeValues values) {
             setState(() {
               _startValue = values.start.toDouble();
               _endValue = values.end.toDouble();
               widget.minController.text =
-                  values.start.roundToDouble().toString();
-              widget.maxController.text = values.end.roundToDouble().toString();
+                  values.start.toInt().toStringAsFixed(0);
+              widget.maxController.text = values.end.toInt().toStringAsFixed(0);
             });
           },
         ),

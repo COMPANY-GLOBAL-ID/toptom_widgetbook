@@ -12,4 +12,5 @@ class IconsKit {
   static const search = 'assets/icons/search.svg';
   static const passwordHide = 'assets/icons/password_hide.svg';
   static const errorIcon = 'assets/icons/error_icon.svg';
+  static const errorExampleIcon = 'example/assets/icons/error_icon.svg';
 }

@@ -290,7 +290,7 @@ class InputWidget extends StatelessWidget {
       suffixIcon = IconButton(
         onPressed: onIconPressed,
         icon: SvgPicture.asset(
-          IconsKit.errorIcon,
+          IconsKit.errorExampleIcon,
           height: 20,
           width: 20,
         ),
@@ -402,7 +402,7 @@ class InputWidget extends StatelessWidget {
       suffixIcon = IconButton(
         onPressed: onIconPressed,
         icon: SvgPicture.asset(
-          IconsKit.errorIcon,
+          IconsKit.errorExampleIcon,
           height: 13.33,
           width: 13.33,
         ),
@@ -455,7 +455,7 @@ class InputWidget extends StatelessWidget {
     Widget? suffixIcon;
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = SvgPicture.asset(
-        IconsKit.errorIcon,
+        IconsKit.errorExampleIcon,
       );
     }
     TextStyle finalTextStyle = errorText != null

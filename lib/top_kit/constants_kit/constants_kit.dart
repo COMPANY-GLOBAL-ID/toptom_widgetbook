@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 
+
 class ConstantsKit {
+
+  //Size
+  static const sizeXl = Size(56, 56);
+  static const sizeL = Size(48, 48);
+  static const sizeM = Size(40, 40);
+  static const sizeMs = Size(36, 36);
+  static const sizeS = Size(24, 24);
+
+
+  // maxLines
+  static const maxLinesXl = 4;
+  static const maxLinesL = 3;
+  static const maxLinesS = 2;
+
+  static const double iconL = 24;
+  static const double iconLg = 18;
+  static const double iconS = 16;
+  static const double iconM = 12;
+
+  // EdgeInsets
+  static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
+  static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
+}
+
+
+class _ConstantsKit {
   //Radius
   static const double rdS = 2;
   static const double rdM = 4;
@@ -36,57 +63,40 @@ class ConstantsKit {
   static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
 }
 
-// enum RadiusType {
-//   S, M, Lg, Xl, X2l,
-//   X3l,
-//   X4l,
-//   X5l,
-//   X6l;
-
-//   num getPixels() {
-//     return switch (this) {
-//       case RadiusType.S:
-//         return 2;
-//       case RadiusType.M:
-//         return 3
-//       case RadiusType.Lg:
-//         return ConstantsKit.rdLg;
-//       case RadiusType.Xl:
-//         return ConstantsKit.rdXl;
-//       case RadiusType.X2l:
-//         return ConstantsKit.rd2Xl;
-//       case RadiusType.X3l:
-//         return ConstantsKit.rd3Xl;
-//       case RadiusType.X4l:
-//         return ConstantsKit.rd4Xl;
-//       case RadiusType.X5l:
-//         return ConstantsKit.rd5Xl;
-//       case RadiusType.X6l:
-//         return ConstantsKit.rd6Xl;
-//       // TODO: Handle this case.
-//       RadiusType.Lg => null,
-//     }
-//   }
-
-//   Radius getCircularRadius() {
-//     return switch(this) {
-//       case RadiusType.S:
-//         return BorderRadius.circular(ConstantsKit.rdS);
-//       case RadiusType.M:
-//         return BorderRadius.circular(ConstantsKit.rdM);
-//       case RadiusType.Lg:
-//         return BorderRadius.circular(ConstantsKit.rdLg);
-//       case RadiusType.Xl:
-//         return BorderRadius.circular(ConstantsKit.rdXl);
-//       case RadiusType.X2l:
-//         return BorderRadius.circular(ConstantsKit.rd2Xl);
-//       case RadiusType.X3l:
-//         return BorderRadius.circular(ConstantsKit.rd3Xl);
-//       case RadiusType.X4l:
-//         return BorderRadius.circular(ConstantsKit.rd4Xl);
-//       case RadiusType.X5l:
-//         return BorderRadius.circular(ConstantsKit.rd5Xl);
-//       case RadiusType.X6l:
-//         return BorderRadius.circular(ConstantsKit.rd6Xl);
-//   }
-// }
+enum RadiusType {
+  rdS,
+  rdM,
+  rdLgS,
+  rdLg,
+  rdXl,
+  rd2Xl,
+  rd3Xl,
+  rd4Xl,
+  rd5Xl,
+  rd6Xl;
+  
+  double get radius {
+    switch (this) {
+      case RadiusType.rdS:
+        return _ConstantsKit.rdS;
+      case RadiusType.rdM:
+        return _ConstantsKit.rdM;
+      case RadiusType.rdLgS:
+        return _ConstantsKit.rdLgS;
+      case RadiusType.rdLg:
+        return _ConstantsKit.rdLg;
+      case RadiusType.rdXl:
+        return _ConstantsKit.rdXl;
+      case RadiusType.rd2Xl:
+        return _ConstantsKit.rd2Xl;
+      case RadiusType.rd3Xl:
+        return _ConstantsKit.rd3Xl;
+      case RadiusType.rd4Xl:
+        return _ConstantsKit.rd4Xl;
+      case RadiusType.rd5Xl:
+        return _ConstantsKit.rd5Xl;
+      case RadiusType.rd6Xl:
+        return _ConstantsKit.rd6Xl;
+    }
+  }
+}

@@ -5,7 +5,6 @@ export 'components/buttons/button_ghost.dart';
 export 'components/buttons/button_icon.dart';
 export 'components/buttons/button_outline.dart';
 export 'components/badge_widget.dart';
-export 'components/border_radius_widget.dart';
 export 'components/double_input.dart';
 export 'components/text_area_widget.dart';
 export 'components/toast_notification_frame.dart';

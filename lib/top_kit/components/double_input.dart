@@ -228,7 +228,7 @@ class _DoubleInputState extends State<DoubleInput> {
                   padding: widget.dividerPadding,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(ConstantsKit.rdS),
+                      borderRadius: BorderRadius.circular(RadiusType.rdS.radius),
                       color: ColorKit.colorStrokePrimary,
                     ),
                     child: widget.divider,

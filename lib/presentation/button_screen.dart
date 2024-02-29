@@ -10,30 +10,6 @@ class ButtonScreen extends StatelessWidget {
       appBar: AppBar(),
       body: ListView(
         children: [
-          const Text("Border radius"),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rdLg(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rdXl(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd2Xl(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd3Xl(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd4Xl(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd5Xl(),
-                const SizedBox(width: 10),
-                BorderRadiusWidget.rd6Xl(),
-              ],
-            ),
-          ),
           const Text('Buttons'),
           Row(
             children: [

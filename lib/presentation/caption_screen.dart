@@ -61,8 +61,16 @@ class _CaptionScreenState extends State<CaptionScreen> {
   final textEditingController49 = TextEditingController();
   final textEditingController50 = TextEditingController();
   final textEditingController51 = TextEditingController();
-  final minController = TextEditingController();
-  final maxController = TextEditingController();
+  final minController1 = TextEditingController();
+  final maxController1 = TextEditingController();
+  final minController2 = TextEditingController();
+  final maxController2 = TextEditingController();
+  final minController3 = TextEditingController();
+  final maxController3 = TextEditingController();
+  final inputController1 = TextEditingController();
+  final inputController2 = TextEditingController();
+  final inputController3 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -85,9 +93,32 @@ class _CaptionScreenState extends State<CaptionScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: DoubleInput(
-              minController: minController,
-              maxController: maxController,
+            child: DoubleInput.sizeXl(
+              minController: minController1,
+              maxController: maxController1,
+              minHintText: "Text Input 1",
+              maxHintText: "Text Input 2",
+              enabled: true,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: DoubleInput.sizeL(
+              minController: minController2,
+              maxController: maxController2,
+              minHintText: "Text Input 1",
+              maxHintText: "Text Input 2",
+              enabled: true,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: DoubleInput.sizeS(
+              minController: minController3,
+              maxController: maxController3,
+              minHintText: "Text Input 1",
+              maxHintText: "Text Input 2",
+              enabled: true,
             ),
           ),
           const SizedBox(height: 20,),

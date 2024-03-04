@@ -1,4 +1,3 @@
-
 import 'package:widgetbook/widgetbook.dart';
 
 import '../screens/screens.dart';
@@ -9,21 +8,16 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
           name: 'Border Radius',
-          builder: (context) => const BorderRadiusScreen()
-      ),
+          builder: (context) => const BorderRadiusScreen()),
     ],
   ),
   WidgetbookComponent(
     name: 'Buttons',
     useCases: [
       WidgetbookUseCase(
-          name: 'Button',
-          builder: (context) => const ButtonScreen()
-      ),
+          name: 'Button', builder: (context) => const ButtonScreen()),
       WidgetbookUseCase(
-          name: 'Icon Button',
-          builder: (context) => const IconButtonScreen()
-      ),
+          name: 'Icon Button', builder: (context) => const IconButtonScreen()),
     ],
   ),
   WidgetbookComponent(
@@ -31,29 +25,21 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
           name: 'Notification',
-          builder: (context) => const NotificationScreen()
-      ),
+          builder: (context) => const NotificationScreen()),
       WidgetbookUseCase(
-          name: 'Badge',
-          builder: (context) => const BadgeScreen()
-      ),
+          name: 'Badge', builder: (context) => const BadgeScreen()),
     ],
   ),
   WidgetbookComponent(
     name: 'Inputs',
     useCases: [
       WidgetbookUseCase(
-          name: 'Text Area',
-          builder: (context) => const TextAreaScreen()
-      ),
+          name: 'Text Area', builder: (context) => const TextAreaScreen()),
       WidgetbookUseCase(
-          name: 'Input',
-          builder: (context) => const InputScreen()
-      ),
+          name: 'Input', builder: (context) => const InputScreen()),
       WidgetbookUseCase(
           name: 'Double Input',
-          builder: (context) => const DoubleInputScreen()
-      ),
+          builder: (context) => const DoubleInputScreen()),
     ],
   ),
 ];

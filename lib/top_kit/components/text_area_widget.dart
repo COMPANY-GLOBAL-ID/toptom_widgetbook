@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 class TextAreaWidget extends StatelessWidget {
   const TextAreaWidget({
     super.key,
@@ -28,8 +27,12 @@ class TextAreaWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? hintTextStyle = errorText != null ? hintStyle?.copyWith(color: ColorKit.colorErrorPrimary) : hintStyle;
-    TextStyle? textColorStyle = errorText != null ? hintStyle?.copyWith(color: ColorKit.colorErrorPrimary) : textStyle;
+    TextStyle? hintTextStyle = errorText != null
+        ? hintStyle?.copyWith(color: ColorKit.errorPrimary)
+        : hintStyle;
+    TextStyle? textColorStyle = errorText != null
+        ? hintStyle?.copyWith(color: ColorKit.errorPrimary)
+        : textStyle;
     return TextFormField(
       controller: controller,
       validator: validator,
@@ -91,8 +94,8 @@ class TextAreaWidget extends StatelessWidget {
     required String? errorText,
   }) =>
       TextAreaWidget(
-        controller: controller,
-        errorText: errorText,
+          controller: controller,
+          errorText: errorText,
           hintStyle: TextStylesKit.buttonS
               .copyWith(color: ColorKit.colorTextSecondary),
           textStyle:
@@ -100,6 +103,5 @@ class TextAreaWidget extends StatelessWidget {
           hintText: hintText,
           enabled: enabled,
           maxLines: ConstantsKit.maxLinesS,
-          filled: !enabled
-      );
+          filled: !enabled);
 }

@@ -1,7 +1,3 @@
-library toptom_widgetbook1;
+library toptom_widgetbook;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'top_kit/export.dart';

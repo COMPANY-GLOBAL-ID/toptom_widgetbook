@@ -6,52 +6,95 @@ class InputScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController1 = TextEditingController();
-    final TextEditingController textEditingController2 = TextEditingController();
-    final TextEditingController textEditingController3 = TextEditingController();
-    final TextEditingController textEditingController4 = TextEditingController();
-    final TextEditingController textEditingController5 = TextEditingController();
-    final TextEditingController textEditingController6 = TextEditingController();
-    final TextEditingController textEditingController7 = TextEditingController();
-    final TextEditingController textEditingController8 = TextEditingController();
-    final TextEditingController textEditingController9 = TextEditingController();
-    final TextEditingController textEditingController10 = TextEditingController();
-    final TextEditingController textEditingController11 = TextEditingController();
-    final TextEditingController textEditingController12 = TextEditingController();
-    final TextEditingController textEditingController13 = TextEditingController();
-    final TextEditingController textEditingController14 = TextEditingController();
-    final TextEditingController textEditingController15 = TextEditingController();
-    final TextEditingController textEditingController16 = TextEditingController();
-    final TextEditingController textEditingController17 = TextEditingController();
-    final TextEditingController textEditingController18 = TextEditingController();
-    final TextEditingController textEditingController19 = TextEditingController();
-    final TextEditingController textEditingController20 = TextEditingController();
-    final TextEditingController textEditingController21 = TextEditingController();
-    final TextEditingController textEditingController22 = TextEditingController();
-    final TextEditingController textEditingController23 = TextEditingController();
-    final TextEditingController textEditingController24 = TextEditingController();
-    final TextEditingController textEditingController25 = TextEditingController();
-    final TextEditingController textEditingController26 = TextEditingController();
-    final TextEditingController textEditingController27 = TextEditingController();
-    final TextEditingController textEditingController28 = TextEditingController();
-    final TextEditingController textEditingController29 = TextEditingController();
-    final TextEditingController textEditingController30 = TextEditingController();
-    final TextEditingController textEditingController31 = TextEditingController();
-    final TextEditingController textEditingController32 = TextEditingController();
-    final TextEditingController textEditingController33 = TextEditingController();
-    final TextEditingController textEditingController34 = TextEditingController();
-    final TextEditingController textEditingController35 = TextEditingController();
-    final TextEditingController textEditingController36 = TextEditingController();
-    final TextEditingController textEditingController37 = TextEditingController();
-    final TextEditingController textEditingController38 = TextEditingController();
-    final TextEditingController textEditingController39 = TextEditingController();
+    final TextEditingController textEditingController1 =
+        TextEditingController();
+    final TextEditingController textEditingController2 =
+        TextEditingController();
+    final TextEditingController textEditingController3 =
+        TextEditingController();
+    final TextEditingController textEditingController4 =
+        TextEditingController();
+    final TextEditingController textEditingController5 =
+        TextEditingController();
+    final TextEditingController textEditingController6 =
+        TextEditingController();
+    final TextEditingController textEditingController7 =
+        TextEditingController();
+    final TextEditingController textEditingController8 =
+        TextEditingController();
+    final TextEditingController textEditingController9 =
+        TextEditingController();
+    final TextEditingController textEditingController10 =
+        TextEditingController();
+    final TextEditingController textEditingController11 =
+        TextEditingController();
+    final TextEditingController textEditingController12 =
+        TextEditingController();
+    final TextEditingController textEditingController13 =
+        TextEditingController();
+    final TextEditingController textEditingController14 =
+        TextEditingController();
+    final TextEditingController textEditingController15 =
+        TextEditingController();
+    final TextEditingController textEditingController16 =
+        TextEditingController();
+    final TextEditingController textEditingController17 =
+        TextEditingController();
+    final TextEditingController textEditingController18 =
+        TextEditingController();
+    final TextEditingController textEditingController19 =
+        TextEditingController();
+    final TextEditingController textEditingController20 =
+        TextEditingController();
+    final TextEditingController textEditingController21 =
+        TextEditingController();
+    final TextEditingController textEditingController22 =
+        TextEditingController();
+    final TextEditingController textEditingController23 =
+        TextEditingController();
+    final TextEditingController textEditingController24 =
+        TextEditingController();
+    final TextEditingController textEditingController25 =
+        TextEditingController();
+    final TextEditingController textEditingController26 =
+        TextEditingController();
+    final TextEditingController textEditingController27 =
+        TextEditingController();
+    final TextEditingController textEditingController28 =
+        TextEditingController();
+    final TextEditingController textEditingController29 =
+        TextEditingController();
+    final TextEditingController textEditingController30 =
+        TextEditingController();
+    final TextEditingController textEditingController31 =
+        TextEditingController();
+    final TextEditingController textEditingController32 =
+        TextEditingController();
+    final TextEditingController textEditingController33 =
+        TextEditingController();
+    final TextEditingController textEditingController34 =
+        TextEditingController();
+    final TextEditingController textEditingController35 =
+        TextEditingController();
+    final TextEditingController textEditingController36 =
+        TextEditingController();
+    final TextEditingController textEditingController37 =
+        TextEditingController();
+    final TextEditingController textEditingController38 =
+        TextEditingController();
+    final TextEditingController textEditingController39 =
+        TextEditingController();
     return ListView(
       children: [
         const Text("Search Input"),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController1,
@@ -59,10 +102,12 @@ class InputScreen extends StatelessWidget {
                 errorText: null,
                 enabled: true,
                 suffixIcon: IconsKit.search,
-                onIconPressed: (){},
+                onIconPressed: () {},
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: null,
@@ -70,10 +115,12 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 enabled: true,
                 suffixIcon: IconsKit.search,
-                onIconPressed: (){},
+                onIconPressed: () {},
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -84,13 +131,19 @@ class InputScreen extends StatelessWidget {
                 onIconPressed: null,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController4,
@@ -100,7 +153,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: '',
@@ -110,7 +165,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: '',
@@ -120,12 +177,16 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController7,
@@ -135,7 +196,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 controller: textEditingController8,
@@ -145,7 +208,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -155,13 +220,19 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController10,
@@ -171,7 +242,9 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: null,
@@ -181,7 +254,9 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -191,13 +266,19 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController13,
@@ -207,7 +288,9 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: '',
@@ -217,22 +300,28 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: '',
                 controller: textEditingController15,
                 hintText: 'Search Input',
                 enabled: true,
-                prefixIcon : IconsKit.search,
+                prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController16,
@@ -242,7 +331,9 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 controller: textEditingController17,
@@ -252,7 +343,9 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -262,15 +355,25 @@ class InputScreen extends StatelessWidget {
                 prefixIcon: IconsKit.search,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 10,),
-        const Text("Clear Input",),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
+        const Text(
+          "Clear Input",
+        ),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController19,
@@ -280,7 +383,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: null,
@@ -290,7 +395,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -300,13 +407,19 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController22,
@@ -316,7 +429,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 errorText: 'The text of the name of the input error',
@@ -326,7 +441,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: 'The text of the name of the input error',
@@ -336,12 +453,16 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesXl(
                 controller: textEditingController25,
@@ -351,7 +472,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesL(
                 controller: textEditingController26,
@@ -361,7 +484,9 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesS(
                 errorText: null,
@@ -371,15 +496,23 @@ class InputScreen extends StatelessWidget {
                 suffixIcon: IconsKit.passwordHide,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         const Text("Label Input"),
-        const SizedBox(height: 20,),
+        const SizedBox(
+          height: 20,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelXl(
                 hintText: 'Text Input',
@@ -389,7 +522,9 @@ class InputScreen extends StatelessWidget {
                 errorText: null,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelL(
                 enabled: true,
@@ -399,7 +534,9 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelS(
                 enabled: true,
@@ -409,13 +546,19 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelXl(
                 hintText: 'Text Input',
@@ -425,7 +568,9 @@ class InputScreen extends StatelessWidget {
                 errorText: 'The text of the name of input error',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelL(
                 enabled: true,
@@ -435,7 +580,9 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelS(
                 enabled: true,
@@ -445,13 +592,19 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelXl(
                 hintText: 'Text Input',
@@ -461,7 +614,9 @@ class InputScreen extends StatelessWidget {
                 errorText: '',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelL(
                 enabled: true,
@@ -471,7 +626,9 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelS(
                 enabled: true,
@@ -481,13 +638,19 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Row(
           children: [
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelXl(
                 hintText: 'Text Input',
@@ -497,7 +660,9 @@ class InputScreen extends StatelessWidget {
                 errorText: null,
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelL(
                 enabled: false,
@@ -507,7 +672,9 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Expanded(
               child: InputWidget.maxLinesLabelS(
                 enabled: false,
@@ -517,7 +684,9 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Text Input',
               ),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
           ],
         ),
       ],

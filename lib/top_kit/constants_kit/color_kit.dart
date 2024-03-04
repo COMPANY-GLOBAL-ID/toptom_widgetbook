@@ -10,12 +10,23 @@ class ColorKit {
   static const colorBackgroundSecondary = Color.fromRGBO(245, 246, 248, 1);
   static const colorOverlayPrimary = Color.fromRGBO(243, 243, 243, 1);
   static const colorOverlaySecondary = Color.fromRGBO(233, 233, 233, 1);
-  static const colorErrorPrimary = Color.fromRGBO(250, 30, 30, 1);
   static const colorErrorSecondary = Color.fromRGBO(243, 195, 195, 1);
-  static const colorPositivePrimary = Color.fromRGBO(47, 168, 59, 1);
   static const colorPositiveSecondary = Color.fromRGBO(195, 243, 200, 1);
   static const colorWhite = Color.fromRGBO(255, 255, 255, 1);
   static const colorYelowStar = Color.fromRGBO(248, 145, 51, 1);
+
+  static const defaultPrimary = Color.fromRGBO(15, 14, 20, 1);
+  static const defaultTextPrimary = Color.fromRGBO(255, 255, 255, 1);
+  static const errorPrimary = Color.fromRGBO(250, 30, 30, 1);
+  static const errorTextPrimary = Color.fromRGBO(255, 255, 255, 1);
+  static const positivePrimary = Color.fromRGBO(47, 168, 59, 1);
+  static const positiveTextPrimary = Color.fromRGBO(255, 255, 255, 1);
+  static const warningPrimary = Color.fromRGBO(255, 204, 0, 1);
+  static const warningTextPrimary = Color.fromRGBO(255, 255, 255, 1);
+  static const invertedPrimary = Color.fromRGBO(255, 255, 255, 1);
+  static const invertedTextPrimary = Color.fromRGBO(15, 14, 20, 1);
+
+
 
   //BADGE COLORS
   static const badgeColorInfo = Color.fromRGBO(71, 173, 255, 1);

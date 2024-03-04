@@ -10,7 +10,8 @@ class ButtonScreen extends StatelessWidget {
         appBar: AppBar(),
         body: ListView(
           children: [
-            const Text("Buttons", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text("Buttons",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             Row(
               children: [
@@ -184,7 +185,6 @@ class ButtonScreen extends StatelessWidget {
               ],
             ),
           ],
-        )
-    );
+        ));
   }
 }

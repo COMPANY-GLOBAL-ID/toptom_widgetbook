@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 //TODO() refactor this part to change the button style
 class ButtonDefault extends StatelessWidget {
   const ButtonDefault({

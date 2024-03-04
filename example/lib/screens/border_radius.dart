@@ -12,15 +12,13 @@ class BorderRadiusScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Border radius", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          const Text("Border radius",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 10),
           ...RadiusType.values.map((e) {
             return Column(
               children: [
-                _BorderRadiusWidget(
-                    radius: e.radius,
-                    title: e.toString()
-                ),
+                _BorderRadiusWidget(radius: e.radius, title: e.toString()),
                 const SizedBox(height: 10),
               ],
             );
@@ -30,9 +28,6 @@ class BorderRadiusScreen extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class _BorderRadiusWidget extends StatelessWidget {
   const _BorderRadiusWidget({required this.radius, required this.title});

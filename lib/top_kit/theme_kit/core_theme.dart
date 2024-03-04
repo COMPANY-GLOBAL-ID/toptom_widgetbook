@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 class CoreTheme {
   static final coreTheme = ThemeData(
     useMaterial3: false,
@@ -12,11 +11,11 @@ class CoreTheme {
       secondary: ColorKit.colorTextSecondary,
       background: ColorKit.colorWhite,
       surface: ColorKit.colorWhite,
-      error: ColorKit.colorErrorPrimary,
+      error: ColorKit.errorPrimary,
       onPrimary: ColorKit.colorWhite,
       onSecondary: ColorKit.colorWhite,
       onBackground: ColorKit.colorTextPrimary,
-      onError: ColorKit.colorWhite,
+      onError: ColorKit.errorTextPrimary,
       brightness: Brightness.light,
       onSurface: ColorKit.colorTextPrimary,
     ),
@@ -57,37 +56,25 @@ class CoreTheme {
     //
     inputDecorationTheme: InputDecorationTheme(
       border: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(
-            color: ColorKit.colorStrokePrimary
-        ),
+        borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
       ),
       enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(
-            color: ColorKit.colorStrokePrimary
-        ),
+        borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
       ),
       focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(
-          color: ColorKit.colorMain
-        ),
+        borderSide: const BorderSide(color: ColorKit.colorMain),
       ),
       errorBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-              color: ColorKit.colorErrorPrimary
-          ),
+        borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
       ),
       focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-              color: ColorKit.colorErrorPrimary
-          ),
+        borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
       ),
-      errorStyle: const TextStyle(color: ColorKit.colorErrorPrimary),
+      errorStyle: const TextStyle(color: ColorKit.errorTextPrimary),
       disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-              color: ColorKit.colorOverlaySecondary
-          ),
+        borderSide: const BorderSide(color: ColorKit.colorOverlaySecondary),
       ),
-  ),
+    ),
 
     //
     checkboxTheme: CheckboxThemeData(

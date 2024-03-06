@@ -25,7 +25,7 @@ class ButtonDefault extends StatelessWidget {
 
   //factory
   factory ButtonDefault.defaultXl({
-    required String title,
+    required Widget child,
     required VoidCallback? onPressed,
     Widget? prefixIcon,
     Widget? suffixIcon,
@@ -34,7 +34,9 @@ class ButtonDefault extends StatelessWidget {
         onPressed: onPressed,
         buttonStyle: ButtonStyle(
           padding: PaddingStatesKit.paddingXlSquare,
-          backgroundColor: BackgroundStatesColorKit.defaultStyle,
+          backgroundColor: BackgroundStatesColorKit.acceptStyle,
+          textStyle: MaterialStateProperty.all(TextStylesKit.buttonXl),
+          alignment: Alignment.center
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -45,13 +47,7 @@ class ButtonDefault extends StatelessWidget {
                 width: 16,
               ),
             ],
-            Text(
-              title,
-              style: TextStylesKit.buttonXl.copyWith(
-                color: ColorKit.colorTextSecondary,
-              ),
-              textAlign: TextAlign.start,
-            ),
+            child,
             if (suffixIcon != null) ...[
               const SizedBox(
                 width: 16,

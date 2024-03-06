@@ -131,10 +131,10 @@ class ButtonScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonDefault.defaultXl(
-                        title: 'Button label',
                         onPressed: () {},
                         prefixIcon: const Icon(ToptomIcons.clip_icon),
                         suffixIcon: const Icon(ToptomIcons.clip_icon),
+                        child: Text('Button label'),
                       ),
                       const SizedBox(height: 10),
                       ButtonDefault.defaultL(

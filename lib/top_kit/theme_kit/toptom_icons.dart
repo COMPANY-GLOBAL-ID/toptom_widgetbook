@@ -1015,4 +1015,8 @@ class ToptomIcons {
   static const IconData home_2 = IconData(0xec0e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info = IconData(0xec0f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData search_2 = IconData(0xec11, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData basket_2 = IconData(0xec12, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData category = IconData(0xec13, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData minus = IconData(0xec14, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData order = IconData(0xec15, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

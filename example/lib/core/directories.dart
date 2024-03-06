@@ -1,5 +1,5 @@
-import 'package:widgetbook/widgetbook.dart';
 
+import 'package:widgetbook/widgetbook.dart';
 import '../screens/screens.dart';
 
 final directories = [
@@ -8,7 +8,12 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
           name: 'Border Radius',
-          builder: (context) => const BorderRadiusScreen()),
+          builder: (context) => const BorderRadiusScreen()
+      ),
+      WidgetbookUseCase(
+          name: 'Shadow',
+          builder: (context) => const ShadowScreen()
+      ),
     ],
   ),
   WidgetbookComponent(
@@ -27,7 +32,17 @@ final directories = [
           name: 'Notification',
           builder: (context) => const NotificationScreen()),
       WidgetbookUseCase(
-          name: 'Badge', builder: (context) => const BadgeScreen()),
+          name: 'Status',
+          builder: (context) => const StatusPage()
+      ),
+      WidgetbookUseCase(
+          name: 'Badge',
+          builder: (context) => const BadgeScreen()
+      ),
+      WidgetbookUseCase(
+          name: 'ToolTip',
+          builder: (context) => const ToolTipScreen()
+      ),
     ],
   ),
   WidgetbookComponent(
@@ -40,6 +55,19 @@ final directories = [
       WidgetbookUseCase(
           name: 'Double Input',
           builder: (context) => const DoubleInputScreen()),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'State',
+    useCases: [
+      WidgetbookUseCase(
+          name: 'Stepper',
+          builder: (context) => const StepperPage()
+      ),
+      WidgetbookUseCase(
+          name: 'Sorting',
+          builder: (context) => const SortingPage()
+      ),
     ],
   ),
 ];

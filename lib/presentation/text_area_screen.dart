@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
 
-class TextAreaScreen extends StatelessWidget {
+class TextAreaScreen extends StatefulWidget {
   const TextAreaScreen({super.key});
 
+  @override
+  State<TextAreaScreen> createState() => _TextAreaScreenState();
+}
+
+class _TextAreaScreenState extends State<TextAreaScreen> {
+  bool _switchValue = false;
   @override
   Widget build(BuildContext context) {
     final TextEditingController textEditingController1 = TextEditingController();
@@ -118,6 +124,51 @@ class TextAreaScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8,),
+            ],
+          ),
+          const SizedBox(height: 20,),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              StepperWidget(
+                minusColor: ColorFilter.mode(ColorKit.colorMain,BlendMode.srcIn),
+              ),
+              StepperWidget(
+                minusColor: ColorFilter.mode(ColorKit.colorMain,BlendMode.srcIn),
+              ),
+              StepperWidget(
+                minusColor: ColorFilter.mode(ColorKit.colorMain,BlendMode.srcIn),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              SwitchWidget(
+                switchValue: _switchValue,
+                onChanged: (value) {
+                  setState(() {
+                    _switchValue = value;
+                  });
+                },
+              ),
+              SizedBox(width: 20,),
+              SwitchWidget(
+                switchValue: true,
+              )
+            ],
+          ),
+          const SizedBox(height: 20,),
+          const Row(
+            children: [
+              SwitchWidget(
+                scale: 0.66,
+                switchValue: true,
+              ),
+              SizedBox(width: 20,),
+              SwitchWidget(
+                scale: 0.66,
+                switchValue: false,
+              )
             ],
           ),
         ],

@@ -41,4 +41,11 @@ class TextStylesKit {
     fontWeight: FontWeight.w400,
     height: 20 / 14
   );
+
+  static const titleStyle = TextStyle(
+    fontSize: 24,
+    color: ColorKit.colorTextPrimary,
+    fontWeight: FontWeight.w700,
+    height: 32 / 24,
+  );
 }

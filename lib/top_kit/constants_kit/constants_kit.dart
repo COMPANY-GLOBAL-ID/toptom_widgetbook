@@ -24,6 +24,50 @@ class ConstantsKit {
   // EdgeInsets
   static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
   static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
+
+  // shadow.bottom
+  static const Shadow shadowBottomSmall = Shadow(
+    offset: Offset(0, 2),
+    blurRadius: 4,
+  );
+  static const Shadow shadowBottomMedium = Shadow(
+      offset: Offset(0, 4),
+      blurRadius: 8,
+  );
+  static const Shadow shadowBottomLarge = Shadow(
+      offset: Offset(0, 12),
+      blurRadius: 20,
+  );
+  static const Shadow shadowBottomXLarge = Shadow(
+      offset: Offset(0, 32),
+      blurRadius: 32,
+  );
+  static const Shadow shadowBottomControls = Shadow(
+      offset: Offset(0, 2),
+      blurRadius: 2,
+  );
+
+  // shadow.top
+  static const Shadow shadowTopSmall = Shadow(
+      offset: Offset(0, -2),
+      blurRadius: 4,
+  );
+  static const Shadow shadowTopMedium = Shadow(
+      offset: Offset(0, -4),
+      blurRadius: 8,
+  );
+  static const Shadow shadowTopLarge = Shadow(
+      offset: Offset(0, -12),
+      blurRadius: 20,
+  );
+  static const Shadow shadowTopXLarge = Shadow(
+      offset: Offset(0, -32),
+      blurRadius: 32,
+  );
+  static const Shadow shadowTopControls = Shadow(
+      offset: Offset(0, -2),
+      blurRadius: 2,
+  );
 }
 
 

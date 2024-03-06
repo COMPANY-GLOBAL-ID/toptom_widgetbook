@@ -12,5 +12,9 @@ class IconsKit {
   static const search = 'assets/icons/search.svg';
   static const passwordHide = 'assets/icons/password_hide.svg';
   static const errorIcon = 'assets/icons/error_icon.svg';
-  static const errorExampleIcon = 'example/assets/icons/error_icon.svg';
+  static const plus = 'assets/icons/plus.svg';
+  static const minus = 'assets/icons/minus.svg';
+  static const basket = 'assets/icons/basket.svg';
+  static const category = 'assets/icons/category.svg';
+  static const order = 'assets/icons/order.svg';
 }

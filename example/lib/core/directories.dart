@@ -1,4 +1,5 @@
 
+import 'package:example/screens/shadow.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import '../screens/screens.dart';
@@ -10,6 +11,10 @@ final directories = [
       WidgetbookUseCase(
           name: 'Border Radius',
           builder: (context) => const BorderRadiusScreen()
+      ),
+      WidgetbookUseCase(
+          name: 'Shadow',
+          builder: (context) => const ShadowScreen()
       ),
     ],
   ),
@@ -34,8 +39,16 @@ final directories = [
           builder: (context) => const NotificationScreen()
       ),
       WidgetbookUseCase(
+          name: 'Status',
+          builder: (context) => const StatusPage()
+      ),
+      WidgetbookUseCase(
           name: 'Badge',
           builder: (context) => const BadgeScreen()
+      ),
+      WidgetbookUseCase(
+          name: 'ToolTip',
+          builder: (context) => const ToolTipScreen()
       ),
     ],
   ),
@@ -53,6 +66,19 @@ final directories = [
       WidgetbookUseCase(
           name: 'Double Input',
           builder: (context) => const DoubleInputScreen()
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'State',
+    useCases: [
+      WidgetbookUseCase(
+          name: 'Stepper',
+          builder: (context) => const StepperPage()
+      ),
+      WidgetbookUseCase(
+          name: 'Sorting',
+          builder: (context) => const SortingPage()
       ),
     ],
   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/top_kit/components/status_widget.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
 
@@ -160,6 +161,27 @@ class BadgeScreen extends StatelessWidget {
                 color: ColorKit.badgeColorWarning,
               ),
             ],
+          ),
+          const SizedBox(height: 20,),
+          StatusWidget(
+            svgIcon: IconsKit.basket,
+            onPressed: () {},
+            title: "Корзина пуста",
+            description: "Мы активно работаем над расширением ассортимента, и скоро здесь появятся новые товары. Пожалуйста, следите за обновлениями нашего сайта!",
+          ),
+          const SizedBox(height: 20,),
+          StatusWidget(
+            svgIcon: IconsKit.category,
+            onPressed: () {},
+            title: "В данной категории отсутствуют товары",
+            description: "К сожалению, ваша корзина пуста. Пожалуйста, добавьте товары, чтобы завершить покупку",
+          ),
+          const SizedBox(height: 20,),
+          StatusWidget(
+            svgIcon: IconsKit.order,
+            onPressed: () {},
+            title: "У вас пока что нет заказов :(",
+            description: "Здесь будут отображаться ваши заказы",
           ),
         ],
       ),

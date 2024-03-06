@@ -18,8 +18,8 @@ class BorderRadiusScreen extends StatelessWidget {
             return Column(
               children: [
                 _BorderRadiusWidget(
-                    radius: e.radius,
-                    title: e.toString()
+                  radius: e.radius,
+                  title: e.toString(),
                 ),
                 const SizedBox(height: 10),
               ],
@@ -35,7 +35,10 @@ class BorderRadiusScreen extends StatelessWidget {
 
 
 class _BorderRadiusWidget extends StatelessWidget {
-  const _BorderRadiusWidget({required this.radius, required this.title});
+  const _BorderRadiusWidget({
+    required this.radius,
+    required this.title,
+  });
 
   final String title;
   final double radius;

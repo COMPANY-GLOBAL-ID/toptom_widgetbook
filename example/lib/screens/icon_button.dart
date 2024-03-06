@@ -42,22 +42,22 @@ class _IconButtonScreenState extends State<IconButtonScreen> {
                 child: Column(
                   children: [
                     ButtonIcon.whiteXl(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.whiteL(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.whiteM(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.whiteS(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     )
                   ],
@@ -67,22 +67,22 @@ class _IconButtonScreenState extends State<IconButtonScreen> {
                 child: Column(
                   children: [
                     ButtonIcon.defaultXl(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.defaultL(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.defaultM(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.defaultS(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     )
                   ],
@@ -92,22 +92,22 @@ class _IconButtonScreenState extends State<IconButtonScreen> {
                 child: Column(
                   children: [
                     ButtonIcon.outlineXl(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.outlineL(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.outlineM(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 10),
                     ButtonIcon.outlineS(
-                      assetName: IconsKit.arrowRigth,
+                      icon: ToptomIcons.arrow_right,
                       onPressed: () {},
                     )
                   ],

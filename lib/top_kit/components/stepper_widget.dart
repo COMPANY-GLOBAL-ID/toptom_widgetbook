@@ -3,17 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
 class StepperWidget extends StatefulWidget {
-  final ColorFilter minusColor;
-  final ColorFilter plusColor;
+  final Color minusColor;
+  final Color plusColor;
 
-  const StepperWidget({
-    Key? key,
-    ColorFilter? minusColor,
-    ColorFilter? plusColor,
-  }) :
-        minusColor = minusColor ??  const ColorFilter.mode(ColorKit.colorTextPrimary, BlendMode.srcIn),
-        plusColor = plusColor ??  const ColorFilter.mode(ColorKit.colorTextPrimary, BlendMode.srcIn),
-        super(key: key);
+  const StepperWidget({super.key,
+    this.minusColor = ColorKit.colorTextPrimary,
+    this.plusColor = ColorKit.colorTextPrimary,
+  });
 
   @override
   State<StepperWidget> createState() => _StepperWidgetState();
@@ -49,7 +45,7 @@ class _StepperWidgetState extends State<StepperWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: SvgPicture.asset(IconsKit.minus,colorFilter: widget.minusColor,),
+              icon: Icon(ToptomIcons.remove_small, color: widget.minusColor,),
               onPressed: (){
                 _decrementCounter();
               }
@@ -62,7 +58,7 @@ class _StepperWidgetState extends State<StepperWidget> {
               ),
             ),
             IconButton(
-              icon: SvgPicture.asset(IconsKit.plus,colorFilter: widget.plusColor,),
+              icon: Icon(ToptomIcons.plus, color: widget.plusColor,),
               onPressed: () {
                 _incrementCounter();
               },

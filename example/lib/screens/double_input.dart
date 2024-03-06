@@ -8,11 +8,12 @@ class DoubleInputScreen extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     final title = context.knobs.string(label: "Title");
-    final padding = context.knobs.double.input(label: 'Padding', );
+    final padding = context.knobs.double.input(
+      label: 'Padding',
+    );
 
     final TextEditingController minController1 = TextEditingController();
     final TextEditingController maxController1 = TextEditingController();
@@ -37,7 +38,9 @@ class DoubleInputScreen extends StatelessWidget {
               enabled: true,
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: EdgeInsets.all(padding),
             child: DoubleInput.sizeL(
@@ -48,7 +51,9 @@ class DoubleInputScreen extends StatelessWidget {
               enabled: true,
             ),
           ),
-          const SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: EdgeInsets.all(padding),
             child: DoubleInput.sizeS(

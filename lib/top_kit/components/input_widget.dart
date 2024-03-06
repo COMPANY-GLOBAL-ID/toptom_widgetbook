@@ -23,51 +23,30 @@ class InputWidget extends StatelessWidget {
       decoration: inputDecoration,
     );
   }
+
   factory InputWidget.maxLinesXl({
     required TextEditingController controller,
     String? hintText,
     String? errorText,
     required bool enabled,
-    String? suffixIcon,
-    String? prefixIcon,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
     VoidCallback? onIconPressed,
   }) {
-    Widget? finalSuffixIcon;
-    Widget? finalPrefixIcon;
-    ColorFilter iconColor = const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
+    ColorFilter iconColor =
+        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
 
     if (errorText != null) {
-      iconColor = const ColorFilter.mode(ColorKit.colorErrorPrimary, BlendMode.srcIn);
+      iconColor =
+          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
     }
 
-    finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
-        IconButton(
-          onPressed: onIconPressed,
-          icon: SvgPicture.asset(
-            suffixIcon,
-            height: ConstantsKit.iconLg,
-            width: ConstantsKit.iconLg,
-            colorFilter: iconColor,
-          ),
-        ) : null;
-
-    finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
-        IconButton(
-          onPressed: onIconPressed,
-          icon: SvgPicture.asset(
-            prefixIcon,
-            height: ConstantsKit.iconLg,
-            width: ConstantsKit.iconLg,
-            colorFilter: iconColor,
-          ),
-        ) : null;
-
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary);
 
     return InputWidget(
@@ -79,12 +58,12 @@ class InputWidget extends StatelessWidget {
             color: ColorKit.colorTextPrimary,
           ),
         ),
-        suffixIcon: finalSuffixIcon,
+        suffixIcon: suffixIcon,
         suffixIconConstraints: const BoxConstraints(
           minHeight: ConstantsKit.iconLg,
           minWidth: ConstantsKit.iconLg,
         ),
-        prefixIcon: finalPrefixIcon,
+        prefixIcon: prefixIcon,
         isDense: false,
         hintStyle: finalHintStyle,
         errorStyle: TextStylesKit.errorStyle,
@@ -98,52 +77,29 @@ class InputWidget extends StatelessWidget {
     );
   }
 
-
   factory InputWidget.maxLinesL({
     required TextEditingController controller,
     String? hintText,
     required bool enabled,
-    String? suffixIcon,
-    String? prefixIcon,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
     String? errorText,
     VoidCallback? onIconPressed,
   }) {
-    Widget? finalSuffixIcon;
-    Widget? finalPrefixIcon;
-    ColorFilter iconColor = const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
+    ColorFilter iconColor =
+        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
 
     if (errorText != null) {
-      iconColor = const ColorFilter.mode(ColorKit.colorErrorPrimary, BlendMode.srcIn);
+      iconColor =
+          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
     }
 
-    finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
-        IconButton(
-          onPressed: onIconPressed,
-          icon: SvgPicture.asset(
-            suffixIcon,
-            height: ConstantsKit.iconLg,
-            width: ConstantsKit.iconLg,
-            colorFilter: iconColor,
-          ),
-        ) : null;
-
-    finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
-        IconButton(
-          onPressed: onIconPressed,
-          icon: SvgPicture.asset(
-            prefixIcon,
-            height: ConstantsKit.iconLg,
-            width: ConstantsKit.iconLg,
-            colorFilter: iconColor,
-          ),
-        ): null;
-
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonM.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonM.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextSecondary);
     return InputWidget(
       controller: controller,
@@ -154,9 +110,9 @@ class InputWidget extends StatelessWidget {
             color: ColorKit.colorTextPrimary,
           ),
         ),
-        suffixIcon: finalSuffixIcon,
+        suffixIcon: suffixIcon,
         contentPadding: const EdgeInsets.all(12),
-        prefixIcon: finalPrefixIcon,
+        prefixIcon: prefixIcon,
         isDense: true,
         hintStyle: finalHintStyle,
         errorStyle: TextStylesKit.errorStyle,
@@ -173,54 +129,32 @@ class InputWidget extends StatelessWidget {
     String? hintText,
     required bool enabled,
     required TextEditingController controller,
-    String? suffixIcon,
-    String? prefixIcon,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
     String? errorText,
     VoidCallback? onIconPressed,
   }) {
-    Widget? finalSuffixIcon;
-    Widget? finalPrefixIcon;
-    ColorFilter iconColor = const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
+    ColorFilter iconColor =
+        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
 
     if (errorText != null) {
-      iconColor = const ColorFilter.mode(ColorKit.colorErrorPrimary, BlendMode.srcIn);
+      iconColor =
+          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
     }
 
-    finalSuffixIcon = suffixIcon != null && suffixIcon.isNotEmpty ?
-          IconButton(
-            onPressed: onIconPressed,
-            icon: SvgPicture.asset(
-              suffixIcon,
-              height: ConstantsKit.iconM,
-              width: ConstantsKit.iconM,
-              colorFilter: iconColor,
-            ),
-          ) : null;
-
-    finalPrefixIcon = prefixIcon != null && prefixIcon.isNotEmpty ?
-         IconButton(
-           onPressed: onIconPressed,
-           icon: SvgPicture.asset(
-              prefixIcon,
-              height: ConstantsKit.iconM,
-              width: ConstantsKit.iconM,
-              colorFilter: iconColor,
-           ),
-         ) : null;
-
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
     return InputWidget(
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
         isCollapsed: true,
-        contentPadding: const EdgeInsets.symmetric(vertical: 4,horizontal: 8),
+        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
         focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
@@ -228,31 +162,25 @@ class InputWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-            color: ColorKit.colorStrokePrimary
-          ),
+          borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
           borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         errorBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-              color: ColorKit.colorErrorPrimary
-          ),
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
           borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
-          borderSide: const BorderSide(
-              color: ColorKit.colorErrorPrimary
-          ),
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
           borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
-              color: ColorKit.colorOverlaySecondary,
+            color: ColorKit.colorOverlaySecondary,
           ),
           borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
-        suffixIcon: finalSuffixIcon,
-        prefixIcon: finalPrefixIcon,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         hintStyle: finalHintStyle,
         suffixIconConstraints: const BoxConstraints(
           minHeight: ConstantsKit.iconM,
@@ -276,33 +204,32 @@ class InputWidget extends StatelessWidget {
     );
   }
 
-  factory InputWidget.maxLinesLabelXl({
-    String? labelText,
-    String? hintText,
-    required bool enabled,
-    required TextEditingController controller,
-    String? errorText,
-    VoidCallback? onIconPressed
-  }) {
+  factory InputWidget.maxLinesLabelXl(
+      {String? labelText,
+      String? hintText,
+      required bool enabled,
+      required TextEditingController controller,
+      String? errorText,
+      VoidCallback? onIconPressed,}) {
     Widget? suffixIcon;
 
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
         onPressed: onIconPressed,
-        icon: SvgPicture.asset(
-          IconsKit.errorIcon,
-          height: 20,
-          width: 20,
+        icon: const Icon(
+          ToptomIcons.error_stroke,
+          size: 13.33,
+          color: ColorKit.colorTextSecondary,
         ),
       );
     }
 
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary);
 
     return InputWidget(
@@ -345,20 +272,20 @@ class InputWidget extends StatelessWidget {
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
         onPressed: onIconPressed,
-        icon: SvgPicture.asset(
-          IconsKit.errorIcon,
-          height: 20,
-          width: 20,
+        icon: const Icon(
+          ToptomIcons.error_stroke,
+          size: 13.33,
+          color: ColorKit.colorTextSecondary,
         ),
       );
     }
 
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonM.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonM.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextSecondary);
 
     return InputWidget(
@@ -401,20 +328,20 @@ class InputWidget extends StatelessWidget {
     if (errorText != null && errorText.isEmpty) {
       suffixIcon = IconButton(
         onPressed: onIconPressed,
-        icon: SvgPicture.asset(
-          IconsKit.errorIcon,
-          height: 13.33,
-          width: 13.33,
+        icon: const Icon(
+          ToptomIcons.error_stroke,
+          size: 13.33,
+          color: ColorKit.colorTextSecondary,
         ),
       );
     }
 
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
 
     return InputWidget(
@@ -450,20 +377,17 @@ class InputWidget extends StatelessWidget {
     required bool enabled,
     required TextEditingController controller,
     required String? errorText,
-
   }) {
     Widget? suffixIcon;
     if (errorText != null && errorText.isEmpty) {
-      suffixIcon = SvgPicture.asset(
-        IconsKit.errorIcon,
-      );
+      suffixIcon = Icon(ToptomIcons.eyedropper);
     }
     TextStyle finalTextStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextPrimary);
 
     TextStyle finalHintStyle = errorText != null
-        ? TextStylesKit.buttonS.copyWith(color: ColorKit.colorErrorPrimary)
+        ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
     return InputWidget(
       controller: controller,

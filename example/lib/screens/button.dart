@@ -10,7 +10,8 @@ class ButtonScreen extends StatelessWidget {
         appBar: AppBar(),
         body: ListView(
           children: [
-            const Text("Buttons", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text("Buttons",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
             Row(
               children: [
@@ -130,31 +131,31 @@ class ButtonScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonDefault.defaultXl(
-                        title: 'Button label',
                         onPressed: () {},
-                        prefixIcon: IconsKit.clipIcon,
-                        suffixIcon: IconsKit.clipIcon,
+                        prefixIcon: const Icon(ToptomIcons.clip_icon),
+                        suffixIcon: const Icon(ToptomIcons.clip_icon),
+                        child: Text('Button label'),
                       ),
                       const SizedBox(height: 10),
                       ButtonDefault.defaultL(
                         title: 'Button label',
                         onPressed: () {},
-                        prefixIcon: IconsKit.clipIcon,
-                        suffixIcon: IconsKit.clipIcon,
+                        prefixIcon: const Icon(ToptomIcons.clip_icon),
+                        suffixIcon: const Icon(ToptomIcons.clip_icon),
                       ),
                       const SizedBox(height: 10),
                       ButtonDefault.defaultM(
                         title: 'Button label',
                         onPressed: () {},
-                        prefixIcon: IconsKit.clipIcon,
-                        suffixIcon: IconsKit.clipIcon,
+                        prefixIcon: const Icon(ToptomIcons.clip_icon),
+                        suffixIcon: const Icon(ToptomIcons.clip_icon),
                       ),
                       const SizedBox(height: 10),
                       ButtonDefault.defaultS(
                         title: 'Button label',
                         onPressed: () {},
-                        prefixIcon: IconsKit.clipIcon,
-                        suffixIcon: IconsKit.clipIcon,
+                        prefixIcon: const Icon(ToptomIcons.clip_icon),
+                        suffixIcon: const Icon(ToptomIcons.clip_icon),
                       ),
                     ],
                   ),
@@ -164,17 +165,17 @@ class ButtonScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ButtonIcon.l(
-                        assetName: IconsKit.cross,
+                        icon: ToptomIcons.cross,
                         onPressed: () {},
                       ),
                       const SizedBox(height: 10),
                       ButtonIcon.m(
-                        assetName: IconsKit.cross,
+                        icon: ToptomIcons.cross,
                         onPressed: () {},
                       ),
                       const SizedBox(height: 10),
                       ButtonIcon.s(
-                        assetName: IconsKit.cross,
+                        icon: ToptomIcons.cross,
                         onPressed: () {},
                       ),
                     ],
@@ -184,7 +185,6 @@ class ButtonScreen extends StatelessWidget {
               ],
             ),
           ],
-        )
-    );
+        ));
   }
 }

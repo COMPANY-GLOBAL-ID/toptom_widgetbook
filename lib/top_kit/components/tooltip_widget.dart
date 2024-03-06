@@ -29,10 +29,7 @@ class ToolTipWidget extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: ColorKit.colorOverlayPrimary,
             ),
-              child: SvgPicture.asset(
-                IconsKit.cross,
-                colorFilter: const ColorFilter.mode(ColorKit.colorTextPrimary, BlendMode.srcIn),
-              ),
+              child: Icon(ToptomIcons.cross, color: ColorKit.colorTextPrimary,)
             ),
           )
         ],

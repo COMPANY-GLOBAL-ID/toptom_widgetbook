@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 class BadgeWidget extends StatelessWidget {
   const BadgeWidget({
     super.key,
@@ -28,43 +27,48 @@ class BadgeWidget extends StatelessWidget {
       ),
     );
   }
+
   factory BadgeWidget.primaryM({
     required String statusText,
     required Color color,
-}) => BadgeWidget(
-      color: color,
-      textStyle: TextStylesKit.buttonS,
-      statusText: statusText,
-      padding: ConstantsKit.EdgeInsetsM,
-  );
+  }) =>
+      BadgeWidget(
+        color: color,
+        textStyle: TextStylesKit.buttonS,
+        statusText: statusText,
+        padding: ConstantsKit.EdgeInsetsM,
+      );
 
   factory BadgeWidget.primaryS({
     required String statusText,
     required Color color,
-  }) => BadgeWidget(
-      color: color,
-      textStyle: TextStylesKit.buttonS,
-      statusText: statusText,
-      padding: ConstantsKit.EdgeInsetsS,
-  );
+  }) =>
+      BadgeWidget(
+        color: color,
+        textStyle: TextStylesKit.buttonS,
+        statusText: statusText,
+        padding: ConstantsKit.EdgeInsetsS,
+      );
 
   factory BadgeWidget.secondaryM({
     required String statusText,
     required Color color,
-  }) => BadgeWidget(
-      color: ColorKit.colorBackgroundSecondary,
-      textStyle: TextStylesKit.buttonS.copyWith(color: color),
-      statusText: statusText,
-      padding: ConstantsKit.EdgeInsetsM,
-  );
+  }) =>
+      BadgeWidget(
+        color: ColorKit.colorBackgroundSecondary,
+        textStyle: TextStylesKit.buttonS.copyWith(color: color),
+        statusText: statusText,
+        padding: ConstantsKit.EdgeInsetsM,
+      );
 
   factory BadgeWidget.secondaryS({
     required String statusText,
     required Color color,
-  }) => BadgeWidget(
-      color: ColorKit.colorBackgroundSecondary,
-      textStyle: TextStylesKit.buttonS.copyWith(color: color),
-      statusText: statusText,
-      padding: ConstantsKit.EdgeInsetsS,
-  );
+  }) =>
+      BadgeWidget(
+        color: ColorKit.colorBackgroundSecondary,
+        textStyle: TextStylesKit.buttonS.copyWith(color: color),
+        statusText: statusText,
+        padding: ConstantsKit.EdgeInsetsS,
+      );
 }

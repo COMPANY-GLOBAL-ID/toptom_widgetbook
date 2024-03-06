@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 class ConstantsKit {
-
   //Size
   static const sizeXl = Size(56, 56);
   static const sizeL = Size(48, 48);
   static const sizeM = Size(40, 40);
   static const sizeMs = Size(36, 36);
   static const sizeS = Size(24, 24);
-
 
   // maxLines
   static const maxLinesXl = 4;
@@ -22,7 +19,8 @@ class ConstantsKit {
   static const double iconM = 12;
 
   // EdgeInsets
-  static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
+  static const EdgeInsets EdgeInsetsM =
+      EdgeInsets.symmetric(horizontal: 8, vertical: 4);
   static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
 
   // shadow.bottom
@@ -70,7 +68,6 @@ class ConstantsKit {
   );
 }
 
-
 class _ConstantsKit {
   //Radius
   static const double rdS = 2;
@@ -91,7 +88,6 @@ class _ConstantsKit {
   static const sizeMs = Size(36, 36);
   static const sizeS = Size(24, 24);
 
-
   // maxLines
   static const maxLinesXl = 4;
   static const maxLinesL = 3;
@@ -103,7 +99,8 @@ class _ConstantsKit {
   static const double iconM = 12;
 
   // EdgeInsets
-  static const EdgeInsets EdgeInsetsM = EdgeInsets.symmetric(horizontal: 8,vertical: 4);
+  static const EdgeInsets EdgeInsetsM =
+      EdgeInsets.symmetric(horizontal: 8, vertical: 4);
   static const EdgeInsets EdgeInsetsS = EdgeInsets.symmetric(horizontal: 6);
 }
 
@@ -118,7 +115,7 @@ enum RadiusType {
   rd4Xl,
   rd5Xl,
   rd6Xl;
-  
+
   double get radius {
     switch (this) {
       case RadiusType.rdS:

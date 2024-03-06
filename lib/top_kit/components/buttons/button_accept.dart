@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 class ButtonAccept extends StatelessWidget {
   const ButtonAccept({
     Key? key,

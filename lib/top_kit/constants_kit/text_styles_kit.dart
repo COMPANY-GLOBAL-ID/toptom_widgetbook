@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-
 class TextStylesKit {
   static const buttonXl = TextStyle(
     fontSize: 16,
@@ -27,13 +26,13 @@ class TextStylesKit {
   static const selectedBottomM = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w600,
-    height: 20/12,
+    height: 20 / 12,
   );
 
   static const unSelectedBottomM = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w600,
-    height: 20/12,
+    height: 20 / 12,
   );
 
   static const errorStyle = TextStyle(

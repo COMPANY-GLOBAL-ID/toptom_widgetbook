@@ -295,7 +295,11 @@ class InputPrice extends StatelessWidget {
         filled: !enabled,
         fillColor: !enabled ? ColorKit.colorOverlaySecondary : null,
         border: InputBorder.none,
-        suffix: SvgPicture.asset(IconsKit.tenge),
+        suffix: const Icon(
+          ToptomIcons.error_stroke,
+          size: 13.33,
+          color: ColorKit.colorTextSecondary,
+        ),
         labelStyle: TextStylesKit.buttonXl.copyWith(
           color: ColorKit.colorTextPrimary,
         ),

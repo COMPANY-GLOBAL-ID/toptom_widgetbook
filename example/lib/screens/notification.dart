@@ -29,32 +29,34 @@ class NotificationScreen extends StatelessWidget {
       initialValue: 'Title',
     );
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("Border radius",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            ...SnackBarType.values.map((e) {
-              return ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: e.toBackgroundColor(),
-                  foregroundColor: e.toForegroundColor(),
-                ),
-                onPressed: _show(context, SnackBarOptions(
-                  type: e,
-                  title: title,
-                  message: message,
-                  hasIcon: hasIcon,
-                  hasClose: hasClose,
-                )),
-                child: Text('Show notification ${e.name}'),
-              );
-            }),
+      body: SnackBarScope(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text("Border radius",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              ...SnackBarType.values.map((e) {
+                return ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: e.toBackgroundColor(),
+                    foregroundColor: e.toForegroundColor(),
+                  ),
+                  onPressed: _show(context, SnackBarOptions(
+                    type: e,
+                    title: title,
+                    message: message,
+                    hasIcon: hasIcon,
+                    hasClose: hasClose,
+                  )),
+                  child: Text('Show notification ${e.name}'),
+                );
+              }),
 
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/top_kit/export.dart';
 
-//TODO() refactor this part to change the button style
 class ButtonDefault extends StatelessWidget {
   const ButtonDefault({
     Key? key,
@@ -28,8 +27,8 @@ class ButtonDefault extends StatelessWidget {
   factory ButtonDefault.defaultXl({
     required String title,
     required VoidCallback? onPressed,
-    String? prefixIcon,
-    String? suffixIcon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
   }) =>
       ButtonDefault(
         onPressed: onPressed,
@@ -40,16 +39,8 @@ class ButtonDefault extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (prefixIcon != null && prefixIcon.isNotEmpty) ...[
-              SvgPicture.asset(
-                prefixIcon,
-                height: 17.9,
-                width: 17.6,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+            if (prefixIcon != null) ...[
+              prefixIcon,
               const SizedBox(
                 width: 16,
               ),
@@ -61,19 +52,11 @@ class ButtonDefault extends StatelessWidget {
               ),
               textAlign: TextAlign.start,
             ),
-            if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
+            if (suffixIcon != null) ...[
               const SizedBox(
                 width: 16,
               ),
-              SvgPicture.asset(
-                suffixIcon,
-                height: 17.9,
-                width: 17.6,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+              suffixIcon
             ],
           ],
         ),
@@ -82,8 +65,8 @@ class ButtonDefault extends StatelessWidget {
   factory ButtonDefault.defaultL({
     required String title,
     required VoidCallback? onPressed,
-    String? prefixIcon,
-    String? suffixIcon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
   }) =>
       ButtonDefault(
         onPressed: onPressed,
@@ -94,16 +77,8 @@ class ButtonDefault extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (prefixIcon != null && prefixIcon.isNotEmpty) ...[
-              SvgPicture.asset(
-                prefixIcon,
-                height: 14.73,
-                width: 14.99,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+            if (prefixIcon != null) ...[
+              prefixIcon,
               const SizedBox(
                 width: 14,
               ),
@@ -115,19 +90,11 @@ class ButtonDefault extends StatelessWidget {
               ),
               textAlign: TextAlign.start,
             ),
-            if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
+            if (suffixIcon != null) ...[
               const SizedBox(
                 width: 14,
               ),
-              SvgPicture.asset(
-                suffixIcon,
-                height: 14.73,
-                width: 14.99,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+              suffixIcon
             ],
           ],
         ),
@@ -136,8 +103,8 @@ class ButtonDefault extends StatelessWidget {
   factory ButtonDefault.defaultM({
     required String title,
     required VoidCallback? onPressed,
-    String? prefixIcon,
-    String? suffixIcon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
   }) =>
       ButtonDefault(
         onPressed: onPressed,
@@ -148,16 +115,8 @@ class ButtonDefault extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (prefixIcon != null && prefixIcon.isNotEmpty) ...[
-              SvgPicture.asset(
-                prefixIcon,
-                height: 14.7,
-                width: 14.9,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+            if (prefixIcon != null) ...[
+              prefixIcon,
               const SizedBox(
                 width: 8,
               ),
@@ -169,19 +128,11 @@ class ButtonDefault extends StatelessWidget {
               ),
               textAlign: TextAlign.start,
             ),
-            if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
+            if (suffixIcon != null) ...[
               const SizedBox(
                 width: 8,
               ),
-              SvgPicture.asset(
-                suffixIcon,
-                height: 14.7,
-                width: 14.9,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+              suffixIcon,
             ],
           ],
         ),
@@ -190,8 +141,8 @@ class ButtonDefault extends StatelessWidget {
   factory ButtonDefault.defaultS({
     required String title,
     required VoidCallback? onPressed,
-    String? prefixIcon,
-    String? suffixIcon,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
   }) =>
       ButtonDefault(
         onPressed: onPressed,
@@ -202,16 +153,8 @@ class ButtonDefault extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (prefixIcon != null && prefixIcon.isNotEmpty) ...[
-              SvgPicture.asset(
-                prefixIcon,
-                height: 12,
-                width: 12,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+            if (prefixIcon != null) ...[
+              prefixIcon,
               const SizedBox(
                 width: 4,
               ),
@@ -223,19 +166,11 @@ class ButtonDefault extends StatelessWidget {
               ),
               textAlign: TextAlign.start,
             ),
-            if (suffixIcon != null && suffixIcon.isNotEmpty) ...[
+            if (suffixIcon != null) ...[
               const SizedBox(
                 width: 4,
               ),
-              SvgPicture.asset(
-                suffixIcon,
-                height: 12,
-                width: 12,
-                colorFilter: const ColorFilter.mode(
-                  ColorKit.colorTextSecondary,
-                  BlendMode.srcIn,
-                ),
-              ),
+              suffixIcon
             ],
           ],
         ),

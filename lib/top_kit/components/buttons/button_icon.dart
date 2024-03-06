@@ -5,7 +5,7 @@ import 'package:toptom_widgetbook/top_kit/export.dart';
 class ButtonIcon extends StatelessWidget {
   const ButtonIcon({
     Key? key,
-    required this.assetName,
+    required this.icon,
     required this.onPressed,
     this.sizeButton,
     this.heightIcon,
@@ -14,7 +14,7 @@ class ButtonIcon extends StatelessWidget {
     this.iconColor,
   }) : super(key: key);
 
-  final String assetName;
+  final IconData icon;
   final VoidCallback onPressed;
   final ButtonStyle? buttonStyle;
   final Size? sizeButton;
@@ -27,26 +27,18 @@ class ButtonIcon extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: buttonStyle,
-      child: SvgPicture.asset(
-        assetName,
-        height: heightIcon,
-        width: widthIcon,
-        colorFilter: ColorFilter.mode(
-          iconColor ?? ColorKit.colorGray,
-          BlendMode.srcIn,
-        ),
-      ),
+      child: Icon(icon, size: heightIcon, color: iconColor ?? ColorKit.colorGray,)
     );
   }
 
   //factory
   //closeIcon
   factory ButtonIcon.l({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) =>
       ButtonIcon(
-        assetName: assetName,
+        icon: icon,
         onPressed: onPressed,
         heightIcon: ConstantsKit.iconL,
         widthIcon: ConstantsKit.iconL,
@@ -58,11 +50,11 @@ class ButtonIcon extends StatelessWidget {
       );
 
   factory ButtonIcon.m({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) =>
       ButtonIcon(
-        assetName: assetName,
+        icon: icon,
         onPressed: onPressed,
         heightIcon: ConstantsKit.iconL,
         widthIcon: ConstantsKit.iconL,
@@ -74,11 +66,11 @@ class ButtonIcon extends StatelessWidget {
       );
 
   factory ButtonIcon.s({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) =>
       ButtonIcon(
-        assetName: assetName,
+        icon: icon,
         onPressed: onPressed,
         heightIcon: ConstantsKit.iconS,
         widthIcon: ConstantsKit.iconS,
@@ -91,11 +83,11 @@ class ButtonIcon extends StatelessWidget {
 
   //white
   factory ButtonIcon.whiteXl({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
@@ -108,11 +100,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.whiteL({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
@@ -125,11 +117,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.whiteM({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
@@ -142,11 +134,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.whiteS({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       heightIcon: ConstantsKit.iconS,
       widthIcon: ConstantsKit.iconS,
@@ -161,11 +153,11 @@ class ButtonIcon extends StatelessWidget {
 
   //default button icon
   factory ButtonIcon.defaultXl({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorWhite,
       heightIcon: ConstantsKit.iconL,
@@ -179,11 +171,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.defaultL({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorWhite,
       heightIcon: ConstantsKit.iconL,
@@ -197,11 +189,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.defaultM({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorWhite,
       heightIcon: ConstantsKit.iconL,
@@ -215,11 +207,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.defaultS({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorWhite,
       heightIcon: ConstantsKit.iconS,
@@ -235,11 +227,11 @@ class ButtonIcon extends StatelessWidget {
 
   // icon button outline
   factory ButtonIcon.outlineXl({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorMain,
       heightIcon: ConstantsKit.iconL,
@@ -255,11 +247,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.outlineL({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorMain,
       heightIcon: ConstantsKit.iconL,
@@ -275,11 +267,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.outlineM({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorMain,
       heightIcon: ConstantsKit.iconL,
@@ -295,11 +287,11 @@ class ButtonIcon extends StatelessWidget {
   }
 
   factory ButtonIcon.outlineS({
-    required String assetName,
+    required IconData icon,
     required VoidCallback onPressed,
   }) {
     return ButtonIcon(
-      assetName: assetName,
+      icon: icon,
       onPressed: onPressed,
       iconColor: ColorKit.colorMain,
       heightIcon: ConstantsKit.iconS,

@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../constants_kit/color_kit.dart';
 
@@ -71,8 +72,6 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
   );
 }
 
-
-
 enum SnackBarType {
   defaultType,
   error,
@@ -140,4 +139,22 @@ class SnackBarOptions {
     this.hasIcon = true,
     this.hasClose = false,
   });
+}
+
+class SnackBarScope extends InheritedWidget {
+
+  const SnackBarScope({
+    super.key,
+    required super.child,
+  });
+
+  static show(BuildContext context, SnackBarOptions options) {
+    snackBarBuilder(context, options);
+  }
+
+  @override
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    return false;
+  }
+
 }

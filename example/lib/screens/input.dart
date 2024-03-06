@@ -101,7 +101,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
                 onIconPressed: () {},
               ),
             ),
@@ -114,7 +114,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController2,
                 hintText: 'Search Input',
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
                 onIconPressed: () {},
               ),
             ),
@@ -127,7 +127,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController3,
                 hintText: 'Search Input',
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
                 onIconPressed: null,
               ),
             ),
@@ -150,7 +150,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: '',
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -162,7 +162,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController5,
                 hintText: 'Search Input',
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -174,7 +174,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController6,
                 hintText: 'Search Input',
                 enabled: true,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -193,7 +193,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: false,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -205,7 +205,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: false,
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -217,7 +217,7 @@ class InputScreen extends StatelessWidget {
                 enabled: false,
                 controller: textEditingController9,
                 hintText: 'Search Input',
-                suffixIcon: IconsKit.search,
+                suffixIcon: const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -239,7 +239,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -251,7 +251,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController11,
                 hintText: 'Search Input',
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -263,7 +263,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController12,
                 hintText: 'Search Input',
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -285,7 +285,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: '',
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -297,7 +297,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController14,
                 hintText: 'Search Input',
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -309,7 +309,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController15,
                 hintText: 'Search Input',
                 enabled: true,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -328,7 +328,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: false,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -340,7 +340,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Search Input',
                 errorText: null,
                 enabled: false,
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -352,7 +352,7 @@ class InputScreen extends StatelessWidget {
                 enabled: false,
                 controller: textEditingController18,
                 hintText: 'Search Input',
-                prefixIcon: IconsKit.search,
+                prefixIcon:  const Icon(ToptomIcons.search),
               ),
             ),
             const SizedBox(
@@ -380,7 +380,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Clear Input',
                 errorText: null,
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -392,7 +392,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController20,
                 hintText: 'Clear Input',
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -404,7 +404,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController21,
                 hintText: 'Clear Input',
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -426,7 +426,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Clear Input',
                 errorText: 'The text of the name of the input error',
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -438,7 +438,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController23,
                 hintText: 'Clear Input',
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -450,7 +450,7 @@ class InputScreen extends StatelessWidget {
                 controller: textEditingController24,
                 hintText: 'Clear Input',
                 enabled: true,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -469,7 +469,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Clear Input',
                 errorText: null,
                 enabled: false,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -481,7 +481,7 @@ class InputScreen extends StatelessWidget {
                 hintText: 'Clear Input',
                 errorText: null,
                 enabled: false,
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(
@@ -493,7 +493,7 @@ class InputScreen extends StatelessWidget {
                 enabled: false,
                 controller: textEditingController27,
                 hintText: 'Clear Input',
-                suffixIcon: IconsKit.passwordHide,
+                suffixIcon: const Icon(ToptomIcons.password_hide),
               ),
             ),
             const SizedBox(

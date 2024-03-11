@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/export.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 class ShadowScreen extends StatelessWidget {
   const ShadowScreen({super.key});
@@ -7,7 +7,7 @@ class ShadowScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color shadowColor = Colors.grey.withOpacity(0.2);
-    return  SingleChildScrollView(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,7 +24,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Medium",
                 shadow: BoxShadow(
@@ -33,7 +35,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Large",
                 shadow: BoxShadow(
@@ -42,7 +46,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "XLarge",
                 shadow: BoxShadow(
@@ -51,7 +57,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Controls",
                 shadow: BoxShadow(
@@ -60,7 +68,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
           Column(
@@ -75,7 +85,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Medium",
                 shadow: BoxShadow(
@@ -84,7 +96,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Large",
                 shadow: BoxShadow(
@@ -93,7 +107,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "XLarge",
                 shadow: BoxShadow(
@@ -102,7 +118,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
               _ShadowWidget(
                 title: "Controls",
                 shadow: BoxShadow(
@@ -111,7 +129,9 @@ class ShadowScreen extends StatelessWidget {
                   color: shadowColor,
                 ),
               ),
-              const SizedBox(height: 40,),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ],
@@ -119,7 +139,6 @@ class ShadowScreen extends StatelessWidget {
     );
   }
 }
-
 
 class _ShadowWidget extends StatelessWidget {
   const _ShadowWidget({
@@ -137,7 +156,7 @@ class _ShadowWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorKit.boxBackgroundGrey,
         boxShadow: [shadow],
-        borderRadius: BorderRadius.circular(RadiusType.rdLgS.radius),
+        borderRadius: BorderRadius.circular(RadiusType.rdL.radius),
       ),
       child: Center(
         child: Text(title),

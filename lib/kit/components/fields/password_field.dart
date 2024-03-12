@@ -8,8 +8,8 @@ class ToptomPasswordField extends StatefulWidget {
   final String? label;
   final String? hintText;
   final bool isRequired;
-  final String visibilityIcon;
-  final String visibilityOffIcon;
+  final Widget visibilityIcon;
+  final Widget visibilityOffIcon;
   final bool? enabled;
   final String? errorText;
 
@@ -59,11 +59,9 @@ class _ToptomPasswordFieldState extends State<ToptomPasswordField> {
                   OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               suffixIcon: GestureDetector(
                 onTap: () => setState(() => obscureText = !obscureText),
-                child: SvgPicture.asset(
-                    obscureText
-                        ? widget.visibilityOffIcon
-                        : widget.visibilityIcon,
-                    fit: BoxFit.scaleDown),
+                child: obscureText
+                    ? widget.visibilityOffIcon
+                    : widget.visibilityIcon,
               ),
             ),
           ),

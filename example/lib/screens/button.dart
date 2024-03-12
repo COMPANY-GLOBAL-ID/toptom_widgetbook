@@ -9,18 +9,21 @@ class ButtonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Buttons",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          ...ButtonType.values.map(
-            (type) {
-              return Column(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Buttons",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            ...ButtonType.values.map(
+              (type) {
+                return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -28,18 +31,20 @@ class ButtonScreen extends StatelessWidget {
                       child: Text(
                         type.name,
                         style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Wrap(
-                        children: ButtonColor.values.map(
-                      (color) {
-                        return Wrap(
+                      children: ButtonColor.values.map(
+                        (color) {
+                          return Wrap(
                             alignment: WrapAlignment.spaceBetween,
                             crossAxisAlignment: WrapCrossAlignment.center,
                             children: ButtonSize.values.map(
                               (size) {
-                                return ButtonA(
+                                return ButtonWidget(
                                   size: size,
                                   type: type,
                                   color: color,
@@ -54,14 +59,18 @@ class ButtonScreen extends StatelessWidget {
                                   ),
                                 );
                               },
-                            ).toList());
-                      },
-                    ).toList()),
-                  ]);
-            },
-          ),
-        ],
+                            ).toList(),
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

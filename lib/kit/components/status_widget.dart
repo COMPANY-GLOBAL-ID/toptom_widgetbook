@@ -11,6 +11,7 @@ class StatusWidget extends StatelessWidget {
   final String title;
   final String description;
   final VoidCallback? onPressed;
+
   const StatusWidget({
     super.key,
     required this.icon,
@@ -69,7 +70,7 @@ class StatusWidget extends StatelessWidget {
             SizedBox(height: 16),
             Container(
               width: double.infinity,
-              child: ButtonA(
+              child: ButtonWidget(
                 onPressed: onPressed,
                 child: Text(
                   "Перейти в каталог",

@@ -70,8 +70,6 @@ class ColorKit {
   static const colorOverlayAlpha = Color.fromRGBO(206, 208, 212, 1);
   static const disabledTrackSwitch = Color.fromRGBO(255, 204, 199, 1);
   static const disabledTrackColor = Color.fromRGBO(229, 226, 225, 1);
-
-
 }
 
 class ButtonColorKit {

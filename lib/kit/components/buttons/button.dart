@@ -3,14 +3,14 @@ import 'package:toptom_widgetbook/kit/constants_kit/color_kit.dart';
 
 import '../../constants_kit/material_states_property/padding_states_kit.dart';
 
-class ButtonA extends StatelessWidget {
+class ButtonWidget extends StatelessWidget {
   final Widget child;
   final ButtonSize size;
   final ButtonType type;
   final ButtonColor color;
   final VoidCallback? onPressed;
 
-  const ButtonA({
+  const ButtonWidget({
     Key? key,
     this.size = ButtonSize.m,
     this.type = ButtonType.primary,

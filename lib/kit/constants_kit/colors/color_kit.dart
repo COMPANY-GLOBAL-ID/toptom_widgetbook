@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+part 'button_color_kit.dart';
+
 class ColorKit {
   static const ButtonColorKit buttonColor = ButtonColorKit(
     accent: Color.fromRGBO(250, 77, 30, 1),
@@ -64,74 +66,10 @@ class ColorKit {
   static const pressBlackButtonColor = Color.fromRGBO(0, 0, 0, 1);
   static const focusedButtonGhost = Color.fromRGBO(255, 202, 188, 1);
   static const pressButtonGhost = Color.fromRGBO(255, 182, 161, 1);
-  static const deafautButtonPrimary = Color.fromRGBO(233, 233, 237, 1);
+  static const defaultButtonPrimary = Color.fromRGBO(233, 233, 237, 1);
   static const defaultFocusColor = Color.fromRGBO(220, 220, 224, 1);
   static const closePressColor = Color.fromRGBO(0, 0, 0, 1);
   static const colorOverlayAlpha = Color.fromRGBO(206, 208, 212, 1);
   static const disabledTrackSwitch = Color.fromRGBO(255, 204, 199, 1);
   static const disabledTrackColor = Color.fromRGBO(229, 226, 225, 1);
-}
-
-class ButtonColorKit {
-  final Color accent;
-  final Color accentHover;
-  final Color accentActive;
-  final Color accentText;
-  final Color accentGhostHover;
-  final Color black;
-  final Color blackHover;
-  final Color blackActive;
-  final Color blackText;
-  final Color blackGhostHover;
-  final Color defaultButtonHover;
-  final Color disable;
-  final Color disableText;
-
-  const ButtonColorKit({
-    required this.accent,
-    required this.accentHover,
-    required this.accentActive,
-    required this.accentText,
-    required this.accentGhostHover,
-    required this.black,
-    required this.blackHover,
-    required this.blackActive,
-    required this.blackText,
-    required this.blackGhostHover,
-    required this.defaultButtonHover,
-    required this.disable,
-    required this.disableText,
-  });
-
-  ButtonColorKit copyWith({
-    Color? accent,
-    Color? accentHover,
-    Color? accentActive,
-    Color? accentText,
-    Color? accentGhostHover,
-    Color? black,
-    Color? blackHover,
-    Color? blackActive,
-    Color? blackText,
-    Color? blackGhostHover,
-    Color? defaultButtonHover,
-    Color? disable,
-    Color? disableText,
-  }) {
-    return ButtonColorKit(
-      accent: accent ?? this.accent,
-      accentHover: accentHover ?? this.accentHover,
-      accentActive: accentActive ?? this.accentActive,
-      accentText: accentText ?? this.accentText,
-      accentGhostHover: accentGhostHover ?? this.accentGhostHover,
-      black: black ?? this.black,
-      blackHover: blackHover ?? this.blackHover,
-      blackActive: blackActive ?? this.blackActive,
-      blackText: blackText ?? this.blackText,
-      blackGhostHover: blackGhostHover ?? this.blackGhostHover,
-      defaultButtonHover: defaultButtonHover ?? this.defaultButtonHover,
-      disable: disable ?? this.disable,
-      disableText: disableText ?? this.disableText,
-    );
-  }
 }

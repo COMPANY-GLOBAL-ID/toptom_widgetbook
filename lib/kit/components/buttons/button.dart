@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/constants_kit/color_kit.dart';
+import 'package:toptom_widgetbook/kit/constants_kit/colors/color_kit.dart';
 
 import '../../constants_kit/material_states_property/padding_states_kit.dart';
 

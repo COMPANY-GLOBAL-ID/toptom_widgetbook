@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../constants_kit/color_kit.dart';
+import '../constants_kit/colors/color_kit.dart';
 
 snackBarBuilder(BuildContext context, SnackBarOptions options) {
   ScaffoldMessenger.of(context).showSnackBar(

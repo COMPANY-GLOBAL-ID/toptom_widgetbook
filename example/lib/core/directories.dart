@@ -1,15 +1,23 @@
 import 'package:widgetbook/widgetbook.dart';
 import '../screens/screens.dart';
+import '../screens/typography_screen.dart';
 
 final directories = [
   WidgetbookComponent(
     name: 'Styled',
     useCases: [
       WidgetbookUseCase(
-          name: 'Border Radius',
-          builder: (context) => const BorderRadiusScreen()),
+        name: 'Border Radius',
+        builder: (context) => const BorderRadiusScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Shadow', builder: (context) => const ShadowScreen()),
+        name: 'Shadow',
+        builder: (context) => const ShadowScreen(),
+      ),
+      WidgetbookUseCase(
+        name: 'Typography',
+        builder: (context) => const TypographyScreen(),
+      ),
     ],
   ),
   WidgetbookComponent(

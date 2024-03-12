@@ -56,7 +56,7 @@ class BackgroundStatesColorKit {
       if (states.contains(MaterialState.disabled)) {
         return ColorKit.colorStrokePrimary;
       }
-      return ColorKit.deafautButtonPrimary;
+      return ColorKit.defaultButtonPrimary;
     },
   );
 

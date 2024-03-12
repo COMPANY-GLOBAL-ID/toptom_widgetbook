@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'top_field.dart';
 
@@ -37,7 +36,10 @@ class _ToptomPasswordFieldState extends State<ToptomPasswordField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.label != null) ...[
-          TopField(label: widget.label!, isRequired: widget.isRequired),
+          TopField(
+            label: widget.label!,
+            isRequired: widget.isRequired,
+          ),
           const SizedBox(height: 5),
         ],
         SizedBox(
@@ -49,12 +51,17 @@ class _ToptomPasswordFieldState extends State<ToptomPasswordField> {
             decoration: InputDecoration(
               errorText: widget.errorText,
               hintText: widget.hintText,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 0,
+              ),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(
-                      color: Color.fromRGBO(232, 232, 232, 1), width: 1.5)),
+                borderRadius: BorderRadius.circular(8),
+                borderSide: const BorderSide(
+                  color: Color.fromRGBO(232, 232, 232, 1),
+                  width: 1.5,
+                ),
+              ),
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               suffixIcon: GestureDetector(

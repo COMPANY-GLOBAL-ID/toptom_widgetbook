@@ -4,7 +4,11 @@ class TopField extends StatelessWidget {
   final String label;
   final bool isRequired;
 
-  const TopField({super.key, required this.label, required this.isRequired});
+  const TopField({
+    super.key,
+    required this.label,
+    required this.isRequired,
+  });
 
   @override
   Widget build(BuildContext context) {

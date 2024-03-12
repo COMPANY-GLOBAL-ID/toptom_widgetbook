@@ -7,6 +7,7 @@ class SearchField extends StatelessWidget {
   final Function(String) onSubmit;
   final dynamic Function() onClear;
   final String? hint;
+  final String? errorText;
 
   const SearchField({
     super.key,
@@ -14,6 +15,7 @@ class SearchField extends StatelessWidget {
     required this.onSubmit,
     required this.onClear,
     this.hint,
+    this.errorText,
   });
 
   @override
@@ -26,6 +28,7 @@ class SearchField extends StatelessWidget {
       hintText: hint,
       controller: controller,
       onSubmit: onSubmit,
+      errorText: errorText,
       suffixIcon: ValueListenableBuilder(
         valueListenable: controller,
         builder: (context, value, child) => value.text.isEmpty

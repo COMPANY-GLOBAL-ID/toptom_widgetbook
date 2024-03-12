@@ -6,6 +6,7 @@ class ToptomDescriptionField extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
+  final String? errorText;
   final bool isRequired;
   final int? maxLength;
   final Color? color;
@@ -22,6 +23,7 @@ class ToptomDescriptionField extends StatelessWidget {
     this.color,
     this.hintStyle,
     this.enabled,
+    this.errorText,
   });
 
   @override
@@ -39,6 +41,7 @@ class ToptomDescriptionField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: hintStyle,
+          errorText: errorText,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           enabledBorder: OutlineInputBorder(

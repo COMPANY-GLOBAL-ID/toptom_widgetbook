@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'top_field.dart';
 
-class ToptomTextField extends StatefulWidget {
+class ToptomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
+  final String? errorText;
   final bool isRequired;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -13,41 +14,39 @@ class ToptomTextField extends StatefulWidget {
   final int? maxLength;
   final bool? enabled;
 
-  const ToptomTextField(
-      {super.key,
-      this.controller,
-      this.label,
-      this.isRequired = false,
-      this.suffixIcon,
-      this.prefixIcon,
-      this.onSubmit,
-      this.hintText,
-      this.maxLength,
-      this.enabled});
+  const ToptomTextField({
+    super.key,
+    this.controller,
+    this.label,
+    this.isRequired = false,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.onSubmit,
+    this.hintText,
+    this.maxLength,
+    this.enabled,
+    this.errorText,
+  });
 
-  @override
-  State<ToptomTextField> createState() => _ToptomTextFieldState();
-}
-
-class _ToptomTextFieldState extends State<ToptomTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.label != null) ...[
-          TopField(label: widget.label!, isRequired: widget.isRequired),
+        if (label != null) ...[
+          TopField(label: label!, isRequired: isRequired),
           const SizedBox(height: 5)
         ],
         TextField(
-          enabled: widget.enabled,
-          onSubmitted: widget.onSubmit,
-          controller: widget.controller,
-          maxLength: widget.maxLength,
+          enabled: enabled,
+          onSubmitted: onSubmit,
+          controller: controller,
+          maxLength: maxLength,
           decoration: InputDecoration(
-            prefixIcon: widget.prefixIcon,
-            suffixIcon: widget.suffixIcon,
-            hintText: widget.hintText,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+            hintText: hintText,
+            errorText: errorText,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             enabledBorder: OutlineInputBorder(

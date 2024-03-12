@@ -7,22 +7,27 @@ class ToptomNumberField extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
+  final String? errorText;
   final bool isRequired;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Function(String)? onSubmit;
   final bool? enabled;
+  final int? maxLength;
 
-  const ToptomNumberField(
-      {super.key,
-      this.controller,
-      this.label,
-      this.isRequired = false,
-      this.suffixIcon,
-      this.onSubmit,
-      this.prefixIcon,
-      this.hintText,
-      this.enabled});
+  const ToptomNumberField({
+    super.key,
+    this.controller,
+    this.label,
+    this.isRequired = false,
+    this.suffixIcon,
+    this.onSubmit,
+    this.prefixIcon,
+    this.hintText,
+    this.enabled,
+    required this.maxLength,
+    this.errorText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,22 +44,26 @@ class ToptomNumberField extends StatelessWidget {
             onSubmitted: onSubmit,
             controller: controller,
             keyboardType: TextInputType.number,
+            maxLength: maxLength,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: InputDecoration(
               prefix: Padding(
                 padding: const EdgeInsets.only(right: 5),
                 child: prefixIcon,
               ),
+              errorText: errorText,
               suffix: suffixIcon,
               hintText: hintText,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(
-                      color: Color.fromRGBO(232, 232, 232, 1), width: 1.5)),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(8),
+                borderSide: const BorderSide(
+                    color: Color.fromRGBO(232, 232, 232, 1), width: 1.5),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
           ),
         ),

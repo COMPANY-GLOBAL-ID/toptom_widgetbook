@@ -8,12 +8,13 @@ class SearchField extends StatelessWidget {
   final dynamic Function() onClear;
   final String? hint;
 
-  const SearchField(
-      {super.key,
-      required this.controller,
-      required this.onSubmit,
-      required this.onClear,
-      this.hint});
+  const SearchField({
+    super.key,
+    required this.controller,
+    required this.onSubmit,
+    required this.onClear,
+    this.hint,
+  });
 
   @override
   Widget build(BuildContext context) {

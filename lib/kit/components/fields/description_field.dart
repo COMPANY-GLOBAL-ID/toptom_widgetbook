@@ -47,8 +47,9 @@ class ToptomDescriptionField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(
-                  color: color ?? const Color.fromRGBO(232, 232, 232, 1),
-                  width: 1.5)),
+                  width: 1.5
+              ),
+          ),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         ),
       )

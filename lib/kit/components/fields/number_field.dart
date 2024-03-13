@@ -25,7 +25,7 @@ class ToptomNumberField extends StatelessWidget {
     this.prefixIcon,
     this.hintText,
     this.enabled,
-    required this.maxLength,
+    this.maxLength,
     this.errorText,
   });
 

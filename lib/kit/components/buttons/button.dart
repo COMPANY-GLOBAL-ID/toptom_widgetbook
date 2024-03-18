@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/constants_kit/colors/color_kit.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 import '../../constants_kit/material_states_property/padding_states_kit.dart';
 
@@ -26,34 +27,39 @@ class ButtonWidget extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled))
-              return type.backgroundDisable;
-            return type.background(color);
+            if (states.contains(MaterialState.disabled)) {
+              return type.backgroundDisable(color , context);
+            }
+            return type.background(color ,context);
           }),
           foregroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled))
-              return type.foregroundDisable;
-            if (states.contains(MaterialState.pressed))
-              return type.foregroundPressed(color);
-            return type.foreground(color);
+            if (states.contains(MaterialState.disabled)) {
+              return type.foregroundDisable(color , context);
+            }
+            if (states.contains(MaterialState.pressed)) {
+              return type.foregroundPressed(color,context);
+            }
+            return type.foreground(color , context);
           }),
           overlayColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed))
-              return type.backgroundPressed(color);
-            if (states.contains(MaterialState.disabled))
+            if (states.contains(MaterialState.pressed)) {
+              return type.backgroundPressed(color , context);
+            }
+            if (states.contains(MaterialState.disabled)) {
               return Colors.transparent;
+            }
             return Colors.transparent;
           }),
           shape: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
             late Color foregroundColor;
             if (states.contains(MaterialState.pressed)) {
-              foregroundColor = type.borderColorPressed(color);
+              foregroundColor = type.borderColorPressed(color ,context);
             } else if (states.contains(MaterialState.disabled)) {
-              foregroundColor = type.disableBorderColor;
+              foregroundColor = type.disableBorderColor(color , context );
             } else {
-              foregroundColor = type.borderColor(color);
+              foregroundColor = type.borderColor(color,context);
             }
 
             return RoundedRectangleBorder(
@@ -66,11 +72,13 @@ class ButtonWidget extends StatelessWidget {
           }),
           iconColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-            if (states.contains(MaterialState.disabled))
-              return type.foregroundDisable;
-            if (states.contains(MaterialState.pressed))
-              return type.foregroundPressed(color);
-            return type.foreground(color);
+            if (states.contains(MaterialState.disabled)) {
+              return type.foregroundDisable(color , context);
+            }
+            if (states.contains(MaterialState.pressed)) {
+              return type.foregroundPressed(color , context);
+            }
+            return type.foreground(color,context);
           }),
           iconSize: MaterialStatePropertyAll<double>(size.iconSize()),
           shadowColor:
@@ -88,11 +96,12 @@ enum ButtonType {
   ghost,
   defaultButton;
 
-  Color background(ButtonColor color) {
+  Color background(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
     return switch (this) {
       ButtonType.primary => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
       ButtonType.outlined => Colors.transparent,
       ButtonType.ghost => Colors.transparent,
@@ -100,112 +109,130 @@ enum ButtonType {
     };
   }
 
-  Color backgroundPressed(ButtonColor color) {
+  Color backgroundPressed(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
       ButtonType.primary => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentHover,
-          ButtonColor.black => ColorKit.buttonColor.blackHover,
+          ButtonColor.primary => colorTheme.buttonColor.accentHover,
+          ButtonColor.black => colorTheme.buttonColor.blackHover,
         },
       ButtonType.outlined => Colors.transparent,
       ButtonType.ghost => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentGhostHover,
-          ButtonColor.black => ColorKit.buttonColor.blackGhostHover,
+          ButtonColor.primary => colorTheme.buttonColor.accentGhostHover,
+          ButtonColor.black => colorTheme.buttonColor.blackGhostHover,
         },
       ButtonType.defaultButton => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.defaultButtonHover,
-          ButtonColor.black => ColorKit.buttonColor.defaultButtonHover,
+          ButtonColor.primary => colorTheme.buttonColor.defaultButtonHover,
+          ButtonColor.black => colorTheme.buttonColor.defaultButtonHover,
         },
     };
   }
 
-  Color get backgroundDisable {
+  Color  backgroundDisable(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
-      ButtonType.primary => ColorKit.buttonColor.disable,
+      ButtonType.primary => colorTheme.buttonColor.disable,
       ButtonType.outlined => Colors.transparent,
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,
     };
   }
 
-  Color foreground(ButtonColor color) {
+  Color foreground(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
       ButtonType.primary => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentText,
-          ButtonColor.black => ColorKit.buttonColor.blackText,
+          ButtonColor.primary => colorTheme.buttonColor.accentText,
+          ButtonColor.black => colorTheme.buttonColor.blackText,
         },
       ButtonType.outlined => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
       ButtonType.ghost => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
       ButtonType.defaultButton => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
     };
   }
 
-  Color foregroundPressed(ButtonColor color) {
+  Color foregroundPressed(ButtonColor color , BuildContext context) {
+
+    final colorTheme = ThemeCore.of(context).color;
     return switch (this) {
       ButtonType.primary => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentText,
-          ButtonColor.black => ColorKit.buttonColor.blackText,
+        
+          ButtonColor.primary => colorTheme.buttonColor.accentText,
+          ButtonColor.black => colorTheme.buttonColor.blackText,
         },
       ButtonType.outlined => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentHover,
-          ButtonColor.black => ColorKit.buttonColor.blackHover,
+          ButtonColor.primary => colorTheme.buttonColor.accentHover,
+          ButtonColor.black => colorTheme.buttonColor.blackHover,
         },
       ButtonType.ghost => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
       ButtonType.defaultButton => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
     };
   }
 
-  Color get foregroundDisable {
+  Color  foregroundDisable(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
-      ButtonType.primary => ColorKit.buttonColor.disableText,
-      ButtonType.outlined => ColorKit.buttonColor.disable,
-      ButtonType.ghost => ColorKit.buttonColor.disable,
-      ButtonType.defaultButton => ColorKit.buttonColor.disable,
+      ButtonType.primary => colorTheme.buttonColor.disableText,
+      ButtonType.outlined => colorTheme.buttonColor.disable,
+      ButtonType.ghost => colorTheme.buttonColor.disable,
+      ButtonType.defaultButton => colorTheme.buttonColor.disable,
     };
   }
 
-  Color borderColor(ButtonColor color) {
+  Color borderColor(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
       ButtonType.primary => Colors.transparent,
-      ButtonType.outlined => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accent,
-          ButtonColor.black => ColorKit.buttonColor.black,
+      ButtonType.outlined => switch (color) 
+      {
+          ButtonColor.primary => colorTheme.buttonColor.accent,
+          ButtonColor.black => colorTheme.buttonColor.black,
         },
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,
     };
   }
 
-  Color borderColorPressed(ButtonColor color) {
+  Color borderColorPressed(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
       ButtonType.primary => Colors.transparent,
       ButtonType.outlined => switch (color) {
-          ButtonColor.primary => ColorKit.buttonColor.accentHover,
-          ButtonColor.black => ColorKit.buttonColor.blackHover,
+          ButtonColor.primary => colorTheme.buttonColor.accentHover,
+          ButtonColor.black => colorTheme.buttonColor.blackHover,
         },
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,
     };
   }
 
-  Color get disableBorderColor {
+  Color  disableBorderColor(ButtonColor color ,BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     return switch (this) {
       ButtonType.primary => Colors.transparent,
-      ButtonType.outlined => ColorKit.buttonColor.disable,
+      ButtonType.outlined => colorTheme.buttonColor.disable,
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,
     };
@@ -262,30 +289,37 @@ enum ButtonColor {
   primary,
   black;
 
-  Color get background {
+  Color  background(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     switch (this) {
       case ButtonColor.primary:
-        return ColorKit.buttonColor.accent;
+        return colorTheme.buttonColor.accent;
       case ButtonColor.black:
-        return ColorKit.buttonColor.black;
+        return colorTheme.buttonColor.black;
     }
   }
 
-  Color get backgroundPressed {
+  Color  backgroundPressed(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     switch (this) {
+      
       case ButtonColor.primary:
-        return ColorKit.buttonColor.accentActive;
+        return colorTheme.buttonColor.accentActive;
       case ButtonColor.black:
-        return ColorKit.buttonColor.blackActive;
+        return colorTheme.buttonColor.blackActive;
     }
   }
 
-  Color get foreground {
+  Color  foreground(ButtonColor color , BuildContext context) {
+    final colorTheme = ThemeCore.of(context).color;
+
     switch (this) {
       case ButtonColor.primary:
-        return ColorKit.buttonColor.accentText;
+        return colorTheme.buttonColor.accentText;
       case ButtonColor.black:
-        return ColorKit.buttonColor.blackText;
+        return colorTheme.buttonColor.blackText;
     }
   }
 }

@@ -106,6 +106,7 @@ enum SizeKit {
 
 class RadiusKit {
   final double small;
+  final double small2;
   final double medium;
   final double large;
   final double extraLarge;
@@ -117,6 +118,7 @@ class RadiusKit {
 
   const RadiusKit({
     this.small = 2,
+    this.small2=3,
     this.medium = 4,
     this.large = 6,
     this.extraLarge = 8,
@@ -129,6 +131,7 @@ class RadiusKit {
 
   RadiusKit copyWith({
     double? small,
+    double? small2,
     double? medium,
     double? large,
     double? extraLarge,
@@ -140,6 +143,7 @@ class RadiusKit {
   }) {
     return RadiusKit(
       small: small ?? this.small,
+      small2: small2??this.small2,
       medium: medium ?? this.medium,
       large: large ?? this.large,
       extraLarge: extraLarge ?? this.extraLarge,
@@ -153,6 +157,7 @@ class RadiusKit {
 
   List<double> get values => [
         small,
+        small2,
         medium,
         large,
         extraLarge,

@@ -22,7 +22,7 @@ class WidgetbookApp extends StatelessWidget {
           themeBuilder: (context, theme, child) {
             // Wrap use cases with the custom theme's InheritedWidget
             return Theme(
-              data: theme,
+              data: ThemeDataCore,
               child: child,
             );
           },

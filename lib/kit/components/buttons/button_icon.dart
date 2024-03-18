@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
@@ -139,6 +141,7 @@ class ButtonIcon extends StatelessWidget {
   factory ButtonIcon.whiteS({
     required IconData icon,
     required VoidCallback onPressed,
+    required BuildContext context
   }) {
     return ButtonIcon(
       icon: icon,
@@ -146,7 +149,7 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconS,
       widthIcon: ConstantsKit.iconS,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultM),
+        shape: MaterialStatePropertyAll(ThemeCore.of(context).border.borderDefaultM),
         backgroundColor: BackgroundStatesColorKit.iconButtonWhite,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeS),
         padding: PaddingStatesKit.paddingSSquare,
@@ -212,6 +215,8 @@ class ButtonIcon extends StatelessWidget {
   factory ButtonIcon.defaultS({
     required IconData icon,
     required VoidCallback onPressed,
+        required BuildContext context
+    
   }) {
     return ButtonIcon(
       icon: icon,
@@ -220,7 +225,7 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconS,
       widthIcon: ConstantsKit.iconS,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultM),
+        shape: MaterialStatePropertyAll(ThemeCore.of(context).border.borderDefaultM),
         backgroundColor: BackgroundStatesColorKit.iconButtonDefault,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeS),
         padding: PaddingStatesKit.paddingSSquare,
@@ -232,6 +237,8 @@ class ButtonIcon extends StatelessWidget {
   factory ButtonIcon.outlineXl({
     required IconData icon,
     required VoidCallback onPressed,
+        required BuildContext context
+
   }) {
     return ButtonIcon(
       icon: icon,
@@ -240,7 +247,7 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultLg),
+        shape: MaterialStatePropertyAll(ThemeCore.of(context).border.borderDefaultLg),
         backgroundColor: BackgroundStatesColorKit.iconOutlineColor,
         side: SideStatesKit.outlineIconSideStyle,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeXl),
@@ -252,6 +259,8 @@ class ButtonIcon extends StatelessWidget {
   factory ButtonIcon.outlineL({
     required IconData icon,
     required VoidCallback onPressed,
+        required BuildContext context
+
   }) {
     return ButtonIcon(
       icon: icon,
@@ -260,7 +269,7 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultLg),
+        shape: MaterialStatePropertyAll(ThemeCore.of(context).border.borderDefaultLg),
         backgroundColor: BackgroundStatesColorKit.iconOutlineColor,
         side: SideStatesKit.outlineIconSideStyle,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeL),
@@ -272,6 +281,7 @@ class ButtonIcon extends StatelessWidget {
   factory ButtonIcon.outlineM({
     required IconData icon,
     required VoidCallback onPressed,
+    required BuildContext context
   }) {
     return ButtonIcon(
       icon: icon,
@@ -280,7 +290,7 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconL,
       widthIcon: ConstantsKit.iconL,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultLg),
+        shape: MaterialStatePropertyAll(ThemeCore.of(context).border.borderDefaultLg),
         backgroundColor: BackgroundStatesColorKit.iconOutlineColor,
         side: SideStatesKit.outlineIconSideStyle,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeMs),
@@ -289,10 +299,10 @@ class ButtonIcon extends StatelessWidget {
     );
   }
 
-  factory ButtonIcon.outlineS({
-    required IconData icon,
-    required VoidCallback onPressed,
-  }) {
+  factory ButtonIcon.outlineS(
+      {required IconData icon,
+      required VoidCallback onPressed,
+      required BuildContext context}) {
     return ButtonIcon(
       icon: icon,
       onPressed: onPressed,
@@ -300,7 +310,8 @@ class ButtonIcon extends StatelessWidget {
       heightIcon: ConstantsKit.iconS,
       widthIcon: ConstantsKit.iconS,
       buttonStyle: ButtonStyle(
-        shape: MaterialStatePropertyAll(BorderKit.borderDefaultM),
+        shape: MaterialStatePropertyAll(
+            ThemeCore.of(context).border.borderDefaultM),
         backgroundColor: BackgroundStatesColorKit.iconOutlineColor,
         side: SideStatesKit.outlineIconSideStyle,
         minimumSize: const MaterialStatePropertyAll(ConstantsKit.sizeS),

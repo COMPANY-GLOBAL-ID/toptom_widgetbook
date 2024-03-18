@@ -2,98 +2,102 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class CoreTheme {
-  static final coreTheme = ThemeData(
-    useMaterial3: false,
-    fontFamily: 'NotoSans-Regular',
-    scaffoldBackgroundColor: ColorKit.colorWhite,
-    colorScheme: const ColorScheme(
-      primary: ColorKit.colorMain,
-      secondary: ColorKit.colorTextSecondary,
-      background: ColorKit.colorWhite,
-      surface: ColorKit.colorWhite,
-      error: ColorKit.errorPrimary,
-      onPrimary: ColorKit.colorWhite,
-      onSecondary: ColorKit.colorWhite,
-      onBackground: ColorKit.colorTextPrimary,
-      onError: ColorKit.errorTextPrimary,
-      brightness: Brightness.light,
-      onSurface: ColorKit.colorTextPrimary,
-    ),
+  static ThemeData coreTheme(BuildContext context) {
+    final themeCore = ThemeCore.of(context);
 
-    //
-    appBarTheme: const AppBarTheme(
-      elevation: 0,
-      backgroundColor: ColorKit.colorWhite,
-    ),
+    return ThemeData(
+      useMaterial3: false,
+      fontFamily: 'NotoSans-Regular',
+      scaffoldBackgroundColor: ColorKit.colorWhite,
+      colorScheme: const ColorScheme(
+        primary: ColorKit.colorMain,
+        secondary: ColorKit.colorTextSecondary,
+        background: ColorKit.colorWhite,
+        surface: ColorKit.colorWhite,
+        error: ColorKit.errorPrimary,
+        onPrimary: ColorKit.colorWhite,
+        onSecondary: ColorKit.colorWhite,
+        onBackground: ColorKit.colorTextPrimary,
+        onError: ColorKit.errorTextPrimary,
+        brightness: Brightness.light,
+        onSurface: ColorKit.colorTextPrimary,
+      ),
 
-    //
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ButtonStyle(
-        shape: BorderKit.borderDefault,
-        backgroundColor: BackgroundStatesColorKit.blackStyle,
+      //
+      appBarTheme: const AppBarTheme(
+        elevation: 0,
+        backgroundColor: ColorKit.colorWhite,
       ),
-    ),
 
-    //
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ButtonStyle(
-        overlayColor: const MaterialStatePropertyAll(Colors.transparent),
-        backgroundColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
-        textStyle: TextStyleStatesKit.outlineTextStyle,
-        shape: BorderKit.borderDefault,
-        side: SideStatesKit.outlineSideStyle,
+      //
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          shape:MaterialStateProperty.all<RoundedRectangleBorder>(themeCore.border.borderDefaultM),
+          backgroundColor: BackgroundStatesColorKit.blackStyle,
+        ),
       ),
-    ),
 
-    //
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        shape: BorderKit.borderDefault,
-        overlayColor: BackgroundStatesColorKit.textButtonOverlayStyle,
+      //
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: ButtonStyle(
+          overlayColor: const MaterialStatePropertyAll(Colors.transparent),
+          backgroundColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
+          textStyle: TextStyleStatesKit.outlineTextStyle,
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(themeCore.border.borderDefaultM),
+          side: SideStatesKit.outlineSideStyle,
+        ),
       ),
-    ),
 
-    //
-    inputDecorationTheme: InputDecorationTheme(
-      border: BorderKit().defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
+      //
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(themeCore.border.borderDefaultM),
+          overlayColor: BackgroundStatesColorKit.textButtonOverlayStyle,
+        ),
       ),
-      enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
-      ),
-      focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.colorMain),
-      ),
-      errorBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
-      ),
-      focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
-      ),
-      errorStyle: const TextStyle(color: ColorKit.errorTextPrimary),
-      disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
-        borderSide: const BorderSide(color: ColorKit.colorOverlaySecondary),
-      ),
-    ),
 
-    //
-    checkboxTheme: CheckboxThemeData(
-      checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
-      fillColor: BackgroundStatesColorKit.checkboxFillColor,
-      shape: BorderKit.borderDefaultS,
-      side: SideStatesKit.sideKit,
-    ),
+      //z
+      inputDecorationTheme: InputDecorationTheme(
+        border: themeCore.border.defaultTextInputBorder.copyWith(
+              borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
+            ),
+        enabledBorder: themeCore.border.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
+        ),
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.colorMain),
+        ),
+        errorBorder: themeCore.border.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
+        ),
+        focusedErrorBorder: themeCore.border.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorTextPrimary),
+        ),
+        errorStyle: const TextStyle(color: ColorKit.errorTextPrimary),
+        disabledBorder: themeCore.border.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.colorOverlaySecondary),
+        ),
+      ),
 
-    //
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: ColorKit.colorWhite,
-      selectedLabelStyle: TextStylesKit.selectedBottomM,
-      unselectedLabelStyle: TextStylesKit.unSelectedBottomM,
-      unselectedItemColor: ColorKit.closePressColor,
-      selectedItemColor: ColorKit.colorYelowStar,
-      showUnselectedLabels: true,
-      elevation: 10,
-    ),
-  );
+      //
+      checkboxTheme: CheckboxThemeData(
+        checkColor: const MaterialStatePropertyAll(ColorKit.colorWhite),
+        fillColor: BackgroundStatesColorKit.checkboxFillColor,
+        shape: themeCore.border.borderDefaultS,
+        side: SideStatesKit.sideKit,
+      ),
+
+      //
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: ColorKit.colorWhite,
+        selectedLabelStyle: TextStylesKit.selectedBottomM,
+        unselectedLabelStyle: TextStylesKit.unSelectedBottomM,
+        unselectedItemColor: ColorKit.closePressColor,
+        selectedItemColor: ColorKit.colorYelowStar,
+        showUnselectedLabels: true,
+        elevation: 10,
+      ),
+    );
+  }
 }

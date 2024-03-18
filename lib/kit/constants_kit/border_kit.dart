@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
 
 class BorderKit {
   final RoundedRectangleBorder borderDefaultLg;
   final RoundedRectangleBorder borderDefaultM;
   final RoundedRectangleBorder borderDefaultS;
   final OutlineInputBorder defaultTextInputBorder;
-
-  const BorderKit({
+  const BorderKit( {
     required this.borderDefaultLg,
     required this.borderDefaultM,
     required this.borderDefaultS,

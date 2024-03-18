@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../constants_kit/colors/color_kit.dart';
-import '../constants_kit/text_styles_kit.dart';
+import '../../constants_kit/colors/color_kit.dart';
+import '../../constants_kit/text_styles_kit.dart';
 
 class LabelTextField extends StatefulWidget {
   const LabelTextField({

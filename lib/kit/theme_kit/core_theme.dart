@@ -55,7 +55,7 @@ class CoreTheme {
 
     //
     inputDecorationTheme: InputDecorationTheme(
-      border: BorderKit.defaultTextInputBorder.copyWith(
+      border: BorderKit().defaultTextInputBorder.copyWith(
         borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
       ),
       enabledBorder: BorderKit.defaultTextInputBorder.copyWith(

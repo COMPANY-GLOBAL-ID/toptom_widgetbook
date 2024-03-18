@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 import 'buttons/button.dart';
@@ -22,10 +21,11 @@ class StatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final radiusKit = ThemeCore.of(context).radius;
     return DecoratedBox(
       decoration: BoxDecoration(
           color: ColorKit.colorBackgroundSecondary,
-          borderRadius: BorderRadius.circular(RadiusType.rd4Xl.radius)),
+          borderRadius: BorderRadius.circular(radiusKit.medium)),
       child: Padding(
         padding: PaddingStatesKit.paddingL.value,
         child: Column(
@@ -36,7 +36,7 @@ class StatusWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: ColorKit.colorOverlayAlpha,
                     borderRadius:
-                        BorderRadius.circular(RadiusType.rd3Xl.radius)),
+                        BorderRadius.circular(radiusKit.small2)),
                 child:
                     Padding(padding: const EdgeInsets.all(20.0), child: icon),
               ),

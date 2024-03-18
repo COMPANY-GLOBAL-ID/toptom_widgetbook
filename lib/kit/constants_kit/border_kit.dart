@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
 
 class BorderKit {
-  static final borderDefault = MaterialStateProperty.all(borderDefaultLg);
+  final RoundedRectangleBorder borderDefaultLg;
+  final RoundedRectangleBorder borderDefaultM;
+  final RoundedRectangleBorder borderDefaultS;
+  final OutlineInputBorder defaultTextInputBorder;
+  const BorderKit( {
+    required this.borderDefaultLg,
+    required this.borderDefaultM,
+    required this.borderDefaultS,
+    required this.defaultTextInputBorder,
+  });
 
-  static final borderDefaultLg = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(RadiusType.rdLg.radius),
-  );
-
-  static final borderDefaultM = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
-  );
-
-  static final borderDefaultS = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(RadiusType.rdS.radius),
-  );
-
-  // text input
-  static final OutlineInputBorder defaultTextInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(RadiusType.rdLg.radius),
-    gapPadding: 12,
-  );
+  BorderKit copyWith({
+    RoundedRectangleBorder? borderDefaultLg,
+    RoundedRectangleBorder? borderDefaultM,
+    RoundedRectangleBorder? borderDefaultS,
+    OutlineInputBorder? defaultTextInputBorder,
+  }) {
+    return BorderKit(
+      borderDefaultLg: borderDefaultLg ?? this.borderDefaultLg,
+      borderDefaultM: borderDefaultM ?? this.borderDefaultM,
+      borderDefaultS: borderDefaultS ?? this.borderDefaultS,
+      defaultTextInputBorder: defaultTextInputBorder ?? this.defaultTextInputBorder,
+    );
+  }
 }

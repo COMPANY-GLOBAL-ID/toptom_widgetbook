@@ -3,21 +3,25 @@ import 'package:flutter/material.dart';
 part 'button_color_kit.dart';
 
 class ColorKit {
-  static const ButtonColorKit buttonColor = ButtonColorKit(
-    accent: Color.fromRGBO(250, 77, 30, 1),
-    accentHover: Color.fromRGBO(221, 60, 16, 1),
-    accentActive: Color.fromRGBO(218, 64, 23, 1),
-    accentText: Color.fromRGBO(255, 255, 255, 1),
-    accentGhostHover: Color.fromRGBO(255, 202, 188, 1),
-    black: Color.fromRGBO(15, 14, 20, 1),
-    blackHover: Color.fromRGBO(60, 58, 67, 1),
-    blackActive: Color.fromRGBO(0, 0, 0, 1),
-    blackText: Color.fromRGBO(255, 255, 255, 1),
-    blackGhostHover: Color.fromRGBO(121, 119, 131, 1.0),
-    defaultButtonHover: Color.fromRGBO(245, 246, 248, 1),
-    disable: Color.fromRGBO(208, 213, 221, 1),
-    disableText: Color.fromRGBO(139, 145, 169, 1),
-  );
+  final ButtonColorKit buttonColor;
+
+  const ColorKit({
+    this.buttonColor = const ButtonColorKit(
+      accent: Color.fromRGBO(250, 77, 30, 1),
+      accentHover: Color.fromRGBO(221, 60, 16, 1),
+      accentActive: Color.fromRGBO(218, 64, 23, 1),
+      accentText: Color.fromRGBO(255, 255, 255, 1),
+      accentGhostHover: Color.fromRGBO(255, 202, 188, 1),
+      black: Color.fromRGBO(15, 14, 20, 1),
+      blackHover: Color.fromRGBO(60, 58, 67, 1),
+      blackActive: Color.fromRGBO(0, 0, 0, 1),
+      blackText: Color.fromRGBO(255, 255, 255, 1),
+      blackGhostHover: Color.fromRGBO(121, 119, 131, 1.0),
+      defaultButtonHover: Color.fromRGBO(245, 246, 248, 1),
+      disable: Color.fromRGBO(208, 213, 221, 1),
+      disableText: Color.fromRGBO(139, 145, 169, 1),
+    )
+  });
 
   //APP COLORS
   static const colorMain = Color.fromRGBO(250, 77, 30, 1);
@@ -73,4 +77,5 @@ class ColorKit {
   static const colorOverlayAlpha = Color.fromRGBO(206, 208, 212, 1);
   static const disabledTrackSwitch = Color.fromRGBO(255, 204, 199, 1);
   static const disabledTrackColor = Color.fromRGBO(229, 226, 225, 1);
+
 }

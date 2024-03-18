@@ -13,19 +13,21 @@ class WidgetbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Widgetbook.material(addons: [
-      ThemeAddon(
-        themes: [
-          WidgetbookTheme(name: 'CORE THEMA', data: CoreTheme.coreTheme)
-        ],
-        themeBuilder: (context, theme, child) {
-          // Wrap use cases with the custom theme's InheritedWidget
-          return Theme(
-            data: theme,
-            child: child,
-          );
-        },
-      ),
-    ], directories: directories);
+    return ThemeCore(
+      child: Widgetbook.material(addons: [
+        ThemeAddon(
+          themes: [
+            WidgetbookTheme(name: 'CORE THEMA', data: CoreTheme.coreTheme)
+          ],
+          themeBuilder: (context, theme, child) {
+            // Wrap use cases with the custom theme's InheritedWidget
+            return Theme(
+              data: ThemeDataCore,
+              child: child,
+            );
+          },
+        ),
+      ], directories: directories),
+    );
   }
 }

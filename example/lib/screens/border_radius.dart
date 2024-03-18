@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:toptom_widgetbook/kit/constants_kit/colors/color_kit.dart';
-import 'package:toptom_widgetbook/kit/constants_kit/constants_kit.dart';
+import 'package:toptom_widgetbook/kit/theme_new/theme_core.dart';
 
 class BorderRadiusScreen extends StatelessWidget {
   const BorderRadiusScreen({super.key});
@@ -15,12 +15,12 @@ class BorderRadiusScreen extends StatelessWidget {
           const Text("Border radius",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 10),
-          ...RadiusType.values.map((e) {
+          ...ThemeCore.of(context).radius.values.map((e) {
             return Column(
               children: [
                 _BorderRadiusWidget(
-                  radius: e.radius,
-                  title: e.toString(),
+                  radius: e,
+                  title: 'Radius: ${e}px',
                 ),
                 const SizedBox(height: 10),
               ],

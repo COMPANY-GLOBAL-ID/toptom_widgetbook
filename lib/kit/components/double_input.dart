@@ -152,13 +152,14 @@ class _DoubleInputState extends State<DoubleInput> {
 
   @override
   Widget build(BuildContext context) {
+    final themeCore = ThemeCore.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
             border: Border.all(color: ColorKit.colorOverlaySecondary),
-            borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+            borderRadius: BorderRadius.circular(themeCore.radius.medium),
             color: widget.fillColor,
           ),
           child: Padding(
@@ -196,7 +197,7 @@ class _DoubleInputState extends State<DoubleInput> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius:
-                          BorderRadius.circular(RadiusType.rdS.radius),
+                          BorderRadius.circular(themeCore.radius.small),
                       color: ColorKit.colorStrokePrimary,
                     ),
                     child: widget.divider,

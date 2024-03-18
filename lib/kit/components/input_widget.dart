@@ -1,18 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class InputWidget extends StatelessWidget {
-  const InputWidget({
+   InputWidget({
     super.key,
     required this.controller,
     required this.inputDecoration,
-    this.textStyle,
+    this.textStyle, required this.context,
   });
 
   final TextEditingController controller;
   final InputDecoration inputDecoration;
   final TextStyle? textStyle;
-
+  final BuildContext context;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -31,6 +33,7 @@ class InputWidget extends StatelessWidget {
     Widget? suffixIcon,
     Widget? prefixIcon,
     VoidCallback? onIconPressed,
+    required BuildContext context
   }) {
 
     TextStyle finalTextStyle = errorText != null
@@ -40,12 +43,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary);
-
+        final themeCore = ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
@@ -90,6 +94,7 @@ class InputWidget extends StatelessWidget {
     Widget? prefixIcon,
     String? errorText,
     VoidCallback? onIconPressed,
+    required BuildContext context
   }) {
 
     TextStyle finalTextStyle = errorText != null
@@ -99,11 +104,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextSecondary);
+        final themeCore = ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
@@ -139,7 +146,16 @@ class InputWidget extends StatelessWidget {
     Widget? prefixIcon,
     String? errorText,
     VoidCallback? onIconPressed,
+    required BuildContext context
   }) {
+    ColorFilter iconColor =
+        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
+  final themeCore = ThemeCore.of(context);
+
+    if (errorText != null) {
+      iconColor =
+          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
+    }
 
     TextStyle finalTextStyle = errorText != null
         ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
@@ -149,34 +165,35 @@ class InputWidget extends StatelessWidget {
         ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
         isCollapsed: true,
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
-          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+          borderRadius: BorderRadius.circular(themeCore.radius.medium),
         ),
-        enabledBorder: BorderKit.defaultTextInputBorder.copyWith(
+        enabledBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
-          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+          borderRadius: BorderRadius.circular(themeCore.radius.medium),
         ),
-        errorBorder: BorderKit.defaultTextInputBorder.copyWith(
+        errorBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(color: ColorKit.errorPrimary),
-          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+          borderRadius: BorderRadius.circular(themeCore.radius.medium),
         ),
-        focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedErrorBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(color: ColorKit.errorPrimary),
-          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+          borderRadius: BorderRadius.circular(themeCore.radius.medium),
         ),
-        disabledBorder: BorderKit.defaultTextInputBorder.copyWith(
+        disabledBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorOverlaySecondary,
           ),
-          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+          borderRadius: BorderRadius.circular(themeCore.radius.medium),
         ),
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
@@ -210,6 +227,7 @@ class InputWidget extends StatelessWidget {
     required TextEditingController controller,
     String? errorText,
     VoidCallback? onIconPressed,
+    required BuildContext context
   }) {
     Widget? suffixIcon;
 
@@ -231,12 +249,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary);
-
+        final themeCore = ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
@@ -266,6 +285,7 @@ class InputWidget extends StatelessWidget {
     required TextEditingController controller,
     String? errorText,
     VoidCallback? onIconPressed,
+    required BuildContext context,
   }) {
     Widget? suffixIcon;
 
@@ -287,12 +307,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonM.copyWith(color: ColorKit.colorTextSecondary);
-
+        final themeCore = ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
@@ -322,6 +343,7 @@ class InputWidget extends StatelessWidget {
     required TextEditingController controller,
     String? errorText,
     VoidCallback? onIconPressed,
+    required BuildContext context
   }) {
     Widget? suffixIcon;
 
@@ -343,12 +365,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
-
+        final themeCore = ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
@@ -377,6 +400,7 @@ class InputWidget extends StatelessWidget {
     required bool enabled,
     required TextEditingController controller,
     required String? errorText,
+    required BuildContext context,
   }) {
     Widget? suffixIcon;
     if (errorText != null && errorText.isEmpty) {
@@ -389,11 +413,13 @@ class InputWidget extends StatelessWidget {
     TextStyle finalHintStyle = errorText != null
         ? TextStylesKit.buttonS.copyWith(color: ColorKit.errorPrimary)
         : TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary);
+        final themeCore= ThemeCore.of(context);
     return InputWidget(
+      context: context,
       controller: controller,
       textStyle: finalTextStyle,
       inputDecoration: InputDecoration(
-        focusedBorder: BorderKit.defaultTextInputBorder.copyWith(
+        focusedBorder: themeCore.border.defaultTextInputBorder.copyWith(
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),

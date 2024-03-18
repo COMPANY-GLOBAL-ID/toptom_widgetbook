@@ -36,6 +36,7 @@ class ColorKit {
   static const colorPositiveSecondary = Color.fromRGBO(195, 243, 200, 1);
   static const colorWhite = Color.fromRGBO(255, 255, 255, 1);
   static const colorYelowStar = Color.fromRGBO(248, 145, 51, 1);
+  static const menuDataColor = Color.fromRGBO(243, 244, 245, 1);
 
   static const defaultPrimary = Color.fromRGBO(15, 14, 20, 1);
   static const defaultTextPrimary = Color.fromRGBO(255, 255, 255, 1);

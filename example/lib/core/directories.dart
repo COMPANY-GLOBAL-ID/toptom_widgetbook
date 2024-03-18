@@ -53,6 +53,9 @@ final directories = [
       WidgetbookUseCase(
           name: 'Double Input',
           builder: (context) => const DoubleInputScreen()),
+      WidgetbookUseCase(
+          name: 'Select Input',
+          builder: (context) => SelectInputScreen()),
     ],
   ),
   WidgetbookComponent(

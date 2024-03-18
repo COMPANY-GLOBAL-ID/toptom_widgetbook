@@ -2,7 +2,7 @@ name: toptom_widgetbook
 description: "A new Flutter project."
 publish_to: "none"
 version: 0.0.1
-homepage:
+homepage: https://github.com/COMPANY-GLOBAL-ID/toptom_widgetbook
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   calendar_date_picker2: ^0.5.5
+  dropdown_button2: ^2.3.9
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1

@@ -35,13 +35,6 @@ class InputWidget extends StatelessWidget {
     VoidCallback? onIconPressed,
     required BuildContext context
   }) {
-    ColorFilter iconColor =
-        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
-
-    if (errorText != null) {
-      iconColor =
-          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
-    }
 
     TextStyle finalTextStyle = errorText != null
         ? TextStylesKit.buttonXl.copyWith(color: ColorKit.errorPrimary)
@@ -60,6 +53,19 @@ class InputWidget extends StatelessWidget {
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
+        ),
+        errorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+        ),
+        focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+        ),
+        prefixIconColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.focused)
+                ? ColorKit.colorTextPrimary
+                : ColorKit.colorTextSecondary
         ),
         suffixIcon: suffixIcon,
         suffixIconConstraints: const BoxConstraints(
@@ -90,13 +96,6 @@ class InputWidget extends StatelessWidget {
     VoidCallback? onIconPressed,
     required BuildContext context
   }) {
-    ColorFilter iconColor =
-        const ColorFilter.mode(ColorKit.colorTextSecondary, BlendMode.srcIn);
-
-    if (errorText != null) {
-      iconColor =
-          const ColorFilter.mode(ColorKit.errorPrimary, BlendMode.srcIn);
-    }
 
     TextStyle finalTextStyle = errorText != null
         ? TextStylesKit.buttonM.copyWith(color: ColorKit.errorPrimary)
@@ -115,6 +114,14 @@ class InputWidget extends StatelessWidget {
           borderSide: const BorderSide(
             color: ColorKit.colorTextPrimary,
           ),
+        ),
+        errorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
+        ),
+        focusedErrorBorder: BorderKit.defaultTextInputBorder.copyWith(
+          borderSide: const BorderSide(color: ColorKit.errorPrimary),
+          borderRadius: BorderRadius.circular(RadiusType.rdM.radius),
         ),
         suffixIcon: suffixIcon,
         contentPadding: const EdgeInsets.all(12),

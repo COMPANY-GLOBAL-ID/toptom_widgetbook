@@ -2,7 +2,7 @@
 class Assets {
   Assets._();
 
-  static const String fontsNotoSansRegular = 'assets/fonts/NotoSans-Regular.ttf';
+  static const String fontsNotoSansRegular =
+      'assets/fonts/NotoSans-Regular.ttf';
   static const String iconsToptomIcons = 'assets/icons/ToptomIcons.ttf';
-
 }

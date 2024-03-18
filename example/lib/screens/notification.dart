@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:toptom_widgetbook/top_kit/export.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
-
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
 
-
   _show(BuildContext context, SnackBarOptions options) => () {
-    snackBarBuilder(context, options);
-  };
+        snackBarBuilder(context, options);
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -44,17 +42,18 @@ class NotificationScreen extends StatelessWidget {
                     backgroundColor: e.toBackgroundColor(),
                     foregroundColor: e.toForegroundColor(),
                   ),
-                  onPressed: _show(context, SnackBarOptions(
-                    type: e,
-                    title: title,
-                    message: message,
-                    hasIcon: hasIcon,
-                    hasClose: hasClose,
-                  )),
+                  onPressed: _show(
+                      context,
+                      SnackBarOptions(
+                        type: e,
+                        title: title,
+                        message: message,
+                        hasIcon: hasIcon,
+                        hasClose: hasClose,
+                      )),
                   child: Text('Show notification ${e.name}'),
                 );
               }),
-
             ],
           ),
         ),
@@ -62,4 +61,3 @@ class NotificationScreen extends StatelessWidget {
     );
   }
 }
-

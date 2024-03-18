@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/export.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 class BadgeScreen extends StatelessWidget {
   const BadgeScreen({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/top_kit/components/select_input_widget.dart';
-import 'package:toptom_widgetbook/top_kit/export.dart';
+import 'package:toptom_widgetbook/kit/components/select_input_widget.dart';
+import 'package:toptom_widgetbook/kit/constants_kit/colors/color_kit.dart';
+import 'package:toptom_widgetbook/kit/constants_kit/text_styles_kit.dart';
 
 class SelectInputScreen extends StatefulWidget {
   final SelectInputController controller = SelectInputController("item 1");

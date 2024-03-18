@@ -55,6 +55,7 @@ class CoreTheme {
 
     //
     inputDecorationTheme: InputDecorationTheme(
+      focusColor: ColorKit.colorTextPrimary,
       border: BorderKit.defaultTextInputBorder.copyWith(
         borderSide: const BorderSide(color: ColorKit.colorStrokePrimary),
       ),

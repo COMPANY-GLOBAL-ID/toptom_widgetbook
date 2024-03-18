@@ -47,4 +47,18 @@ class TextStylesKit {
     fontWeight: FontWeight.w700,
     height: 32 / 24,
   );
+
+  static const fieldStyle = TextStyle(
+    color: ColorKit.colorTextPrimary,
+    fontWeight: FontWeight.w500,
+    height: 20 / 14,
+    fontSize: 14,
+  );
+
+  static const labelStyle = TextStyle(
+    color: ColorKit.colorTextSecondary,
+    fontWeight: FontWeight.w500,
+    height: 16 / 12,
+    fontSize: 12,
+  );
 }

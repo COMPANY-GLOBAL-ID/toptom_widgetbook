@@ -13,6 +13,7 @@ export 'components/switch_widget.dart';
 export 'components/status_widget.dart';
 export 'components/sorting_widget.dart';
 export 'components/notification.dart';
+export 'components/select_input_widget.dart';
 export 'constants_kit/material_states_property/backgound_states_color_kit.dart';
 export 'constants_kit/material_states_property/padding_states_kit.dart';
 export 'constants_kit/material_states_property/side_states_kit.dart';

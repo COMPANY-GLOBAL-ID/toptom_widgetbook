@@ -22,3 +22,4 @@ export 'theme_kit/toptom_icons.dart';
 
 export 'constants_kit/constants.dart';
 export 'components/components.dart';
+export 'theme_new//theme_core.dart';

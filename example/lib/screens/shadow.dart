@@ -156,7 +156,7 @@ class _ShadowWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorKit.boxBackgroundGrey,
         boxShadow: [shadow],
-        borderRadius: BorderRadius.circular(RadiusType.rdL.radius),
+        borderRadius: BorderRadius.circular(ThemeCore.of(context).radius.extraLarge),
       ),
       child: Center(
         child: Text(title),

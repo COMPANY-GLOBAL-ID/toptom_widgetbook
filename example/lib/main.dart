@@ -19,7 +19,6 @@ class WidgetbookApp extends StatelessWidget {
           WidgetbookTheme(name: 'CORE THEMA', data: CoreTheme.coreTheme)
         ],
         themeBuilder: (context, theme, child) {
-          // Wrap use cases with the custom theme's InheritedWidget
           return Theme(
             data: theme,
             child: child,

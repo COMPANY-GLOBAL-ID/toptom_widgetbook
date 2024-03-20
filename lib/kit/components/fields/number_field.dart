@@ -58,9 +58,7 @@ class ToptomNumberField extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                    width: 1.5
-                ),
+                borderSide: BorderSide(width: 1.5),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),

@@ -118,7 +118,7 @@ class RadiusKit {
 
   const RadiusKit({
     this.small = 2,
-    this.small2=3,
+    this.small2 = 3,
     this.medium = 4,
     this.large = 6,
     this.extraLarge = 8,
@@ -143,7 +143,7 @@ class RadiusKit {
   }) {
     return RadiusKit(
       small: small ?? this.small,
-      small2: small2??this.small2,
+      small2: small2 ?? this.small2,
       medium: medium ?? this.medium,
       large: large ?? this.large,
       extraLarge: extraLarge ?? this.extraLarge,

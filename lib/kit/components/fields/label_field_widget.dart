@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../../constants_kit/colors/color_kit.dart';
-import '../../constants_kit/text_styles_kit.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 class LabelTextField extends StatefulWidget {
   const LabelTextField({
@@ -59,7 +57,7 @@ class _LabelTextFieldState extends State<LabelTextField> {
               ),
               child: Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -103,7 +101,8 @@ class _LabelTextFieldState extends State<LabelTextField> {
             visible: widget.errorText != null,
             child: Text(
               widget.errorText ?? '',
-              style: const TextStyle(color: ColorKit.errorPrimary),
+              style: TextStyle(
+                  color: ThemeCore.of(context).color.badgeColor.error),
             ),
           ),
         )

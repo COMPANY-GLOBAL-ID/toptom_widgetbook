@@ -20,7 +20,7 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ToptomTextField(
+    return TextFieldWidget(
       prefixIcon: const Icon(
         Icons.search,
         color: Color.fromRGBO(112, 112, 112, 1),

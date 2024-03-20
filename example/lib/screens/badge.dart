@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class BadgeScreen extends StatelessWidget {
   const BadgeScreen({super.key});
@@ -9,202 +9,65 @@ class BadgeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView(
+        padding: const EdgeInsets.all(20),
         children: [
-          const Text("Primary Badge"),
+          Text("Badge", style: ThemeCore.of(context).typography.h2),
+          const SizedBox(
+            height: 20,
+          ),
+          Text("Primary Badge", style: ThemeCore.of(context).typography.h5),
           const SizedBox(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.primaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorInfo,
+          ...BadgeColor.values.map((color) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BadgeWidget(
+                    size: BadgeSize.primary,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                  const SizedBox(width: 10),
+                  BadgeWidget(
+                    size: BadgeSize.small,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                ],
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.primaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorInfo,
-              ),
-            ],
-          ),
+            );
+          }),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.primaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus2,
+          Text("Secondary Badge", style: ThemeCore.of(context).typography.h5),
+          const SizedBox(height: 20),
+          ...BadgeColor.values.map((color) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BadgeWidget(
+                    type: BadgeType.secondary,
+                    size: BadgeSize.primary,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                  const SizedBox(width: 10),
+                  BadgeWidget(
+                    type: BadgeType.secondary,
+                    size: BadgeSize.small,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                ],
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.primaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus2,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.primaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus4,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.primaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus4,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.primaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorError,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.primaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorError,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.primaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorWarning,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.primaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorWarning,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Text("Secondary Badge"),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.secondaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorInfo,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.secondaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorInfo,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.secondaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus2,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.secondaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus2,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.secondaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus3,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.secondaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorStatus3,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.secondaryM(
-                statusText: 'Status text',
-                color: ColorKit.errorPrimary,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.secondaryS(
-                statusText: 'Status text',
-                color: ColorKit.errorPrimary,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BadgeWidget.secondaryM(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorWarning,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              BadgeWidget.secondaryS(
-                statusText: 'Status text',
-                color: ColorKit.badgeColorWarning,
-              ),
-            ],
-          ),
+            );
+          })
         ],
       ),
     );

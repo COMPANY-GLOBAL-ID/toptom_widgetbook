@@ -15,23 +15,23 @@ class SwitchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color finalActiveTrackColor =
-        onChanged != null ? ColorKit.colorMain : ColorKit.disabledTrackSwitch;
-
-    Color finalActiveColor =
-        onChanged != null ? ColorKit.colorWhite : ColorKit.colorOverlayPrimary;
-
-    Color finalInactiveTrackColor = onChanged != null
-        ? ColorKit.colorStrokePrimary
-        : ColorKit.disabledTrackColor;
+    // Color finalActiveTrackColor =
+    //     onChanged != null ? ColorKit.colorMain : ColorKit.disabledTrackSwitch;
+    //
+    // Color finalActiveColor =
+    //     onChanged != null ? ColorKit.colorWhite : ColorKit.colorOverlayPrimary;
+    //
+    // Color finalInactiveTrackColor = onChanged != null
+    //     ? ColorKit.colorStrokePrimary
+    //     : ColorKit.disabledTrackColor;
 
     return Transform.scale(
       scale: scale,
       child: Switch(
-        activeColor: finalActiveColor,
-        activeTrackColor: finalActiveTrackColor,
-        inactiveTrackColor: finalInactiveTrackColor,
-        inactiveThumbColor: finalActiveColor,
+        // activeColor: finalActiveColor,
+        // activeTrackColor: finalActiveTrackColor,
+        // inactiveTrackColor: finalInactiveTrackColor,
+        // inactiveThumbColor: finalActiveColor,
         value: switchValue,
         onChanged: onChanged,
       ),

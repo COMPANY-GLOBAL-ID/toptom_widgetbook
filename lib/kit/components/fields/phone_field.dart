@@ -53,10 +53,8 @@ class ToptomPhoneField extends StatelessWidget {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(
-                      width: 1.5
-                  ),
+                borderRadius: BorderRadius.circular(8),
+                borderSide: const BorderSide(width: 1.5),
               ),
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(8)),

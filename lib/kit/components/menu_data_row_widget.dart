@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants_kit/colors/color_kit.dart';
-
 class MenuDataRow extends StatelessWidget {
   final VoidCallback? onTap;
   final Icon? icon;
@@ -14,7 +12,7 @@ class MenuDataRow extends StatelessWidget {
       onTap: onTap,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: ColorKit.menuDataColor,
+          // color: ColorKit.menuDataColor,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(

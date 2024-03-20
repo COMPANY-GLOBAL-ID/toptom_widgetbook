@@ -42,26 +42,3 @@ class PaddingStatesKit {
     EdgeInsets.all(4),
   );
 }
-
-enum PaddingKit {
-  xl,
-  l,
-  m,
-  ms,
-  s;
-
-  double get value {
-    switch (this) {
-      case PaddingKit.xl:
-        return 20;
-      case PaddingKit.l:
-        return 16;
-      case PaddingKit.m:
-        return 12;
-      case PaddingKit.ms:
-        return 8;
-      case PaddingKit.s:
-        return 4;
-    }
-  }
-}

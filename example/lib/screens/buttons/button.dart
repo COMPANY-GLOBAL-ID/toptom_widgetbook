@@ -54,7 +54,7 @@ class ButtonScreen extends StatelessWidget {
                                     children: [
                                       Text('Lorem ipsum'),
                                       SizedBox(width: 10),
-                                      Icon(ToptomIcons.clip_icon)
+                                      Icon(ToptomIcons.arrow_right)
                                     ],
                                   ),
                                 );

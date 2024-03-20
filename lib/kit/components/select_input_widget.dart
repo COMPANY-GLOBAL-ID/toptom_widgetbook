@@ -1,7 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../constants_kit/colors/color_kit.dart';
 import '../constants_kit/text_styles_kit.dart';
 
 class SelectInputController<T> extends ValueNotifier {
@@ -35,77 +34,76 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
     if (value == null) return;
 
     widget.controller.change(value);
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonHideUnderline(
-      child: DropdownButton2<T>(
-        isExpanded: true,
-        hint: Row(
-          children: [
-            Icon(
-              _iconForSelect,
-              size: 21,
-              color: ColorKit.colorTextPrimary,
-            ),
-            const SizedBox(
-              width: 4,
-            ),
-            Expanded(
-              child: Text(
-                'Select Item',
-                style: TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextPrimary),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-        items: widget.items.map<DropdownMenuItem<T>>(widget.builder).toList(),
-        value: widget.controller.value,
-        onChanged: onChange,
-        buttonStyleData: ButtonStyleData(
-          height: 50,
-          width: 160,
-          padding: const EdgeInsets.only(left: 14, right: 14),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(
-              color: ColorKit.colorTextPrimary,
-            ),
-            color: ColorKit.colorWhite
-          ),
-          elevation: 2,
-        ),
-        iconStyleData: const IconStyleData(
-          icon: Icon(
-            Icons.arrow_forward_ios_outlined,
-          ),
-          iconSize: 14,
-          iconEnabledColor: ColorKit.colorTextPrimary,
-          iconDisabledColor: ColorKit.colorOverlaySecondary,
-        ),
-        dropdownStyleData: DropdownStyleData(
-          maxHeight: 200,
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-          ),
-          offset: const Offset(0, 0),
-          scrollbarTheme: ScrollbarThemeData(
-            radius: const Radius.circular(40),
-            thickness: MaterialStateProperty.all<double>(6),
-            thumbVisibility: MaterialStateProperty.all<bool>(true),
-          ),
-        ),
-        menuItemStyleData: const MenuItemStyleData(
-          height: 40,
-          padding: EdgeInsets.only(left: 14, right: 14),
-        ),
-      ),
-    );
+    return Offstage();
+    // return DropdownButtonHideUnderline(
+    //   child: DropdownButton2<T>(
+    //     isExpanded: true,
+    //     hint: Row(
+    //       children: [
+    //         Icon(
+    //           _iconForSelect,
+    //           size: 21,
+    //           color: ColorKit.colorTextPrimary,
+    //         ),
+    //         const SizedBox(
+    //           width: 4,
+    //         ),
+    //         Expanded(
+    //           child: Text(
+    //             'Select Item',
+    //             style: TextStylesKit.buttonXl
+    //                 .copyWith(color: ColorKit.colorTextPrimary),
+    //             overflow: TextOverflow.ellipsis,
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //     items: widget.items.map<DropdownMenuItem<T>>(widget.builder).toList(),
+    //     value: widget.controller.value,
+    //     onChanged: onChange,
+    //     buttonStyleData: ButtonStyleData(
+    //       height: 50,
+    //       width: 160,
+    //       padding: const EdgeInsets.only(left: 14, right: 14),
+    //       decoration: BoxDecoration(
+    //           borderRadius: BorderRadius.circular(14),
+    //           border: Border.all(
+    //             color: ColorKit.colorTextPrimary,
+    //           ),
+    //           color: ColorKit.colorWhite),
+    //       elevation: 2,
+    //     ),
+    //     iconStyleData: const IconStyleData(
+    //       icon: Icon(
+    //         Icons.arrow_forward_ios_outlined,
+    //       ),
+    //       iconSize: 14,
+    //       iconEnabledColor: ColorKit.colorTextPrimary,
+    //       iconDisabledColor: ColorKit.colorOverlaySecondary,
+    //     ),
+    //     dropdownStyleData: DropdownStyleData(
+    //       maxHeight: 200,
+    //       width: 200,
+    //       decoration: BoxDecoration(
+    //         borderRadius: BorderRadius.circular(14),
+    //       ),
+    //       offset: const Offset(0, 0),
+    //       scrollbarTheme: ScrollbarThemeData(
+    //         radius: const Radius.circular(40),
+    //         thickness: MaterialStateProperty.all<double>(6),
+    //         thumbVisibility: MaterialStateProperty.all<bool>(true),
+    //       ),
+    //     ),
+    //     menuItemStyleData: const MenuItemStyleData(
+    //       height: 40,
+    //       padding: EdgeInsets.only(left: 14, right: 14),
+    //     ),
+    //   ),
+    // );
   }
 }

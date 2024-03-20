@@ -34,9 +34,9 @@ class StatusWidget extends StatelessWidget {
               padding: const EdgeInsets.all(40.0),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                    color: ColorKit.colorOverlayAlpha,
-                    borderRadius:
-                        BorderRadius.circular(radiusKit.small2)),
+                  // color: ColorKit.colorOverlayAlpha,
+                  borderRadius: BorderRadius.circular(radiusKit.small2),
+                ),
                 child:
                     Padding(padding: const EdgeInsets.all(20.0), child: icon),
               ),

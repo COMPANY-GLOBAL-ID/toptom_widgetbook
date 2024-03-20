@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/theme_new/typography_kit.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class TypographyScreen extends StatelessWidget {
@@ -21,7 +19,7 @@ class TypographyScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            ...TypographyKitDefault.typographyKit.values.map((style) {
+            ...ThemeCore.of(context).typography.values.map((style) {
               return Column(
                 children: [
                   Text(

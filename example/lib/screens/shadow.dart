@@ -154,9 +154,10 @@ class _ShadowWidget extends StatelessWidget {
       height: 90,
       width: 140,
       decoration: BoxDecoration(
-        color: ColorKit.boxBackgroundGrey,
+        // color: ColorKit.boxBackgroundGrey,
         boxShadow: [shadow],
-        borderRadius: BorderRadius.circular(ThemeCore.of(context).radius.extraLarge),
+        borderRadius:
+            BorderRadius.circular(ThemeCore.of(context).radius.extraLarge),
       ),
       child: Center(
         child: Text(title),

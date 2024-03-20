@@ -57,9 +57,7 @@ class _ToptomPasswordFieldState extends State<ToptomPasswordField> {
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(
-                    width: 1.5
-                ),
+                borderSide: BorderSide(width: 1.5),
               ),
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(8)),

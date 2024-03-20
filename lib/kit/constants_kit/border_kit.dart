@@ -5,7 +5,7 @@ class BorderKit {
   final RoundedRectangleBorder borderDefaultM;
   final RoundedRectangleBorder borderDefaultS;
   final OutlineInputBorder defaultTextInputBorder;
-  const BorderKit( {
+  const BorderKit({
     required this.borderDefaultLg,
     required this.borderDefaultM,
     required this.borderDefaultS,
@@ -22,7 +22,8 @@ class BorderKit {
       borderDefaultLg: borderDefaultLg ?? this.borderDefaultLg,
       borderDefaultM: borderDefaultM ?? this.borderDefaultM,
       borderDefaultS: borderDefaultS ?? this.borderDefaultS,
-      defaultTextInputBorder: defaultTextInputBorder ?? this.defaultTextInputBorder,
+      defaultTextInputBorder:
+          defaultTextInputBorder ?? this.defaultTextInputBorder,
     );
   }
 }

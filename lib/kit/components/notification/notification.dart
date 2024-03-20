@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../constants_kit/colors/color_kit.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 snackBarBuilder(BuildContext context, SnackBarOptions options) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       elevation: 12,
       behavior: SnackBarBehavior.floating,
-      backgroundColor: options.type.toBackgroundColor(),
+      backgroundColor: options.type.toBackgroundColor(context),
       duration: const Duration(seconds: 5),
       margin: const EdgeInsets.all(20),
       content: Row(
@@ -21,7 +20,7 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
               children: [
                 Icon(
                   options.type.toIcon(),
-                  color: options.type.toForegroundColor(),
+                  color: options.type.toForegroundColor(context),
                 ),
                 const SizedBox(width: 15),
               ],
@@ -36,7 +35,7 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: options.type.toForegroundColor(),
+                    color: options.type.toForegroundColor(context),
                   ),
                 ),
                 Visibility(
@@ -46,7 +45,7 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: options.type.toForegroundColor(),
+                      color: options.type.toForegroundColor(context),
                     ),
                   ),
                 )
@@ -61,7 +60,7 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
               },
               child: Icon(
                 Icons.close,
-                color: options.type.toForegroundColor(),
+                color: options.type.toForegroundColor(context),
               ),
             ),
           ),
@@ -78,33 +77,35 @@ enum SnackBarType {
   warning,
   inverted;
 
-  Color toBackgroundColor() {
+  Color toBackgroundColor(BuildContext context) {
+    SnackBarColorKit color = ThemeCore.of(context).color.snackBarColor;
     switch (this) {
       case SnackBarType.error:
-        return ColorKit.errorPrimary;
+        return color.error;
       case SnackBarType.success:
-        return ColorKit.positivePrimary;
+        return color.positive;
       case SnackBarType.warning:
-        return ColorKit.warningPrimary;
+        return color.warning;
       case SnackBarType.defaultType:
-        return ColorKit.defaultPrimary;
+        return color.defaultPrimary;
       case SnackBarType.inverted:
-        return ColorKit.invertedPrimary;
+        return color.inverted;
     }
   }
 
-  Color toForegroundColor() {
+  Color toForegroundColor(BuildContext context) {
+    SnackBarColorKit color = ThemeCore.of(context).color.snackBarColor;
     switch (this) {
       case SnackBarType.error:
-        return ColorKit.errorTextPrimary;
+        return color.errorText;
       case SnackBarType.success:
-        return ColorKit.positiveTextPrimary;
+        return color.positiveText;
       case SnackBarType.warning:
-        return ColorKit.warningTextPrimary;
+        return color.warningText;
       case SnackBarType.defaultType:
-        return ColorKit.defaultTextPrimary;
+        return color.defaultText;
       case SnackBarType.inverted:
-        return ColorKit.invertedTextPrimary;
+        return color.invertedText;
     }
   }
 

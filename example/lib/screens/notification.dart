@@ -39,8 +39,8 @@ class NotificationScreen extends StatelessWidget {
               ...SnackBarType.values.map((e) {
                 return ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: e.toBackgroundColor(),
-                    foregroundColor: e.toForegroundColor(),
+                    backgroundColor: e.toBackgroundColor(context),
+                    foregroundColor: e.toForegroundColor(context),
                   ),
                   onPressed: _show(
                       context,

@@ -24,9 +24,13 @@ final directories = [
     name: 'Buttons',
     useCases: [
       WidgetbookUseCase(
-          name: 'Button', builder: (context) => const ButtonScreen()),
+        name: 'Button',
+        builder: (context) => const ButtonScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Icon Button', builder: (context) => const IconButtonScreen()),
+        name: 'Icon Button',
+        builder: (context) => const IconButtonScreen(),
+      ),
     ],
   ),
   WidgetbookComponent(
@@ -54,8 +58,7 @@ final directories = [
           name: 'Double Input',
           builder: (context) => const DoubleInputScreen()),
       WidgetbookUseCase(
-          name: 'Select Input',
-          builder: (context) => SelectInputScreen()),
+          name: 'Select Input', builder: (context) => SelectInputScreen()),
     ],
   ),
   WidgetbookComponent(

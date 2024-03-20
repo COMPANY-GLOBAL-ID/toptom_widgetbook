@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/theme_new/theme_core.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class BorderRadiusScreen extends StatelessWidget {
   const BorderRadiusScreen({super.key});

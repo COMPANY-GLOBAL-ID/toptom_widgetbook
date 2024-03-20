@@ -12,6 +12,7 @@ class ToptomPhoneField extends StatelessWidget {
   final bool? enabled;
   final String? errorText;
 
+  @Deprecated('Use ToptomDescriptionField')
   ToptomPhoneField({
     super.key,
     this.controller,

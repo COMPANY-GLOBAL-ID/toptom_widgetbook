@@ -15,6 +15,7 @@ class ToptomNumberField extends StatelessWidget {
   final bool? enabled;
   final int? maxLength;
 
+  @Deprecated('Use ToptomDescriptionField')
   const ToptomNumberField({
     super.key,
     this.controller,

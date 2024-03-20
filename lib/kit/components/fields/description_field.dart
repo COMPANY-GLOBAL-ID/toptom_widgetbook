@@ -13,6 +13,7 @@ class ToptomDescriptionField extends StatelessWidget {
   final TextStyle? hintStyle;
   final bool? enabled;
 
+  @Deprecated('Use ToptomDescriptionField')
   const ToptomDescriptionField({
     super.key,
     this.controller,

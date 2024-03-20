@@ -14,6 +14,7 @@ class ToptomEmailField extends StatelessWidget {
 
   final Function(String)? onSubmit;
 
+  @Deprecated('Use ToptomDescriptionField')
   const ToptomEmailField({
     super.key,
     this.enabled,

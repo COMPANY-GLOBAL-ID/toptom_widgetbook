@@ -29,9 +29,10 @@ class CardScreen extends StatelessWidget {
                 ),
                 Text(
                   'Мне видно как человек работает, все отображается. Не волнуйтесь заданий много так же можете и с телеграмма работать. И если будет интересно, оставайтесь заработок хороший!',
-                  style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                    fontWeight: FontWeight.w500
-                  ),
+                  style: ThemeCore.of(context)
+                      .typography
+                      .paragraphSmall
+                      .copyWith(fontWeight: FontWeight.w500),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -12,16 +12,17 @@ class ToptomPasswordField extends StatefulWidget {
   final bool? enabled;
   final String? errorText;
 
-  const ToptomPasswordField(
-      {super.key,
-      this.controller,
-      this.label,
-      this.isRequired = false,
-      this.hintText,
-      required this.visibilityIcon,
-      required this.visibilityOffIcon,
-      this.enabled,
-      this.errorText});
+  const ToptomPasswordField({
+    super.key,
+    this.controller,
+    this.label,
+    this.isRequired = false,
+    this.hintText,
+    required this.visibilityIcon,
+    required this.visibilityOffIcon,
+    this.enabled,
+    this.errorText,
+  });
 
   @override
   State<ToptomPasswordField> createState() => _ToptomPasswordFieldState();

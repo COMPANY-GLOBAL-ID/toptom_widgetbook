@@ -9,6 +9,7 @@ class SearchField extends StatelessWidget {
   final String? hint;
   final String? errorText;
 
+  @Deprecated('Use ToptomDescriptionField')
   const SearchField({
     super.key,
     required this.controller,

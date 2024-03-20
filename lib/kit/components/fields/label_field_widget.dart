@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class LabelTextField extends StatefulWidget {
+  @Deprecated('Use ToptomDescriptionField')
   const LabelTextField({
     super.key,
     this.controller,

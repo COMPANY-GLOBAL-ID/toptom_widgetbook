@@ -10,12 +10,13 @@ class ToptomPincodeField extends StatelessWidget {
   final int length;
   final StreamController<ErrorAnimationType>? errorController;
 
-  const ToptomPincodeField(
-      {super.key,
-      this.controller,
-      this.enabled = true,
-      this.errorController,
-      this.length = 6});
+  const ToptomPincodeField({
+    super.key,
+    this.controller,
+    this.enabled = true,
+    this.errorController,
+    this.length = 6,
+  });
 
   @override
   Widget build(BuildContext context) {

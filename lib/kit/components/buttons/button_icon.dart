@@ -3,7 +3,7 @@ import 'package:toptom_widgetbook/kit/export.dart';
 
 class ButtonIcon extends StatelessWidget {
   final IconData icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final ButtonIconSize size;
   final ButtonType type;
   final ButtonColor color;
@@ -11,10 +11,10 @@ class ButtonIcon extends StatelessWidget {
   const ButtonIcon({
     super.key,
     required this.icon,
-    required this.onPressed,
-    required this.size,
-    required this.type,
-    required this.color,
+    this.onPressed,
+    this.size = ButtonIconSize.m,
+    this.type = ButtonType.primary,
+    this.color = ButtonColor.primary,
   });
 
   @override

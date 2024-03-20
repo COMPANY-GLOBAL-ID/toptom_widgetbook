@@ -1,4 +1,5 @@
 import 'package:widgetbook/widgetbook.dart';
+import '../screens/card_screen.dart';
 import '../screens/checkbox_screen.dart';
 import '../screens/screens.dart';
 import '../screens/typography_screen.dart';
@@ -90,6 +91,15 @@ final directories = [
       WidgetbookUseCase(
         name: 'Sorting',
         builder: (context) => const SortingPage(),
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'Container',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Card',
+        builder: (context) => const CardScreen(),
       ),
     ],
   ),

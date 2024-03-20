@@ -37,7 +37,8 @@ class CheckboxScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text("CheckboxListTileWidget", style: ThemeCore.of(context).typography.h6),
+            Text("CheckboxListTileWidget",
+                style: ThemeCore.of(context).typography.h6),
             const SizedBox(
               height: 10,
             ),

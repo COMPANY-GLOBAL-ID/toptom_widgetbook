@@ -20,7 +20,7 @@ class CheckboxWidget extends StatelessWidget {
       onChanged: onChanged,
       checkColor: ThemeCore.of(context).color.scheme.white,
       fillColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-        if(states.contains(MaterialState.selected)) {
+        if (states.contains(MaterialState.selected)) {
           return ThemeCore.of(context).color.scheme.main;
         }
         return ThemeCore.of(context).color.scheme.white;
@@ -47,26 +47,23 @@ class CheckboxListTileWidget extends StatelessWidget {
       horizontalTitleGap: 0,
       style: ListTileStyle.list,
       child: CheckboxListTile(
-
-          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-          title: DefaultTextStyle(
-              style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                color: ThemeCore.of(context).color.scheme.textPrimary
-              ),
-              child: title
-          ),
-          contentPadding: EdgeInsets.zero,
-          controlAffinity: ListTileControlAffinity.leading,
-          checkColor: ThemeCore.of(context).color.scheme.white,
-          fillColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-            if(states.contains(MaterialState.selected)) {
-              return ThemeCore.of(context).color.scheme.main;
-            }
-            return ThemeCore.of(context).color.scheme.white;
-          }),
-          value: value,
-          onChanged: onChanged,
-
+        visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+        title: DefaultTextStyle(
+            style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                color: ThemeCore.of(context).color.scheme.textPrimary),
+            child: title),
+        contentPadding: EdgeInsets.zero,
+        controlAffinity: ListTileControlAffinity.leading,
+        checkColor: ThemeCore.of(context).color.scheme.white,
+        fillColor:
+            MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return ThemeCore.of(context).color.scheme.main;
+          }
+          return ThemeCore.of(context).color.scheme.white;
+        }),
+        value: value,
+        onChanged: onChanged,
       ),
     );
   }

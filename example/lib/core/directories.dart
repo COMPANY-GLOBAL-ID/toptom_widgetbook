@@ -1,4 +1,5 @@
 import 'package:widgetbook/widgetbook.dart';
+import '../screens/checkbox_screen.dart';
 import '../screens/screens.dart';
 import '../screens/typography_screen.dart';
 
@@ -37,37 +38,59 @@ final directories = [
     name: 'Status',
     useCases: [
       WidgetbookUseCase(
-          name: 'Notification',
-          builder: (context) => const NotificationScreen()),
+        name: 'Notification',
+        builder: (context) => const NotificationScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Status', builder: (context) => const StatusPage()),
+        name: 'Status',
+        builder: (context) => const StatusPage(),
+      ),
       WidgetbookUseCase(
-          name: 'Badge', builder: (context) => const BadgeScreen()),
+        name: 'Badge',
+        builder: (context) => const BadgeScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'ToolTip', builder: (context) => const ToolTipScreen()),
+        name: 'ToolTip',
+        builder: (context) => const ToolTipScreen(),
+      ),
     ],
   ),
   WidgetbookComponent(
     name: 'Inputs',
     useCases: [
       WidgetbookUseCase(
-          name: 'Text Area', builder: (context) => const TextAreaScreen()),
+        name: 'Text Area',
+        builder: (context) => const TextAreaScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Input', builder: (context) => const InputScreen()),
+        name: 'Input',
+        builder: (context) => const InputScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Double Input',
-          builder: (context) => const DoubleInputScreen()),
+        name: 'Double Input',
+        builder: (context) => const DoubleInputScreen(),
+      ),
       WidgetbookUseCase(
-          name: 'Select Input', builder: (context) => SelectInputScreen()),
+        name: 'Select Input',
+        builder: (context) => SelectInputScreen(),
+      ),
+      WidgetbookUseCase(
+        name: 'Checkbox',
+        builder: (context) => const CheckboxScreen(),
+      )
     ],
   ),
   WidgetbookComponent(
     name: 'State',
     useCases: [
       WidgetbookUseCase(
-          name: 'Stepper', builder: (context) => const StepperPage()),
+        name: 'Stepper',
+        builder: (context) => StepperPage(),
+      ),
       WidgetbookUseCase(
-          name: 'Sorting', builder: (context) => const SortingPage()),
+        name: 'Sorting',
+        builder: (context) => const SortingPage(),
+      ),
     ],
   ),
 ];

@@ -52,7 +52,9 @@ class _LabelTextFieldState extends State<LabelTextField> {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.transparent,
-                border: Border.all(color: ColorKit.colorStrokePrimary),
+                border: Border.all(
+                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                ),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
@@ -65,10 +67,10 @@ class _LabelTextFieldState extends State<LabelTextField> {
                   children: [
                     Text(
                       widget.title,
-                      style: TextStylesKit.labelStyle,
+                      style: ThemeCore.of(context).typography.label,
                     ),
                     TextField(
-                      style: TextStylesKit.fieldStyle,
+                      style: ThemeCore.of(context).typography.label,
                       enabled: widget.enabled,
                       focusNode: _focusNode,
                       onSubmitted: widget.onSubmit,

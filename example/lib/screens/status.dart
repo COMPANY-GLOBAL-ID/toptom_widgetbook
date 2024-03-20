@@ -12,7 +12,7 @@ class StatusPage extends StatelessWidget {
       body: ListView(
         children: [
           StatusWidget(
-            icon: const Icon(ToptomIcons.basket, color: ColorKit.colorWhite),
+            icon: const Icon(ToptomIcons.basket, color: Colors.white),
             title: "Корзина пуста",
             description:
                 "Мы активно работаем над расширением ассортимента, и скоро здесь появятся новые товары. Пожалуйста, следите за обновлениями нашего сайта!",
@@ -22,7 +22,7 @@ class StatusPage extends StatelessWidget {
             height: 20,
           ),
           StatusWidget(
-            icon: const Icon(ToptomIcons.category, color: ColorKit.colorWhite),
+            icon: const Icon(ToptomIcons.category, color: Colors.white),
             title: "В данной категории отсуствую товары",
             description:
                 "К сожалению, ваша корзина пуста. Пожалуйста добавьте товары, чтобы завершить покупку",
@@ -32,7 +32,7 @@ class StatusPage extends StatelessWidget {
             height: 20,
           ),
           StatusWidget(
-            icon: const Icon(ToptomIcons.order, color: ColorKit.colorWhite),
+            icon: const Icon(ToptomIcons.order, color: Colors.white),
             title: "У вас пока что нет заказов :(",
             description: "Здесь будут отображаться ваши заказы.",
             onPressed: () {},

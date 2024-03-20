@@ -1,20 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class StepperPage extends StatelessWidget {
-  const StepperPage({super.key});
+  StepperPage({super.key});
+  final StepperController controller = StepperController();
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              StepperWidget(),
-              StepperWidget(),
-              StepperWidget(),
+              StepperWidget(
+                controller: controller,
+              ),
             ],
           )
         ],

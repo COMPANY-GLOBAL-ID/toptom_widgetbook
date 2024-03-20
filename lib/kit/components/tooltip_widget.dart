@@ -15,30 +15,37 @@ class ToolTipWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStylesKit.buttonXl.copyWith(
-                color: ColorKit.colorTextPrimary, fontWeight: FontWeight.w600),
-          ),
-          GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  color: ColorKit.colorOverlayPrimary,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(title,
+                style: ThemeCore.of(context)
+                    .typography
+                    .paragraphMedium
+                    .copyWith(
+                        color: ThemeCore.of(context).color.scheme.textPrimary,
+                        fontWeight: FontWeight.w600)
+                // style: TextStylesKit.buttonXl.copyWith(
+                //     color: ColorKit.colorTextPrimary, fontWeight: FontWeight.w600),
+                ),
+            GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: ThemeCore.of(context).color.scheme.overlayPrimary,
                 ),
                 child: Icon(
                   ToptomIcons.cross,
-                  color: ColorKit.colorTextPrimary,
-                )),
-          )
-        ],
-      ),
-      content: content,
-      contentTextStyle: TextStylesKit.buttonS.copyWith(
-          color: ColorKit.colorTextSecondary, fontWeight: FontWeight.w400),
-    );
+                  color: ThemeCore.of(context).color.scheme.textPrimary,
+                ),
+              ),
+            )
+          ],
+        ),
+        content: content,
+        contentTextStyle: ThemeCore.of(context)
+            .typography
+            .paragraphMedium
+            .copyWith(color: ThemeCore.of(context).color.scheme.textSecondary));
   }
 }

@@ -24,8 +24,9 @@ class StatusWidget extends StatelessWidget {
     final radiusKit = ThemeCore.of(context).radius;
     return DecoratedBox(
       decoration: BoxDecoration(
-          color: ColorKit.colorBackgroundSecondary,
-          borderRadius: BorderRadius.circular(radiusKit.medium)),
+        color: ThemeCore.of(context).color.scheme.backgroundSecondary,
+        borderRadius: BorderRadius.circular(radiusKit.medium),
+      ),
       child: Padding(
         padding: PaddingStatesKit.paddingL.value,
         child: Column(
@@ -52,13 +53,13 @@ class StatusWidget extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: TextStylesKit.titleStyle,
+                          style: ThemeCore.of(context).typography.h5,
                           textAlign: TextAlign.center,
                         ),
                         Text(
                           description,
-                          style: TextStylesKit.buttonXl
-                              .copyWith(color: ColorKit.colorGray),
+                          style:
+                              ThemeCore.of(context).typography.paragraphMedium,
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -71,13 +72,11 @@ class StatusWidget extends StatelessWidget {
             Container(
               width: double.infinity,
               child: ButtonWidget(
-                onPressed: onPressed,
                 child: Text(
                   "Перейти в каталог",
-                  style: TextStylesKit.buttonXl,
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

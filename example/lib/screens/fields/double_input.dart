@@ -28,42 +28,16 @@ class DoubleInputScreen extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
           ),
-          Padding(
-            padding: EdgeInsets.all(padding),
-            child: DoubleInput.sizeXl(
-              minController: minController1,
-              maxController: maxController1,
-              minHintText: "Text Input 1",
-              maxHintText: "Text Input 2",
-              enabled: true,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: EdgeInsets.all(padding),
-            child: DoubleInput.sizeL(
-              minController: minController2,
-              maxController: maxController2,
-              minHintText: "Text Input 1",
-              maxHintText: "Text Input 2",
-              enabled: true,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: EdgeInsets.all(padding),
-            child: DoubleInput.sizeS(
-              minController: minController3,
-              maxController: maxController3,
-              minHintText: "Text Input 1",
-              maxHintText: "Text Input 2",
-              enabled: true,
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.all(padding),
+          //   child: DoubleInput(
+          //     minController: minController1,
+          //     maxController: maxController1,
+          //     minHintText: "Text Input 1",
+          //     maxHintText: "Text Input 2",
+          //     enabled: true,
+          //   ),
+          // ),
         ],
       ),
     );

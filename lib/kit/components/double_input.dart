@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class DoubleInput extends StatefulWidget {
@@ -9,13 +8,13 @@ class DoubleInput extends StatefulWidget {
     required this.maxController,
     required this.padding,
     required this.dividerPadding,
-    required this.enabled,
-    required this.isDense,
+    this.enabled = true,
+    this.isDense = true,
     required this.divider,
-    required this.minHintText,
-    required this.maxHintText,
-    required this.hintStyle,
-    required this.textStyle,
+    this.minHintText,
+    this.maxHintText,
+    this.hintStyle,
+    this.textStyle,
     required this.fillColor,
     required this.boxConstraints,
   }) : super(key: key);
@@ -36,105 +35,6 @@ class DoubleInput extends StatefulWidget {
 
   @override
   State<DoubleInput> createState() => _DoubleInputState();
-
-  factory DoubleInput.sizeXl({
-    required TextEditingController minController,
-    required TextEditingController maxController,
-    required bool enabled,
-    String? minHintText,
-    String? maxHintText,
-  }) {
-    Color currentFillColor = Colors.transparent;
-    if (enabled != true) {
-      currentFillColor = ColorKit.colorOverlaySecondary;
-    }
-    return DoubleInput(
-      fillColor: currentFillColor,
-      enabled: enabled,
-      textStyle:
-          TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextPrimary),
-      hintStyle:
-          TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary),
-      minHintText: minHintText,
-      maxHintText: maxHintText,
-      isDense: false,
-      minController: minController,
-      maxController: maxController,
-      boxConstraints: const BoxConstraints(minHeight: 24, minWidth: 12),
-      padding: const EdgeInsets.all(12),
-      divider: const SizedBox(
-        height: 32,
-        width: 2,
-      ),
-      dividerPadding: const EdgeInsets.symmetric(horizontal: 16),
-    );
-  }
-
-  factory DoubleInput.sizeL({
-    required TextEditingController minController,
-    required TextEditingController maxController,
-    required bool enabled,
-    String? minHintText,
-    String? maxHintText,
-  }) {
-    Color currentFillColor = Colors.transparent;
-    if (enabled != true) {
-      currentFillColor = ColorKit.colorOverlaySecondary;
-    }
-    return DoubleInput(
-      fillColor: currentFillColor,
-      textStyle:
-          TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextPrimary),
-      minHintText: minHintText,
-      maxHintText: maxHintText,
-      hintStyle:
-          TextStylesKit.buttonXl.copyWith(color: ColorKit.colorTextSecondary),
-      enabled: enabled,
-      isDense: false,
-      boxConstraints: const BoxConstraints(minHeight: 24, minWidth: 12),
-      minController: minController,
-      maxController: maxController,
-      padding: const EdgeInsets.all(8),
-      divider: const SizedBox(
-        height: 32,
-        width: 2,
-      ),
-      dividerPadding: const EdgeInsets.symmetric(horizontal: 12),
-    );
-  }
-
-  factory DoubleInput.sizeS({
-    required TextEditingController minController,
-    required TextEditingController maxController,
-    required bool enabled,
-    String? minHintText,
-    String? maxHintText,
-  }) {
-    Color currentFillColor = Colors.transparent;
-    if (enabled != true) {
-      currentFillColor = ColorKit.colorOverlaySecondary;
-    }
-    return DoubleInput(
-      fillColor: currentFillColor,
-      textStyle:
-          TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextPrimary),
-      minHintText: minHintText,
-      maxHintText: maxHintText,
-      hintStyle:
-          TextStylesKit.buttonS.copyWith(color: ColorKit.colorTextSecondary),
-      enabled: enabled,
-      isDense: true,
-      boxConstraints: const BoxConstraints(minHeight: 16, minWidth: 12),
-      minController: minController,
-      maxController: maxController,
-      padding: const EdgeInsets.all(4),
-      divider: const SizedBox(
-        height: 16,
-        width: 2,
-      ),
-      dividerPadding: const EdgeInsets.symmetric(horizontal: 8),
-    );
-  }
 }
 
 class _DoubleInputState extends State<DoubleInput> {
@@ -158,8 +58,12 @@ class _DoubleInputState extends State<DoubleInput> {
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
-            border: Border.all(color: ColorKit.colorOverlaySecondary),
-            borderRadius: BorderRadius.circular(themeCore.radius.medium),
+            border: Border.all(
+              color: ThemeCore.of(context).color.scheme.overlaySecondary,
+            ),
+            borderRadius: BorderRadius.circular(
+              themeCore.radius.medium,
+            ),
             color: widget.fillColor,
           ),
           child: Padding(
@@ -198,7 +102,7 @@ class _DoubleInputState extends State<DoubleInput> {
                     decoration: BoxDecoration(
                       borderRadius:
                           BorderRadius.circular(themeCore.radius.small),
-                      color: ColorKit.colorStrokePrimary,
+                      color: ThemeCore.of(context).color.scheme.strokePrimary,
                     ),
                     child: widget.divider,
                   ),
@@ -232,8 +136,9 @@ class _DoubleInputState extends State<DoubleInput> {
             ),
           ),
         ),
-        if (widget.enabled == true)
-          RangeSlider(
+        Visibility(
+          visible: widget.enabled,
+          child: RangeSlider(
             values: RangeValues(_startValue, _endValue),
             min: _minValue,
             max: _maxValue,
@@ -248,6 +153,7 @@ class _DoubleInputState extends State<DoubleInput> {
               });
             },
           ),
+        ),
       ],
     );
   }
@@ -294,16 +200,18 @@ class InputPrice extends StatelessWidget {
         isDense: isDense,
         enabled: enabled,
         filled: !enabled,
-        fillColor: !enabled ? ColorKit.colorOverlaySecondary : null,
+        fillColor: !enabled
+            ? ThemeCore.of(context).color.scheme.overlaySecondary
+            : null,
         border: InputBorder.none,
-        suffix: const Icon(
+        suffix: Icon(
           ToptomIcons.error_stroke,
           size: 13.33,
-          color: ColorKit.colorTextSecondary,
+          color: ThemeCore.of(context).color.scheme.textSecondary,
         ),
-        labelStyle: TextStylesKit.buttonXl.copyWith(
-          color: ColorKit.colorTextPrimary,
-        ),
+        labelStyle: ThemeCore.of(context).typography.paragraphMedium.copyWith(
+              color: ThemeCore.of(context).color.scheme.textPrimary,
+            ),
         suffixIconConstraints: boxConstraints,
       ),
     );

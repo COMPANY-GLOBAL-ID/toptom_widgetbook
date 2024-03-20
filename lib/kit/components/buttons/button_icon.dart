@@ -51,6 +51,7 @@ class ButtonIcon extends StatelessWidget {
         }),
         shape: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
           late Color foregroundColor;
+
           if (states.contains(MaterialState.pressed)) {
             foregroundColor = type.borderColorPressed(color, context);
           } else if (states.contains(MaterialState.disabled)) {

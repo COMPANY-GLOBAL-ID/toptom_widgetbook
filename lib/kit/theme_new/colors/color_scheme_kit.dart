@@ -11,6 +11,7 @@ class ColorSchemeKit {
   final Color overlaySecondary;
   final Color errorPrimary;
   final Color errorSecondary;
+  final Color positivePrimary;
   final Color positiveSecondary;
   final Color white;
   final Color yellowStar;
@@ -27,6 +28,7 @@ class ColorSchemeKit {
     this.errorPrimary = const Color.fromRGBO(250, 30, 30, 1),
     this.errorSecondary = const Color.fromRGBO(243, 195, 195, 1),
     this.positiveSecondary = const Color.fromRGBO(195, 243, 200, 1),
+    this.positivePrimary = const Color.fromRGBO(47, 168, 59, 1),
     this.white = const Color.fromRGBO(255, 255, 255, 1),
     this.yellowStar = const Color.fromRGBO(248, 145, 51, 1),
   });

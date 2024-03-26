@@ -17,10 +17,13 @@ enum ButtonType {
       ButtonType.primary => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
-      ButtonType.outlined => Colors.transparent,
-      ButtonType.ghost => Colors.transparent,
-      ButtonType.defaultButton => Colors.transparent,
+      ButtonType.outlined => Colors.white.withOpacity(0),
+      ButtonType.ghost => Colors.white.withOpacity(0),
+      ButtonType.defaultButton => Colors.white.withOpacity(0),
     };
   }
 
@@ -31,15 +34,24 @@ enum ButtonType {
       ButtonType.primary => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentHover,
           ButtonColor.black => colorTheme.buttonColor.blackHover,
+          ButtonColor.success => colorTheme.buttonColor.successHover,
+          ButtonColor.error => colorTheme.buttonColor.errorHover,
+          ButtonColor.warning => colorTheme.buttonColor.warningHover,
         },
       ButtonType.outlined => Colors.transparent,
       ButtonType.ghost => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentGhostHover,
           ButtonColor.black => colorTheme.buttonColor.blackGhostHover,
+          ButtonColor.success => colorTheme.buttonColor.successGhost,
+          ButtonColor.error => colorTheme.buttonColor.errorGhost,
+          ButtonColor.warning => colorTheme.buttonColor.warningGhost,
         },
       ButtonType.defaultButton => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.defaultButtonHover,
           ButtonColor.black => colorTheme.buttonColor.defaultButtonHover,
+          ButtonColor.success => colorTheme.buttonColor.defaultButtonHover,
+          ButtonColor.error => colorTheme.buttonColor.defaultButtonHover,
+          ButtonColor.warning => colorTheme.buttonColor.defaultButtonHover,
         },
     };
   }
@@ -62,18 +74,30 @@ enum ButtonType {
       ButtonType.primary => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentText,
           ButtonColor.black => colorTheme.buttonColor.blackText,
+          ButtonColor.success => colorTheme.buttonColor.successText,
+          ButtonColor.error => colorTheme.buttonColor.errorText,
+          ButtonColor.warning => colorTheme.buttonColor.warningText,
         },
       ButtonType.outlined => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
       ButtonType.ghost => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
       ButtonType.defaultButton => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
     };
   }
@@ -84,18 +108,30 @@ enum ButtonType {
       ButtonType.primary => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentText,
           ButtonColor.black => colorTheme.buttonColor.blackText,
+          ButtonColor.success => colorTheme.buttonColor.successText,
+          ButtonColor.error => colorTheme.buttonColor.errorText,
+          ButtonColor.warning => colorTheme.buttonColor.warningText,
         },
       ButtonType.outlined => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentHover,
           ButtonColor.black => colorTheme.buttonColor.blackHover,
+          ButtonColor.success => colorTheme.buttonColor.successHover,
+          ButtonColor.error => colorTheme.buttonColor.errorHover,
+          ButtonColor.warning => colorTheme.buttonColor.warningHover,
         },
       ButtonType.ghost => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
       ButtonType.defaultButton => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
     };
   }
@@ -119,6 +155,9 @@ enum ButtonType {
       ButtonType.outlined => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accent,
           ButtonColor.black => colorTheme.buttonColor.black,
+          ButtonColor.success => colorTheme.buttonColor.success,
+          ButtonColor.error => colorTheme.buttonColor.error,
+          ButtonColor.warning => colorTheme.buttonColor.warning,
         },
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,
@@ -133,6 +172,9 @@ enum ButtonType {
       ButtonType.outlined => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.accentHover,
           ButtonColor.black => colorTheme.buttonColor.blackHover,
+          ButtonColor.success => colorTheme.buttonColor.successHover,
+          ButtonColor.error => colorTheme.buttonColor.errorHover,
+          ButtonColor.warning => colorTheme.buttonColor.warningHover,
         },
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,

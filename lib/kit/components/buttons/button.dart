@@ -22,6 +22,7 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        elevation: MaterialStatePropertyAll<double>(0),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
@@ -78,7 +79,6 @@ class ButtonWidget extends StatelessWidget {
           return type.foreground(color, context);
         }),
         iconSize: MaterialStatePropertyAll<double>(size.iconSize()),
-        shadowColor: const MaterialStatePropertyAll<Color>(Colors.transparent),
         textStyle: MaterialStatePropertyAll<TextStyle>(size.textStyle(context)),
         padding:
             MaterialStatePropertyAll<EdgeInsetsGeometry>(size.padding(context)),

@@ -30,7 +30,8 @@ class BadgeWidget extends StatelessWidget {
           style: ThemeCore.of(context)
               .typography
               .paragraphSmall
-              .copyWith(color: type.toForeground(context, color)),
+              .copyWith(color: type.toForeground(context, color),
+          ),
           child: child,
         ),
       ),

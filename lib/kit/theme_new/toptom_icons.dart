@@ -2017,4 +2017,24 @@ class ToptomIcons {
       IconData(0xec14, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData order =
       IconData(0xec15, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData category_choose =
+      IconData(0xec16, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData chat_2 =
+      IconData(0xec17, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData comments_2 =
+      IconData(0xec18, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData games_icon =
+      IconData(0xec19, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData graph =
+      IconData(0xec1a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData more_2 =
+      IconData(0xec1c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData notification_2 =
+      IconData(0xec1d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData profile =
+      IconData(0xec1e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData subtasks =
+      IconData(0xec20, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData users_2 =
+      IconData(0xec21, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

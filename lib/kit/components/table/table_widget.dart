@@ -9,7 +9,13 @@ class TableWidget<T> extends StatelessWidget {
   final List<T> items;
   final EdgeInsets? padding;
 
-  TableWidget({super.key, required this.builder, required this.items, required this.header, this.padding,});
+  TableWidget({
+    super.key,
+    required this.builder,
+    required this.items,
+    required this.header,
+    this.padding,
+  });
 
   final ScrollController _scrollController = ScrollController();
 
@@ -36,10 +42,7 @@ class TableWidget<T> extends StatelessWidget {
                       ThemeCore.of(context).radius.extraLarge,
                     ),
                   ),
-                  children: [
-                    header,
-                    ...items.map(builder)
-                  ],
+                  children: [header, ...items.map(builder)],
                 ),
               ),
             ),

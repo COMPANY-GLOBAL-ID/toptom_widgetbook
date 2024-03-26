@@ -4,7 +4,7 @@ import 'package:toptom_widgetbook/kit/export.dart';
 export 'typography_kit.dart';
 export 'padding_kit.dart';
 export 'styles/styles.dart';
-
+export 'toptom_icons.dart';
 export 'colors/color_kit.dart';
 
 class ThemeDataCore {

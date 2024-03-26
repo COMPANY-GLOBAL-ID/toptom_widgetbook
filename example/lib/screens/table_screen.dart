@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class TableScreen extends StatelessWidget {
-
   TableScreen({super.key});
 
   @override
@@ -28,30 +27,29 @@ class TableScreen extends StatelessWidget {
               ),
             ),
             TableWidget<int>(
-              padding: EdgeInsets.all(20),
-              header: TableRow(
-                children: [
+                padding: EdgeInsets.all(20),
+                header: TableRow(children: [
                   TableCellWidget(child: Text("ID")),
                   TableCellWidget(child: Text("Name")),
                   TableCellWidget(child: Text("Role")),
-                  TableCellWidget(child: Text("sdjaksdklasfjasklfasjkfljaskdjaskldjaksldjklasdjklasdjkasdjkasldjklasdkl")),
-                ]
-              ),
-              items: List.generate(
-                10,
-                (index) => index,
-              ),
-              builder: (index) {
-                return TableRow(
-                  children: [
+                  TableCellWidget(
+                      child: Text(
+                          "sdjaksdklasfjasklfasjkfljaskdjaskldjaksldjklasdjklasdjkasdjkasldjklasdkl")),
+                ]),
+                items: List.generate(
+                  10,
+                  (index) => index,
+                ),
+                builder: (index) {
+                  return TableRow(children: [
                     TableCellWidget(child: Text(index.toString())),
                     TableCellWidget(child: Text("Иванов Иван")),
                     TableCellWidget(child: Text("Pidor")),
-                    TableCellWidget(child: Text("sdjaksdklasfjasklfasjkfljaskdjaskldjaksldjklasdjklasdjkasdjkasldjklasdkl")),
-                  ]
-                );
-              }
-            )
+                    TableCellWidget(
+                        child: Text(
+                            "sdjaksdklasfjasklfasjkfljaskdjaskldjaksldjklasdjklasdjkasdjkasldjklasdkl")),
+                  ]);
+                })
           ],
         ),
       ),

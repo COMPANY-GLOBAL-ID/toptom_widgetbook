@@ -59,7 +59,6 @@ class ButtonWidget extends StatelessWidget {
           } else {
             foregroundColor = type.borderColor(color, context);
           }
-
           return RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
             side: BorderSide(

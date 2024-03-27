@@ -27,11 +27,9 @@ class BadgeWidget extends StatelessWidget {
       child: Padding(
         padding: size.toPadding(context),
         child: DefaultTextStyle(
-          style: ThemeCore.of(context)
-              .typography
-              .paragraphSmall
-              .copyWith(color: type.toForeground(context, color),
-          ),
+          style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                color: type.toForeground(context, color),
+              ),
           child: child,
         ),
       ),

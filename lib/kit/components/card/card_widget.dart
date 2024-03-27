@@ -4,11 +4,13 @@ import 'package:toptom_widgetbook/kit/export.dart';
 class CardWidget extends StatelessWidget {
   final List<Widget> children;
   final CrossAxisAlignment crossAxisAlignment;
+  final EdgeInsets? padding;
 
   const CardWidget({
     super.key,
     required this.children,
     this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.padding,
   });
 
   @override
@@ -24,9 +26,11 @@ class CardWidget extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
-        child:
-            Column(crossAxisAlignment: crossAxisAlignment, children: children),
+        padding: padding ?? const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: crossAxisAlignment,
+          children: children,
+        ),
       ),
     );
   }

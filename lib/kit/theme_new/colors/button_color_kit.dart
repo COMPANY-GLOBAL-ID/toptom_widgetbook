@@ -27,7 +27,6 @@ class ButtonColorKit {
   final Color successHover;
   final Color successText;
 
-
   const ButtonColorKit({
     this.accent = const Color.fromRGBO(250, 77, 30, 1),
     this.accentHover = const Color.fromRGBO(221, 60, 16, 1),
@@ -42,17 +41,14 @@ class ButtonColorKit {
     this.defaultButtonHover = const Color.fromRGBO(245, 246, 248, 1),
     this.disable = const Color.fromRGBO(208, 213, 221, 1),
     this.disableText = const Color.fromRGBO(139, 145, 169, 1),
-
     this.warning = const Color.fromRGBO(245, 167, 51, 1),
     this.warningHover = const Color.fromRGBO(208, 140, 38, 1.0),
     this.warningGhost = const Color.fromRGBO(236, 208, 176, 1.0),
     this.warningText = const Color.fromRGBO(255, 255, 255, 1),
-
     this.error = const Color.fromRGBO(250, 30, 30, 1),
     this.errorHover = const Color.fromRGBO(203, 22, 22, 1.0),
     this.errorGhost = const Color.fromRGBO(243, 195, 195, 1),
     this.errorText = const Color.fromRGBO(255, 255, 255, 1),
-
     this.success = const Color.fromRGBO(47, 168, 59, 1),
     this.successGhost = const Color.fromRGBO(195, 243, 200, 1),
     this.successHover = const Color.fromRGBO(35, 140, 45, 1.0),

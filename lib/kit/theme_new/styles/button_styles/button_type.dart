@@ -23,13 +23,13 @@ enum ButtonType {
         },
       ButtonType.outlined => Colors.white.withOpacity(0),
       ButtonType.ghost => switch (color) {
-          ButtonColor.primary => colorTheme.buttonColor.accent.withOpacity(0.2),
-          ButtonColor.black => colorTheme.buttonColor.black.withOpacity(0.2),
+          ButtonColor.primary => colorTheme.buttonColor.accent.withOpacity(0.1),
+          ButtonColor.black => colorTheme.buttonColor.black.withOpacity(0.1),
           ButtonColor.success =>
-            colorTheme.buttonColor.success.withOpacity(0.2),
-          ButtonColor.error => colorTheme.buttonColor.error.withOpacity(0.2),
+            colorTheme.buttonColor.success.withOpacity(0.1),
+          ButtonColor.error => colorTheme.buttonColor.error.withOpacity(0.1),
           ButtonColor.warning =>
-            colorTheme.buttonColor.warning.withOpacity(0.2),
+            colorTheme.buttonColor.warning.withOpacity(0.1),
         },
       ButtonType.defaultButton => Colors.white.withOpacity(0),
     };

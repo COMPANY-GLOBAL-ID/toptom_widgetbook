@@ -6,12 +6,14 @@ part 'badge_color.dart';
 
 enum BadgeType {
   primary,
+  outlined,
   secondary;
 
   Color toBackground(BuildContext context, BadgeColor color) {
     return switch (this) {
       BadgeType.primary => color.toColor(context),
-      BadgeType.secondary => Colors.transparent
+      BadgeType.secondary => Colors.transparent,
+      BadgeType.outlined => color.toColor(context).withOpacity(0.2),
     };
   }
 
@@ -19,6 +21,7 @@ enum BadgeType {
     return switch (this) {
       BadgeType.primary => Colors.white,
       BadgeType.secondary => color.toColor(context),
+      BadgeType.outlined => color.toColor(context),
     };
   }
 }

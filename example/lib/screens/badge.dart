@@ -67,6 +67,33 @@ class BadgeScreen extends StatelessWidget {
                 ],
               ),
             );
+          }),
+          Text("Outlined Badge", style: ThemeCore.of(context).typography.h5),
+          const SizedBox(
+            height: 20,
+          ),
+          ...BadgeColor.values.map((color) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BadgeWidget(
+                    type: BadgeType.outlined,
+                    size: BadgeSize.primary,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                  const SizedBox(width: 10),
+                  BadgeWidget(
+                    type: BadgeType.outlined,
+                    size: BadgeSize.small,
+                    color: color,
+                    child: Text('Status text'),
+                  ),
+                ],
+              ),
+            );
           })
         ],
       ),

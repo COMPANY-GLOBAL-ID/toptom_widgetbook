@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/components/select_input_widget.dart';
 
 class SelectInputScreen extends StatefulWidget {
-  final SelectInputController controller = SelectInputController("item 1");
+  final SelectInputController controller = SelectInputController();
   SelectInputScreen({
     super.key,
   });

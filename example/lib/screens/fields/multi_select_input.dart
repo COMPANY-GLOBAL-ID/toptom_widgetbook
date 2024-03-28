@@ -1,0 +1,147 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/kit/components/select_input_widget.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
+
+class MultiSelectInput<T> extends StatefulWidget {
+  final List<T> items;
+  final String? label;
+  final Widget? hint;
+  final String? clearText;
+  final DropdownMenuItem<T> Function(T) builder;
+  final Widget Function(T) builderChip;
+
+  final MultiSelectController<T> controller;
+
+  const MultiSelectInput({
+    super.key,
+    required this.items,
+    required this.controller,
+    this.hint,
+    required this.builder,
+    required this.builderChip,
+    this.label,
+    this.clearText,
+  });
+
+  @override
+  State<MultiSelectInput<T>> createState() => _MultiSelectInputState<T>();
+}
+
+class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
+  late SelectInputController<T> singleController;
+
+  @override
+  void initState() {
+    singleController = SelectInputController<T>()
+      ..addListener(_listenController);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    singleController
+      ..removeListener(_listenController)
+      ..dispose();
+    super.dispose();
+  }
+
+  _listenController() {
+    if (singleController.value == null) return;
+    widget.controller.add(singleController.value);
+    singleController.clear();
+  }
+
+  _clearAll() => widget.controller.clear();
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+        valueListenable: widget.controller,
+        builder: (context, value, child) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Visibility(
+                visible: (widget.label != null && widget.label?.isNotEmpty == true) || (widget.clearText != null && widget.clearText?.isNotEmpty == true),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Visibility(
+                      maintainSize: true,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: widget.label != null && widget.label?.isNotEmpty == true,
+                      child: Text(widget.label ?? '',
+                        style: ThemeCore.of(context)
+                            .typography
+                            .paragraphSmall
+                            .copyWith(
+                          color:
+                          ThemeCore.of(context).color.scheme.textSecondary,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      maintainSize: true,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: widget.clearText != null && widget.clearText?.isNotEmpty == true,
+                      child: TextButton(
+                        onPressed: _clearAll,
+                        child: Text(
+                          widget.clearText ?? '',
+                          style: ThemeCore.of(context)
+                              .typography
+                              .paragraphSmall
+                              .copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                  width: double.infinity,
+                  child: SelectInputWidget(
+                    items: widget.items.where((element) {
+                      return !value.contains(element);
+                    }).toList(),
+                    builder: widget.builder,
+                    hint: widget.hint,
+                    controller: singleController,
+                  ),
+              ),
+              SizedBox(height: 8),
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.start,
+                spacing: 8,
+                children: widget.controller.value.map(widget.builderChip).toList(),
+              )
+            ],
+          );
+        });
+  }
+}
+
+class MultiSelectController<T> extends ValueNotifier<List<T>> {
+  MultiSelectController({List<T>? values}) : super(values ?? []);
+
+  void add(T value) {
+    this.value.add(value);
+    notifyListeners();
+  }
+
+  void remove(T value) {
+    this.value.remove(value);
+    notifyListeners();
+  }
+
+  void clear() {
+    value.clear();
+    notifyListeners();
+  }
+}

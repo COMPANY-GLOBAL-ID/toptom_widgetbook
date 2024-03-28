@@ -33,7 +33,7 @@ class ButtonWidget extends StatelessWidget {
         elevation: MaterialStatePropertyAll<double>(elevation),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if(backgroundColor != null) {
+          if (backgroundColor != null) {
             return backgroundColor!;
           }
           if (states.contains(MaterialState.disabled)) {
@@ -43,7 +43,7 @@ class ButtonWidget extends StatelessWidget {
         }),
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if(foregroundColor != null) {
+          if (foregroundColor != null) {
             return foregroundColor!;
           }
           if (states.contains(MaterialState.disabled)) {
@@ -56,7 +56,7 @@ class ButtonWidget extends StatelessWidget {
         }),
         overlayColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if(overlayColor != null) {
+          if (overlayColor != null) {
             return overlayColor!;
           }
           if (states.contains(MaterialState.pressed)) {

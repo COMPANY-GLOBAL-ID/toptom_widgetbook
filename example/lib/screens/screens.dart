@@ -12,4 +12,4 @@ export 'shadow.dart';
 export 'tooltip.dart';
 export 'status.dart';
 export 'fields/select_input.dart';
-export 'fields/multi_select_input.dart';
+export '../../../lib/kit/components/multi_select_input.dart';

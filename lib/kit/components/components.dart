@@ -6,3 +6,5 @@ export 'stepper_widget/stepper_widget.dart';
 export 'checkbox/checkbox.dart';
 export 'card/card_widget.dart';
 export 'table/table_widget.dart';
+export 'select_input_widget.dart';
+export 'multi_select_input.dart';

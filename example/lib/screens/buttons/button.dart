@@ -1,8 +1,5 @@
-import 'package:example/screens/fields/multi_select_input.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:toptom_widgetbook/kit/components/multi_select_input.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:toptom_widgetbook/kit/components/buttons/button.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class ButtonScreen extends StatelessWidget {

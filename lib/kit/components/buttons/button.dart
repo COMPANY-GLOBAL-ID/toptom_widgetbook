@@ -7,6 +7,8 @@ class ButtonWidget extends StatelessWidget {
   final ButtonType type;
   final ButtonColor color;
   final VoidCallback? onPressed;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   const ButtonWidget({
     Key? key,
@@ -15,6 +17,8 @@ class ButtonWidget extends StatelessWidget {
     this.color = ButtonColor.primary,
     required this.child,
     this.onPressed,
+    this.backgroundColor,
+    this.foregroundColor,
   }) : super(key: key);
 
   @override
@@ -25,6 +29,9 @@ class ButtonWidget extends StatelessWidget {
         elevation: MaterialStatePropertyAll<double>(0),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
+          if(backgroundColor != null) {
+            return backgroundColor!;
+          }
           if (states.contains(MaterialState.disabled)) {
             return type.backgroundDisable(color, context);
           }
@@ -32,6 +39,9 @@ class ButtonWidget extends StatelessWidget {
         }),
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
+          if(foregroundColor != null) {
+            return foregroundColor!;
+          }
           if (states.contains(MaterialState.disabled)) {
             return type.foregroundDisable(color, context);
           }

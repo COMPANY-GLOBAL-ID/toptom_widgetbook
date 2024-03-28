@@ -7,6 +7,10 @@ class ButtonIcon extends StatelessWidget {
   final ButtonIconSize size;
   final ButtonType type;
   final ButtonColor color;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+  final Color? overlayColor;
+  final double elevation;
 
   const ButtonIcon({
     super.key,
@@ -15,6 +19,10 @@ class ButtonIcon extends StatelessWidget {
     this.size = ButtonIconSize.m,
     this.type = ButtonType.primary,
     this.color = ButtonColor.primary,
+    this.backgroundColor,
+    this.foregroundColor,
+    this.overlayColor,
+    this.elevation = 0,
   });
 
   @override
@@ -22,8 +30,12 @@ class ButtonIcon extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
+        elevation: MaterialStatePropertyAll<double>(elevation),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
+          if(backgroundColor != null) {
+            return backgroundColor!;
+          }
           if (states.contains(MaterialState.disabled)) {
             return type.backgroundDisable(color, context);
           }
@@ -31,6 +43,9 @@ class ButtonIcon extends StatelessWidget {
         }),
         foregroundColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
+          if(foregroundColor != null) {
+            return foregroundColor!;
+          }
           if (states.contains(MaterialState.disabled)) {
             return type.foregroundDisable(color, context);
           }
@@ -41,6 +56,9 @@ class ButtonIcon extends StatelessWidget {
         }),
         overlayColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
+          if(overlayColor != null) {
+            return overlayColor!;
+          }
           if (states.contains(MaterialState.pressed)) {
             return type.backgroundPressed(color, context);
           }

@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class TableScreen extends StatelessWidget {
-  TableScreen({super.key});
+  const TableScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +25,8 @@ class TableScreen extends StatelessWidget {
               ),
             ),
             TableWidget<int>(
-                padding: EdgeInsets.all(20),
-                header: TableRow(children: [
+                padding: const EdgeInsets.all(20),
+                header: const TableRow(children: [
                   TableCellWidget(child: Text("ID")),
                   TableCellWidget(child: Text("Name")),
                   TableCellWidget(child: Text("Role")),
@@ -43,9 +41,9 @@ class TableScreen extends StatelessWidget {
                 builder: (index) {
                   return TableRow(children: [
                     TableCellWidget(child: Text(index.toString())),
-                    TableCellWidget(child: Text("Иванов Иван")),
-                    TableCellWidget(child: Text("Pidor")),
-                    TableCellWidget(
+                    const TableCellWidget(child: Text("Иванов Иван")),
+                    const TableCellWidget(child: Text("Pidor")),
+                    const TableCellWidget(
                         child: Text(
                             "sdjaksdklasfjasklfasjkfljaskdjaskldjaksldjklasdjklasdjkasdjkasldjklasdkl")),
                   ]);

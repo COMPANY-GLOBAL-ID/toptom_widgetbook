@@ -53,9 +53,9 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
             onChanged: onChange,
             hint: DefaultTextStyle(
               style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                color: ThemeCore.of(context).color.scheme.textSecondary,
-                fontWeight: FontWeight.w500,
-              ),
+                    color: ThemeCore.of(context).color.scheme.textSecondary,
+                    fontWeight: FontWeight.w500,
+                  ),
               child: widget.hint ?? const Offstage(),
             ),
             buttonStyleData: ButtonStyleData(

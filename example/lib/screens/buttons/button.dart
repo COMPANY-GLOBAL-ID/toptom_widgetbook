@@ -1,4 +1,3 @@
-import 'package:toptom_widgetbook/kit/components/multi_select_input.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
@@ -67,14 +66,14 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SelectInputWidget<String>(
-              items: ['all', 'male', 'women'],
+              items: const ['all', 'male', 'women'],
               builder: (item) => DropdownMenuItem(
-                child: Text(item),
                 value: item,
+                child: Text(item),
               ),
               controller: SelectInputController(),
             ),
@@ -82,10 +81,10 @@ class ButtonScreen extends StatelessWidget {
               clearText: 'Clear',
               label: 'Select',
               hint: const Text('Select'),
-              items: ['all', 'male', 'women'],
+              items: const ['all', 'male', 'women'],
               builder: (item) => DropdownMenuItem(
-                child: Text(item),
                 value: item,
+                child: Text(item),
               ),
               controller: MultiSelectController(),
               builderChip: (value) {
@@ -97,17 +96,17 @@ class ButtonScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(value.toString()),
-                      SizedBox(width: 4),
+                      const SizedBox(width: 4),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                       )
                     ],
                   ),
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 2000,
             ),
           ],

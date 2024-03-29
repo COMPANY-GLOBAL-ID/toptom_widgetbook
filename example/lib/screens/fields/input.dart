@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class InputScreen extends StatelessWidget {
   const InputScreen({super.key});
@@ -19,10 +18,10 @@ class InputScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text("TextFieldWidget",
-                style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget(
+              label: "TextFieldWidget",
               controller: textEditingController,
+              enabled: false,
             ),
             const SizedBox(
               height: 10,
@@ -30,6 +29,7 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.description",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.description(
+              label: "TextFieldWidget.description",
               controller: textEditingController,
             ),
             const SizedBox(

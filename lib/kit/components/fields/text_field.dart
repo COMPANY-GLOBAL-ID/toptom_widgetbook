@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
-import 'top_field.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
+  final TextStyle? hintStyle;
+  final TextStyle? textStyle;
+  final TextStyle? labelStyle;
   final String? errorText;
   final bool isRequired;
   final Widget? suffixIcon;
@@ -19,6 +22,11 @@ class TextFieldWidget extends StatelessWidget {
   final int? maxLines;
   final int? minLines;
   final List<TextInputFormatter>? inputFormatters;
+  final bool? isDense;
+  final bool? filled;
+  final Color? fillColor;
+  final Widget? suffix;
+  final bool? isCollapsed;
 
   const TextFieldWidget({
     super.key,
@@ -36,6 +44,14 @@ class TextFieldWidget extends StatelessWidget {
     this.maxLines = 1,
     this.minLines = 1,
     this.inputFormatters,
+    this.isDense = false,
+    this.hintStyle,
+    this.textStyle,
+    this.labelStyle,
+    this.filled,
+    this.fillColor,
+    this.suffix,
+    this.isCollapsed,
   });
 
   static final MaskTextInputFormatter _phoneMask = MaskTextInputFormatter(
@@ -58,7 +74,7 @@ class TextFieldWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (label != null) ...[
-          TopField(label: label!, isRequired: isRequired),
+          TopField(label: label!, isRequired: isRequired, style: labelStyle),
           const SizedBox(height: 5)
         ],
         TextField(
@@ -67,25 +83,46 @@ class TextFieldWidget extends StatelessWidget {
           onSubmitted: onSubmit,
           controller: controller,
           maxLength: maxLength,
+          style: textStyle,
           inputFormatters: inputFormatters,
           maxLines: maxLines,
-          minLines: minLines,
           decoration: InputDecoration(
+            suffix: suffix,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
+            filled: (enabled == false),
+            fillColor: fillColor,
             hintText: hintText,
             errorText: errorText,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 10,
-            ),
+            hintStyle: hintStyle,
+            isDense: isDense,
+            isCollapsed: isCollapsed,
+            contentPadding: EdgeInsets.all(ThemeCore.of(context).padding.l),
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                    ThemeCore.of(context).radius.extraLarge),
+                borderSide: BorderSide.none),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(width: 1.5),
-            ),
+                borderRadius: BorderRadius.circular(
+                    ThemeCore.of(context).radius.extraLarge),
+                borderSide: BorderSide(
+                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  width: 1,
+                )),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                    ThemeCore.of(context).radius.extraLarge),
+                borderSide: BorderSide(
+                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  width: 1,
+                )),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+                borderRadius: BorderRadius.circular(
+                    ThemeCore.of(context).radius.extraLarge),
+                borderSide: BorderSide(
+                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  width: 1,
+                )),
           ),
         ),
       ],
@@ -102,8 +139,14 @@ class TextFieldWidget extends StatelessWidget {
     Widget? prefixIcon,
     Function(String)? onSubmit,
     int? maxLength,
-    int? maxLines = 8,
+    int? maxLines = 4,
     bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -118,6 +161,11 @@ class TextFieldWidget extends StatelessWidget {
       maxLines: maxLines,
       enabled: enabled,
       minLines: 5,
+      isDense: isDense,
+      hintStyle: hintStyle,
+      textStyle: textStyle,
+      filled: filled,
+      fillColor: fillColor,
     );
   }
 
@@ -130,7 +178,14 @@ class TextFieldWidget extends StatelessWidget {
     Widget? suffixIcon,
     Widget? prefixIcon,
     Function(String)? onSubmit,
+    int? maxLength,
     bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -143,6 +198,12 @@ class TextFieldWidget extends StatelessWidget {
       onSubmit: onSubmit,
       keyboardType: TextInputType.emailAddress,
       enabled: enabled,
+      filled: filled,
+      fillColor: fillColor,
+      isCollapsed: isCollapsed,
+      isDense: isDense,
+      hintStyle: hintStyle,
+      textStyle: textStyle,
     );
   }
 
@@ -155,8 +216,14 @@ class TextFieldWidget extends StatelessWidget {
     Widget? suffixIcon,
     Widget? prefixIcon,
     Function(String)? onSubmit,
-    bool? enabled,
     int? maxLength,
+    bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -171,6 +238,12 @@ class TextFieldWidget extends StatelessWidget {
       enabled: enabled,
       maxLength: maxLength,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      filled: filled,
+      isCollapsed: isCollapsed,
+      isDense: isDense,
+      hintStyle: hintStyle,
+      textStyle: textStyle,
+      fillColor: fillColor,
     );
   }
 
@@ -184,6 +257,12 @@ class TextFieldWidget extends StatelessWidget {
     Widget? prefixIcon,
     Function(String)? onSubmit,
     bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -197,6 +276,12 @@ class TextFieldWidget extends StatelessWidget {
       keyboardType: TextInputType.phone,
       enabled: enabled,
       inputFormatters: [_phoneMask],
+      filled: filled,
+      isCollapsed: isCollapsed,
+      isDense: isDense,
+      hintStyle: hintStyle,
+      textStyle: textStyle,
+      fillColor: fillColor,
     );
   }
 
@@ -210,6 +295,12 @@ class TextFieldWidget extends StatelessWidget {
     Widget? prefixIcon,
     Function(String)? onSubmit,
     bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -223,6 +314,12 @@ class TextFieldWidget extends StatelessWidget {
       keyboardType: TextInputType.phone,
       enabled: enabled,
       inputFormatters: [_dateMask],
+      filled: filled,
+      isCollapsed: isCollapsed,
+      isDense: isDense,
+      hintStyle: hintStyle,
+      textStyle: textStyle,
+      fillColor: fillColor,
     );
   }
 }

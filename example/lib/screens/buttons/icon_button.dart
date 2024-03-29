@@ -9,7 +9,7 @@ class IconButtonScreen extends StatefulWidget {
 }
 
 class _IconButtonScreenState extends State<IconButtonScreen> {
-  bool _checkBoxValue = false;
+  final bool _checkBoxValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

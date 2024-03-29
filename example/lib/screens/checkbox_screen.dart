@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
@@ -43,12 +42,12 @@ class CheckboxScreen extends StatelessWidget {
               height: 10,
             ),
             CheckboxListTileWidget(
-              title: Text('CheckBox 1'),
+              title: const Text('CheckBox 1'),
               value: 1 % 2 == 0,
               onChanged: (bool? a) {},
             ),
             CheckboxListTileWidget(
-              title: Text('CheckBox 2'),
+              title: const Text('CheckBox 2'),
               value: 2 % 2 == 0,
               onChanged: (bool? a) {},
             )

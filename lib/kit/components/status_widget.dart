@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
-import 'buttons/button.dart';
 
 class StatusWidget extends StatelessWidget {
   final Widget icon;
@@ -68,8 +67,8 @@ class StatusWidget extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
-            Container(
+            const SizedBox(height: 16),
+            const SizedBox(
               width: double.infinity,
               child: ButtonWidget(
                 child: Text(

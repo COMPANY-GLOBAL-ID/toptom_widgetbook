@@ -67,49 +67,7 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
-              height: 50,
-            ),
-            SelectInputWidget<String>(
-              items: ['all', 'male', 'women'],
-              builder: (item) => DropdownMenuItem(
-                child: Text(item),
-                value: item,
-              ),
-              controller: SelectInputController(),
-            ),
-            MultiSelectInput(
-              clearText: 'Clear',
-              label: 'Select',
-              hint: const Text('Select'),
-              items: ['all', 'male', 'women'],
-              builder: (item) => DropdownMenuItem(
-                child: Text(item),
-                value: item,
-              ),
-              controller: MultiSelectController(),
-              builderChip: (value) {
-                return BadgeWidget(
-                  type: BadgeType.outlined,
-                  color: BadgeColor.neutral,
-                  size: BadgeSize.small,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(value.toString()),
-                      SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Icon(Icons.close),
-                      )
-                    ],
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: 2000,
-            ),
+
           ],
         ),
       ),

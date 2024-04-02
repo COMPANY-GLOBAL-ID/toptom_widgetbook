@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class DoubleInputScreen extends StatelessWidget {
-  const DoubleInputScreen({
+  final TextEditingController minController1 = TextEditingController();
+  final TextEditingController maxController1 = TextEditingController();
+  DoubleInputScreen({
     super.key,
   });
 
@@ -14,12 +17,6 @@ class DoubleInputScreen extends StatelessWidget {
       label: 'Padding',
     );
 
-    final TextEditingController minController1 = TextEditingController();
-    final TextEditingController maxController1 = TextEditingController();
-    final TextEditingController minController2 = TextEditingController();
-    final TextEditingController maxController2 = TextEditingController();
-    final TextEditingController minController3 = TextEditingController();
-    final TextEditingController maxController3 = TextEditingController();
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -27,16 +24,14 @@ class DoubleInputScreen extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
           ),
-          // Padding(
-          //   padding: EdgeInsets.all(padding),
-          //   child: DoubleInput(
-          //     minController: minController1,
-          //     maxController: maxController1,
-          //     minHintText: "Text Input 1",
-          //     maxHintText: "Text Input 2",
-          //     enabled: true,
-          //   ),
-          // ),
+          Padding(
+            padding: EdgeInsets.all(padding),
+            child: DoubleInput(
+              controller: DoubleEditingController(),
+              min: 10,
+              max: 20,
+            ),
+          ),
         ],
       ),
     );

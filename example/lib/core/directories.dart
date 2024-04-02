@@ -70,7 +70,7 @@ final directories = [
       ),
       WidgetbookUseCase(
         name: 'Double Input',
-        builder: (context) => const DoubleInputScreen(),
+        builder: (context) => DoubleInputScreen(),
       ),
       WidgetbookUseCase(
         name: 'Select Input',

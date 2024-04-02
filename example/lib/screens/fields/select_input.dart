@@ -19,22 +19,8 @@ class _SelectInputScreenState extends State<SelectInputScreen> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          //Center(
-          //         child: SelectInputWidget(
-          //           items: _items,
-          //           builder: (item) => DropdownMenuItem(
-          //             value: item,
-          //             child: Text(
-          //               item,
-          //               style: TextStylesKit.buttonXl
-          //                   .copyWith(color: ColorKit.colorTextSecondary),
-          //             ),
-          //           ),
-          //           controller: SelectInputController(null),
-          //         ),
-          //       ),
         ],
       ),
-    ));
+    ),);
   }
 }

@@ -27,6 +27,7 @@ class TextFieldWidget extends StatelessWidget {
   final Color? fillColor;
   final Widget? suffix;
   final bool? isCollapsed;
+  final FocusNode? focusNode;
 
   const TextFieldWidget({
     super.key,
@@ -52,6 +53,7 @@ class TextFieldWidget extends StatelessWidget {
     this.fillColor,
     this.suffix,
     this.isCollapsed,
+    this.focusNode,
   });
 
   static final MaskTextInputFormatter _phoneMask = MaskTextInputFormatter(
@@ -86,6 +88,7 @@ class TextFieldWidget extends StatelessWidget {
           style: textStyle,
           inputFormatters: inputFormatters,
           maxLines: maxLines,
+          focusNode: focusNode,
           decoration: InputDecoration(
             suffix: suffix,
             prefixIcon: prefixIcon,
@@ -147,6 +150,8 @@ class TextFieldWidget extends StatelessWidget {
     TextStyle? textStyle,
     bool? filled,
     Color? fillColor,
+    FocusNode? focusNode,
+
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -166,6 +171,7 @@ class TextFieldWidget extends StatelessWidget {
       textStyle: textStyle,
       filled: filled,
       fillColor: fillColor,
+      focusNode: focusNode,
     );
   }
 
@@ -186,6 +192,8 @@ class TextFieldWidget extends StatelessWidget {
     TextStyle? textStyle,
     bool? filled,
     Color? fillColor,
+    FocusNode? focusNode,
+
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -204,6 +212,7 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       hintStyle: hintStyle,
       textStyle: textStyle,
+      focusNode: focusNode,
     );
   }
 
@@ -224,6 +233,7 @@ class TextFieldWidget extends StatelessWidget {
     TextStyle? textStyle,
     bool? filled,
     Color? fillColor,
+    FocusNode? focusNode,
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -244,6 +254,7 @@ class TextFieldWidget extends StatelessWidget {
       hintStyle: hintStyle,
       textStyle: textStyle,
       fillColor: fillColor,
+      focusNode: focusNode,
     );
   }
 
@@ -263,6 +274,8 @@ class TextFieldWidget extends StatelessWidget {
     TextStyle? textStyle,
     bool? filled,
     Color? fillColor,
+    FocusNode? focusNode,
+
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -282,6 +295,7 @@ class TextFieldWidget extends StatelessWidget {
       hintStyle: hintStyle,
       textStyle: textStyle,
       fillColor: fillColor,
+      focusNode: focusNode,
     );
   }
 
@@ -301,6 +315,8 @@ class TextFieldWidget extends StatelessWidget {
     TextStyle? textStyle,
     bool? filled,
     Color? fillColor,
+    FocusNode? focusNode,
+
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -320,6 +336,7 @@ class TextFieldWidget extends StatelessWidget {
       hintStyle: hintStyle,
       textStyle: textStyle,
       fillColor: fillColor,
+      focusNode: focusNode,
     );
   }
 }

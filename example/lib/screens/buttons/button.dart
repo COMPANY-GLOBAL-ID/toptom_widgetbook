@@ -66,6 +66,27 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
+
+            Row(
+              children: [
+                Column(
+                  children: ButtonSize.values.map((e) {
+                    return ButtonWidget(
+                      size: e,
+                      child: Text('Pidor'),
+                    );
+                  }).toList(),
+                ),
+                Column(
+                  children: ButtonIconSize.values.map((e) {
+                    return ButtonIcon(
+                      size: e,
+                      icon: Icons.ac_unit,
+                    );
+                  }).toList(),
+                )
+              ],
+            )
           ],
         ),
       ),

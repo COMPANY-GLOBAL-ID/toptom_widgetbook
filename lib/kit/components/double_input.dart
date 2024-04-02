@@ -1,219 +1,260 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class DoubleInput extends StatefulWidget {
+  final DoubleEditingController controller;
+
   const DoubleInput({
     Key? key,
-    required this.minController,
-    required this.maxController,
-    required this.padding,
-    required this.dividerPadding,
+    this.dividerPadding,
     this.enabled = true,
     this.isDense = true,
-    required this.divider,
+    this.divider,
     this.minHintText,
     this.maxHintText,
     this.hintStyle,
     this.textStyle,
-    required this.fillColor,
-    required this.boxConstraints,
+    this.fillColor,
+    this.boxConstraints,
+    this.label,
+    this.clearText,
+    required this.controller,
+    required this.max,
+    required this.min,
   }) : super(key: key);
 
-  final TextEditingController minController;
-  final TextEditingController maxController;
-  final EdgeInsets padding;
-  final EdgeInsets dividerPadding;
   final bool enabled;
   final bool isDense;
-  final SizedBox divider;
+  final EdgeInsets? dividerPadding;
+  final SizedBox? divider;
   final TextStyle? textStyle;
   final String? minHintText;
   final String? maxHintText;
   final TextStyle? hintStyle;
-  final Color fillColor;
-  final BoxConstraints boxConstraints;
+  final Color? fillColor;
+  final BoxConstraints? boxConstraints;
+  final String? label;
+  final String? clearText;
+  
+  final double max;
+  final double min;
 
   @override
   State<DoubleInput> createState() => _DoubleInputState();
 }
 
 class _DoubleInputState extends State<DoubleInput> {
-  double _startValue = 10;
-  double _endValue = 200;
-  final double _minValue = 0;
-  final double _maxValue = 1000;
+  late TextEditingController minController;
+  late TextEditingController maxController;
+  final FocusNode _minFocus = FocusNode();
+  final FocusNode _maxFocus = FocusNode();
 
   @override
   void initState() {
+    _clearAll();
+    minController = TextEditingController(text: widget.controller.value.min?.toStringAsFixed(0))..addListener(_listenMin);
+    maxController = TextEditingController(text: widget.controller.value.max?.toStringAsFixed(0))..addListener(_listenMax);
     super.initState();
-    widget.minController.text = _startValue.toStringAsFixed(0);
-    widget.maxController.text = _endValue.toStringAsFixed(0);
   }
+  
+  _listenMin() {
+    final int selectionStart = minController.selection.start;
+    final int selectionEnd = minController.selection.end;
+
+    final minString = minController.text;
+    final maxString = maxController.text;
+
+    double minDouble = double.tryParse(minString) ?? widget.min;
+    double maxDouble = double.tryParse(maxString) ?? widget.max;
+
+    minDouble = minDouble.clamp(widget.min, widget.max);
+    minController.value = minController.value.copyWith(
+      text: minDouble.toStringAsFixed(0),
+      selection: TextSelection(
+        baseOffset: selectionStart,
+        extentOffset: selectionEnd,
+      ),
+      composing: TextRange.empty,
+    );
+    widget.controller.change(min: minDouble);
+    if (minDouble > maxDouble) {
+      maxDouble = minDouble;
+      maxController.text = maxDouble.toStringAsFixed(0);
+      widget.controller.change(max: maxDouble);
+    }
+  }
+  
+  _listenMax() {
+    final int selectionStart = maxController.selection.start;
+    final int selectionEnd = maxController.selection.end;
+
+    final minString = minController.text;
+    final maxString = maxController.text;
+
+    double minDouble = double.tryParse(minString) ?? widget.min;
+    double maxDouble = double.tryParse(maxString) ?? widget.max;
+
+    maxDouble = maxDouble.clamp(widget.min, widget.max);
+    maxController.value = maxController.value.copyWith(
+      text: maxDouble.toStringAsFixed(0),
+      selection: TextSelection(
+        baseOffset: selectionStart,
+        extentOffset: selectionEnd,
+      ),
+      composing: TextRange.empty,
+    );
+    widget.controller.change(max: maxDouble);
+    if (maxDouble < minDouble) {
+      minDouble = maxDouble;
+      minController.text = minDouble.toStringAsFixed(0);
+      widget.controller.change(min: minDouble);
+    }
+  }
+
+  _changeRange(RangeValues values) {
+    minController.text = values.start.toDouble().toStringAsFixed(0);
+    maxController.text = values.end.toInt().toStringAsFixed(0);
+  }
+
+  _clearAll() {
+    widget.controller.change(min: widget.min, max: widget.max);
+  }
+
 
   @override
   Widget build(BuildContext context) {
     final themeCore = ThemeCore.of(context);
+    bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
+    bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
+    bool hasLabelOrClearText = hasLabel || hasClearText;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: ThemeCore.of(context).color.scheme.overlaySecondary,
-            ),
-            borderRadius: BorderRadius.circular(
-              themeCore.radius.medium,
-            ),
-            color: widget.fillColor,
+        DefaultTextStyle(
+          style: themeCore.typography
+              .paragraphSmall
+              .copyWith(
+            color: themeCore.color
+                .scheme
+                .textSecondary,
+            fontWeight: FontWeight.w500,
           ),
-          child: Padding(
-            padding: widget.padding,
+          child: Visibility(
+            visible: hasLabelOrClearText,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: InputPrice(
-                    controller: widget.minController,
-                    isDense: widget.isDense,
-                    onChanged: (value) {
-                      setState(() {
-                        _startValue = double.tryParse(value) ?? _minValue;
-                        _startValue = _startValue.clamp(_minValue, _maxValue);
-                        widget.minController.text =
-                            _startValue.toStringAsFixed(0);
-                        if (_startValue > _endValue) {
-                          _endValue = _startValue;
-                          widget.maxController.text =
-                              _endValue.toStringAsFixed(0);
-                        }
-                      });
-                    },
-                    enabled: widget.enabled,
-                    textAlign: TextAlign.start,
-                    style: widget.textStyle,
-                    boxConstraints: widget.boxConstraints,
-                    hintStyle: widget.hintStyle,
-                    hintText: widget.minHintText,
+                Visibility(
+                  maintainSize: true,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  visible: hasLabel,
+                  child: Text(
+                    widget.label ?? '',
                   ),
                 ),
-                Padding(
-                  padding: widget.dividerPadding,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(themeCore.radius.small),
-                      color: ThemeCore.of(context).color.scheme.strokePrimary,
+                Visibility(
+                  maintainSize: true,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  visible: hasClearText,
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: _clearAll,
+                    child: Text(
+                        widget.clearText ?? '',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: themeCore.color.scheme.main,
+                        )
                     ),
-                    child: widget.divider,
                   ),
-                ),
-                Expanded(
-                  child: InputPrice(
-                    controller: widget.maxController,
-                    isDense: widget.isDense,
-                    onChanged: (value) {
-                      setState(() {
-                        _endValue = double.tryParse(value) ?? _maxValue;
-                        _endValue = _endValue.clamp(_minValue, _maxValue);
-                        widget.maxController.text =
-                            _endValue.toStringAsFixed(0);
-                        if (_endValue < _startValue) {
-                          _startValue = _endValue;
-                          widget.minController.text =
-                              _startValue.toStringAsFixed(0);
-                        }
-                      });
-                    },
-                    enabled: widget.enabled,
-                    hintText: widget.maxHintText,
-                    hintStyle: widget.hintStyle,
-                    textAlign: TextAlign.end,
-                    style: widget.textStyle,
-                    boxConstraints: widget.boxConstraints,
-                  ),
-                ),
+                )
               ],
             ),
           ),
         ),
-        Visibility(
-          visible: widget.enabled,
-          child: RangeSlider(
-            values: RangeValues(_startValue, _endValue),
-            min: _minValue,
-            max: _maxValue,
-            onChanged: (RangeValues values) {
-              setState(() {
-                _startValue = values.start.toDouble();
-                _endValue = values.end.toDouble();
-                widget.minController.text =
-                    values.start.toInt().toStringAsFixed(0);
-                widget.maxController.text =
-                    values.end.toInt().toStringAsFixed(0);
-              });
-            },
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: TextFieldWidget.number(
+                controller: minController,
+                isDense: widget.isDense,
+                enabled: widget.enabled,
+                hintStyle: widget.hintStyle,
+                hintText: widget.minHintText,
+                focusNode: _minFocus,
+              ),
+            ),
+            Padding(
+              padding: widget.dividerPadding ?? const EdgeInsets.symmetric(horizontal: 12),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius:
+                  BorderRadius.circular(themeCore.radius.small),
+                  color: themeCore.color.scheme.strokePrimary,
+                ),
+                child: widget.divider,
+              ),
+            ),
+            Expanded(
+              child: TextFieldWidget.number(
+                controller: maxController,
+                isDense: widget.isDense,
+                enabled: widget.enabled,
+                hintText: widget.maxHintText,
+                hintStyle: widget.hintStyle,
+                focusNode: _maxFocus,
+              ),
+            ),
+          ],
+        ),
+        ValueListenableBuilder(
+          valueListenable: widget.controller,
+          builder: (context, value, child) {
+            return Visibility(
+              visible: widget.enabled,
+              child: RangeSlider(
+                activeColor: themeCore.color.scheme.main,
+                values: RangeValues(value.min ?? widget.min, value.max ?? widget.max),
+                min: widget.min,
+                max: widget.max,
+                onChanged: _changeRange
+              ),
+            );
+          },
         ),
       ],
     );
   }
 }
 
-class InputPrice extends StatelessWidget {
-  const InputPrice(
-      {super.key,
-      required this.controller,
-      required this.enabled,
-      required this.isDense,
-      this.boxConstraints,
-      this.onChanged,
-      this.style,
-      this.hintText,
-      required this.textAlign,
-      this.hintStyle});
 
-  final TextEditingController controller;
-  final Function(String)? onChanged;
-  final TextStyle? style;
-  final bool enabled;
-  final bool isDense;
-  final String? hintText;
-  final TextStyle? hintStyle;
-  final TextAlign textAlign;
-  final BoxConstraints? boxConstraints;
+class DoubleEditingController extends ValueNotifier<DoubleValue> {
+  DoubleEditingController({DoubleValue? value}) : super(value ?? DoubleValue());
 
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      onChanged: onChanged,
-      style: style,
-      textAlign: textAlign,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(4),
-        enabledBorder: InputBorder.none,
-        focusedBorder: InputBorder.none,
-        disabledBorder: InputBorder.none,
-        hintText: hintText,
-        hintStyle: hintStyle,
-        isDense: isDense,
-        enabled: enabled,
-        filled: !enabled,
-        fillColor: !enabled
-            ? ThemeCore.of(context).color.scheme.overlaySecondary
-            : null,
-        border: InputBorder.none,
-        suffix: Icon(
-          ToptomIcons.error_stroke,
-          size: 13.33,
-          color: ThemeCore.of(context).color.scheme.textSecondary,
-        ),
-        labelStyle: ThemeCore.of(context).typography.paragraphMedium.copyWith(
-              color: ThemeCore.of(context).color.scheme.textPrimary,
-            ),
-        suffixIconConstraints: boxConstraints,
-      ),
-    );
+  void change({double? min, double? max}) {
+    value.min = min ?? value.min;
+    value.max = max ?? value.max;
+    notifyListeners();
   }
+
+  void clear() {
+    value = DoubleValue();
+    notifyListeners();
+  }
+}
+
+class DoubleValue {
+  double? min;
+  double? max;
+
+  DoubleValue({
+    this.min,
+    this.max,
+  });
 }

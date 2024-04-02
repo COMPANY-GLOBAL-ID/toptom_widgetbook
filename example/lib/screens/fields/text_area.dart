@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
 
 class TextAreaScreen extends StatelessWidget {
   const TextAreaScreen({super.key});
@@ -10,10 +9,10 @@ class TextAreaScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView(
-        children: [
-          const Text("Text Area",
+        children: const [
+          Text("Text Area",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(
+          SizedBox(
             height: 10,
           ),
         ],

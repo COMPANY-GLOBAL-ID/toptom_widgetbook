@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/select_input_widget.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class MultiSelectInput<T> extends StatefulWidget {
@@ -59,67 +57,64 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
     return ValueListenableBuilder(
         valueListenable: widget.controller,
         builder: (context, value, child) {
+          bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
+          bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
+          bool hasLabelOrClearText = hasLabel || hasClearText;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Visibility(
-                visible: (widget.label != null && widget.label?.isNotEmpty == true) || (widget.clearText != null && widget.clearText?.isNotEmpty == true),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Visibility(
-                      maintainSize: true,
-                      maintainAnimation: true,
-                      maintainState: true,
-                      visible: widget.label != null && widget.label?.isNotEmpty == true,
-                      child: Text(widget.label ?? '',
-                        style: ThemeCore.of(context)
-                            .typography
-                            .paragraphSmall
-                            .copyWith(
-                          color:
-                          ThemeCore.of(context).color.scheme.textSecondary,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Visibility(
-                      maintainSize: true,
-                      maintainAnimation: true,
-                      maintainState: true,
-                      visible: widget.clearText != null && widget.clearText?.isNotEmpty == true,
-                      child: TextButton(
-                        onPressed: _clearAll,
-                        child: Text(
-                          widget.clearText ?? '',
-                          style: ThemeCore.of(context)
-                              .typography
-                              .paragraphSmall
-                              .copyWith(
-                            fontWeight: FontWeight.w500,
+              SizedBox(
+                width: double.infinity,
+                child: SelectInputWidget(
+                  label: Visibility(
+                    visible: hasLabelOrClearText,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Visibility(
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainState: true,
+                          visible: hasLabel,
+                          child: Text(
+                            widget.label ?? '',
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                        Visibility(
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainState: true,
+                          visible: hasClearText,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: _clearAll,
+                            child: Text(
+                              widget.clearText ?? '',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: ThemeCore.of(context).color.scheme.main,
+                              )
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  items: widget.items.where((element) {
+                    return !value.contains(element);
+                  }).toList(),
+                  builder: widget.builder,
+                  hint: widget.hint,
+                  controller: singleController,
                 ),
               ),
-              SizedBox(
-                  width: double.infinity,
-                  child: SelectInputWidget(
-                    items: widget.items.where((element) {
-                      return !value.contains(element);
-                    }).toList(),
-                    builder: widget.builder,
-                    hint: widget.hint,
-                    controller: singleController,
-                  ),
-              ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Wrap(
                 crossAxisAlignment: WrapCrossAlignment.start,
                 spacing: 8,
-                children: widget.controller.value.map(widget.builderChip).toList(),
+                children:
+                    widget.controller.value.map(widget.builderChip).toList(),
               )
             ],
           );

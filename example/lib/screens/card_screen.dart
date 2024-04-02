@@ -34,7 +34,7 @@ class CardScreen extends StatelessWidget {
                       .paragraphSmall
                       .copyWith(fontWeight: FontWeight.w500),
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BadgeWidget(
@@ -56,7 +56,7 @@ class CardScreen extends StatelessWidget {
                       onPressed: () {},
                     ),
                     ButtonWidget(
-                      child: Text('Взять'),
+                      child: const Text('Взять'),
                       onPressed: () {},
                     )
                   ],

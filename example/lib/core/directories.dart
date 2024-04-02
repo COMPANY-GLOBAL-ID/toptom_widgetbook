@@ -104,7 +104,7 @@ final directories = [
       ),
       WidgetbookUseCase(
         name: 'Table',
-        builder: (context) => TableScreen(),
+        builder: (context) => const TableScreen(),
       ),
     ],
   ),

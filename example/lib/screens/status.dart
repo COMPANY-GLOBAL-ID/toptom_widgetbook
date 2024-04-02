@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/status_widget.dart';
-import 'package:toptom_widgetbook/kit/constants_kit/icons_kit.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class StatusPage extends StatelessWidget {

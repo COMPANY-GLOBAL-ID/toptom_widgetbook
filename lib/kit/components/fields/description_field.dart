@@ -47,7 +47,7 @@ class ToptomDescriptionField extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(width: 1.5),
+            borderSide: const BorderSide(width: 1.5),
           ),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         ),

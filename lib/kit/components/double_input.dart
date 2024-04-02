@@ -143,36 +143,41 @@ class _DoubleInputState extends State<DoubleInput> {
           ),
           child: Visibility(
             visible: hasLabelOrClearText,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                Visibility(
-                  maintainSize: true,
-                  maintainAnimation: true,
-                  maintainState: true,
-                  visible: hasLabel,
-                  child: Text(
-                    widget.label ?? '',
-                  ),
-                ),
-                Visibility(
-                  maintainSize: true,
-                  maintainAnimation: true,
-                  maintainState: true,
-                  visible: hasClearText,
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: _clearAll,
-                    child: Text(
-                        widget.clearText ?? '',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: themeCore.color.scheme.main,
-                        )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Visibility(
+                      maintainSize: true,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: hasLabel,
+                      child: Text(
+                        widget.label ?? '',
+                      ),
                     ),
-                  ),
-                )
+                    Visibility(
+                      maintainSize: true,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: hasClearText,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: _clearAll,
+                        child: Text(
+                            widget.clearText ?? '',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: themeCore.color.scheme.main,
+                            )
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 5),
               ],
             ),
           ),

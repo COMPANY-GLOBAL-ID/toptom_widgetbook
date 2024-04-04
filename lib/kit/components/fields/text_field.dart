@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
-
 class TextFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
@@ -151,7 +150,6 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
-
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -193,7 +191,6 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
-
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -275,7 +272,6 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
-
   }) {
     return TextFieldWidget(
       controller: controller,
@@ -316,7 +312,6 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
-
   }) {
     return TextFieldWidget(
       controller: controller,

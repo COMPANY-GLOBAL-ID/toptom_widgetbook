@@ -1,5 +1,4 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
@@ -48,22 +47,16 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DefaultTextStyle(
-          style: ThemeCore.of(context)
-              .typography
-              .paragraphSmall
-              .copyWith(
-            color: ThemeCore.of(context)
-                .color
-                .scheme
-                .textSecondary,
-            fontWeight: FontWeight.w500,
-          ),
+          style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                color: ThemeCore.of(context).color.scheme.textSecondary,
+                fontWeight: FontWeight.w500,
+              ),
           child: Visibility(
             visible: widget.label != null,
             child: Column(
               children: [
                 widget.label ?? const Offstage(),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
               ],
             ),
           ),
@@ -74,18 +67,24 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
             return DropdownButtonHideUnderline(
               child: DropdownButton2<T>(
                 isExpanded: true,
-                items: widget.items.map<DropdownMenuItem<T>>(widget.builder).toList(),
+                items: widget.items
+                    .map<DropdownMenuItem<T>>(widget.builder)
+                    .toList(),
                 value: value,
                 onChanged: onChange,
                 hint: DefaultTextStyle(
-                  style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                  style: ThemeCore.of(context)
+                      .typography
+                      .paragraphSmall
+                      .copyWith(
                         color: ThemeCore.of(context).color.scheme.textSecondary,
                         fontWeight: FontWeight.w500,
                       ),
                   child: widget.hint ?? const Offstage(),
                 ),
                 buttonStyleData: ButtonStyleData(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
                   elevation: 0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(

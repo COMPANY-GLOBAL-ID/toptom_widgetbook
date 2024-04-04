@@ -57,8 +57,10 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
     return ValueListenableBuilder(
         valueListenable: widget.controller,
         builder: (context, value, child) {
-          bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
-          bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
+          bool hasLabel =
+              widget.label != null && widget.label?.isNotEmpty == true;
+          bool hasClearText =
+              widget.clearText != null && widget.clearText?.isNotEmpty == true;
           bool hasLabelOrClearText = hasLabel || hasClearText;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,13 +91,12 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: _clearAll,
-                            child: Text(
-                              widget.clearText ?? '',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: ThemeCore.of(context).color.scheme.main,
-                              )
-                            ),
+                            child: Text(widget.clearText ?? '',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      ThemeCore.of(context).color.scheme.main,
+                                )),
                           ),
                         )
                       ],

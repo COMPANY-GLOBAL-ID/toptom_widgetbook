@@ -16,11 +16,11 @@ class _SelectInputScreenState extends State<SelectInputScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
       ),
-    ),);
+    );
   }
 }

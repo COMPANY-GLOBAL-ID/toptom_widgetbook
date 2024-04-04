@@ -66,14 +66,13 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
-
             Row(
               children: [
                 Column(
                   children: ButtonSize.values.map((e) {
                     return ButtonWidget(
                       size: e,
-                      child: Text('Pidor'),
+                      child: const Text('Pidor'),
                     );
                   }).toList(),
                 ),

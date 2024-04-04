@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
@@ -36,7 +35,7 @@ class DoubleInput extends StatefulWidget {
   final BoxConstraints? boxConstraints;
   final String? label;
   final String? clearText;
-  
+
   final double max;
   final double min;
 
@@ -53,11 +52,15 @@ class _DoubleInputState extends State<DoubleInput> {
   @override
   void initState() {
     _clearAll();
-    minController = TextEditingController(text: widget.controller.value.min?.toStringAsFixed(0))..addListener(_listenMin);
-    maxController = TextEditingController(text: widget.controller.value.max?.toStringAsFixed(0))..addListener(_listenMax);
+    minController = TextEditingController(
+        text: widget.controller.value.min?.toStringAsFixed(0))
+      ..addListener(_listenMin);
+    maxController = TextEditingController(
+        text: widget.controller.value.max?.toStringAsFixed(0))
+      ..addListener(_listenMax);
     super.initState();
   }
-  
+
   _listenMin() {
     final int selectionStart = minController.selection.start;
     final int selectionEnd = minController.selection.end;
@@ -84,7 +87,7 @@ class _DoubleInputState extends State<DoubleInput> {
       widget.controller.change(max: maxDouble);
     }
   }
-  
+
   _listenMax() {
     final int selectionStart = maxController.selection.start;
     final int selectionEnd = maxController.selection.end;
@@ -121,24 +124,20 @@ class _DoubleInputState extends State<DoubleInput> {
     widget.controller.change(min: widget.min, max: widget.max);
   }
 
-
   @override
   Widget build(BuildContext context) {
     final themeCore = ThemeCore.of(context);
     bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
-    bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
+    bool hasClearText =
+        widget.clearText != null && widget.clearText?.isNotEmpty == true;
     bool hasLabelOrClearText = hasLabel || hasClearText;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         DefaultTextStyle(
-          style: themeCore.typography
-              .paragraphSmall
-              .copyWith(
-            color: themeCore.color
-                .scheme
-                .textSecondary,
+          style: themeCore.typography.paragraphSmall.copyWith(
+            color: themeCore.color.scheme.textSecondary,
             fontWeight: FontWeight.w500,
           ),
           child: Visibility(
@@ -166,13 +165,11 @@ class _DoubleInputState extends State<DoubleInput> {
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: _clearAll,
-                        child: Text(
-                            widget.clearText ?? '',
+                        child: Text(widget.clearText ?? '',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               color: themeCore.color.scheme.main,
-                            )
-                        ),
+                            )),
                       ),
                     )
                   ],
@@ -196,11 +193,11 @@ class _DoubleInputState extends State<DoubleInput> {
               ),
             ),
             Padding(
-              padding: widget.dividerPadding ?? const EdgeInsets.symmetric(horizontal: 12),
+              padding: widget.dividerPadding ??
+                  const EdgeInsets.symmetric(horizontal: 12),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  borderRadius:
-                  BorderRadius.circular(themeCore.radius.small),
+                  borderRadius: BorderRadius.circular(themeCore.radius.small),
                   color: themeCore.color.scheme.strokePrimary,
                 ),
                 child: widget.divider,
@@ -224,12 +221,12 @@ class _DoubleInputState extends State<DoubleInput> {
             return Visibility(
               visible: widget.enabled,
               child: RangeSlider(
-                activeColor: themeCore.color.scheme.main,
-                values: RangeValues(value.min ?? widget.min, value.max ?? widget.max),
-                min: widget.min,
-                max: widget.max,
-                onChanged: _changeRange
-              ),
+                  activeColor: themeCore.color.scheme.main,
+                  values: RangeValues(
+                      value.min ?? widget.min, value.max ?? widget.max),
+                  min: widget.min,
+                  max: widget.max,
+                  onChanged: _changeRange),
             );
           },
         ),
@@ -237,7 +234,6 @@ class _DoubleInputState extends State<DoubleInput> {
     );
   }
 }
-
 
 class DoubleEditingController extends ValueNotifier<DoubleValue> {
   DoubleEditingController({DoubleValue? value}) : super(value ?? DoubleValue());

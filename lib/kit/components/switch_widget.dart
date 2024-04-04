@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SwitchWidget extends StatelessWidget {
   final double? scale;
   final bool switchValue;

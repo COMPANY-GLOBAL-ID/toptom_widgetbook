@@ -22,7 +22,7 @@ class CardWidget extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
-          ThemeCore.of(context).radius.extraLarge,
+          ThemeCore.of(context).radius.extraLarge2,
         ),
         color: ThemeCore.of(context).color.scheme.white,
         border: Border.all(

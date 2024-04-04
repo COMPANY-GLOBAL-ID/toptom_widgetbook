@@ -44,8 +44,7 @@ class InputScreen extends StatelessWidget {
               height: 10,
             ),
             Text("TextFieldWidget.email",
-                style: ThemeCore.of(context).typography.paragraphBig
-            ),
+                style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.email(
               controller: textEditingController,
             ),
@@ -55,6 +54,7 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.number",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.number(
+              errorText: 'dsadasdasdas',
               controller: textEditingController,
             ),
             const SizedBox(
@@ -66,18 +66,20 @@ class InputScreen extends StatelessWidget {
               controller: textEditingController,
               enabled: false,
             ),
-            Text("SelectInputWidget",
-                style: ThemeCore.of(context).typography.paragraphBig,
+            Text(
+              "SelectInputWidget",
+              style: ThemeCore.of(context).typography.paragraphBig,
             ),
             Row(
               children: [
                 Expanded(
                   child: SelectInputWidget<String>(
-                    label: Text('Select gender'),
-                    items: ['all', 'male', 'women'],
+                    label: const Text('Select gender'),
+                    items: const ['all', 'male', 'women'],
+                    errorText: 'fasfafsafsafa',
                     builder: (item) => DropdownMenuItem(
-                      child: Text(item),
                       value: item,
+                      child: Text(item),
                     ),
                     controller: SelectInputController(),
                   ),
@@ -85,24 +87,26 @@ class InputScreen extends StatelessWidget {
                 Expanded(
                   child: TextFieldWidget(
                     label: "TextFieldWidget",
+                    errorText: 'fasdfdsfgsdgsfgs',
                     controller: textEditingController,
                   ),
                 ),
               ],
             ),
-
-            Text("MultiSelectInput",
+            Text(
+              "MultiSelectInput",
               style: ThemeCore.of(context).typography.paragraphBig,
             ),
             MultiSelectInput(
               clearText: 'Clear',
               label: 'Select',
               hint: const Text('Select'),
-              items: ['all', 'male', 'women'],
+              items: const ['all', 'male', 'women'],
               builder: (item) => DropdownMenuItem(
-                child: Text(item),
                 value: item,
+                child: Text(item),
               ),
+              errorText: 'sadadsdsadasd',
               controller: MultiSelectController(),
               builderChip: (value) {
                 return BadgeWidget(
@@ -113,17 +117,17 @@ class InputScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(value.toString()),
-                      SizedBox(width: 4),
+                      const SizedBox(width: 4),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                       )
                     ],
                   ),
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
           ],

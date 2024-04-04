@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
-
 class StatusWidget extends StatelessWidget {
   final Widget icon;
   final String title;

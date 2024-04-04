@@ -9,13 +9,6 @@ class StatusPage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          StatusWidget(
-            icon: const Icon(ToptomIcons.basket, color: Colors.white),
-            title: "Корзина пуста",
-            description:
-                "Мы активно работаем над расширением ассортимента, и скоро здесь появятся новые товары. Пожалуйста, следите за обновлениями нашего сайта!",
-            onPressed: () {},
-          ),
           const SizedBox(
             height: 20,
           ),
@@ -25,15 +18,10 @@ class StatusPage extends StatelessWidget {
             description:
                 "К сожалению, ваша корзина пуста. Пожалуйста добавьте товары, чтобы завершить покупку",
             onPressed: () {},
+            child: const Text('Добавить товары'),
           ),
           const SizedBox(
             height: 20,
-          ),
-          StatusWidget(
-            icon: const Icon(ToptomIcons.order, color: Colors.white),
-            title: "У вас пока что нет заказов :(",
-            description: "Здесь будут отображаться ваши заказы.",
-            onPressed: () {},
           ),
         ],
       ),

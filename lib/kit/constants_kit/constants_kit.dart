@@ -115,6 +115,9 @@ class RadiusKit {
   final double extraLarge4;
   final double extraLarge5;
   final double extraLarge6;
+  final double extraLarge7;
+  final double extraLarge8;
+  final double extraLarge9;
 
   const RadiusKit({
     this.small = 2,
@@ -127,6 +130,9 @@ class RadiusKit {
     this.extraLarge4 = 20,
     this.extraLarge5 = 24,
     this.extraLarge6 = 28,
+    this.extraLarge7 = 32,
+    this.extraLarge8 = 36,
+    this.extraLarge9 = 40,
   });
 
   RadiusKit copyWith({
@@ -140,6 +146,9 @@ class RadiusKit {
     double? extraLarge4,
     double? extraLarge5,
     double? extraLarge6,
+    double? extraLarge7,
+    double? extraLarge8,
+    double? extraLarge9,
   }) {
     return RadiusKit(
       small: small ?? this.small,
@@ -152,6 +161,9 @@ class RadiusKit {
       extraLarge4: extraLarge4 ?? this.extraLarge4,
       extraLarge5: extraLarge5 ?? this.extraLarge5,
       extraLarge6: extraLarge6 ?? this.extraLarge6,
+      extraLarge7: extraLarge7 ?? this.extraLarge7,
+      extraLarge8: extraLarge8 ?? this.extraLarge8,
+      extraLarge9: extraLarge9 ?? this.extraLarge9,
     );
   }
 
@@ -166,5 +178,8 @@ class RadiusKit {
         extraLarge4,
         extraLarge5,
         extraLarge6,
+        extraLarge7,
+        extraLarge8,
+        extraLarge9,
       ];
 }

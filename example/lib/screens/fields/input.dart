@@ -76,7 +76,6 @@ class InputScreen extends StatelessWidget {
                   child: SelectInputWidget<String>(
                     label: const Text('Select gender'),
                     items: const ['all', 'male', 'women'],
-                    errorText: 'fasfafsafsafa',
                     builder: (item) => DropdownMenuItem(
                       value: item,
                       child: Text(item),

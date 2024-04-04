@@ -134,7 +134,8 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
                   )
                 ],
               );
-            }),
+            },
+        ),
       ],
     );
   }

@@ -119,7 +119,7 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
                 ),
                 buttonStyleData: ButtonStyleData(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5,),
                   elevation: 0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(

@@ -1,6 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class SelectInputController<T> extends ValueNotifier {
   SelectInputController({T? value}) : super(value);
@@ -20,12 +20,14 @@ class SelectInputWidget<T> extends StatefulWidget {
   final Widget? label;
   final DropdownMenuItem<T> Function(T) builder;
   final SelectInputController<T> controller;
+  final String? errorText;
 
   const SelectInputWidget({
     Key? key,
     required this.items,
     required this.builder,
     required this.controller,
+    this.errorText,
     this.hint,
     this.label,
   }) : super(key: key);
@@ -41,14 +43,25 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
     widget.controller.change(value);
   }
 
+  bool get hasErrorText => widget.errorText != null;
+
   @override
   Widget build(BuildContext context) {
+    final ColorSchemeKit colors = ThemeCore.of(context).color.scheme;
+    final TextStyle paragraphSmall = ThemeCore.of(context).typography.paragraphSmall;
+    final double radius = ThemeCore.of(context).radius.extraLarge;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Visibility(
+          visible: hasErrorText,
+          child: const SizedBox(
+            height: 8,
+          ),
+        ),
         DefaultTextStyle(
-          style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                color: ThemeCore.of(context).color.scheme.textSecondary,
+          style: paragraphSmall.copyWith(
+                color: colors.textSecondary,
                 fontWeight: FontWeight.w500,
               ),
           child: Visibility(
@@ -66,39 +79,66 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
           builder: (context, value, child) {
             return DropdownButtonHideUnderline(
               child: DropdownButton2<T>(
+                selectedItemBuilder: (context) {
+                  return widget.items.map<Widget>((item) {
+                    return DropdownMenuItem(
+                      value: item,
+                      child: Text(
+                        item.toString(),
+                        style: paragraphSmall
+                            .copyWith(
+                              color: hasErrorText ? colors.errorPrimary : null,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    );
+                  }).toList();
+                },
                 isExpanded: true,
-                items: widget.items
-                    .map<DropdownMenuItem<T>>(widget.builder)
-                    .toList(),
+                items: widget.items.map((item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(
+                      item.toString(),
+                      style: paragraphSmall
+                          .copyWith(fontWeight: FontWeight.w500),
+                    ),
+                  );
+                }).toList(),
                 value: value,
                 onChanged: onChange,
                 hint: DefaultTextStyle(
-                  style: ThemeCore.of(context)
-                      .typography
-                      .paragraphSmall
+                  style: paragraphSmall
                       .copyWith(
-                        color: ThemeCore.of(context).color.scheme.textSecondary,
+                        color: hasErrorText
+                            ? colors.errorPrimary
+                            : colors.textSecondary,
                         fontWeight: FontWeight.w500,
                       ),
                   child: widget.hint ?? const Offstage(),
                 ),
                 buttonStyleData: ButtonStyleData(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5,),
                   elevation: 0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                      ThemeCore.of(context).radius.extraLarge,
+                      radius,
                     ),
                     border: Border.all(
-                      color: ThemeCore.of(context).color.scheme.strokePrimary,
+                      color: hasErrorText
+                          ? colors.errorPrimary
+                          : colors.strokePrimary,
                       width: 1,
                     ),
                   ),
                 ),
-                iconStyleData: const IconStyleData(
+                iconStyleData: IconStyleData(
                   icon: Icon(
                     Icons.keyboard_arrow_down_outlined,
+                    color: hasErrorText
+                        ? colors.errorPrimary
+                        : colors.textSecondary,
                   ),
                   iconSize: 24,
                 ),
@@ -107,10 +147,10 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
                   width: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                      ThemeCore.of(context).radius.extraLarge,
+                      radius,
                     ),
                     border: Border.all(
-                      color: ThemeCore.of(context).color.scheme.strokePrimary,
+                      color: colors.strokePrimary,
                       width: 1,
                     ),
                   ),
@@ -128,6 +168,20 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
               ),
             );
           },
+        ),
+        Visibility(
+          visible: hasErrorText,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+              horizontal: 16,
+            ),
+            child: Text(
+              widget.errorText ?? '',
+              style: paragraphSmall
+                  .copyWith(color:colors.errorPrimary, fontWeight: FontWeight.w400),
+            ),
+          ),
         ),
       ],
     );

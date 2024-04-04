@@ -7,8 +7,6 @@ class TextFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
   final String? hintText;
-  final TextStyle? hintStyle;
-  final TextStyle? textStyle;
   final TextStyle? labelStyle;
   final String? errorText;
   final bool isRequired;
@@ -45,8 +43,6 @@ class TextFieldWidget extends StatelessWidget {
     this.minLines = 1,
     this.inputFormatters,
     this.isDense = false,
-    this.hintStyle,
-    this.textStyle,
     this.labelStyle,
     this.filled,
     this.fillColor,
@@ -71,6 +67,9 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorSchemeKit colors = ThemeCore.of(context).color.scheme;
+    final TextStyle paragraphSmall = ThemeCore.of(context).typography.paragraphSmall;
+    final double radius = ThemeCore.of(context).radius.extraLarge;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -84,11 +83,21 @@ class TextFieldWidget extends StatelessWidget {
           onSubmitted: onSubmit,
           controller: controller,
           maxLength: maxLength,
-          style: textStyle,
+          style: paragraphSmall.copyWith(
+              fontWeight: FontWeight.w500,
+              color: errorText != null ? colors.errorPrimary : null),
           inputFormatters: inputFormatters,
           maxLines: maxLines,
           focusNode: focusNode,
           decoration: InputDecoration(
+            errorStyle: paragraphSmall
+                .copyWith(color: colors.errorPrimary, fontWeight: FontWeight.w400),
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius,),
+                borderSide: BorderSide(
+                  color: colors.errorPrimary,
+                  width: 1,
+                )),
             suffix: suffix,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
@@ -96,33 +105,34 @@ class TextFieldWidget extends StatelessWidget {
             fillColor: fillColor,
             hintText: hintText,
             errorText: errorText,
-            hintStyle: hintStyle,
+            hintStyle: paragraphSmall.copyWith(
+                  color: errorText != null
+                      ? colors.errorPrimary
+                      : colors.textSecondary,
+                  fontWeight: FontWeight.w500,
+                ),
             isDense: isDense,
             isCollapsed: isCollapsed,
             contentPadding: EdgeInsets.all(ThemeCore.of(context).padding.l),
             disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                    ThemeCore.of(context).radius.extraLarge),
+                borderRadius: BorderRadius.circular(radius,),
                 borderSide: BorderSide.none),
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                    ThemeCore.of(context).radius.extraLarge),
+                borderRadius: BorderRadius.circular(radius,),
                 borderSide: BorderSide(
-                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  color: colors.strokePrimary,
                   width: 1,
                 )),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                    ThemeCore.of(context).radius.extraLarge),
+                borderRadius: BorderRadius.circular(radius,),
                 borderSide: BorderSide(
-                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  color: colors.strokePrimary,
                   width: 1,
                 )),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                    ThemeCore.of(context).radius.extraLarge),
+                borderRadius: BorderRadius.circular(radius,),
                 borderSide: BorderSide(
-                  color: ThemeCore.of(context).color.scheme.strokePrimary,
+                  color: colors.strokePrimary,
                   width: 1,
                 )),
           ),
@@ -165,8 +175,6 @@ class TextFieldWidget extends StatelessWidget {
       enabled: enabled,
       minLines: 5,
       isDense: isDense,
-      hintStyle: hintStyle,
-      textStyle: textStyle,
       filled: filled,
       fillColor: fillColor,
       focusNode: focusNode,
@@ -207,8 +215,6 @@ class TextFieldWidget extends StatelessWidget {
       fillColor: fillColor,
       isCollapsed: isCollapsed,
       isDense: isDense,
-      hintStyle: hintStyle,
-      textStyle: textStyle,
       focusNode: focusNode,
     );
   }
@@ -248,8 +254,6 @@ class TextFieldWidget extends StatelessWidget {
       filled: filled,
       isCollapsed: isCollapsed,
       isDense: isDense,
-      hintStyle: hintStyle,
-      textStyle: textStyle,
       fillColor: fillColor,
       focusNode: focusNode,
     );
@@ -288,8 +292,6 @@ class TextFieldWidget extends StatelessWidget {
       filled: filled,
       isCollapsed: isCollapsed,
       isDense: isDense,
-      hintStyle: hintStyle,
-      textStyle: textStyle,
       fillColor: fillColor,
       focusNode: focusNode,
     );
@@ -328,8 +330,6 @@ class TextFieldWidget extends StatelessWidget {
       filled: filled,
       isCollapsed: isCollapsed,
       isDense: isDense,
-      hintStyle: hintStyle,
-      textStyle: textStyle,
       fillColor: fillColor,
       focusNode: focusNode,
     );

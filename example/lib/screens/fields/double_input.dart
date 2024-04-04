@@ -30,6 +30,7 @@ class DoubleInputScreen extends StatelessWidget {
               controller: DoubleEditingController(),
               min: 10,
               max: 20,
+              errorText: 'dsadsadasda',
             ),
           ),
         ],

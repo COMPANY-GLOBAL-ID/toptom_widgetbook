@@ -18,6 +18,7 @@ class DoubleInput extends StatefulWidget {
     this.boxConstraints,
     this.label,
     this.clearText,
+    this.errorText,
     required this.controller,
     required this.max,
     required this.min,
@@ -35,6 +36,7 @@ class DoubleInput extends StatefulWidget {
   final BoxConstraints? boxConstraints;
   final String? label;
   final String? clearText;
+  final String? errorText;
 
   final double max;
   final double min;
@@ -190,6 +192,7 @@ class _DoubleInputState extends State<DoubleInput> {
                 hintStyle: widget.hintStyle,
                 hintText: widget.minHintText,
                 focusNode: _minFocus,
+                errorText: widget.errorText,
               ),
             ),
             Padding(
@@ -211,6 +214,7 @@ class _DoubleInputState extends State<DoubleInput> {
                 hintText: widget.maxHintText,
                 hintStyle: widget.hintStyle,
                 focusNode: _maxFocus,
+                errorText: widget.errorText,
               ),
             ),
           ],
@@ -229,6 +233,9 @@ class _DoubleInputState extends State<DoubleInput> {
                   onChanged: _changeRange),
             );
           },
+        ),
+        const SizedBox(
+          height: 8,
         ),
       ],
     );

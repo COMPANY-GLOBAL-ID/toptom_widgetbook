@@ -54,6 +54,7 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.number",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.number(
+              errorText: 'dsadasdasdas',
               controller: textEditingController,
             ),
             const SizedBox(
@@ -85,6 +86,7 @@ class InputScreen extends StatelessWidget {
                 Expanded(
                   child: TextFieldWidget(
                     label: "TextFieldWidget",
+                    errorText: 'fasdfdsfgsdgsfgs',
                     controller: textEditingController,
                   ),
                 ),
@@ -103,6 +105,7 @@ class InputScreen extends StatelessWidget {
                 value: item,
                 child: Text(item),
               ),
+              errorText: 'sadadsdsadasd',
               controller: MultiSelectController(),
               builderChip: (value) {
                 return BadgeWidget(

@@ -18,7 +18,8 @@ class SelectInputWidget<T> extends StatefulWidget {
   final List<T> items;
   final Widget? hint;
   final Widget? label;
-  final DropdownMenuItem<T> Function(T) builder;
+  final DropdownMenuItem<T> Function(T item, bool hasError) builder;
+
   final SelectInputController<T> controller;
   final String? errorText;
 
@@ -81,29 +82,12 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
               child: DropdownButton2<T>(
                 selectedItemBuilder: (context) {
                   return widget.items.map<Widget>((item) {
-                    return DropdownMenuItem(
-                      value: item,
-                      child: Text(
-                        item.toString(),
-                        style: paragraphSmall
-                            .copyWith(
-                              color: hasErrorText ? colors.errorPrimary : null,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                    );
+                    return widget.builder(item, hasErrorText);
                   }).toList();
                 },
                 isExpanded: true,
                 items: widget.items.map((item) {
-                  return DropdownMenuItem(
-                    value: item,
-                    child: Text(
-                      item.toString(),
-                      style: paragraphSmall
-                          .copyWith(fontWeight: FontWeight.w500),
-                    ),
-                  );
+                  return widget.builder(item, hasErrorText);
                 }).toList(),
                 value: value,
                 onChanged: onChange,

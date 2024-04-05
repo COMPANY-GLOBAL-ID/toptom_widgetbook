@@ -6,7 +6,7 @@ class MultiSelectInput<T> extends StatefulWidget {
   final String? label;
   final Widget? hint;
   final String? clearText;
-  final DropdownMenuItem<T> Function(T) builder;
+  final DropdownMenuItem<T> Function(T, bool hasError) builder;
   final Widget Function(T) builderChip;
   final String? errorText;
 

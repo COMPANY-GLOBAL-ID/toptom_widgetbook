@@ -73,12 +73,12 @@ class InputScreen extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: SelectInputWidget<String>(
+                  child: SelectInputWidget<CategoryModel>(
                     label: const Text('Select gender'),
-                    items: const ['all', 'male', 'women'],
-                    builder: (item) => DropdownMenuItem(
+                    items: CategoryModel.generateList(),
+                    builder: (item, hasError) => DropdownMenuItem(
                       value: item,
-                      child: Text(item),
+                      child: Text(item.title),
                     ),
                     controller: SelectInputController(),
                   ),
@@ -96,14 +96,14 @@ class InputScreen extends StatelessWidget {
               "MultiSelectInput",
               style: ThemeCore.of(context).typography.paragraphBig,
             ),
-            MultiSelectInput(
+            MultiSelectInput<CategoryModel>(
               clearText: 'Clear',
               label: 'Select',
               hint: const Text('Select'),
-              items: const ['all', 'male', 'women'],
-              builder: (item) => DropdownMenuItem(
+              items: CategoryModel.generateList(),
+              builder: (item, hasError) => DropdownMenuItem(
                 value: item,
-                child: Text(item),
+                child: Text(item.title),
               ),
               errorText: 'sadadsdsadasd',
               controller: MultiSelectController(),
@@ -115,7 +115,7 @@ class InputScreen extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(value.toString()),
+                      Text(value.title),
                       const SizedBox(width: 4),
                       GestureDetector(
                         onTap: () {},
@@ -134,4 +134,13 @@ class InputScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class CategoryModel {
+  final int id;
+  final String title;
+
+  CategoryModel({required this.id, required this.title});
+
+  static List<CategoryModel> generateList() => List.generate(5, (index) => CategoryModel(id: 1, title: 'AAAAAAAA'));
 }

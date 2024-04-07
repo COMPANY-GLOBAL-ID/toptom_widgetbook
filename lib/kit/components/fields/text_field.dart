@@ -142,6 +142,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   factory TextFieldWidget.description({
+    Key? key,
     TextEditingController? controller,
     String? label,
     String? hintText,
@@ -162,6 +163,7 @@ class TextFieldWidget extends StatelessWidget {
     FocusNode? focusNode,
   }) {
     return TextFieldWidget(
+      key: key,
       controller: controller,
       label: label,
       hintText: hintText,
@@ -182,6 +184,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   factory TextFieldWidget.email({
+    Key? key,
     TextEditingController? controller,
     String? label,
     String? hintText,
@@ -201,6 +204,7 @@ class TextFieldWidget extends StatelessWidget {
     FocusNode? focusNode,
   }) {
     return TextFieldWidget(
+      key: key,
       controller: controller,
       label: label,
       hintText: hintText,
@@ -220,6 +224,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   factory TextFieldWidget.number({
+    Key? key,
     TextEditingController? controller,
     String? label,
     String? hintText,
@@ -239,6 +244,7 @@ class TextFieldWidget extends StatelessWidget {
     FocusNode? focusNode,
   }) {
     return TextFieldWidget(
+      key: key,
       controller: controller,
       label: label,
       hintText: hintText,
@@ -260,6 +266,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   factory TextFieldWidget.phone({
+    Key? key,
     TextEditingController? controller,
     String? label,
     String? hintText,
@@ -278,6 +285,7 @@ class TextFieldWidget extends StatelessWidget {
     FocusNode? focusNode,
   }) {
     return TextFieldWidget(
+      key: key,
       controller: controller,
       label: label,
       hintText: hintText,
@@ -298,6 +306,7 @@ class TextFieldWidget extends StatelessWidget {
   }
 
   factory TextFieldWidget.date({
+    Key? key,
     TextEditingController? controller,
     String? label,
     String? hintText,
@@ -316,6 +325,7 @@ class TextFieldWidget extends StatelessWidget {
     FocusNode? focusNode,
   }) {
     return TextFieldWidget(
+      key: key,
       controller: controller,
       label: label,
       hintText: hintText,

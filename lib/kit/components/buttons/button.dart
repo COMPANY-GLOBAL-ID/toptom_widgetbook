@@ -7,9 +7,9 @@ class ButtonWidget extends StatelessWidget {
   final ButtonType type;
   final ButtonColor color;
   final VoidCallback? onPressed;
-  final Color? backgroundColor;
-  final Color? foregroundColor;
-  final Color? overlayColor;
+  final MaterialStateProperty<Color>? backgroundColor;
+  final MaterialStateProperty<Color>? foregroundColor;
+  final MaterialStateProperty<Color>? overlayColor;
   final double elevation;
 
   const ButtonWidget({
@@ -31,21 +31,15 @@ class ButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         elevation: MaterialStatePropertyAll<double>(elevation),
-        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+        backgroundColor: backgroundColor ?? MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if (backgroundColor != null) {
-            return backgroundColor!;
-          }
           if (states.contains(MaterialState.disabled)) {
             return type.backgroundDisable(color, context);
           }
           return type.background(color, context);
         }),
-        foregroundColor: MaterialStateProperty.resolveWith<Color>(
+        foregroundColor: foregroundColor ?? MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if (foregroundColor != null) {
-            return foregroundColor!;
-          }
           if (states.contains(MaterialState.disabled)) {
             return type.foregroundDisable(color, context);
           }
@@ -54,11 +48,8 @@ class ButtonWidget extends StatelessWidget {
           }
           return type.foreground(color, context);
         }),
-        overlayColor: MaterialStateProperty.resolveWith<Color>(
+        overlayColor: overlayColor ?? MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
-          if (overlayColor != null) {
-            return overlayColor!;
-          }
           if (states.contains(MaterialState.pressed)) {
             return type.backgroundPressed(color, context);
           }
@@ -84,7 +75,7 @@ class ButtonWidget extends StatelessWidget {
             ),
           );
         }),
-        iconColor: MaterialStateProperty.resolveWith<Color>(
+        iconColor: foregroundColor ?? MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled)) {
             return type.foregroundDisable(color, context);

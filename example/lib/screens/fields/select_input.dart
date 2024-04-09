@@ -12,7 +12,6 @@ class SelectInputScreen extends StatefulWidget {
 }
 
 class _SelectInputScreenState extends State<SelectInputScreen> {
-  final List _items = ['Item 1', 'Item 2', 'Item 3'];
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

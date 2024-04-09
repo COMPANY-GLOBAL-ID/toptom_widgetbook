@@ -48,7 +48,7 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
 
   _listenController() {
     if (singleController.value == null) return;
-    widget.controller.add(singleController.value);
+    widget.controller.add(singleController.value as T);
     singleController.clear();
   }
 

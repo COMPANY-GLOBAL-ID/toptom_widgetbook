@@ -2,7 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
-class SelectInputController<T> extends ValueNotifier {
+class SelectInputController<T> extends ValueNotifier<T?> {
   SelectInputController({T? value}) : super(value);
 
   void change(T value) {

@@ -49,7 +49,8 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
   @override
   Widget build(BuildContext context) {
     final ColorSchemeKit colors = ThemeCore.of(context).color.scheme;
-    final TextStyle paragraphSmall = ThemeCore.of(context).typography.paragraphSmall;
+    final TextStyle paragraphSmall =
+        ThemeCore.of(context).typography.paragraphSmall;
     final double radius = ThemeCore.of(context).radius.extraLarge;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,9 +63,9 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
         ),
         DefaultTextStyle(
           style: paragraphSmall.copyWith(
-                color: colors.textSecondary,
-                fontWeight: FontWeight.w500,
-              ),
+            color: colors.textSecondary,
+            fontWeight: FontWeight.w500,
+          ),
           child: Visibility(
             visible: widget.label != null,
             child: Column(
@@ -92,18 +93,19 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
                 value: value,
                 onChanged: onChange,
                 hint: DefaultTextStyle(
-                  style: paragraphSmall
-                      .copyWith(
-                        color: hasErrorText
-                            ? colors.errorPrimary
-                            : colors.textSecondary,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  style: paragraphSmall.copyWith(
+                    color: hasErrorText
+                        ? colors.errorPrimary
+                        : colors.textSecondary,
+                    fontWeight: FontWeight.w500,
+                  ),
                   child: widget.hint ?? const Offstage(),
                 ),
                 buttonStyleData: ButtonStyleData(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5.5,),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 5.5,
+                  ),
                   elevation: 0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
@@ -162,8 +164,8 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
             ),
             child: Text(
               widget.errorText ?? '',
-              style: paragraphSmall
-                  .copyWith(color:colors.errorPrimary, fontWeight: FontWeight.w400),
+              style: paragraphSmall.copyWith(
+                  color: colors.errorPrimary, fontWeight: FontWeight.w400),
             ),
           ),
         ),

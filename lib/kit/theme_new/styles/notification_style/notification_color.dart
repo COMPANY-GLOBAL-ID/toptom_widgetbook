@@ -1,0 +1,52 @@
+part of 'notification_type.dart';
+
+enum NotificationColor {
+  black,
+  success,
+  error,
+  warning,
+  ghost;
+
+  Color toBackground(BuildContext context) {
+    final color = ThemeCore.of(context).color.snackBarColor;
+    return switch (this) {
+      NotificationColor.black => color.defaultPrimary,
+      NotificationColor.success => color.positive,
+      NotificationColor.error => color.error,
+      NotificationColor.warning => color.warning,
+      NotificationColor.ghost => color.inverted,
+    };
+  }
+
+  Color toForegroundPrimary(BuildContext context) {
+    return switch (this) {
+      NotificationColor.black ||
+      NotificationColor.success ||
+      NotificationColor.error ||
+      NotificationColor.warning =>
+        Colors.white,
+      NotificationColor.ghost => Colors.black
+    };
+  }
+
+  Color toForegroundSecondary(BuildContext context) {
+    final color = ThemeCore.of(context).color.snackBarColor;
+    return switch (this) {
+      NotificationColor.black => color.defaultPrimary,
+      NotificationColor.success => color.positive,
+      NotificationColor.error => color.error,
+      NotificationColor.warning => color.warning,
+      NotificationColor.ghost => color.defaultPrimary,
+    };
+  }
+
+  IconData toIcon(BuildContext context) {
+    return switch (this) {
+      NotificationColor.black => Icons.info,
+      NotificationColor.success => Icons.check_circle,
+      NotificationColor.error => Icons.cancel,
+      NotificationColor.warning => Icons.warning_amber_outlined,
+      NotificationColor.ghost => Icons.info_outline
+    };
+  }
+}

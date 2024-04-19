@@ -142,5 +142,6 @@ class CategoryModel {
 
   CategoryModel({required this.id, required this.title});
 
-  static List<CategoryModel> generateList() => List.generate(5, (index) => CategoryModel(id: 1, title: 'AAAAAAAA'));
+  static List<CategoryModel> generateList() =>
+      List.generate(5, (index) => CategoryModel(id: 1, title: 'AAAAAAAA'));
 }

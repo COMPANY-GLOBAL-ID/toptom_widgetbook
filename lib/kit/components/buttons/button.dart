@@ -31,33 +31,36 @@ class ButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         elevation: MaterialStatePropertyAll<double>(elevation),
-        backgroundColor: backgroundColor ?? MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
-            return type.backgroundDisable(color, context);
-          }
-          return type.background(color, context);
-        }),
-        foregroundColor: foregroundColor ?? MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
-            return type.foregroundDisable(color, context);
-          }
-          if (states.contains(MaterialState.pressed)) {
-            return type.foregroundPressed(color, context);
-          }
-          return type.foreground(color, context);
-        }),
-        overlayColor: overlayColor ?? MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.pressed)) {
-            return type.backgroundPressed(color, context);
-          }
-          if (states.contains(MaterialState.disabled)) {
-            return Colors.transparent;
-          }
-          return Colors.transparent;
-        }),
+        backgroundColor: backgroundColor ??
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
+                return type.backgroundDisable(color, context);
+              }
+              return type.background(color, context);
+            }),
+        foregroundColor: foregroundColor ??
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
+                return type.foregroundDisable(color, context);
+              }
+              if (states.contains(MaterialState.pressed)) {
+                return type.foregroundPressed(color, context);
+              }
+              return type.foreground(color, context);
+            }),
+        overlayColor: overlayColor ??
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return type.backgroundPressed(color, context);
+              }
+              if (states.contains(MaterialState.disabled)) {
+                return Colors.transparent;
+              }
+              return Colors.transparent;
+            }),
         shape: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
           late Color foregroundColor;
           if (states.contains(MaterialState.pressed)) {
@@ -75,16 +78,17 @@ class ButtonWidget extends StatelessWidget {
             ),
           );
         }),
-        iconColor: foregroundColor ?? MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) {
-            return type.foregroundDisable(color, context);
-          }
-          if (states.contains(MaterialState.pressed)) {
-            return type.foregroundPressed(color, context);
-          }
-          return type.foreground(color, context);
-        }),
+        iconColor: foregroundColor ??
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
+                return type.foregroundDisable(color, context);
+              }
+              if (states.contains(MaterialState.pressed)) {
+                return type.foregroundPressed(color, context);
+              }
+              return type.foreground(color, context);
+            }),
         iconSize: MaterialStatePropertyAll<double>(size.iconSize()),
         textStyle: MaterialStatePropertyAll<TextStyle>(size.textStyle(context)),
         padding:

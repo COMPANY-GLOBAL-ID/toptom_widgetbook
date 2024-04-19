@@ -66,75 +66,72 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
           ),
         ),
         ValueListenableBuilder(
-            valueListenable: widget.controller,
-            builder: (context, value, child) {
-              bool hasLabel =
-                  widget.label != null && widget.label?.isNotEmpty == true;
-              bool hasClearText = widget.clearText != null &&
-                  widget.clearText?.isNotEmpty == true;
-              bool hasLabelOrClearText = hasLabel || hasClearText;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: SelectInputWidget(
-                      errorText: widget.errorText,
-                      label: Visibility(
-                        visible: hasLabelOrClearText,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Visibility(
-                              maintainSize: true,
-                              maintainAnimation: true,
-                              maintainState: true,
-                              visible: hasLabel,
-                              child: Text(
-                                widget.label ?? '',
-                              ),
+          valueListenable: widget.controller,
+          builder: (context, value, child) {
+            bool hasLabel =
+                widget.label != null && widget.label?.isNotEmpty == true;
+            bool hasClearText = widget.clearText != null &&
+                widget.clearText?.isNotEmpty == true;
+            bool hasLabelOrClearText = hasLabel || hasClearText;
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: SelectInputWidget(
+                    errorText: widget.errorText,
+                    label: Visibility(
+                      visible: hasLabelOrClearText,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Visibility(
+                            maintainSize: true,
+                            maintainAnimation: true,
+                            maintainState: true,
+                            visible: hasLabel,
+                            child: Text(
+                              widget.label ?? '',
                             ),
-                            Visibility(
-                              maintainSize: true,
-                              maintainAnimation: true,
-                              maintainState: true,
-                              visible: hasClearText,
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: _clearAll,
-                                child: Text(widget.clearText ?? '',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: ThemeCore.of(context)
-                                          .color
-                                          .scheme
-                                          .main,
-                                    )),
-                              ),
-                            )
-                          ],
-                        ),
+                          ),
+                          Visibility(
+                            maintainSize: true,
+                            maintainAnimation: true,
+                            maintainState: true,
+                            visible: hasClearText,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: _clearAll,
+                              child: Text(widget.clearText ?? '',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        ThemeCore.of(context).color.scheme.main,
+                                  )),
+                            ),
+                          )
+                        ],
                       ),
-                      items: widget.items.where((element) {
-                        return !value.contains(element);
-                      }).toList(),
-                      builder: widget.builder,
-                      hint: widget.hint,
-                      controller: singleController,
                     ),
+                    items: widget.items.where((element) {
+                      return !value.contains(element);
+                    }).toList(),
+                    builder: widget.builder,
+                    hint: widget.hint,
+                    controller: singleController,
                   ),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    spacing: 8,
-                    children: widget.controller.value
-                        .map(widget.builderChip)
-                        .toList(),
-                  )
-                ],
-              );
-            },
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  spacing: 8,
+                  children:
+                      widget.controller.value.map(widget.builderChip).toList(),
+                )
+              ],
+            );
+          },
         ),
       ],
     );

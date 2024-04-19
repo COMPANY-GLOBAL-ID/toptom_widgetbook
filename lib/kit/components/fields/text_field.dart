@@ -68,7 +68,8 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorSchemeKit colors = ThemeCore.of(context).color.scheme;
-    final TextStyle paragraphSmall = ThemeCore.of(context).typography.paragraphSmall;
+    final TextStyle paragraphSmall =
+        ThemeCore.of(context).typography.paragraphSmall;
     final double radius = ThemeCore.of(context).radius.extraLarge;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,10 +91,12 @@ class TextFieldWidget extends StatelessWidget {
           maxLines: maxLines,
           focusNode: focusNode,
           decoration: InputDecoration(
-            errorStyle: paragraphSmall
-                .copyWith(color: colors.errorPrimary, fontWeight: FontWeight.w400),
+            errorStyle: paragraphSmall.copyWith(
+                color: colors.errorPrimary, fontWeight: FontWeight.w400),
             errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius,),
+                borderRadius: BorderRadius.circular(
+                  radius,
+                ),
                 borderSide: BorderSide(
                   color: colors.errorPrimary,
                   width: 1,
@@ -106,31 +109,39 @@ class TextFieldWidget extends StatelessWidget {
             hintText: hintText,
             errorText: errorText,
             hintStyle: paragraphSmall.copyWith(
-                  color: errorText != null
-                      ? colors.errorPrimary
-                      : colors.textSecondary,
-                  fontWeight: FontWeight.w500,
-                ),
+              color: errorText != null
+                  ? colors.errorPrimary
+                  : colors.textSecondary,
+              fontWeight: FontWeight.w500,
+            ),
             isDense: isDense,
             isCollapsed: isCollapsed,
             contentPadding: EdgeInsets.all(ThemeCore.of(context).padding.l),
             disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius,),
+                borderRadius: BorderRadius.circular(
+                  radius,
+                ),
                 borderSide: BorderSide.none),
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius,),
+                borderRadius: BorderRadius.circular(
+                  radius,
+                ),
                 borderSide: BorderSide(
                   color: colors.strokePrimary,
                   width: 1,
                 )),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius,),
+                borderRadius: BorderRadius.circular(
+                  radius,
+                ),
                 borderSide: BorderSide(
                   color: colors.strokePrimary,
                   width: 1,
                 )),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius,),
+                borderRadius: BorderRadius.circular(
+                  radius,
+                ),
                 borderSide: BorderSide(
                   color: colors.strokePrimary,
                   width: 1,

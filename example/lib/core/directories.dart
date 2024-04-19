@@ -1,3 +1,4 @@
+import 'package:example/screens/appear_screen.dart';
 import 'package:example/screens/table_screen.dart';
 import 'package:widgetbook/widgetbook.dart';
 import '../screens/card_screen.dart';
@@ -105,6 +106,10 @@ final directories = [
       WidgetbookUseCase(
         name: 'Table',
         builder: (context) => const TableScreen(),
+      ),
+      WidgetbookUseCase(
+        name: 'Appear',
+        builder: (context) => const AppearScreen(),
       ),
     ],
   ),

@@ -12,6 +12,8 @@ class SnackBarColorKit {
   final Color warningText;
   final Color inverted;
   final Color invertedText;
+  final Color information;
+  final Color informationText;
 
   const SnackBarColorKit({
     this.defaultPrimary = const Color.fromRGBO(15, 14, 20, 1),
@@ -25,5 +27,7 @@ class SnackBarColorKit {
     this.warningText = const Color.fromRGBO(255, 255, 255, 1),
     this.inverted = const Color.fromRGBO(255, 255, 255, 1),
     this.invertedText = const Color.fromRGBO(15, 14, 20, 1),
+    this.information = const Color.fromRGBO(105, 117, 142, 0.1),
+    this.informationText = const Color.fromRGBO(105, 117, 142, 1),
   });
 }

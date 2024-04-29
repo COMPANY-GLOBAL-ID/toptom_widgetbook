@@ -5,11 +5,13 @@ enum NotificationColor {
   success,
   error,
   warning,
-  ghost;
+  ghost,
+  information;
 
   Color toBackground(BuildContext context) {
     final color = ThemeCore.of(context).color.snackBarColor;
     return switch (this) {
+      NotificationColor.information => color.information,
       NotificationColor.black => color.defaultPrimary,
       NotificationColor.success => color.positive,
       NotificationColor.error => color.error,
@@ -19,13 +21,15 @@ enum NotificationColor {
   }
 
   Color toForegroundPrimary(BuildContext context) {
+    final color = ThemeCore.of(context).color.snackBarColor;
     return switch (this) {
       NotificationColor.black ||
       NotificationColor.success ||
       NotificationColor.error ||
       NotificationColor.warning =>
         Colors.white,
-      NotificationColor.ghost => Colors.black
+      NotificationColor.ghost => Colors.black,
+      NotificationColor.information => color.informationText,
     };
   }
 
@@ -37,6 +41,7 @@ enum NotificationColor {
       NotificationColor.error => color.error,
       NotificationColor.warning => color.warning,
       NotificationColor.ghost => color.defaultPrimary,
+      NotificationColor.information => color.informationText,
     };
   }
 
@@ -46,7 +51,8 @@ enum NotificationColor {
       NotificationColor.success => Icons.check_circle,
       NotificationColor.error => Icons.cancel,
       NotificationColor.warning => Icons.warning_amber_outlined,
-      NotificationColor.ghost => Icons.info_outline
+      NotificationColor.ghost => Icons.info_outline,
+      NotificationColor.information => Icons.info_outline,
     };
   }
 }

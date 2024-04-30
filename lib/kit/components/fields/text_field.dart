@@ -25,6 +25,7 @@ class TextFieldWidget extends StatelessWidget {
   final Widget? suffix;
   final bool? isCollapsed;
   final FocusNode? focusNode;
+  final String? obscureText;
 
   const TextFieldWidget({
     super.key,
@@ -49,6 +50,7 @@ class TextFieldWidget extends StatelessWidget {
     this.suffix,
     this.isCollapsed,
     this.focusNode,
+    this.obscureText,
   });
 
   static final MaskTextInputFormatter _phoneMask = MaskTextInputFormatter(
@@ -84,6 +86,8 @@ class TextFieldWidget extends StatelessWidget {
           onSubmitted: onSubmit,
           controller: controller,
           maxLength: maxLength,
+          obscureText: obscureText != null,
+          obscuringCharacter: obscureText ?? '*',
           style: paragraphSmall.copyWith(
               fontWeight: FontWeight.w500,
               color: errorText != null ? colors.errorPrimary : null),
@@ -353,6 +357,48 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       fillColor: fillColor,
       focusNode: focusNode,
+    );
+  }
+
+  factory TextFieldWidget.password({
+    Key? key,
+    TextEditingController? controller,
+    String? label,
+    String? hintText,
+    String? errorText,
+    bool isRequired = false,
+    Widget? suffixIcon,
+    Widget? prefixIcon,
+    Function(String)? onSubmit,
+    int? maxLength,
+    bool? enabled,
+    bool? isDense = false,
+    bool? isCollapsed = false,
+    TextStyle? hintStyle,
+    TextStyle? textStyle,
+    bool? filled,
+    Color? fillColor,
+    FocusNode? focusNode,
+  }) {
+    return TextFieldWidget(
+      key: key,
+      controller: controller,
+      label: label,
+      hintText: hintText,
+      errorText: errorText,
+      isRequired: isRequired,
+      suffixIcon: suffixIcon,
+      prefixIcon: prefixIcon,
+      onSubmit: onSubmit,
+      maxLength: maxLength,
+      enabled: enabled,
+      filled: filled,
+      fillColor: fillColor,
+      isCollapsed: isCollapsed,
+      isDense: isDense,
+      focusNode: focusNode,
+      keyboardType: TextInputType.visiblePassword,
+      obscureText: '*',
     );
   }
 }

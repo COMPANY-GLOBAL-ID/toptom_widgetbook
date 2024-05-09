@@ -3,6 +3,7 @@ import 'package:example/screens/table_screen.dart';
 import 'package:widgetbook/widgetbook.dart';
 import '../screens/card_screen.dart';
 import '../screens/checkbox_screen.dart';
+import '../screens/gallery.dart';
 import '../screens/screens.dart';
 import '../screens/typography_screen.dart';
 
@@ -64,6 +65,10 @@ final directories = [
       WidgetbookUseCase(
         name: 'Text Area',
         builder: (context) => const TextAreaScreen(),
+      ),
+      WidgetbookUseCase(
+        name: 'Gallery ',
+        builder: (context) => const GalleryScreen(),
       ),
       WidgetbookUseCase(
         name: 'Input',

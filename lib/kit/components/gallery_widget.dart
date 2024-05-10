@@ -2,26 +2,23 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../export.dart';
 
+import '../export.dart';
 class GalleryWidget extends StatefulWidget {
   final List<String> images;
   final VoidCallback? onBack;
   final int initialImageIndex;
 
-  const GalleryWidget(
-      {super.key,
-      required this.images,
-      this.onBack,
-      this.initialImageIndex = 0});
+  const GalleryWidget({super.key, required this.images, this.onBack, this.initialImageIndex = 0});
 
   static Future view(BuildContext context, {List<String> images = const []}) {
     return showDialog(
-        context: context,
-        builder: (context) => GalleryWidget(
-              images: images,
-              onBack: () => Navigator.of(context).pop(),
-            ));
+      context: context,
+      builder: (context) => GalleryWidget(
+        images: images,
+        onBack: () => Navigator.of(context).pop(),
+      ),
+    );
   }
 
   @override
@@ -32,75 +29,71 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   static const double _initialScale = 1.0;
   static const double _minScale = 0.75;
   static const double _maxScale = 2.0;
-  double _scale = _initialScale;
-  double _previousScale = 1.0;
+
+  late ValueNotifier<double> _scaleNotifier;
+  late ValueNotifier<Offset> _offsetNotifier;
+
+  double _previousScale = _initialScale;
   Offset _startOffset = Offset.zero;
-  Offset _currentOffset = Offset.zero;
   late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: widget.initialImageIndex);
+    _scaleNotifier = ValueNotifier(_initialScale);
+    _offsetNotifier = ValueNotifier(Offset.zero);
   }
 
-  _next() {
+  void _next() {
     _pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.linearToEaseOut);
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.linearToEaseOut,
+    );
   }
 
-  _prev() {
+  void _prev() {
     _pageController.previousPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.linearToEaseOut);
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.linearToEaseOut,
+    );
   }
 
-  _zoomIn() {
-    setState(() {
-      _scale = (_scale + 0.25).clamp(_minScale, 2);
-    });
+  void _zoomIn() {
+    _scaleNotifier.value = (_scaleNotifier.value + 0.25).clamp(_minScale, _maxScale);
   }
 
-  _zoomOut() {
-    setState(() {
-      _scale = (_scale - 0.25).clamp(_minScale, 2);
-    });
+  void _zoomOut() {
+    _scaleNotifier.value = (_scaleNotifier.value - 0.25).clamp(_minScale, _maxScale);
   }
 
-  _onPageChanged(int index) {
-    setState(() {
-      _scale = _minScale;
-    });
+  void _onPageChanged(int index) {
+    _scaleNotifier.value = _minScale;
+    _offsetNotifier.value = Offset.zero;
   }
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(color: Colors.black.withOpacity(0.7)),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.7),
+      ),
       child: Stack(
         children: [
           GestureDetector(
             onScaleStart: (details) {
-              _previousScale = _scale;
-              _startOffset = _currentOffset;
+              _previousScale = _scaleNotifier.value;
+              _startOffset = _offsetNotifier.value;
             },
             onScaleUpdate: (details) {
-              setState(() {
-                _scale = (_previousScale * details.scale)
-                    .clamp(_minScale, _maxScale);
-                _currentOffset = Offset(
-                  _startOffset.dx +
-                      details.focalPoint.dx -
-                      details.localFocalPoint.dx,
-                  _startOffset.dy +
-                      details.focalPoint.dy -
-                      details.localFocalPoint.dy,
-                );
-              });
+              _scaleNotifier.value = (_previousScale * details.scale).clamp(_minScale, _maxScale);
+              _offsetNotifier.value = Offset(
+                _startOffset.dx + (details.focalPoint.dx - details.localFocalPoint.dx) / _scaleNotifier.value,
+                _startOffset.dy + (details.focalPoint.dy - details.localFocalPoint.dy) / _scaleNotifier.value,
+              );
             },
-            onScaleEnd: (details) {
-              _previousScale = _scale.clamp(_minScale, _maxScale);
+            onScaleEnd: (_) {
+              _previousScale = _scaleNotifier.value;
             },
             child: PageView.builder(
               pageSnapping: true,
@@ -109,20 +102,30 @@ class _GalleryWidgetState extends State<GalleryWidget> {
               itemCount: widget.images.length,
               itemBuilder: (BuildContext context, int index) {
                 String url = widget.images[index];
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  transform: Matrix4.identity()..scale(_scale),
-                  alignment: Alignment.center,
-                  child: Image.network(
-                    url,
-                    loadingBuilder: (context, child, event) {
-                      if (event?.cumulativeBytesLoaded ==
-                          event?.expectedTotalBytes) {
-                        return child;
-                      }
-                      return const Center(child: CupertinoActivityIndicator());
-                    },
-                  ),
+                return ValueListenableBuilder(
+                  valueListenable: _scaleNotifier,
+                  builder: (context, double scale, child) {
+                    return ValueListenableBuilder(
+                      valueListenable: _offsetNotifier,
+                      builder: (context, Offset offset, child) {
+                        return Transform(
+                          transform: Matrix4.identity()
+                            ..scale(scale)
+                            ..translate(offset.dx, offset.dy),
+                          alignment: Alignment.center,
+                          child: Image.network(
+                            url,
+                            loadingBuilder: (context, child, event) {
+                              if (event?.cumulativeBytesLoaded == event?.expectedTotalBytes) {
+                                return child;
+                              }
+                              return const Center(child: CupertinoActivityIndicator());
+                            },
+                          ),
+                        );
+                      },
+                    );
+                  },
                 );
               },
             ),
@@ -177,13 +180,16 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                         type: ButtonType.ghost,
                         onPressed: _zoomOut,
                       ),
-                      ButtonWidget(
-                        color: ButtonColor.white,
-                        type: ButtonType.ghost,
-                        onPressed: () {},
-                        child: Text(
-                          '${(((_scale) * 100).roundToDouble()).toInt()}%',
-                        ),
+                      ValueListenableBuilder(
+                        valueListenable: _scaleNotifier,
+                        builder: (context, double scale, child) {
+                          return ButtonWidget(
+                            color: ButtonColor.white,
+                            type: ButtonType.ghost,
+                            onPressed: () {},
+                            child: Text('${((scale * 100).roundToDouble()).toInt()}%'),
+                          );
+                        },
                       ),
                       ButtonIcon(
                         icon: Icons.zoom_in,
@@ -198,7 +204,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                     color: ButtonColor.white,
                     type: ButtonType.ghost,
                     onPressed: _next,
-                  )
+                  ),
                 ],
               ),
             ),

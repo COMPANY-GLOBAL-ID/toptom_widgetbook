@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class ButtonWidget extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   final ButtonSize size;
   final ButtonType type;
   final ButtonColor color;
@@ -11,24 +12,26 @@ class ButtonWidget extends StatelessWidget {
   final MaterialStateProperty<Color>? foregroundColor;
   final MaterialStateProperty<Color>? overlayColor;
   final double elevation;
+  final bool? isLoading;
 
-  const ButtonWidget({
-    Key? key,
-    this.size = ButtonSize.m,
-    this.type = ButtonType.primary,
-    this.color = ButtonColor.primary,
-    required this.child,
-    this.onPressed,
-    this.backgroundColor,
-    this.foregroundColor,
-    this.overlayColor,
-    this.elevation = 0,
-  }) : super(key: key);
+  const ButtonWidget(
+      {Key? key,
+      this.size = ButtonSize.m,
+      this.type = ButtonType.primary,
+      this.color = ButtonColor.primary,
+      this.child,
+      this.onPressed,
+      this.backgroundColor,
+      this.foregroundColor,
+      this.overlayColor,
+      this.elevation = 0,
+      this.isLoading = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: isLoading == true ? () {} : onPressed,
       style: ButtonStyle(
         elevation: MaterialStatePropertyAll<double>(elevation),
         backgroundColor: backgroundColor ??
@@ -94,7 +97,11 @@ class ButtonWidget extends StatelessWidget {
         padding:
             MaterialStatePropertyAll<EdgeInsetsGeometry>(size.padding(context)),
       ),
-      child: child,
+      child: isLoading == true
+          ? CupertinoActivityIndicator(
+              color: type.foreground(color, context),
+            )
+          : child,
     );
   }
 }

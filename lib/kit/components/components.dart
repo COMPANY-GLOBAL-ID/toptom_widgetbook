@@ -8,3 +8,4 @@ export 'card/card_widget.dart';
 export 'table/table_widget.dart';
 export 'select_input_widget.dart';
 export 'multi_select_input.dart';
+export 'gallery_widget.dart';

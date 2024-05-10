@@ -5,5 +5,6 @@ enum ButtonColor {
   black,
   success,
   error,
-  warning;
+  warning,
+  white;
 }

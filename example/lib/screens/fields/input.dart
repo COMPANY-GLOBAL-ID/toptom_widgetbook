@@ -47,6 +47,10 @@ class InputScreen extends StatelessWidget {
               prefixIcon: const Icon(Icons.search),
               controller: textEditingController,
             ),
+            const PasswordFieldWidget(
+              hideIcon: Icon(Icons.search),
+              showIcon: Icon(Icons.search_off),
+            ),
             const SizedBox(
               height: 10,
             ),

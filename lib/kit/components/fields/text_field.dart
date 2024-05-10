@@ -371,6 +371,7 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    obscureText = '*',
   }) {
     return TextFieldWidget(
       key: key,
@@ -390,7 +391,94 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       focusNode: focusNode,
       keyboardType: TextInputType.visiblePassword,
-      obscureText: '*',
+      obscureText: obscureText,
+    );
+  }
+}
+
+class PasswordFieldWidget extends StatefulWidget {
+  final TextEditingController? controller;
+  final String? label;
+  final String? hintText;
+  final TextStyle? labelStyle;
+  final String? errorText;
+  final bool isRequired;
+  final Widget? hideIcon;
+  final Widget? showIcon;
+  final Widget? prefixIcon;
+  final Function(String)? onSubmit;
+  final int? maxLength;
+  final bool? enabled;
+  final bool? isDense;
+  final bool? isCollapsed;
+  final TextStyle? hintStyle;
+  final TextStyle? textStyle;
+  final bool? filled;
+  final Color? fillColor;
+  final FocusNode? focusNode;
+
+  const PasswordFieldWidget({
+    super.key,
+    this.controller,
+    this.label,
+    this.hintText,
+    this.labelStyle,
+    this.errorText,
+    this.isRequired = false,
+    this.hideIcon,
+    this.showIcon,
+    this.prefixIcon,
+    this.onSubmit,
+    this.maxLength,
+    this.enabled,
+    this.isDense = false,
+    this.hintStyle,
+    this.textStyle,
+    this.filled,
+    this.fillColor,
+    this.isCollapsed = false,
+    this.focusNode,
+  });
+
+  @override
+  State<PasswordFieldWidget> createState() => _PasswordFieldWidgetState();
+}
+
+class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
+  bool hide = true;
+  _toggle() {
+    setState(() {
+      hide = !hide;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFieldWidget.password(
+      key: widget.key,
+      controller: widget.controller,
+      label: widget.label,
+      hintText: widget.hintText,
+      errorText: widget.errorText,
+      isRequired: widget.isRequired,
+      suffixIcon: InkWell(
+        onTap: _toggle,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        child: hide ? widget.hideIcon : widget.showIcon,
+      ),
+      obscureText: hide ? '*' : null,
+      prefixIcon: widget.prefixIcon,
+      onSubmit: widget.onSubmit,
+      maxLength: widget.maxLength,
+      enabled: widget.enabled,
+      isDense: widget.isDense,
+      isCollapsed: widget.isCollapsed,
+      hintStyle: widget.hintStyle,
+      textStyle: widget.textStyle,
+      filled: widget.filled,
+      fillColor: widget.fillColor,
+      focusNode: widget.focusNode,
     );
   }
 }

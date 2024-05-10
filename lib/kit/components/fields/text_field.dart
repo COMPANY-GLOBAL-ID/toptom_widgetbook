@@ -71,8 +71,23 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorSchemeKit colors = ThemeCore.of(context).color.scheme;
     final TextStyle paragraphSmall =
-        ThemeCore.of(context).typography.paragraphSmall;
+        ThemeCore.of(context).typography.paragraphMedium;
     final double radius = ThemeCore.of(context).radius.extraLarge;
+
+    bool isError = errorText != null;
+    bool isDisable = enabled == false;
+
+    Color color = isError ? colors.errorPrimary : colors.textSecondary;
+    OutlineInputBorder border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(
+        radius,
+      ),
+      borderSide: BorderSide(
+        color: color,
+        width: 1,
+      ),
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -89,67 +104,44 @@ class TextFieldWidget extends StatelessWidget {
           obscureText: obscureText != null,
           obscuringCharacter: obscureText ?? '*',
           style: paragraphSmall.copyWith(
-              fontWeight: FontWeight.w500,
-              color: errorText != null ? colors.errorPrimary : null),
+            fontWeight: FontWeight.w500,
+            color: color,
+          ),
           inputFormatters: inputFormatters,
           maxLines: maxLines,
           focusNode: focusNode,
           decoration: InputDecoration(
+            suffixIconColor: color,
+            prefixIconColor: color,
             errorStyle: paragraphSmall.copyWith(
-                color: colors.errorPrimary, fontWeight: FontWeight.w400),
-            errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  radius,
-                ),
-                borderSide: BorderSide(
-                  color: colors.errorPrimary,
-                  width: 1,
-                )),
+              color: color,
+              fontWeight: FontWeight.w400,
+            ),
+            errorBorder: border,
             suffix: suffix,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
-            filled: (enabled == false),
+            filled: isDisable,
             fillColor: fillColor,
             hintText: hintText,
             errorText: errorText,
             hintStyle: paragraphSmall.copyWith(
-              color: errorText != null
-                  ? colors.errorPrimary
-                  : colors.textSecondary,
+              color: color,
               fontWeight: FontWeight.w500,
             ),
             isDense: isDense,
             isCollapsed: isCollapsed,
             contentPadding: EdgeInsets.all(ThemeCore.of(context).padding.l),
             disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  radius,
-                ),
-                borderSide: BorderSide.none),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  radius,
-                ),
-                borderSide: BorderSide(
-                  color: colors.strokePrimary,
-                  width: 1,
-                )),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  radius,
-                ),
-                borderSide: BorderSide(
-                  color: colors.strokePrimary,
-                  width: 1,
-                )),
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(
-                  radius,
-                ),
-                borderSide: BorderSide(
-                  color: colors.strokePrimary,
-                  width: 1,
-                )),
+              borderRadius: BorderRadius.circular(
+                radius,
+              ),
+              borderSide: BorderSide.none,
+            ),
+            enabledBorder: border,
+            focusedBorder: border,
+            focusedErrorBorder: border,
+            border: border,
           ),
         ),
       ],

@@ -57,7 +57,6 @@ enum ButtonType {
           ButtonColor.error => colorTheme.buttonColor.errorGhost,
           ButtonColor.warning => colorTheme.buttonColor.warningGhost,
           ButtonColor.white => Colors.white.withOpacity(0.4),
-
         },
       ButtonType.defaultButton => switch (color) {
           ButtonColor.primary => colorTheme.buttonColor.defaultButtonHover,
@@ -154,7 +153,6 @@ enum ButtonType {
           ButtonColor.error => colorTheme.buttonColor.error,
           ButtonColor.warning => colorTheme.buttonColor.warning,
           ButtonColor.white => Colors.white,
-
         },
     };
   }
@@ -182,7 +180,6 @@ enum ButtonType {
           ButtonColor.error => colorTheme.buttonColor.error,
           ButtonColor.warning => colorTheme.buttonColor.warning,
           ButtonColor.white => Colors.white,
-
         },
       ButtonType.ghost => Colors.transparent,
       ButtonType.defaultButton => Colors.transparent,

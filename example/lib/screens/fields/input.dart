@@ -19,6 +19,8 @@ class InputScreen extends StatelessWidget {
               height: 10,
             ),
             TextFieldWidget(
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               label: "TextFieldWidget",
               controller: textEditingController,
               enabled: false,
@@ -29,6 +31,8 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.description",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.description(
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               label: "TextFieldWidget.description",
               controller: textEditingController,
             ),
@@ -38,6 +42,9 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.phone",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.phone(
+              hintText: 'Hint',
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               controller: textEditingController,
             ),
             const SizedBox(
@@ -46,6 +53,8 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.email",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.email(
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               controller: textEditingController,
             ),
             const SizedBox(
@@ -54,6 +63,8 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.number",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.number(
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               errorText: 'dsadasdasdas',
               controller: textEditingController,
             ),
@@ -63,6 +74,8 @@ class InputScreen extends StatelessWidget {
             Text("TextFieldWidget.date",
                 style: ThemeCore.of(context).typography.paragraphBig),
             TextFieldWidget.date(
+              suffixIcon: const Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               controller: textEditingController,
               enabled: false,
             ),

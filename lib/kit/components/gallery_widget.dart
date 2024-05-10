@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import '../export.dart';
 
 class GalleryWidget extends StatefulWidget {
@@ -10,17 +9,19 @@ class GalleryWidget extends StatefulWidget {
   final VoidCallback? onBack;
   final int initialImageIndex;
 
-  const GalleryWidget({super.key, required this.images, this.onBack, this.initialImageIndex = 0});
+  const GalleryWidget(
+      {super.key,
+      required this.images,
+      this.onBack,
+      this.initialImageIndex = 0});
 
-
-  static Future view(BuildContext context,  {List<String> images = const []}) {
+  static Future view(BuildContext context, {List<String> images = const []}) {
     return showDialog(
-      context: context,
-      builder: (context) => GalleryWidget(
-        images: images,
-        onBack: () => Navigator.of(context).pop(),
-      )
-    );
+        context: context,
+        builder: (context) => GalleryWidget(
+              images: images,
+              onBack: () => Navigator.of(context).pop(),
+            ));
   }
 
   @override
@@ -44,11 +45,15 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   }
 
   _next() {
-    _pageController.nextPage( duration: const Duration(milliseconds: 300), curve: Curves.linearToEaseOut);
+    _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.linearToEaseOut);
   }
 
   _prev() {
-    _pageController.previousPage(duration: const Duration(milliseconds: 300), curve: Curves.linearToEaseOut);
+    _pageController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.linearToEaseOut);
   }
 
   _zoomIn() {
@@ -72,51 +77,55 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.7)
-      ),
+      decoration: BoxDecoration(color: Colors.black.withOpacity(0.7)),
       child: Stack(
         children: [
           GestureDetector(
-              onScaleStart: (details) {
-                _previousScale = _scale;
-                _startOffset = _currentOffset;
+            onScaleStart: (details) {
+              _previousScale = _scale;
+              _startOffset = _currentOffset;
+            },
+            onScaleUpdate: (details) {
+              setState(() {
+                _scale = (_previousScale * details.scale)
+                    .clamp(_minScale, _maxScale);
+                _currentOffset = Offset(
+                  _startOffset.dx +
+                      details.focalPoint.dx -
+                      details.localFocalPoint.dx,
+                  _startOffset.dy +
+                      details.focalPoint.dy -
+                      details.localFocalPoint.dy,
+                );
+              });
+            },
+            onScaleEnd: (details) {
+              _previousScale = _scale.clamp(_minScale, _maxScale);
+            },
+            child: PageView.builder(
+              pageSnapping: true,
+              onPageChanged: _onPageChanged,
+              controller: _pageController,
+              itemCount: widget.images.length,
+              itemBuilder: (BuildContext context, int index) {
+                String url = widget.images[index];
+                return AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  transform: Matrix4.identity()..scale(_scale),
+                  alignment: Alignment.center,
+                  child: Image.network(
+                    url,
+                    loadingBuilder: (context, child, event) {
+                      if (event?.cumulativeBytesLoaded ==
+                          event?.expectedTotalBytes) {
+                        return child;
+                      }
+                      return const Center(child: CupertinoActivityIndicator());
+                    },
+                  ),
+                );
               },
-              onScaleUpdate: (details) {
-                setState(() {
-                  _scale = (_previousScale * details.scale).clamp(_minScale, _maxScale);
-                  _currentOffset = Offset(
-                    _startOffset.dx + details.focalPoint.dx - details.localFocalPoint.dx,
-                    _startOffset.dy + details.focalPoint.dy - details.localFocalPoint.dy,
-                  );
-                });
-              },
-              onScaleEnd: (details) {
-                _previousScale = _scale.clamp(_minScale, _maxScale);
-              },
-              child: PageView.builder(
-                pageSnapping: true,
-                onPageChanged: _onPageChanged,
-                controller: _pageController,
-                itemCount: widget.images.length,
-                itemBuilder: (BuildContext context, int index) {
-                  String url = widget.images[index];
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    transform: Matrix4.identity()
-                      ..scale(_scale),
-                    alignment: Alignment.center,
-                    child: Image.network(url,
-                      loadingBuilder: (context, child, event) {
-                        if(event?.cumulativeBytesLoaded == event?.expectedTotalBytes) {
-                          return child;
-                        }
-                        return Center(child: CupertinoActivityIndicator());
-                      },
-                    ),
-                  );
-                },
-              ),
+            ),
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -130,7 +139,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                     color: ButtonColor.white,
                     onPressed: widget.onBack ?? () {},
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: AutoSizeText(
                       Uri.parse(widget.images[0]).path,
@@ -169,10 +178,12 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                         onPressed: _zoomOut,
                       ),
                       ButtonWidget(
-                        child: Text('${(((_scale) * 100).roundToDouble()).toInt()}%',),
                         color: ButtonColor.white,
                         type: ButtonType.ghost,
                         onPressed: () {},
+                        child: Text(
+                          '${(((_scale) * 100).roundToDouble()).toInt()}%',
+                        ),
                       ),
                       ButtonIcon(
                         icon: Icons.zoom_in,

@@ -13,7 +13,7 @@ enum BadgeType {
     return switch (this) {
       BadgeType.primary => color.toColor(context),
       BadgeType.secondary => Colors.transparent,
-      BadgeType.outlined => color.toColor(context).withOpacity(0.2),
+      BadgeType.outlined => color.toColor(context).withOpacity(0.1),
     };
   }
 

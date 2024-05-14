@@ -9,3 +9,4 @@ export 'table/table_widget.dart';
 export 'select_input_widget.dart';
 export 'multi_select_input.dart';
 export 'gallery_widget.dart';
+export 'image_component_widget.dart';

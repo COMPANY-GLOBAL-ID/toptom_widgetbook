@@ -9,6 +9,8 @@ class GalleryScreen extends StatelessWidget {
     print(context);
     return Scaffold(
         body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ButtonWidget(
           onPressed: () {
@@ -23,6 +25,8 @@ class GalleryScreen extends StatelessWidget {
           },
           child: const Text('ButtonWidget'),
         ),
+       const ImageComponentWidget(
+            id: '3dd82434-b9c2-40c3-aecb-9530ed38f4cc', widthPercent: 0.2),
       ],
     ));
   }

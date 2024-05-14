@@ -7,6 +7,7 @@ class BadgeWidget extends StatelessWidget {
   final BadgeSize size;
   final Widget child;
 
+
   const BadgeWidget({
     super.key,
     this.color = BadgeColor.info,
@@ -26,11 +27,19 @@ class BadgeWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: size.toPadding(context),
-        child: DefaultTextStyle(
-          style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                color: type.toForeground(context, color),
-              ),
-          child: child,
+        child: Theme(
+          data: ThemeData(
+            iconTheme: IconThemeData(
+              color: type.toForeground(context, color), // Новый цвет иконок
+              size: size.toSizeIcon(), // Новый размер иконок
+            ),
+          ),
+          child: DefaultTextStyle(
+            style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                  color: type.toForeground(context, color),
+                ),
+            child: child,
+          ),
         ),
       ),
     );

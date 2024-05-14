@@ -69,4 +69,14 @@ final directories = [
       ),
     ],
   ),
+  WidgetbookComponent(
+    name: 'Statuses',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Badge',
+        builder: (context) => const BadgeScreen(),
+      ),
+    ],
+  ),
+
 ];

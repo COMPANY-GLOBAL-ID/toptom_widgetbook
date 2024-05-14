@@ -441,10 +441,10 @@ class PasswordFieldWidget extends StatefulWidget {
   });
 
   @override
-  State<PasswordFieldWidget> createState() => _PasswordFieldWidgetState();
+  State<PasswordFieldWidget> createState() => _PasswordFieldMaterialState();
 }
 
-class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
+class _PasswordFieldMaterialState extends State<PasswordFieldWidget> {
   bool hide = true;
   _toggle() {
     setState(() {

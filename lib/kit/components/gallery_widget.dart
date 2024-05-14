@@ -26,10 +26,10 @@ class GalleryWidget extends StatefulWidget {
   }
 
   @override
-  State<GalleryWidget> createState() => _GalleryWidgetState();
+  State<GalleryWidget> createState() => _GalleryMaterialState();
 }
 
-class _GalleryWidgetState extends State<GalleryWidget> {
+class _GalleryMaterialState extends State<GalleryWidget> {
   static const double _initialScale = 1.0;
   static const double _minScale = 0.75;
   static const double _maxScale = 2.0;

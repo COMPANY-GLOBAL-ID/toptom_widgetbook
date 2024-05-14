@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final String text =
+        context.knobs.string(label: 'Text button', initialValue: 'Lorem Ipsum');
+    final Icon? icon = context.knobs.listOrNull(
+        label: 'Icon',
+        options: [const Icon(Icons.access_time), const Icon(Icons.arrow_forward_ios)]);
+
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -47,12 +54,14 @@ class ButtonScreen extends StatelessWidget {
                                   type: type,
                                   color: color,
                                   onPressed: () {},
-                                  child: const Row(
+                                  child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Text('Lorem ipsum'),
-                                      SizedBox(width: 10),
-                                      Icon(ToptomIcons.arrow_right)
+                                      Text(text),
+                                      if (icon != null) ...[
+                                        const SizedBox(width: 10),
+                                        icon
+                                      ]
                                     ],
                                   ),
                                 );
@@ -66,26 +75,6 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
-            Row(
-              children: [
-                Column(
-                  children: ButtonSize.values.map((e) {
-                    return ButtonWidget(
-                      size: e,
-                      child: const Text('Pidor'),
-                    );
-                  }).toList(),
-                ),
-                Column(
-                  children: ButtonIconSize.values.map((e) {
-                    return ButtonIcon(
-                      size: e,
-                      icon: Icons.ac_unit,
-                    );
-                  }).toList(),
-                )
-              ],
-            )
           ],
         ),
       ),

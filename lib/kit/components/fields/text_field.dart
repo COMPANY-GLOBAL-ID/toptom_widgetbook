@@ -465,6 +465,7 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
         onTap: _toggle,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
         child: hide ? widget.hideIcon : widget.showIcon,
       ),
       obscureText: hide ? '*' : null,

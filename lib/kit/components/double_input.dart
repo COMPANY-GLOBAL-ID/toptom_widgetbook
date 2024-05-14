@@ -5,7 +5,7 @@ class DoubleInput extends StatefulWidget {
   final DoubleEditingController controller;
 
   const DoubleInput({
-    Key? key,
+    super.key,
     this.dividerPadding,
     this.enabled = true,
     this.isDense = true,
@@ -22,7 +22,7 @@ class DoubleInput extends StatefulWidget {
     required this.controller,
     required this.max,
     required this.min,
-  }) : super(key: key);
+  });
 
   final bool enabled;
   final bool isDense;

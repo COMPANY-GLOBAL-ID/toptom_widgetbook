@@ -14,7 +14,19 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeCore(
-      child: Widgetbook.material(directories: directories),
+      child: Widgetbook.material(
+        addons: [
+          DeviceFrameAddon(
+            devices: [
+              Devices.ios.iPad,
+              Devices.ios.iPhone12Mini,
+              Devices.android.mediumPhone,
+              Devices.android.largeTablet,
+            ],
+          )
+        ],
+        directories: directories,
+      ),
     );
   }
 }

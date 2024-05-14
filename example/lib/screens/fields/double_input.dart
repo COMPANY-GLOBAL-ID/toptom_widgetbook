@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -12,26 +11,34 @@ class DoubleInputScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = context.knobs.string(label: "Title");
-    final padding = context.knobs.double.input(
-      label: 'Padding',
-    );
+    final double min =
+        context.knobs.double.input(label: 'Min', initialValue: 0);
+    final double max =
+        context.knobs.double.input(label: 'Max', initialValue: 100);
+    final String? error = context.knobs.stringOrNull(label: 'Error Text');
+    final String? clear = context.knobs.stringOrNull(label: 'Clear Text');
+    final String? label = context.knobs.stringOrNull(label: 'Label Text');
+    final String? minHintText =
+        context.knobs.stringOrNull(label: 'Min Hint Text');
+    final String? maxHintText =
+        context.knobs.stringOrNull(label: 'Max Hint Text');
+    final bool enabled =
+        context.knobs.boolean(label: 'Enabled', initialValue: true);
 
-    return SingleChildScrollView(
-      child: Column(
+    return Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.all(20),
         children: [
-          Text(
-            title,
-            textAlign: TextAlign.center,
-          ),
-          Padding(
-            padding: EdgeInsets.all(padding),
-            child: DoubleInput(
-              controller: DoubleEditingController(),
-              min: 10,
-              max: 20,
-              errorText: 'dsadsadasda',
-            ),
+          DoubleInput(
+            controller: DoubleEditingController(),
+            label: label,
+            min: min,
+            max: max,
+            minHintText: minHintText,
+            maxHintText: maxHintText,
+            errorText: error,
+            clearText: clear,
+            enabled: enabled,
           ),
         ],
       ),

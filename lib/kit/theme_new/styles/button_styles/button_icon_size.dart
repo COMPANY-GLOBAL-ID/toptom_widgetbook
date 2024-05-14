@@ -9,10 +9,7 @@ enum ButtonIconSize {
   EdgeInsets padding(BuildContext context) {
     switch (this) {
       case ButtonIconSize.xl:
-        return EdgeInsets.symmetric(
-          horizontal: ThemeCore.of(context).padding.l,
-          vertical: ThemeCore.of(context).padding.l,
-        );
+        return EdgeInsets.all(ThemeCore.of(context).padding.l);
       case ButtonIconSize.l:
         return EdgeInsets.symmetric(
           horizontal: ThemeCore.of(context).padding.m,

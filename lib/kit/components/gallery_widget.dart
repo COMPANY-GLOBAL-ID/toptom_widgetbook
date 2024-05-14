@@ -2,14 +2,18 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import '../export.dart';
+
 class GalleryWidget extends StatefulWidget {
   final List<String> images;
   final VoidCallback? onBack;
   final int initialImageIndex;
 
-  const GalleryWidget({super.key, required this.images, this.onBack, this.initialImageIndex = 0});
+  const GalleryWidget(
+      {super.key,
+      required this.images,
+      this.onBack,
+      this.initialImageIndex = 0});
 
   static Future view(BuildContext context, {List<String> images = const []}) {
     return showDialog(
@@ -60,11 +64,13 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   }
 
   void _zoomIn() {
-    _scaleNotifier.value = (_scaleNotifier.value + 0.25).clamp(_minScale, _maxScale);
+    _scaleNotifier.value =
+        (_scaleNotifier.value + 0.25).clamp(_minScale, _maxScale);
   }
 
   void _zoomOut() {
-    _scaleNotifier.value = (_scaleNotifier.value - 0.25).clamp(_minScale, _maxScale);
+    _scaleNotifier.value =
+        (_scaleNotifier.value - 0.25).clamp(_minScale, _maxScale);
   }
 
   void _onPageChanged(int index) {
@@ -86,10 +92,15 @@ class _GalleryWidgetState extends State<GalleryWidget> {
               _startOffset = _offsetNotifier.value;
             },
             onScaleUpdate: (details) {
-              _scaleNotifier.value = (_previousScale * details.scale).clamp(_minScale, _maxScale);
+              _scaleNotifier.value =
+                  (_previousScale * details.scale).clamp(_minScale, _maxScale);
               _offsetNotifier.value = Offset(
-                _startOffset.dx + (details.focalPoint.dx - details.localFocalPoint.dx) / _scaleNotifier.value,
-                _startOffset.dy + (details.focalPoint.dy - details.localFocalPoint.dy) / _scaleNotifier.value,
+                _startOffset.dx +
+                    (details.focalPoint.dx - details.localFocalPoint.dx) /
+                        _scaleNotifier.value,
+                _startOffset.dy +
+                    (details.focalPoint.dy - details.localFocalPoint.dy) /
+                        _scaleNotifier.value,
               );
             },
             onScaleEnd: (_) {
@@ -116,10 +127,12 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                           child: Image.network(
                             url,
                             loadingBuilder: (context, child, event) {
-                              if (event?.cumulativeBytesLoaded == event?.expectedTotalBytes) {
+                              if (event?.cumulativeBytesLoaded ==
+                                  event?.expectedTotalBytes) {
                                 return child;
                               }
-                              return const Center(child: CupertinoActivityIndicator());
+                              return const Center(
+                                  child: CupertinoActivityIndicator());
                             },
                           ),
                         );
@@ -187,7 +200,8 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                             color: ButtonColor.white,
                             type: ButtonType.ghost,
                             onPressed: () {},
-                            child: Text('${((scale * 100).roundToDouble()).toInt()}%'),
+                            child: Text(
+                                '${((scale * 100).roundToDouble()).toInt()}%'),
                           );
                         },
                       ),

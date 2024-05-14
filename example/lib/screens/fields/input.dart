@@ -1,12 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 class InputScreen extends StatelessWidget {
   const InputScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
+    final String? hint = context.knobs.stringOrNull(label: 'Hint');
+    final String? error = context.knobs.stringOrNull(label: 'Error');
+    final String? label = context.knobs.stringOrNull(label: 'Label');
+    final bool enabled =
+        context.knobs.boolean(label: 'Enabled', initialValue: true);
+    final Widget? prefixIcon = context.knobs.listOrNull(
+        label: "Prefix Icon",
+        options: [
+          const Icon(Icons.search),
+          const Icon(Icons.edit),
+          const Icon(Icons.person),
+          const Icon(Icons.security)
+        ],
+        initialOption: null);
+    final Widget? suffixIcon = context.knobs.listOrNull(
+        label: "Suffix Icon",
+        options: [
+          const Icon(Icons.search),
+          const Icon(Icons.edit),
+          const Icon(Icons.person),
+          const Icon(Icons.security)
+        ],
+        initialOption: null);
+    final int? maxLength = context.knobs.intOrNull.input(label: 'Max Length');
+    final int? minLines = context.knobs.intOrNull.input(label: 'Min Lines');
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -15,133 +40,88 @@ class InputScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Input", style: ThemeCore.of(context).typography.h3),
-            const SizedBox(
-              height: 10,
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "TextFieldWidget",
+                style: ThemeCore.of(context).typography.paragraphBig,
+              ),
             ),
             TextFieldWidget(
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              label: "TextFieldWidget",
-              controller: textEditingController,
-              enabled: false,
+              suffixIcon: prefixIcon,
+              prefixIcon: suffixIcon,
+              label: label,
+              hintText: hint,
+              enabled: enabled,
+              errorText: error,
+              maxLength: maxLength,
+              minLines: minLines,
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text("TextFieldWidget.description",
-                style: ThemeCore.of(context).typography.paragraphBig),
-            TextFieldWidget.description(
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              label: "TextFieldWidget.description",
-              controller: textEditingController,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text("TextFieldWidget.phone",
-                style: ThemeCore.of(context).typography.paragraphBig),
-            TextFieldWidget.phone(
-              hintText: 'Hint',
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              controller: textEditingController,
-            ),
-            const PasswordFieldWidget(
-              hideIcon: Icon(Icons.search),
-              showIcon: Icon(Icons.search_off),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text("TextFieldWidget.email",
-                style: ThemeCore.of(context).typography.paragraphBig),
-            TextFieldWidget.email(
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              controller: textEditingController,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text("TextFieldWidget.number",
-                style: ThemeCore.of(context).typography.paragraphBig),
-            TextFieldWidget.number(
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              errorText: 'dsadasdasdas',
-              controller: textEditingController,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text("TextFieldWidget.date",
-                style: ThemeCore.of(context).typography.paragraphBig),
-            TextFieldWidget.date(
-              suffixIcon: const Icon(Icons.search),
-              prefixIcon: const Icon(Icons.search),
-              controller: textEditingController,
-              enabled: false,
-            ),
-            Text(
-              "SelectInputWidget",
-              style: ThemeCore.of(context).typography.paragraphBig,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: SelectInputWidget<CategoryModel>(
-                    label: const Text('Select gender'),
-                    items: CategoryModel.generateList(),
-                    builder: (item, hasError) => DropdownMenuItem(
-                      value: item,
-                      child: Text(item.title),
-                    ),
-                    controller: SelectInputController(),
-                  ),
-                ),
-                Expanded(
-                  child: TextFieldWidget(
-                    label: "TextFieldWidget",
-                    errorText: 'fasdfdsfgsdgsfgs',
-                    controller: textEditingController,
-                  ),
-                ),
-              ],
-            ),
-            Text(
-              "MultiSelectInput",
-              style: ThemeCore.of(context).typography.paragraphBig,
-            ),
-            MultiSelectInput<CategoryModel>(
-              clearText: 'Clear',
-              label: 'Select',
-              hint: const Text('Select'),
-              items: CategoryModel.generateList(),
-              builder: (item, hasError) => DropdownMenuItem(
-                value: item,
-                child: Text(item.title),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "TextFieldWidget.description",
+                style: ThemeCore.of(context).typography.paragraphBig,
               ),
-              errorText: 'sadadsdsadasd',
-              controller: MultiSelectController(),
-              builderChip: (value) {
-                return BadgeWidget(
-                  type: BadgeType.outlined,
-                  color: BadgeColor.neutral,
-                  size: BadgeSize.small,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(value.title),
-                      const SizedBox(width: 4),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.close),
-                      )
-                    ],
-                  ),
-                );
-              },
+            ),
+            TextFieldWidget.description(
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              label: label,
+              hintText: hint,
+              enabled: enabled,
+              errorText: error,
+              maxLength: maxLength,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "TextFieldWidget.phone",
+                style: ThemeCore.of(context).typography.paragraphBig,
+              ),
+            ),
+            TextFieldWidget.phone(
+              hintText: hint,
+              label: label,
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              errorText: error,
+              enabled: enabled,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "TextFieldWidget.email",
+                style: ThemeCore.of(context).typography.paragraphBig,
+              ),
+            ),
+            TextFieldWidget.email(
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              hintText: hint,
+              errorText: error,
+              label: label,
+              enabled: enabled,
+              maxLength: maxLength,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "TextFieldWidget.number",
+                style: ThemeCore.of(context).typography.paragraphBig,
+              ),
+            ),
+            TextFieldWidget.number(
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              hintText: hint,
+              errorText: error,
+              label: label,
+              enabled: enabled,
+              maxLength: maxLength,
             ),
             const SizedBox(
               height: 50,
@@ -151,14 +131,4 @@ class InputScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class CategoryModel {
-  final int id;
-  final String title;
-
-  CategoryModel({required this.id, required this.title});
-
-  static List<CategoryModel> generateList() =>
-      List.generate(5, (index) => CategoryModel(id: 1, title: 'AAAAAAAA'));
 }

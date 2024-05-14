@@ -7,7 +7,6 @@ export 'notification.dart';
 export 'fields/input.dart';
 export 'fields/double_input.dart';
 export 'stepper.dart';
-export 'sorting.dart';
 export 'shadow.dart';
 export 'tooltip.dart';
 export 'status.dart';

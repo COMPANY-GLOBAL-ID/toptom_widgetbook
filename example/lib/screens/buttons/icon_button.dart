@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 class IconButtonScreen extends StatefulWidget {
   const IconButtonScreen({super.key});
@@ -9,29 +10,15 @@ class IconButtonScreen extends StatefulWidget {
 }
 
 class _IconButtonScreenState extends State<IconButtonScreen> {
-  final bool _checkBoxValue = false;
   @override
   Widget build(BuildContext context) {
+    final IconData icon = context.knobs.list(
+        label: 'Icon', options: [Icons.access_time, Icons.arrow_forward_ios]);
+
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          // const Text(
-          //   'Checkbox',
-          //   textAlign: TextAlign.center,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Checkbox(
-          //       value: _checkBoxValue,
-          //       onChanged: (value) {
-          //         _checkBoxValue = value!;
-          //         setState(() {});
-          //       },
-          //     ),
-          //   ],
-          // ),
           const Text(
             "Icon Buttons",
             style: TextStyle(
@@ -67,7 +54,7 @@ class _IconButtonScreenState extends State<IconButtonScreen> {
                                 type: type,
                                 color: color,
                                 onPressed: () {},
-                                icon: ToptomIcons.arrow_forward_right,
+                                icon: icon,
                               );
                             },
                           ).toList(),

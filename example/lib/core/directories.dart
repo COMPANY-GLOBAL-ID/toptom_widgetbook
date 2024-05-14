@@ -1,9 +1,7 @@
-import 'package:example/screens/appear_screen.dart';
-import 'package:example/screens/table_screen.dart';
 import 'package:widgetbook/widgetbook.dart';
-import '../screens/card_screen.dart';
 import '../screens/checkbox_screen.dart';
-import '../screens/gallery.dart';
+import '../screens/fields/multi_select_input_screen.dart';
+import '../screens/fields/password_screen.dart';
 import '../screens/screens.dart';
 import '../screens/typography_screen.dart';
 
@@ -39,82 +37,35 @@ final directories = [
     ],
   ),
   WidgetbookComponent(
-    name: 'Status',
+    name: 'Forms',
     useCases: [
       WidgetbookUseCase(
-        name: 'Notification',
-        builder: (context) => const NotificationScreen(),
+        name: 'Checkbox',
+        builder: (context) => const CheckboxScreen(),
       ),
       WidgetbookUseCase(
-        name: 'Status',
-        builder: (context) => const StatusPage(),
-      ),
-      WidgetbookUseCase(
-        name: 'Badge',
-        builder: (context) => const BadgeScreen(),
-      ),
-      WidgetbookUseCase(
-        name: 'ToolTip',
-        builder: (context) => const ToolTipScreen(),
-      ),
-    ],
-  ),
-  WidgetbookComponent(
-    name: 'Inputs',
-    useCases: [
-      WidgetbookUseCase(
-        name: 'Text Area',
-        builder: (context) => const TextAreaScreen(),
-      ),
-      WidgetbookUseCase(
-        name: 'Gallery ',
-        builder: (context) => const GalleryScreen(),
+        name: 'Radio',
+        builder: (context) => const CheckboxScreen(),
       ),
       WidgetbookUseCase(
         name: 'Input',
         builder: (context) => const InputScreen(),
       ),
       WidgetbookUseCase(
-        name: 'Double Input',
-        builder: (context) => DoubleInputScreen(),
+        name: 'Password Input',
+        builder: (context) => const PasswordScreen(),
       ),
       WidgetbookUseCase(
-        name: 'Select Input',
+        name: 'Select',
         builder: (context) => SelectInputScreen(),
       ),
       WidgetbookUseCase(
-        name: 'Checkbox',
-        builder: (context) => const CheckboxScreen(),
-      )
-    ],
-  ),
-  WidgetbookComponent(
-    name: 'State',
-    useCases: [
-      WidgetbookUseCase(
-        name: 'Stepper',
-        builder: (context) => StepperPage(),
+        name: 'Multi Select',
+        builder: (context) => const MultiSelectInputScreen(),
       ),
       WidgetbookUseCase(
-        name: 'Sorting',
-        builder: (context) => const SortingPage(),
-      ),
-    ],
-  ),
-  WidgetbookComponent(
-    name: 'Container',
-    useCases: [
-      WidgetbookUseCase(
-        name: 'Card',
-        builder: (context) => const CardScreen(),
-      ),
-      WidgetbookUseCase(
-        name: 'Table',
-        builder: (context) => const TableScreen(),
-      ),
-      WidgetbookUseCase(
-        name: 'Appear',
-        builder: (context) => const AppearScreen(),
+        name: 'Double Input',
+        builder: (context) => DoubleInputScreen(),
       ),
     ],
   ),

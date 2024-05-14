@@ -7,7 +7,6 @@ class BadgeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -15,86 +14,43 @@ class BadgeScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Text("Primary Badge", style: ThemeCore.of(context).typography.h5),
-          const SizedBox(
-            height: 10,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...BadgeType.values.map((type) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("${type.name} Badge".toUpperCase(),
+                        style: ThemeCore.of(context).typography.h5),
+                    ...BadgeColor.values.map((color) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BadgeWidget(
+                              type: type,
+                              size: BadgeSize.primary,
+                              color: color,
+                              child: const Text('Status text'),
+                            ),
+                            const SizedBox(width: 10),
+                            BadgeWidget(
+                              type: type,
+                              size: BadgeSize.small,
+                              color: color,
+                              child: const Text('Status text'),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ],
+                );
+              })
+            ],
           ),
-          ...BadgeColor.values.map((color) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BadgeWidget(
-                    size: BadgeSize.primary,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                  const SizedBox(width: 10),
-                  BadgeWidget(
-                    size: BadgeSize.small,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                ],
-              ),
-            );
-          }),
-          const SizedBox(
-            height: 20,
-          ),
-          Text("Secondary Badge", style: ThemeCore.of(context).typography.h5),
-          const SizedBox(height: 20),
-          ...BadgeColor.values.map((color) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BadgeWidget(
-                    type: BadgeType.secondary,
-                    size: BadgeSize.primary,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                  const SizedBox(width: 10),
-                  BadgeWidget(
-                    type: BadgeType.secondary,
-                    size: BadgeSize.small,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                ],
-              ),
-            );
-          }),
-          Text("Outlined Badge", style: ThemeCore.of(context).typography.h5),
-          const SizedBox(
-            height: 20,
-          ),
-          ...BadgeColor.values.map((color) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BadgeWidget(
-                    type: BadgeType.outlined,
-                    size: BadgeSize.primary,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                  const SizedBox(width: 10),
-                  BadgeWidget(
-                    type: BadgeType.outlined,
-                    size: BadgeSize.small,
-                    color: color,
-                    child: const Text('Status text'),
-                  ),
-                ],
-              ),
-            );
-          })
         ],
       ),
     );

@@ -31,16 +31,21 @@ class BadgeScreen extends StatelessWidget {
                           children: [
                             BadgeWidget(
                               type: type,
-                              size: BadgeSize.primary,
+                              size: BadgeSize.small,
                               color: color,
-                              child: const Text('Status text'),
+                              child: Text('Status text'),
                             ),
                             const SizedBox(width: 10),
                             BadgeWidget(
                               type: type,
                               size: BadgeSize.small,
                               color: color,
-                              child: const Text('Status text'),
+                              child: const Row(
+                                children: [
+                                  Text('Status text'),
+                                  Icon(Icons.access_alarm)
+                                ],
+                              ),
                             ),
                           ],
                         ),

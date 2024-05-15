@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/modal_bottom_sheets/modal_bottom_sheet.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
 class ModalBottomSheetScreen extends StatelessWidget {
@@ -14,7 +13,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
         builder: (BuildContext innerContext) {
           return Container(
             width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(ThemeCore.of(context).padding.xl),
             decoration: const BoxDecoration(
               borderRadius:  BorderRadius.vertical(top: Radius.circular(20)),
               color: Colors.white

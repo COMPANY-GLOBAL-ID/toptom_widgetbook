@@ -12,7 +12,7 @@ class AlertDialogScreen extends StatelessWidget {
     final String alertWithAction = context.knobs.string(label: 'with action bar' , initialValue: 'content');
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding:  EdgeInsets.all(ThemeCore.of(context).padding.xl),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

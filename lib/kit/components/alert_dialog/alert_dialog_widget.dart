@@ -24,7 +24,7 @@ class AlertDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      insetPadding: insetPadding,
+      insetPadding: insetPadding ?? const EdgeInsets.all(20),
       contentPadding: contentPadding,
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(

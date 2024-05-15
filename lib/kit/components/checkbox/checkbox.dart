@@ -19,8 +19,8 @@ class CheckboxWidget extends StatelessWidget {
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       onChanged: onChanged,
       checkColor: ThemeCore.of(context).color.scheme.white,
-      fillColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
-        if (states.contains(WidgetState.selected)) {
+      fillColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+        if (states.contains(MaterialState.selected)) {
           return ThemeCore.of(context).color.scheme.main;
         }
         return ThemeCore.of(context).color.scheme.white;
@@ -56,8 +56,8 @@ class CheckboxListTileWidget extends StatelessWidget {
         controlAffinity: ListTileControlAffinity.leading,
         checkColor: ThemeCore.of(context).color.scheme.white,
         fillColor:
-            WidgetStateProperty.resolveWith((Set<WidgetState> states) {
-          if (states.contains(WidgetState.selected)) {
+            MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
             return ThemeCore.of(context).color.scheme.main;
           }
           return ThemeCore.of(context).color.scheme.white;

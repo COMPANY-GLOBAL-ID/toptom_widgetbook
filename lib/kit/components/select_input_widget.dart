@@ -34,10 +34,10 @@ class SelectInputWidget<T> extends StatefulWidget {
   });
 
   @override
-  State<SelectInputWidget<T>> createState() => _SelectInputWidgetState<T>();
+  State<SelectInputWidget<T>> createState() => _SelectInputMaterialState<T>();
 }
 
-class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
+class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
   void onChange(T? value) {
     if (value == null) return;
 
@@ -143,8 +143,8 @@ class _SelectInputWidgetState<T> extends State<SelectInputWidget<T>> {
                   offset: const Offset(0, 0),
                   scrollbarTheme: ScrollbarThemeData(
                     radius: const Radius.circular(40),
-                    thickness: WidgetStateProperty.all<double>(6),
-                    thumbVisibility: WidgetStateProperty.all<bool>(true),
+                    thickness: MaterialStateProperty.all<double>(6),
+                    thumbVisibility: MaterialStateProperty.all<bool>(true),
                   ),
                 ),
                 menuItemStyleData: const MenuItemStyleData(

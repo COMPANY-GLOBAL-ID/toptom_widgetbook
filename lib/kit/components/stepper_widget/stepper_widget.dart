@@ -15,10 +15,10 @@ class StepperWidget extends StatefulWidget {
   });
 
   @override
-  State<StepperWidget> createState() => _StepperWidgetState();
+  State<StepperWidget> createState() => _StepperMaterialState();
 }
 
-class _StepperWidgetState extends State<StepperWidget> {
+class _StepperMaterialState extends State<StepperWidget> {
   bool _pressed = false;
 
   Future<void> _incrementCounter() async {

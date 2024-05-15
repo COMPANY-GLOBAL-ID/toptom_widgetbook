@@ -1,3 +1,10 @@
+import 'package:example/screens/alert_dialog_screen.dart';
+import 'package:example/screens/date_picker_screen.dart';
+import 'package:example/screens/drawer_screen.dart';
+import 'package:example/screens/gallery.dart';
+import 'package:example/screens/modal_bottom_sheet_screen.dart';
+import 'package:example/screens/status_page_screen.dart';
+import 'package:example/screens/switcher_screen.dart';
 import 'package:widgetbook/widgetbook.dart';
 import '../screens/checkbox_screen.dart';
 import '../screens/fields/multi_select_input_screen.dart';
@@ -33,6 +40,69 @@ final directories = [
       WidgetbookUseCase(
         name: 'Icon Button',
         builder: (context) => const IconButtonScreen(),
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'Alert Dialogs',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Alert Dialog',
+        builder: (context) => const AlertDialogScreen(),
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'Drawer widgets',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Drawer Item',
+        builder: (context) => const DrawerItemScreen(),
+      ),
+    ],
+  ),
+   WidgetbookComponent(
+    name: 'Date Picker',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Custom Date Picker',
+        builder: (context) => const DatePickerScreen(),
+      ),
+    ],
+  ),
+   WidgetbookComponent(
+    name: 'Modal Bottom Sheets',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Modal bottom sheet',
+        builder: (context) => const ModalBottomSheetScreen(),
+      ),
+    ],
+  ),
+   WidgetbookComponent(
+    name: 'Status page ',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Status page widget',
+        builder: (context) => const StatusPageScreen(),
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'Switchers',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Notification Switcher',
+        builder: (context) =>const  SwitcherScreen(),
+      ),
+    ],
+  ),
+   WidgetbookComponent(
+    name: 'Gallery',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Gallery widget',
+        builder: (context) =>const  GalleryScreen(),
       ),
     ],
   ),

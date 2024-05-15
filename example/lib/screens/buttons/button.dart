@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/buttons/notification_switcher.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -14,8 +13,6 @@ class ButtonScreen extends StatelessWidget {
       const Icon(Icons.access_time),
       const Icon(Icons.arrow_forward_ios)
     ]);
-    final String description = context.knobs.string(label: 'Notification Switcher');
-    final ValueNotifier<bool> valueNotifier = ValueNotifier(false);
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -78,12 +75,7 @@ class ButtonScreen extends StatelessWidget {
                 );
               },
             ),
-            Text(description),
-            NotificationSwitcher(
-              notificationDescription: 'Initial text',
-              valueNotifier: valueNotifier,
-              textStyle: ThemeCore.of(context).typography.paragraphSmall,
-            ),
+           
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/buttons/notification_switcher.dart';
+import 'package:toptom_widgetbook/kit/components/swithcer/notification_switcher.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class SwitcherScreen extends StatelessWidget {

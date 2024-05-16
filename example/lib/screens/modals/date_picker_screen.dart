@@ -14,7 +14,7 @@ class DatePickerScreen extends StatelessWidget {
     void _showDatePickerModal(BuildContext context) {
       ModalBottomSheet(context).show( 
         builder: (BuildContext innerContext) {
-          return CustomDatePicker(updatedBirthday: updatedBirthday);
+          return CustomDatePicker(updatedDate: updatedBirthday);
         },
       );
     }

@@ -6,15 +6,15 @@ class RadioListTileWidget<T> extends StatelessWidget {
   final T? groupValue;
   final void Function(T?)? onChanged;
   final String title;
-  final Color ? focusColor ;
-  const RadioListTileWidget(
-      {super.key,
-      required this.onChanged,
-      required this.title,
-      required this.value,
-      this.groupValue , 
-      this.focusColor,
-      });
+  final Color? focusColor;
+  const RadioListTileWidget({
+    super.key,
+    required this.onChanged,
+    required this.title,
+    required this.value,
+    this.groupValue,
+    this.focusColor,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,14 +4,16 @@ import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 class ModalBottomSheetOptions<T> {
   final String title;
   final Widget Function(BuildContext context, T? value) builder;
-  final ValueNotifier<T> valueNotifier;
+  final SelectorController<T?> controller;
   final bool showButton;
   final VoidCallback? onPressed;
-  final String?buttonText;
+  final String? buttonText;
+  final String clearButtonText;
   ModalBottomSheetOptions({
     required this.title,
     required this.builder,
-    required this.valueNotifier,
+    required this.controller,
+    required this.clearButtonText,
     this.showButton = false,
     this.onPressed,
     this.buttonText,
@@ -45,18 +47,17 @@ class ModalBottomSheet {
   Future<T?> show<T>(
       {required Widget Function(BuildContext) builder, bool isClose = true}) {
     return showModalBottomSheet<T>(
-      shape: shape,
-      backgroundColor: Colors.white,
-      useRootNavigator: true,
-      useSafeArea: true,
-      isScrollControlled: true,
-      context: context,
-      builder: builder
-    );
+        shape: shape,
+        backgroundColor: Colors.white,
+        useRootNavigator: true,
+        useSafeArea: true,
+        isScrollControlled: true,
+        context: context,
+        builder: builder);
   }
 
-  Future<T?> showSortModal<T>(
-      BuildContext context, ModalBottomSheetOptions options) {
+  Future<T?> showSelectorModal<T>(
+      BuildContext context, ModalBottomSheetOptions<T> options) {
     return showModalBottomSheet<T>(
       shape: shape,
       backgroundColor: Colors.white,
@@ -64,35 +65,40 @@ class ModalBottomSheet {
       useSafeArea: true,
       isScrollControlled: true,
       context: context,
-      builder: (context) => SortModalBottomSheetWidget(
-        valueNotifier: options.valueNotifier,
+      builder: (context) => SelectorModalBottomSheetWidget<T>(
+        selectorController: options.controller,
         title: options.title,
         builder: options.builder,
         showButton: options.showButton,
         onPressed: options.onPressed,
         buttonText: options.buttonText,
+        textButton: options.clearButtonText,
       ),
     );
   }
 }
 
-class SortModalBottomSheetWidget<T> extends StatelessWidget {
-  final ValueNotifier<T?> valueNotifier;
+class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
+  final SelectorController<T?> selectorController;
   final String title;
   final Widget Function(BuildContext context, T? value) builder;
   final bool showButton;
   final VoidCallback? onPressed;
   final String? buttonText;
-  const SortModalBottomSheetWidget({
+  final String textButton;
+  const SelectorModalBottomSheetWidget({
     super.key,
-    required this.valueNotifier,
+    required this.selectorController,
     required this.title,
     required this.builder,
+    required this.textButton,
     this.showButton = false,
     this.onPressed,
     this.buttonText,
   });
-
+  _clear(BuildContext context) => () {
+        selectorController.clear();
+      };
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -108,9 +114,9 @@ class SortModalBottomSheetWidget<T> extends StatelessWidget {
                 title,
                 style: ThemeCore.of(context).typography.paragraphMedium,
               ),
-              IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(Icons.close),
+              TextButton(
+                onPressed:_clear(context),
+                child: Text(textButton),
               ),
             ],
           ),
@@ -118,7 +124,7 @@ class SortModalBottomSheetWidget<T> extends StatelessWidget {
             height: ThemeCore.of(context).padding.l,
           ),
           ValueListenableBuilder<T?>(
-            valueListenable: valueNotifier,
+            valueListenable: selectorController,
             builder: (context, value, child) {
               return builder(context, value);
             },

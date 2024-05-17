@@ -1,21 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
+class ItemSelectorOptions<T> {
+  final SelectorController<T?> selectorController;
+  final String clearButtonText;
+  final bool showButton;
+  final VoidCallback? onPressed;
+  final List<T> itemList;
+  final String modalTitle;
+  final String? buttonText;
+  const ItemSelectorOptions({
+    required this.selectorController,
+    required this.itemList,
+    required this.modalTitle,
+    required this.clearButtonText,
+    this.onPressed,
+    this.buttonText,
+    this.showButton = false,
+  });
+}
+
 class ItemSelectorWidget<T> extends StatelessWidget {
-  final String title;
-  final VoidCallback onTap;
-  final ValueNotifier<T?> valueNotifier;
+  final ItemSelectorOptions<T> itemSelectorOptions;
   const ItemSelectorWidget({
-    required this.title,
-    required this.onTap,
-    required this.valueNotifier,
+    required this.itemSelectorOptions,
     super.key,
   });
+
+  _showModalBottomSheet(
+          BuildContext context, ItemSelectorOptions<T> itemSelectorOptions) =>
+      () {
+        final ModalBottomSheetOptions<T> modalBottomSheetOptions =
+            ModalBottomSheetOptions(
+          title: itemSelectorOptions.modalTitle,
+          builder: (context, value) => ListView.builder(
+            itemCount: itemSelectorOptions.itemList.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ValueListenableBuilder<T?>(
+                valueListenable: itemSelectorOptions.selectorController,
+                builder: (context, selectedValue, _) {
+                  return RadioListTileWidget<T>(
+                    value: itemSelectorOptions.itemList[index],
+                    groupValue: selectedValue,
+                    onChanged: (change) {
+                      itemSelectorOptions.selectorController.value = change;
+                    },
+                    title: itemSelectorOptions.itemList[index].toString(),
+                  );
+                },
+              );
+            },
+          ),
+          controller: itemSelectorOptions.selectorController,
+          showButton: itemSelectorOptions.showButton,
+          buttonText: itemSelectorOptions.buttonText,
+          onPressed: itemSelectorOptions.onPressed, clearButtonText: itemSelectorOptions.clearButtonText,
+        );
+
+        ModalBottomSheet(context)
+            .showSelectorModal(context, modalBottomSheetOptions);
+      };
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: _showModalBottomSheet(context, itemSelectorOptions),
       child: Container(
         padding: EdgeInsets.all(ThemeCore.of(context).padding.m),
         decoration: BoxDecoration(
@@ -29,13 +79,14 @@ class ItemSelectorWidget<T> extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ValueListenableBuilder<T?>(
-              valueListenable: valueNotifier,
+              valueListenable: itemSelectorOptions.selectorController,
               builder: (context, value, child) {
-                String updatedTitle = title;
+                String updatedTitle =
+                    itemSelectorOptions.selectorController.value.toString();
                 if (value != null) {
                   updatedTitle = value.toString();
                 }
-                return Text(
+                return  Text(
                   updatedTitle,
                   style: ThemeCore.of(context)
                       .typography

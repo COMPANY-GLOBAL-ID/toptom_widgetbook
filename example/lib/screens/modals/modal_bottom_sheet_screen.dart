@@ -49,42 +49,47 @@ class ModalBottomSheetScreen extends StatelessWidget {
   }
 
   void showSortModalSheet(
-      BuildContext context, ValueNotifier<String> titleNotifier) {
-    final ValueNotifier<int?> valueNotifier = ValueNotifier<int?>(null);
+      BuildContext context, SelectorController<String> titleNotifier) {
+    final SelectorController<int?> valueNotifier =
+        SelectorController<int?>(value: null);
 
     final ModalBottomSheetOptions options = ModalBottomSheetOptions(
-        title: "Sort Options",
-        builder: (context, value) => ListView.builder(
-              itemCount: 4,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return ValueListenableBuilder<int?>(
-                  valueListenable: valueNotifier,
-                  builder: (context, selectedValue, _) {
-                    return RadioListTileWidget<int>(
-                      value: index,
-                      groupValue: selectedValue,
-                      onChanged: (change) {
-                        valueNotifier.value = change;
-                        titleNotifier.value = 'Example of sort $index';
-                      },
-                      title: 'Example of sort $index',
-                    );
-                  },
-                );
-              },
-            ),
-        valueNotifier: valueNotifier,
-        showButton: true,
-        buttonText: 'Example',
-        onPressed: () {
-          snackBarBuilder(
-            context,
-            SnackBarOptions(title: "Hello!"),
+      title: "Sort Options",
+      builder: (context, value) => ListView.builder(
+        itemCount: 4,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return ValueListenableBuilder<int?>(
+            valueListenable: valueNotifier,
+            builder: (context, selectedValue, _) {
+              return RadioListTileWidget<int>(
+                value: index,
+                groupValue: selectedValue,
+                onChanged: (change) {
+                  valueNotifier.value = change;
+                  titleNotifier.value = 'Example of sort $index';
+                },
+                title: 'Example of sort $index',
+              );
+            },
           );
-        });
+        },
+      ),
+      controller: valueNotifier,
+      showButton: true,
+      buttonText: 'Example',
+      onPressed: () {
+        Navigator.of(context).pop();
 
-    ModalBottomSheet(context).showSortModal(context, options);
+        snackBarBuilder(
+          context,
+          SnackBarOptions(title: "Hello!"),
+        );
+      },
+      clearButtonText: 'clear',
+    );
+
+    ModalBottomSheet(context).showSelectorModal(context, options);
   }
 
   @override
@@ -96,8 +101,15 @@ class ModalBottomSheetScreen extends StatelessWidget {
       label: 'item selector',
       initialValue: 'defaulr selector title',
     );
-    final ValueNotifier<String> titleNotifier = ValueNotifier('');
-
+    final SelectorController<String> itemController =
+        SelectorController(value: selectorDefaultTitle);
+    final List<String> example = [
+      'example 1 ',
+      'example 2 ',
+      'example 3 ',
+      'example 4 ',
+      'example 5 '
+    ];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -120,7 +132,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
               ButtonWidget(
                 type: ButtonType.primary,
                 size: ButtonSize.l,
-                onPressed: () => showSortModalSheet(context, titleNotifier),
+                onPressed: () => showSortModalSheet(context, itemController),
                 child: Text(
                   showSortModal,
                   style: ThemeCore.of(context)
@@ -131,9 +143,11 @@ class ModalBottomSheetScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ItemSelectorWidget(
-                title: selectorDefaultTitle,
-                onTap: () => showSortModalSheet(context, titleNotifier),
-                valueNotifier: titleNotifier,
+                itemSelectorOptions: ItemSelectorOptions(
+                  selectorController: itemController,
+                  itemList: example,
+                  modalTitle: 'Example', clearButtonText: 'clear',
+                ),
               ),
             ],
           ),

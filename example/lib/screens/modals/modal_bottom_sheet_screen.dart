@@ -78,18 +78,10 @@ class ModalBottomSheetScreen extends StatelessWidget {
       controller: valueNotifier,
       showButton: true,
       buttonText: 'Example',
-      onPressed: () {
-        Navigator.of(context).pop();
-
-        snackBarBuilder(
-          context,
-          SnackBarOptions(title: "Hello!"),
-        );
-      },
       clearButtonText: 'clear',
     );
 
-    ModalBottomSheet(context).showSelectorModal(context, options);
+    ModalBottomSheet(context).showSelectorModal(options);
   }
 
   @override
@@ -146,7 +138,11 @@ class ModalBottomSheetScreen extends StatelessWidget {
                 itemSelectorOptions: ItemSelectorOptions(
                   selectorController: itemController,
                   itemList: example,
-                  modalTitle: 'Example', clearButtonText: 'clear',
+                  modalTitle: 'Example',
+                  clearButtonText: 'clear',
+                  label: 'Test',
+                  buttonText: 'Change',
+                 
                 ),
               ),
             ],

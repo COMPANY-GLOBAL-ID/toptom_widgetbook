@@ -5,67 +5,113 @@ class ItemSelectorOptions<T> {
   final SelectorController<T?> selectorController;
   final String clearButtonText;
   final bool showButton;
-  final VoidCallback? onPressed;
   final List<T> itemList;
   final String modalTitle;
-  final String? buttonText;
+  final String buttonText;
+  final String label;
+  final bool showCancelButton;
   const ItemSelectorOptions({
     required this.selectorController,
     required this.itemList,
     required this.modalTitle,
     required this.clearButtonText,
-    this.onPressed,
-    this.buttonText,
-    this.showButton = false,
+    required this.buttonText,
+    required this.label,
+    this.showButton = true,
+    this.showCancelButton = false,
   });
 }
 
-class ItemSelectorWidget<T> extends StatelessWidget {
+class ItemSelectorWidget<T> extends StatefulWidget {
   final ItemSelectorOptions<T> itemSelectorOptions;
+
   const ItemSelectorWidget({
     required this.itemSelectorOptions,
     super.key,
   });
 
-  _showModalBottomSheet(
-          BuildContext context, ItemSelectorOptions<T> itemSelectorOptions) =>
-      () {
-        final ModalBottomSheetOptions<T> modalBottomSheetOptions =
-            ModalBottomSheetOptions(
-          title: itemSelectorOptions.modalTitle,
-          builder: (context, value) => ListView.builder(
-            itemCount: itemSelectorOptions.itemList.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return ValueListenableBuilder<T?>(
-                valueListenable: itemSelectorOptions.selectorController,
-                builder: (context, selectedValue, _) {
-                  return RadioListTileWidget<T>(
-                    value: itemSelectorOptions.itemList[index],
-                    groupValue: selectedValue,
-                    onChanged: (change) {
-                      itemSelectorOptions.selectorController.value = change;
-                    },
-                    title: itemSelectorOptions.itemList[index].toString(),
-                  );
+  @override
+  _ItemSelectorWidgetState<T> createState() => _ItemSelectorWidgetState<T>();
+}
+
+class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
+  late ValueNotifier<String> updatedTitleNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    updatedTitleNotifier = ValueNotifier(
+      widget.itemSelectorOptions.selectorController.value?.toString() ??
+          widget.itemSelectorOptions.label,
+    );
+
+    widget.itemSelectorOptions.selectorController.addListener(() {
+      final selectedValue = widget.itemSelectorOptions.selectorController.value;
+      if (selectedValue != null) {
+        updatedTitleNotifier.value = selectedValue.toString();
+      } else {
+        updatedTitleNotifier.value = widget.itemSelectorOptions.label;
+      }
+    });
+  }
+
+  _onItemSelected(T? value) {
+    if (value != null) {
+      widget.itemSelectorOptions.selectorController.value = value;
+      updatedTitleNotifier.value = value.toString();
+    }
+  }
+
+  void _clearSelection() {
+    widget.itemSelectorOptions.selectorController.clear();
+    updatedTitleNotifier.value = widget.itemSelectorOptions.label;
+  }
+
+  void _showModalBottomSheet(BuildContext context) {
+    final modalBottomSheetOptions = ModalBottomSheetOptions<T>(
+      title: widget.itemSelectorOptions.modalTitle,
+      builder: (context, value) => ListView.builder(
+        itemCount: widget.itemSelectorOptions.itemList.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return ValueListenableBuilder<T?>(
+            valueListenable: widget.itemSelectorOptions.selectorController,
+            builder: (context, selectedValue, _) {
+              return RadioListTileWidget<T>(
+                value: widget.itemSelectorOptions.itemList[index],
+                groupValue: selectedValue,
+                onChanged: (change) {
+                  widget.itemSelectorOptions.selectorController.value = change;
                 },
+                title: widget.itemSelectorOptions.itemList[index].toString(),
               );
             },
-          ),
-          controller: itemSelectorOptions.selectorController,
-          showButton: itemSelectorOptions.showButton,
-          buttonText: itemSelectorOptions.buttonText,
-          onPressed: itemSelectorOptions.onPressed, clearButtonText: itemSelectorOptions.clearButtonText,
-        );
+          );
+        },
+      ),
+      controller: widget.itemSelectorOptions.selectorController,
+      showButton: widget.itemSelectorOptions.showButton,
+      buttonText: widget.itemSelectorOptions.buttonText,
+      onPressed: () =>
+          _onItemSelected(widget.itemSelectorOptions.selectorController.value),
+      clearButtonText: widget.itemSelectorOptions.clearButtonText,
+      clearFunction:
+          _clearSelection,
+    );
 
-        ModalBottomSheet(context)
-            .showSelectorModal(context, modalBottomSheetOptions);
-      };
+    ModalBottomSheet(context).showSelectorModal(modalBottomSheetOptions);
+  }
+
+  @override
+  void dispose() {
+    updatedTitleNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _showModalBottomSheet(context, itemSelectorOptions),
+      onTap: () => _showModalBottomSheet(context),
       child: Container(
         padding: EdgeInsets.all(ThemeCore.of(context).padding.m),
         decoration: BoxDecoration(
@@ -78,15 +124,10 @@ class ItemSelectorWidget<T> extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ValueListenableBuilder<T?>(
-              valueListenable: itemSelectorOptions.selectorController,
-              builder: (context, value, child) {
-                String updatedTitle =
-                    itemSelectorOptions.selectorController.value.toString();
-                if (value != null) {
-                  updatedTitle = value.toString();
-                }
-                return  Text(
+            ValueListenableBuilder<String>(
+              valueListenable: updatedTitleNotifier,
+              builder: (context, updatedTitle, child) {
+                return Text(
                   updatedTitle,
                   style: ThemeCore.of(context)
                       .typography

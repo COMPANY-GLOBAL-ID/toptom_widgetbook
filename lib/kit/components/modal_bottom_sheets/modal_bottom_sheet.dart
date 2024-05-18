@@ -9,30 +9,38 @@ class ModalBottomSheetOptions<T> {
   final VoidCallback? onPressed;
   final String? buttonText;
   final String clearButtonText;
+  final bool showCancelButton;
+  final VoidCallback? clearFunction;
   ModalBottomSheetOptions({
     required this.title,
     required this.builder,
     required this.controller,
     required this.clearButtonText,
     this.showButton = false,
+    this.showCancelButton = false,
     this.onPressed,
     this.buttonText,
+    this.clearFunction,
   });
 }
 
 class ModalBottomSheet {
   final BuildContext context;
-  ShapeBorder? shape = const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)));
 
-  ModalBottomSheet(this.context, {this.shape});
+  ModalBottomSheet(
+    this.context,
+  );
 
   Future<T?> showDraggable<T>({
     required Widget Function(BuildContext, ScrollController) builder,
     double maxChildSize = 0.95,
   }) {
     return showModalBottomSheet(
-        shape: shape,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(ThemeCore.of(context).radius.extraLarge),
+          ),
+        ),
         backgroundColor: Colors.transparent.withOpacity(0.06),
         useRootNavigator: true,
         useSafeArea: true,
@@ -47,25 +55,33 @@ class ModalBottomSheet {
   Future<T?> show<T>(
       {required Widget Function(BuildContext) builder, bool isClose = true}) {
     return showModalBottomSheet<T>(
-        shape: shape,
-        backgroundColor: Colors.white,
-        useRootNavigator: true,
-        useSafeArea: true,
-        isScrollControlled: true,
-        context: context,
-        builder: builder);
-  }
-
-  Future<T?> showSelectorModal<T>(
-      BuildContext context, ModalBottomSheetOptions<T> options) {
-    return showModalBottomSheet<T>(
-      shape: shape,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(ThemeCore.of(context).radius.extraLarge),
+        ),
+      ),
       backgroundColor: Colors.white,
       useRootNavigator: true,
       useSafeArea: true,
       isScrollControlled: true,
       context: context,
-      builder: (context) => SelectorModalBottomSheetWidget<T>(
+      builder: builder,
+    );
+  }
+
+  Future<T?> showSelectorModal<T>(ModalBottomSheetOptions<T> options) {
+    return showModalBottomSheet<T>(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(ThemeCore.of(context).radius.extraLarge),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      useRootNavigator: true,
+      useSafeArea: true,
+      isScrollControlled: true,
+      context: context,
+      builder: (BuildContext context) => SelectorModalBottomSheetWidget<T>(
         selectorController: options.controller,
         title: options.title,
         builder: options.builder,
@@ -73,6 +89,9 @@ class ModalBottomSheet {
         onPressed: options.onPressed,
         buttonText: options.buttonText,
         textButton: options.clearButtonText,
+        showCancelButton: options.showCancelButton,
+        clearFunction: options.clearFunction
+        ,
       ),
     );
   }
@@ -84,8 +103,10 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
   final Widget Function(BuildContext context, T? value) builder;
   final bool showButton;
   final VoidCallback? onPressed;
+  final VoidCallback? clearFunction;
   final String? buttonText;
   final String textButton;
+  final bool showCancelButton;
   const SelectorModalBottomSheetWidget({
     super.key,
     required this.selectorController,
@@ -93,12 +114,24 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
     required this.builder,
     required this.textButton,
     this.showButton = false,
+    this.showCancelButton = false,
     this.onPressed,
     this.buttonText,
+    this.clearFunction,
   });
-  _clear(BuildContext context) => () {
-        selectorController.clear();
+
+
+  _cancel(BuildContext context) => () {
+        Navigator.of(context).pop();
       };
+
+  _back(BuildContext context) => () {
+        if (onPressed != null) {
+          onPressed!();
+        }
+        Navigator.of(context).pop();
+      };
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -114,10 +147,15 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                 title,
                 style: ThemeCore.of(context).typography.paragraphMedium,
               ),
-              TextButton(
-                onPressed:_clear(context),
-                child: Text(textButton),
-              ),
+              showCancelButton == true
+                  ? IconButton(
+                      onPressed: _cancel(context),
+                      icon: const Icon(Icons.close),
+                    )
+                  : TextButton(
+                      onPressed: clearFunction,
+                      child: Text(textButton),
+                    ),
             ],
           ),
           SizedBox(
@@ -137,7 +175,7 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: ButtonWidget(
-                      onPressed: onPressed,
+                      onPressed: _back(context),
                       child: Text(
                         buttonText!,
                         style: ThemeCore.of(context)
@@ -154,14 +192,5 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class ModalBottomSheetScope extends InheritedWidget {
-  const ModalBottomSheetScope({required super.child, super.key});
-  static show(BuildContext context, ModalBottomSheetOptions options) {}
-  @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    return false;
   }
 }

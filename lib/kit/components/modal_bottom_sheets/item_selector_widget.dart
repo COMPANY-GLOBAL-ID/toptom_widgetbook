@@ -1,27 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
-class ItemSelectorOptions<T> {
-  final SelectorController<T?> selectorController;
-  final String clearButtonText;
-  final bool showButton;
-  final List<T> itemList;
-  final String modalTitle;
-  final String buttonText;
-  final String label;
-  final bool showCancelButton;
-  const ItemSelectorOptions({
-    required this.selectorController,
-    required this.itemList,
-    required this.modalTitle,
-    required this.clearButtonText,
-    required this.buttonText,
-    required this.label,
-    this.showButton = true,
-    this.showCancelButton = false,
-  });
-}
-
 class ItemSelectorWidget<T> extends StatefulWidget {
   final ItemSelectorOptions<T> itemSelectorOptions;
 
@@ -45,14 +24,17 @@ class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
           widget.itemSelectorOptions.label,
     );
 
-    widget.itemSelectorOptions.selectorController.addListener(() {
-      final selectedValue = widget.itemSelectorOptions.selectorController.value;
-      if (selectedValue != null) {
-        updatedTitleNotifier.value = selectedValue.toString();
-      } else {
-        updatedTitleNotifier.value = widget.itemSelectorOptions.label;
-      }
-    });
+    widget.itemSelectorOptions.selectorController.addListener(
+      () {
+        final selectedValue =
+            widget.itemSelectorOptions.selectorController.value;
+        if (selectedValue != null) {
+          updatedTitleNotifier.value = selectedValue.toString();
+        } else {
+          updatedTitleNotifier.value = widget.itemSelectorOptions.label;
+        }
+      },
+    );
   }
 
   _onItemSelected(T? value) {
@@ -68,7 +50,7 @@ class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
   }
 
   void _showModalBottomSheet(BuildContext context) {
-    final modalBottomSheetOptions = ModalBottomSheetOptions<T>(
+    final modalBottomSheetOptions = SelectorModalBottomSheetOptions<T>(
       title: widget.itemSelectorOptions.modalTitle,
       builder: (context, value) => ListView.builder(
         itemCount: widget.itemSelectorOptions.itemList.length,
@@ -95,8 +77,7 @@ class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
       onPressed: () =>
           _onItemSelected(widget.itemSelectorOptions.selectorController.value),
       clearButtonText: widget.itemSelectorOptions.clearButtonText,
-      clearFunction:
-          _clearSelection,
+      clearFunction: _clearSelection,
     );
 
     ModalBottomSheet(context).showSelectorModal(modalBottomSheetOptions);

@@ -44,7 +44,6 @@ final directories = [
       ),
     ],
   ),
- 
   WidgetbookComponent(
     name: 'Drawer widgets',
     useCases: [
@@ -52,31 +51,31 @@ final directories = [
         name: 'Drawer Item',
         builder: (context) => const DrawerItemScreen(),
       ),
+     
     ],
   ),
-
-   WidgetbookComponent(
+  WidgetbookComponent(
     name: 'Modals',
     useCases: [
       WidgetbookUseCase(
         name: 'Modal bottom sheet',
         builder: (context) => const ModalBottomSheetScreen(),
       ),
-       WidgetbookUseCase(
+      WidgetbookUseCase(
         name: 'Alert Dialog',
         builder: (context) => const AlertDialogScreen(),
       ),
-         WidgetbookUseCase(
+      WidgetbookUseCase(
         name: 'Custom Date Picker',
         builder: (context) => const DatePickerScreen(),
       ),
-         WidgetbookUseCase(
+      WidgetbookUseCase(
         name: 'Dragble modal bottom sheet',
         builder: (context) => const DraggableModalBottomSheetScreen(),
       ),
     ],
   ),
-   WidgetbookComponent(
+  WidgetbookComponent(
     name: 'Status page ',
     useCases: [
       WidgetbookUseCase(
@@ -90,16 +89,16 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
         name: 'Notification Switcher',
-        builder: (context) =>const  SwitcherScreen(),
+        builder: (context) => const SwitcherScreen(),
       ),
     ],
   ),
-   WidgetbookComponent(
+  WidgetbookComponent(
     name: 'Gallery',
     useCases: [
       WidgetbookUseCase(
         name: 'Gallery widget',
-        builder: (context) =>const  GalleryScreen(),
+        builder: (context) => const GalleryScreen(),
       ),
     ],
   ),

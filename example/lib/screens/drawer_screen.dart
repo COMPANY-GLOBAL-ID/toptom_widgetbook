@@ -25,10 +25,9 @@ class DrawerItemScreen extends StatelessWidget {
               icon: const Icon(Icons.date_range),
               text: text,
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const DrawerExampleScreen(),
-                  ),
+                snackBarBuilder(
+                  context,
+                  SnackBarOptions(title: 'hello'),
                 );
               },
               selected: false,
@@ -36,24 +35,7 @@ class DrawerItemScreen extends StatelessWidget {
           ],
         ),
       ),
-      body:const Center(child: Text('swipe to right ')),
-    );
-  }
-}
-
-class DrawerExampleScreen extends StatelessWidget {
-  const DrawerExampleScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(ThemeCore.of(context).padding.xl),
-        child: TextButton(
-          child: const Text('go back'),
-          onPressed: () => Navigator.of(context).pop,
-        ),
-      ),
+      body: const Center(child: Text('swipe to right ')),
     );
   }
 }

@@ -16,7 +16,6 @@ export 'theme_new//theme_core.dart';
 export'components/alert_dialog/alert_dialog_widget.dart';
 export 'components/date_picker/custom_date_pciker.dart';
 export 'components/status_page/status_page_widget.dart';
-export 'components/modal_bottom_sheets/draggable_scrollable_sheet.dart';
 export 'components/modal_bottom_sheets/modal_bottom_sheet.dart';
 export 'components/swithcer/notification_switcher.dart';
 export 'components/drawer/drawer_item.dart';

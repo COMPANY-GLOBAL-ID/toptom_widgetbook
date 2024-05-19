@@ -6,10 +6,12 @@ class ModalBottomSheetScreen extends StatelessWidget {
   const ModalBottomSheetScreen({super.key});
 
   void _showModalSheet(BuildContext context) {
+
     final String defaultModal = context.knobs.string(
         label: 'default modal bottom sheet',
         initialValue: 'show default modal ');
-    ModalBottomSheet(context).show(
+
+    final BaseModalBottomSheetOptions options = BaseModalBottomSheetOptions(
       builder: (BuildContext innerContext) {
         return Container(
           width: MediaQuery.of(context).size.width,
@@ -24,13 +26,12 @@ class ModalBottomSheetScreen extends StatelessWidget {
                 defaultModal,
                 style: ThemeCore.of(context).typography.h6,
               ),
-              const SizedBox(height: 10),
               const SizedBox(height: 20),
               ButtonWidget(
                 type: ButtonType.primary,
                 size: ButtonSize.l,
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(innerContext).pop();
                 },
                 child: Text(
                   'Close',
@@ -46,6 +47,8 @@ class ModalBottomSheetScreen extends StatelessWidget {
         );
       },
     );
+
+    ModalBottomSheet(context).show(options);
   }
 
   void showSortModalSheet(
@@ -53,7 +56,8 @@ class ModalBottomSheetScreen extends StatelessWidget {
     final SelectorController<int?> valueNotifier =
         SelectorController<int?>(value: null);
 
-    final ModalBottomSheetOptions options = ModalBottomSheetOptions(
+    final SelectorModalBottomSheetOptions options =
+        SelectorModalBottomSheetOptions(
       title: "Sort Options",
       builder: (context, value) => ListView.builder(
         itemCount: 4,
@@ -93,8 +97,10 @@ class ModalBottomSheetScreen extends StatelessWidget {
       label: 'item selector',
       initialValue: 'defaulr selector title',
     );
+
     final SelectorController<String> itemController =
         SelectorController(value: selectorDefaultTitle);
+
     final List<String> example = [
       'example 1 ',
       'example 2 ',
@@ -102,6 +108,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
       'example 4 ',
       'example 5 '
     ];
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -140,9 +147,8 @@ class ModalBottomSheetScreen extends StatelessWidget {
                   itemList: example,
                   modalTitle: 'Example',
                   clearButtonText: 'clear',
-                  label: 'Test',
+                  label:selectorDefaultTitle ,
                   buttonText: 'Change',
-                 
                 ),
               ),
             ],

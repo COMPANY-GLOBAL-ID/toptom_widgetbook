@@ -20,14 +20,12 @@ jobs:
           channel: "stable"
           flutter-version: 3.19.6
       - uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: |
-            ${{ secrets.TOPTOM_CORE_KEY }}
-            ${{ secrets.TOPTOM_WIDGETBOOK_KEY }}
       - name: "Pub get"
         run: flutter pub get
+        working-directory: example
       - name: "Build APK"
         run: flutter build apk --no-tree-shake-icons
+        working-directory: example
       - name: Send APK to Telegram
         uses: appleboy/telegram-action@master
         with:
@@ -41,4 +39,3 @@ jobs:
           document: example/build/app/outputs/flutter-apk/app-release.apk
           to: ${{ secrets.CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-

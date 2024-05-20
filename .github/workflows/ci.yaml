@@ -19,8 +19,6 @@ jobs:
         with:
           channel: "stable"
           flutter-version: 3.19.6
-      - name: Install SSH key
-        uses: appleboy/ssh-action@master
       - name: "Pub get"
         run: flutter pub get
         working-directory: example

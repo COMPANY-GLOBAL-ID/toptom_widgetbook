@@ -3,26 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
-  final SelectorController<T?> selectorController;
-  final String title;
-  final Widget Function(BuildContext context, T? value) builder;
-  final bool showButton;
-  final VoidCallback? onPressed;
-  final VoidCallback? clearFunction;
-  final String? buttonText;
-  final String? textButton;
-  final bool ?showCancelButton;
+
+  final SelectorModalBottomSheetOptions<T> options;
+
   const SelectorModalBottomSheetWidget({
     super.key,
-    required this.selectorController,
-    required this.title,
-    required this.builder,
-     this.textButton,
-    this.showButton = false,
-    this.showCancelButton = false,
-    this.onPressed,
-    this.buttonText,
-    this.clearFunction,
+    required this.options,
   });
 
 
@@ -31,8 +17,8 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
       };
 
   _back(BuildContext context) => () {
-        if (onPressed != null) {
-          onPressed!();
+        if (options.onPressed != null) {
+          options.onPressed!();
         }
         Navigator.of(context).pop();
       };
@@ -49,17 +35,17 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                options.title,
                 style: ThemeCore.of(context).typography.paragraphMedium,
               ),
-              showCancelButton == true&&textButton!=null
+              options.showCancelButton == true && options.clearButtonText != null
                   ? IconButton(
                       onPressed: _cancel(context),
                       icon: const Icon(Icons.close),
                     )
                   : TextButton(
-                      onPressed: clearFunction,
-                      child: Text(textButton!),
+                      onPressed: options.controller.clear,
+                      child: Text(options.clearButtonText!),
                     ),
             ],
           ),
@@ -67,22 +53,26 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
             height: ThemeCore.of(context).padding.l,
           ),
           ValueListenableBuilder<T?>(
-            valueListenable: selectorController,
+            valueListenable: options.controller,
             builder: (context, value, child) {
-              return builder(context, value);
+             return ListView.builder(
+                shrinkWrap: true,
+                itemCount: options.values.length,
+                itemBuilder: (context, index) => options.builder!(context, options.values[index], value, (val) => options.controller.change(val),)
+              );
             },
           ),
           SizedBox(
             height: ThemeCore.of(context).padding.l,
           ),
-          showButton == true && buttonText != null
+          options.showButton == true && options.buttonText != null
               ? SafeArea(
                   child: SizedBox(
                     width: double.infinity,
                     child: ButtonWidget(
                       onPressed: _back(context),
                       child: Text(
-                        buttonText!,
+                        options.buttonText!,
                         style: ThemeCore.of(context)
                             .typography
                             .paragraphSmall

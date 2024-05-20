@@ -59,7 +59,7 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
         name: 'Modal bottom sheet',
-        builder: (context) => const ModalBottomSheetScreen(),
+        builder: (context) => ModalBottomSheetScreen(),
       ),
       WidgetbookUseCase(
         name: 'Alert Dialog',

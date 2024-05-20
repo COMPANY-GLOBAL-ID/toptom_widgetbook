@@ -48,7 +48,7 @@ class ModalBottomSheet {
   }
 
   Future<T?> showSelectorModal<T>(
-      SelectorModalBottomSheetOptions<T> selectorModalBottomSheetOptions) {
+      SelectorModalBottomSheetOptions<T> selectorModalBottomSheetOptions,) {
     final modalBottomSheetOptions =
         selectorModalBottomSheetOptions.modalBottomSheetOptions;
     return showModalBottomSheet<T>(
@@ -64,15 +64,7 @@ class ModalBottomSheet {
       isScrollControlled: modalBottomSheetOptions?.isScrollControlled ?? true,
       context: context,
       builder: (BuildContext context) => SelectorModalBottomSheetWidget<T>(
-        selectorController: selectorModalBottomSheetOptions.controller,
-        title: selectorModalBottomSheetOptions.title,
-        builder: selectorModalBottomSheetOptions.builder,
-        showButton: selectorModalBottomSheetOptions.showButton,
-        onPressed: selectorModalBottomSheetOptions.onPressed,
-        buttonText: selectorModalBottomSheetOptions.buttonText,
-        textButton: selectorModalBottomSheetOptions.clearButtonText,
-        showCancelButton: selectorModalBottomSheetOptions.showCancelButton,
-        clearFunction: selectorModalBottomSheetOptions.clearFunction,
+        options: selectorModalBottomSheetOptions,
       ),
     );
   }

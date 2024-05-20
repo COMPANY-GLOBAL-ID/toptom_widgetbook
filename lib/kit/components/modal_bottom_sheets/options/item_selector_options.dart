@@ -10,6 +10,7 @@ class ItemSelectorOptions<T> {
   final String label;
   final bool showCancelButton;
   final ModalBottomSheetOptions? modalBottomSheetOptions;
+
   const ItemSelectorOptions({
     required this.selectorController,
     required this.itemList,

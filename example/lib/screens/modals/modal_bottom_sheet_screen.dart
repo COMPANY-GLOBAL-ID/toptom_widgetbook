@@ -3,7 +3,15 @@ import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class ModalBottomSheetScreen extends StatelessWidget {
-  const ModalBottomSheetScreen({super.key});
+  ModalBottomSheetScreen({super.key});
+  final SelectorController<String> controller = SelectorController<String>();
+  final List<String> example = [
+    'example 1 ',
+    'example 2 ',
+    'example 3 ',
+    'example 4 ',
+    'example 5 '
+  ];
 
   void _showModalSheet(BuildContext context) {
 
@@ -51,63 +59,34 @@ class ModalBottomSheetScreen extends StatelessWidget {
     ModalBottomSheet(context).show(options);
   }
 
-  void showSortModalSheet(
-      BuildContext context, SelectorController<String> titleNotifier) {
-    final SelectorController<int?> valueNotifier =
-        SelectorController<int?>(value: null);
-
-    final SelectorModalBottomSheetOptions options =
-        SelectorModalBottomSheetOptions(
-      title: "Sort Options",
-      builder: (context, value) => ListView.builder(
-        itemCount: 4,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return ValueListenableBuilder<int?>(
-            valueListenable: valueNotifier,
-            builder: (context, selectedValue, _) {
-              return RadioListTileWidget<int>(
-                value: index,
-                groupValue: selectedValue,
-                onChanged: (change) {
-                  valueNotifier.value = change;
-                  titleNotifier.value = 'Example of sort $index';
-                },
-                title: 'Example of sort $index',
-              );
-            },
-          );
-        },
-      ),
-      controller: valueNotifier,
-      showButton: true,
-      buttonText: 'Example',
-      clearButtonText: 'clear',
-    );
-
-    ModalBottomSheet(context).showSelectorModal(options);
-  }
+  void showSortModalSheet(BuildContext context, SelectorModalBottomSheetOptions<String> options) => ModalBottomSheet(context).showSelectorModal(options);
 
   @override
   Widget build(BuildContext context) {
     final showSortModal = context.knobs
         .string(label: 'sort modal', initialValue: 'show Sort Modal');
 
-    final selectorDefaultTitle = context.knobs.string(
+    final label = context.knobs.string(
       label: 'item selector',
       initialValue: 'defaulr selector title',
     );
 
-    final SelectorController<String> itemController =
-        SelectorController(value: selectorDefaultTitle);
 
-    final List<String> example = [
-      'example 1 ',
-      'example 2 ',
-      'example 3 ',
-      'example 4 ',
-      'example 5 '
-    ];
+    final options = SelectorModalBottomSheetOptions<String>(
+      title: "Sort Options",
+      values: example,
+      builder: (context, value, selectedValue, onChanged) => RadioListTileWidget<String>(
+        value: value,
+        groupValue: selectedValue,
+        onChanged: onChanged,
+        title: 'Example of sort $value',
+      ),
+      controller: controller,
+      showButton: true,
+      buttonText: 'Example',
+      clearButtonText: 'clear',
+    );
+
 
     return Scaffold(
       body: Padding(
@@ -131,7 +110,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
               ButtonWidget(
                 type: ButtonType.primary,
                 size: ButtonSize.l,
-                onPressed: () => showSortModalSheet(context, itemController),
+                onPressed: () => showSortModalSheet(context, options),
                 child: Text(
                   showSortModal,
                   style: ThemeCore.of(context)
@@ -142,14 +121,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ItemSelectorWidget(
-                itemSelectorOptions: ItemSelectorOptions(
-                  selectorController: itemController,
-                  itemList: example,
-                  modalTitle: 'Example',
-                  clearButtonText: 'clear',
-                  label:selectorDefaultTitle ,
-                  buttonText: 'Change',
-                ),
+                options: options,
               ),
             ],
           ),

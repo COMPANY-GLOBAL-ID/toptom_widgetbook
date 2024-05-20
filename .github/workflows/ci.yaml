@@ -21,8 +21,6 @@ jobs:
           flutter-version: 3.19.6
       - name: Install SSH key
         uses: appleboy/ssh-action@master
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: "Pub get"
         run: flutter pub get
         working-directory: example

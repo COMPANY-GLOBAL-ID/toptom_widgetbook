@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/tooltip_widget.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 
 class ToolTipScreen extends StatelessWidget {
   const ToolTipScreen({super.key});

@@ -5,45 +5,38 @@ import 'package:widgetbook/widgetbook.dart';
 class DraggableModalBottomSheetScreen extends StatelessWidget {
   const DraggableModalBottomSheetScreen({super.key});
 
-  void _showDraggableSheet(BuildContext context) {
-    ModalBottomSheet(context).showDraggable(
-      builder: (BuildContext context, ScrollController scrollController) {
-        return Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+  void _showDraggableSheet(BuildContext innerContext) {
+    final DraggableModalBottomSheetOptions options =
+        DraggableModalBottomSheetOptions(
+      childBuilder: (context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                title: Text('Item $index'),
+              );
+            },
           ),
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  controller: scrollController,
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text('Item $index'),
-                    );
-                  },
-                ),
-              ),
-              ButtonWidget(
-                child: const Text('back'),
-                onPressed: () => Navigator.of(context).pop(),
-              )
-            ],
+          ButtonWidget(
+            child: const Text('back'),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-        );
-      },
-      maxChildSize: 0.35,
+        ],
+      ),
     );
+    ModalBottomSheet(innerContext).showDraggable(options);
   }
 
   @override
   Widget build(BuildContext context) {
     final String text = context.knobs.string(
-        label: 'dragble modal bottom sheet',
-        initialValue: 'show dragble modal bottom sheet ');
+      label: 'dragble modal bottom sheet',
+      initialValue: 'show dragble modal bottom sheet ',
+    );
     return Scaffold(
       body: Center(
         child: ButtonWidget(

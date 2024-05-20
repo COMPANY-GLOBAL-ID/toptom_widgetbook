@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class CustomDatePicker extends StatelessWidget {
-  final ValueNotifier<String> updatedBirthday;
-  const CustomDatePicker({super.key, required this.updatedBirthday});
+  final ValueNotifier<String> updatedDate;
+  const CustomDatePicker({super.key, required this.updatedDate});
 
   _pop(BuildContext context) => () {
         Navigator.of(context).pop();
@@ -14,16 +14,16 @@ class CustomDatePicker extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(12)),
-      height: 300,
+      height: MediaQuery.of(context).size.height*0.3,
       child: Column(
         children: [
           SizedBox(
-            height: 200,
+            height: MediaQuery.of(context).size.height*0.2,
             child: CupertinoDatePicker(
               initialDateTime: DateTime.now(),
               mode: CupertinoDatePickerMode.date,
               onDateTimeChanged: (val) {
-                updatedBirthday.value = DateFormat('yyyy-MM-dd').format(val);
+                updatedDate.value = DateFormat('yyyy-MM-dd').format(val);
               },
             ),
           ),

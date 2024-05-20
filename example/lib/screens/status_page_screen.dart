@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/status_page/status_page_widget.dart';
+import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class StatusPageScreen extends StatelessWidget {

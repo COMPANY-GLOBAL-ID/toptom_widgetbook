@@ -1,41 +1,71 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/modal_bottom_sheets/draggable_scrollable_sheet.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class ModalBottomSheet {
   final BuildContext context;
-  ShapeBorder? shape = const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)));
 
-  ModalBottomSheet(this.context, {this.shape});
+  ModalBottomSheet(
+    this.context,
+  );
 
-  Future<T?> showDraggable<T>({
-    required Widget Function(BuildContext, ScrollController) builder,
-    double maxChildSize = 0.95,
-  }) {
+  Future<T?> showDraggable<T>(DraggableModalBottomSheetOptions options) {
+    final baseOption = options.baseOptions;
     return showModalBottomSheet(
-        shape: shape,
-        backgroundColor: Colors.transparent.withOpacity(0.06),
-        useRootNavigator: true,
-        useSafeArea: true,
-        isScrollControlled: true,
-        context: context,
-        builder: (innerContext) {
-          return MyDraggableScrollableSheet(
-              maxChildSize: maxChildSize, builder: builder);
-        });
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(baseOption?.borderRadius ??
+              ThemeCore.of(context).radius.extraLarge),
+        ),
+      ),
+      backgroundColor: baseOption?.backgroundColor ?? Colors.white,
+      useRootNavigator: baseOption?.useRootNavigator ?? true,
+      useSafeArea: baseOption?.useSafeArea ?? true,
+      isScrollControlled: true,
+      context: context,
+      builder: (innerContext) {
+        return DraggableModalBottomSheetWidget(options: options);
+      },
+    );
   }
 
-  Future<T?> show<T>(
-      {required Widget Function(BuildContext) builder, bool isClose = true}) {
+  Future<T?> show<T>(BaseModalBottomSheetOptions options) {
+    final baseOption = options.baseOptions;
     return showModalBottomSheet<T>(
-        shape: shape,
-        backgroundColor: Colors.transparent.withOpacity(0.06),
-        useRootNavigator: true,
-        useSafeArea: true,
-        isScrollControlled: true,
-        enableDrag: isClose,
-        isDismissible: isClose,
-        context: context,
-        builder: builder);
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(
+            baseOption?.borderRadius ?? ThemeCore.of(context).radius.extraLarge,
+          ),
+        ),
+      ),
+      backgroundColor: baseOption?.backgroundColor ?? Colors.white,
+      useRootNavigator: baseOption?.useRootNavigator ?? true,
+      useSafeArea: baseOption?.useSafeArea ?? true,
+      isScrollControlled: baseOption?.isScrollControlled ?? true,
+      context: context,
+      builder: options.builder,
+    );
+  }
+
+  Future<T?> showSelectorModal<T>(
+      SelectorModalBottomSheetOptions<T> selectorModalBottomSheetOptions,) {
+    final modalBottomSheetOptions =
+        selectorModalBottomSheetOptions.modalBottomSheetOptions;
+    return showModalBottomSheet<T>(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(modalBottomSheetOptions?.borderRadius ??
+              ThemeCore.of(context).radius.extraLarge),
+        ),
+      ),
+      backgroundColor: modalBottomSheetOptions?.backgroundColor,
+      useRootNavigator: modalBottomSheetOptions?.useRootNavigator ?? true,
+      useSafeArea: modalBottomSheetOptions?.useSafeArea ?? true,
+      isScrollControlled: modalBottomSheetOptions?.isScrollControlled ?? true,
+      context: context,
+      builder: (BuildContext context) => SelectorModalBottomSheetWidget<T>(
+        options: selectorModalBottomSheetOptions,
+      ),
+    );
   }
 }

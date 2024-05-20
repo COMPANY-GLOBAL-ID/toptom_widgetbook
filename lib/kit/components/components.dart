@@ -25,6 +25,7 @@ export 'modal_bottom_sheets/options/modal_bottom_sheet_options.dart';
 export 'modal_bottom_sheets/options/base_modal_bottom_sheet_options.dart';
 export 'modal_bottom_sheets/options/draggable_modal_bottom_sheet_options.dart';
 export 'modal_bottom_sheets/draggable_modal_bottom_sheet_widget.dart';
+export 'modal_bottom_sheets/options.dart';
 
 
 

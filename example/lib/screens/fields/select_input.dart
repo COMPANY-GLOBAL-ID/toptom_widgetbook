@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/components/components.dart';
-import 'package:toptom_widgetbook/kit/components/select_input_widget.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class SelectInputScreen extends StatefulWidget {

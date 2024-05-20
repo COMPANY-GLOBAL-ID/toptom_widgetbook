@@ -1,9 +1,11 @@
+import 'package:example/screens/modals/item_selector_screen.dart';
 import 'package:example/screens/modals/alert_dialog_screen.dart';
 import 'package:example/screens/modals/date_picker_screen.dart';
 import 'package:example/screens/drawer_screen.dart';
 import 'package:example/screens/gallery.dart';
 import 'package:example/screens/modals/draglbe_modal_bottom_sheet_screen.dart';
 import 'package:example/screens/modals/modal_bottom_sheet_screen.dart';
+import 'package:example/screens/modals/selector_modal_bottom_sheet_screen.dart';
 import 'package:example/screens/status_page_screen.dart';
 import 'package:example/screens/switcher_screen.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -59,7 +61,7 @@ final directories = [
     useCases: [
       WidgetbookUseCase(
         name: 'Modal bottom sheet',
-        builder: (context) => ModalBottomSheetScreen(),
+        builder: (context) => const ModalBottomSheetScreen(),
       ),
       WidgetbookUseCase(
         name: 'Alert Dialog',
@@ -72,6 +74,13 @@ final directories = [
       WidgetbookUseCase(
         name: 'Dragble modal bottom sheet',
         builder: (context) => const DraggableModalBottomSheetScreen(),
+      ),
+       WidgetbookUseCase(
+        name: 'Selector modal bottom sheet',
+        builder: (context) => const SelectorModalBottomSheetScreen(),
+      ), WidgetbookUseCase(
+        name: 'Item selector widget',
+        builder: (context) => const ItemSelectorScreen(),
       ),
     ],
   ),

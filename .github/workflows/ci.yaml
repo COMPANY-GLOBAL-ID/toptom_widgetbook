@@ -20,6 +20,8 @@ jobs:
           channel: "stable"
           flutter-version: 3.19.6
       - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: "Pub get"
         run: flutter pub get
         working-directory: example

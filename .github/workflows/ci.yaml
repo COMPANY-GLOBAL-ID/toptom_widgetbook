@@ -23,7 +23,6 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: "Pub get"
         run: flutter pub get
         working-directory: example

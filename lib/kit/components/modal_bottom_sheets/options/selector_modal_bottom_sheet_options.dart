@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/toptom_widgetbook.dart';
+
+import '../../components.dart';
 
 class SelectorModalBottomSheetOptions<T> {
   final String title;
-  late RadioListTileWidget<T> Function(BuildContext context, T value, T? selectedValue, void Function(T?)? onChanged)? builder;
+  late RadioListTileWidget<T> Function(BuildContext context, T value,
+      T? selectedValue, void Function(T?)? onChanged)? builder;
   late Widget Function(BuildContext context, T item)? builderItem;
   final SelectorController<T> controller;
   final List<T> values;
@@ -14,7 +16,6 @@ class SelectorModalBottomSheetOptions<T> {
   final bool? showCancelButton;
   final ModalBottomSheetOptions? modalBottomSheetOptions;
 
-  
   SelectorModalBottomSheetOptions({
     required this.title,
     this.builder,
@@ -28,14 +29,14 @@ class SelectorModalBottomSheetOptions<T> {
     this.modalBottomSheetOptions,
     this.values = const [],
   }) {
-    builder ??= (BuildContext context, T value, T? selectedValue, void Function(T?)? onChanged) => RadioListTileWidget<T>(
-      value: value,
-      groupValue: selectedValue,
-      onChanged: onChanged,
-      title: value.toString(),
-    );
-    builderItem ??= (BuildContext context, T value) => Text(
-      value.toString()
-    );
+    builder ??= (BuildContext context, T value, T? selectedValue,
+            void Function(T?)? onChanged) =>
+        RadioListTileWidget<T>(
+          value: value,
+          groupValue: selectedValue,
+          onChanged: onChanged,
+          title: value.toString(),
+        );
+    builderItem ??= (BuildContext context, T value) => Text(value.toString());
   }
 }

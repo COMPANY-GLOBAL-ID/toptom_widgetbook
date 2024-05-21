@@ -1,11 +1,5 @@
-import 'package:example/screens/modals/item_selector_screen.dart';
-import 'package:example/screens/modals/alert_dialog_screen.dart';
-import 'package:example/screens/modals/date_picker_screen.dart';
 import 'package:example/screens/drawer_screen.dart';
 import 'package:example/screens/gallery.dart';
-import 'package:example/screens/modals/draglbe_modal_bottom_sheet_screen.dart';
-import 'package:example/screens/modals/modal_bottom_sheet_screen.dart';
-import 'package:example/screens/modals/selector_modal_bottom_sheet_screen.dart';
 import 'package:example/screens/status_page_screen.dart';
 import 'package:example/screens/switcher_screen.dart';
 import 'package:widgetbook/widgetbook.dart';

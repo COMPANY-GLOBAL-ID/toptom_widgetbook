@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 class SelectorModalBottomSheetScreen extends StatelessWidget {

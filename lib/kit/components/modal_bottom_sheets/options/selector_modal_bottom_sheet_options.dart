@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class SelectorModalBottomSheetOptions<T> {
   final String title;

@@ -9,7 +9,7 @@ snackBarBuilder(BuildContext context, SnackBarOptions options) {
       behavior: SnackBarBehavior.floating,
       backgroundColor: options.type.toBackgroundColor(context),
       duration: const Duration(seconds: 5),
-      margin: const EdgeInsets.all(20),
+      margin:  EdgeInsets.all(ThemeCore.of(context).padding.xl),
       content: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

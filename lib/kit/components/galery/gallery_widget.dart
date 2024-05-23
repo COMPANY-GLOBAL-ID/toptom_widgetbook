@@ -1,8 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-import '../export.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class GalleryWidget extends StatefulWidget {
   final List<String> images;
@@ -36,6 +36,7 @@ class _GalleryMaterialState extends State<GalleryWidget> {
 
   late ValueNotifier<double> _scaleNotifier;
   late ValueNotifier<Offset> _offsetNotifier;
+  late TransformationController _transformationController;
 
   double _previousScale = _initialScale;
   Offset _startOffset = Offset.zero;
@@ -47,6 +48,7 @@ class _GalleryMaterialState extends State<GalleryWidget> {
     _pageController = PageController(initialPage: widget.initialImageIndex);
     _scaleNotifier = ValueNotifier(_initialScale);
     _offsetNotifier = ValueNotifier(Offset.zero);
+    _transformationController = TransformationController();
   }
 
   void _next() {
@@ -66,16 +68,23 @@ class _GalleryMaterialState extends State<GalleryWidget> {
   void _zoomIn() {
     _scaleNotifier.value =
         (_scaleNotifier.value + 0.25).clamp(_minScale, _maxScale);
+    _transformationController.value = Matrix4.identity()
+      ..scale(_scaleNotifier.value)
+      ..translate(_offsetNotifier.value.dx, _offsetNotifier.value.dy);
   }
 
   void _zoomOut() {
     _scaleNotifier.value =
         (_scaleNotifier.value - 0.25).clamp(_minScale, _maxScale);
+    _transformationController.value = Matrix4.identity()
+      ..scale(_scaleNotifier.value)
+      ..translate(_offsetNotifier.value.dx, _offsetNotifier.value.dy);
   }
 
   void _onPageChanged(int index) {
-    _scaleNotifier.value = _minScale;
+    _scaleNotifier.value = _initialScale;
     _offsetNotifier.value = Offset.zero;
+    _transformationController.value = Matrix4.identity();
   }
 
   @override
@@ -86,62 +95,41 @@ class _GalleryMaterialState extends State<GalleryWidget> {
       ),
       child: Stack(
         children: [
-          GestureDetector(
-            onScaleStart: (details) {
-              _previousScale = _scaleNotifier.value;
-              _startOffset = _offsetNotifier.value;
-            },
-            onScaleUpdate: (details) {
-              _scaleNotifier.value =
-                  (_previousScale * details.scale).clamp(_minScale, _maxScale);
-              _offsetNotifier.value = Offset(
-                _startOffset.dx +
-                    (details.focalPoint.dx - details.localFocalPoint.dx) /
-                        _scaleNotifier.value,
-                _startOffset.dy +
-                    (details.focalPoint.dy - details.localFocalPoint.dy) /
-                        _scaleNotifier.value,
-              );
-            },
-            onScaleEnd: (_) {
-              _previousScale = _scaleNotifier.value;
-            },
-            child: PageView.builder(
-              pageSnapping: true,
-              onPageChanged: _onPageChanged,
-              controller: _pageController,
-              itemCount: widget.images.length,
-              itemBuilder: (BuildContext context, int index) {
-                String url = widget.images[index];
-                return ValueListenableBuilder(
-                  valueListenable: _scaleNotifier,
-                  builder: (context, double scale, child) {
-                    return ValueListenableBuilder(
-                      valueListenable: _offsetNotifier,
-                      builder: (context, Offset offset, child) {
-                        return Transform(
-                          transform: Matrix4.identity()
-                            ..scale(scale)
-                            ..translate(offset.dx, offset.dy),
-                          alignment: Alignment.center,
-                          child: Image.network(
-                            url,
-                            loadingBuilder: (context, child, event) {
-                              if (event?.cumulativeBytesLoaded ==
-                                  event?.expectedTotalBytes) {
-                                return child;
-                              }
-                              return const Center(
-                                  child: CupertinoActivityIndicator());
-                            },
-                          ),
+          ValueListenableBuilder<double>(
+            valueListenable: _scaleNotifier,
+            builder: (context, scale, child) {
+              return PageView.builder(
+                pageSnapping: true,
+                onPageChanged: _onPageChanged,
+                controller: _pageController,
+                physics: _scaleNotifier.value > _initialScale
+                    ? const NeverScrollableScrollPhysics()
+                    : const AlwaysScrollableScrollPhysics(),
+                itemCount: widget.images.length,
+                itemBuilder: (BuildContext context, int index) {
+                  String url = widget.images[index];
+                  return InteractiveViewer(
+                    transformationController: _transformationController,
+                    minScale: _minScale,
+                    maxScale: _maxScale,
+                    onInteractionUpdate: (details) {
+                      _scaleNotifier.value = _transformationController.value.getMaxScaleOnAxis();
+                    },
+                    child: Image.network(
+                      url,
+                      loadingBuilder: (context, child, event) {
+                        if (event?.cumulativeBytesLoaded == event?.expectedTotalBytes) {
+                          return child;
+                        }
+                        return const Center(
+                          child: CupertinoActivityIndicator(),
                         );
                       },
-                    );
-                  },
-                );
-              },
-            ),
+                    ),
+                  );
+                },
+              );
+            },
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -193,9 +181,9 @@ class _GalleryMaterialState extends State<GalleryWidget> {
                         type: ButtonType.ghost,
                         onPressed: _zoomOut,
                       ),
-                      ValueListenableBuilder(
+                      ValueListenableBuilder<double>(
                         valueListenable: _scaleNotifier,
-                        builder: (context, double scale, child) {
+                        builder: (context, scale, child) {
                           return ButtonWidget(
                             color: ButtonColor.white,
                             type: ButtonType.ghost,

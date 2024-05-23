@@ -9,6 +9,8 @@ class GalleryScreen extends StatelessWidget {
     print(context);
     return Scaffold(
         body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ButtonWidget(
           onPressed: () {

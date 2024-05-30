@@ -53,14 +53,14 @@ class _DoubleInputState extends State<DoubleInput> {
 
   @override
   void initState() {
-    _clearAll();
+    super.initState();
     minController = TextEditingController(
-        text: widget.controller.value.min?.toStringAsFixed(0))
+        text: widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0))
       ..addListener(_listenMin);
     maxController = TextEditingController(
-        text: widget.controller.value.max?.toStringAsFixed(0))
+        text: widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0))
       ..addListener(_listenMax);
-    super.initState();
+    widget.controller.change(min: widget.min, max: widget.max);
   }
 
   _listenMin() {
@@ -124,6 +124,8 @@ class _DoubleInputState extends State<DoubleInput> {
 
   _clearAll() {
     widget.controller.change(min: widget.min, max: widget.max);
+    minController.text = widget.min.toStringAsFixed(0);
+    maxController.text = widget.max.toStringAsFixed(0);
   }
 
   @override

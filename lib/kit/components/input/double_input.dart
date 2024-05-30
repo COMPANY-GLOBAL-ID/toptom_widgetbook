@@ -120,6 +120,7 @@ class _DoubleInputState extends State<DoubleInput> {
   _changeRange(RangeValues values) {
     minController.text = values.start.toDouble().toStringAsFixed(0);
     maxController.text = values.end.toInt().toStringAsFixed(0);
+    // trying it
     widget.controller.change(min: values.start.toDouble(), max: values.end.toDouble());
   }
 

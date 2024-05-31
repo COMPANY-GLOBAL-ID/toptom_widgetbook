@@ -14,11 +14,11 @@ class CustomDatePicker extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(12)),
-      height: MediaQuery.of(context).size.height*0.3,
+      height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height*0.2,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: CupertinoDatePicker(
               initialDateTime: DateTime.now(),
               mode: CupertinoDatePickerMode.date,

@@ -55,10 +55,12 @@ class _DoubleInputState extends State<DoubleInput> {
   void initState() {
     super.initState();
     minController = TextEditingController(
-      text: widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0),
+      text: widget.controller.value.min?.toStringAsFixed(0) ??
+          widget.min.toStringAsFixed(0),
     )..addListener(_listenMin);
     maxController = TextEditingController(
-      text: widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0),
+      text: widget.controller.value.max?.toStringAsFixed(0) ??
+          widget.max.toStringAsFixed(0),
     )..addListener(_listenMax);
   }
 
@@ -67,8 +69,10 @@ class _DoubleInputState extends State<DoubleInput> {
     super.didUpdateWidget(oldWidget);
     if (widget.controller.value.min != double.tryParse(minController.text) ||
         widget.controller.value.max != double.tryParse(maxController.text)) {
-      minController.text = widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0);
-      maxController.text = widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0);
+      minController.text = widget.controller.value.min?.toStringAsFixed(0) ??
+          widget.min.toStringAsFixed(0);
+      maxController.text = widget.controller.value.max?.toStringAsFixed(0) ??
+          widget.max.toStringAsFixed(0);
     }
   }
 
@@ -112,7 +116,8 @@ class _DoubleInputState extends State<DoubleInput> {
   Widget build(BuildContext context) {
     final themeCore = ThemeCore.of(context);
     bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
-    bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
+    bool hasClearText =
+        widget.clearText != null && widget.clearText?.isNotEmpty == true;
     bool hasLabelOrClearText = hasLabel || hasClearText;
 
     return Column(
@@ -179,7 +184,8 @@ class _DoubleInputState extends State<DoubleInput> {
               ),
             ),
             Padding(
-              padding: widget.dividerPadding ?? const EdgeInsets.symmetric(horizontal: 12),
+              padding: widget.dividerPadding ??
+                  const EdgeInsets.symmetric(horizontal: 12),
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(themeCore.radius.small),

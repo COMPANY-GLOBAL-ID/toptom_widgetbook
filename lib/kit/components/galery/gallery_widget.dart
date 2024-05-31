@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -9,20 +8,24 @@ class GalleryWidget extends StatefulWidget {
   final VoidCallback? onBack;
   final int initialImageIndex;
 
-  const GalleryWidget(
-      {super.key,
-      required this.images,
-      this.onBack,
-      this.initialImageIndex = 0,});
+  const GalleryWidget({
+    super.key,
+    required this.images,
+    this.onBack,
+    this.initialImageIndex = 0,
+  });
 
-  static Future view(BuildContext context, {List<String> images = const [], int initialImageIndex = 0}) {
+  static Future view(
+    BuildContext context, {
+    List<String> images = const [],
+    int initialImageIndex = 0,
+  }) {
     return showDialog(
       context: context,
       builder: (context) => GalleryWidget(
-        images: images,
-        onBack: () => Navigator.of(context).pop(),
-        initialImageIndex: initialImageIndex
-      ),
+          images: images,
+          onBack: () => Navigator.of(context).pop(),
+          initialImageIndex: initialImageIndex),
     );
   }
 
@@ -39,8 +42,8 @@ class _GalleryMaterialState extends State<GalleryWidget> {
   late ValueNotifier<Offset> _offsetNotifier;
   late TransformationController _transformationController;
 
-  double _previousScale = _initialScale;
-  Offset _startOffset = Offset.zero;
+  final double _previousScale = _initialScale;
+  final Offset _startOffset = Offset.zero;
   late PageController _pageController;
 
   @override
@@ -114,12 +117,14 @@ class _GalleryMaterialState extends State<GalleryWidget> {
                     minScale: _minScale,
                     maxScale: _maxScale,
                     onInteractionUpdate: (details) {
-                      _scaleNotifier.value = _transformationController.value.getMaxScaleOnAxis();
+                      _scaleNotifier.value =
+                          _transformationController.value.getMaxScaleOnAxis();
                     },
                     child: Image.network(
                       url,
                       loadingBuilder: (context, child, event) {
-                        if (event?.cumulativeBytesLoaded == event?.expectedTotalBytes) {
+                        if (event?.cumulativeBytesLoaded ==
+                            event?.expectedTotalBytes) {
                           return child;
                         }
                         return const Center(

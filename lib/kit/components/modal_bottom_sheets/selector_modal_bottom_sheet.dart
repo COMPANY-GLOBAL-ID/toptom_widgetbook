@@ -1,16 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
-
   final SelectorModalBottomSheetOptions<T> options;
 
   const SelectorModalBottomSheetWidget({
     super.key,
     required this.options,
   });
-
 
   _cancel(BuildContext context) => () {
         Navigator.of(context).pop();
@@ -38,7 +35,8 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                 options.title,
                 style: ThemeCore.of(context).typography.paragraphMedium,
               ),
-              options.showCancelButton == true && options.clearButtonText != null
+              options.showCancelButton == true &&
+                      options.clearButtonText != null
                   ? IconButton(
                       onPressed: _cancel(context),
                       icon: const Icon(Icons.close),
@@ -55,11 +53,15 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
           ValueListenableBuilder<T?>(
             valueListenable: options.controller,
             builder: (context, value, child) {
-             return ListView.builder(
-                shrinkWrap: true,
-                itemCount: options.values.length,
-                itemBuilder: (context, index) => options.builder!(context, options.values[index], value, (val) => options.controller.change(val),)
-              );
+              return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: options.values.length,
+                  itemBuilder: (context, index) => options.builder!(
+                        context,
+                        options.values[index],
+                        value,
+                        (val) => options.controller.change(val),
+                      ));
             },
           ),
           SizedBox(

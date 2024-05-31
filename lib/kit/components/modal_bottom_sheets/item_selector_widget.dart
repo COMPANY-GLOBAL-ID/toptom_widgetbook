@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/export.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class ItemSelectorWidget<T> extends StatefulWidget {
   final SelectorModalBottomSheetOptions<T> options;

@@ -53,76 +53,58 @@ class _DoubleInputState extends State<DoubleInput> {
 
   @override
   void initState() {
-    _clearAll();
-    minController = TextEditingController(
-        text: widget.controller.value.min?.toStringAsFixed(0))
-      ..addListener(_listenMin);
-    maxController = TextEditingController(
-        text: widget.controller.value.max?.toStringAsFixed(0))
-      ..addListener(_listenMax);
     super.initState();
+    minController = TextEditingController(
+      text: widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0),
+    )..addListener(_listenMin);
+    maxController = TextEditingController(
+      text: widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0),
+    )..addListener(_listenMax);
   }
 
-  _listenMin() {
-    final int selectionStart = minController.selection.start;
-    final int selectionEnd = minController.selection.end;
-
-    final minString = minController.text;
-    final maxString = maxController.text;
-
-    double minDouble = double.tryParse(minString) ?? widget.min;
-    double maxDouble = double.tryParse(maxString) ?? widget.max;
-
-    minDouble = minDouble.clamp(widget.min, widget.max);
-    minController.value = minController.value.copyWith(
-      text: minDouble.toStringAsFixed(0),
-      selection: TextSelection(
-        baseOffset: selectionStart,
-        extentOffset: selectionEnd,
-      ),
-      composing: TextRange.empty,
-    );
-    widget.controller.change(min: minDouble);
-    if (minDouble > maxDouble) {
-      maxDouble = minDouble;
-      maxController.text = maxDouble.toStringAsFixed(0);
-      widget.controller.change(max: maxDouble);
+  @override
+  void didUpdateWidget(covariant DoubleInput oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.controller.value.min != double.tryParse(minController.text) ||
+        widget.controller.value.max != double.tryParse(maxController.text)) {
+      minController.text = widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0);
+      maxController.text = widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0);
     }
   }
 
-  _listenMax() {
-    final int selectionStart = maxController.selection.start;
-    final int selectionEnd = maxController.selection.end;
-
-    final minString = minController.text;
-    final maxString = maxController.text;
-
-    double minDouble = double.tryParse(minString) ?? widget.min;
-    double maxDouble = double.tryParse(maxString) ?? widget.max;
-
-    maxDouble = maxDouble.clamp(widget.min, widget.max);
-    maxController.value = maxController.value.copyWith(
-      text: maxDouble.toStringAsFixed(0),
-      selection: TextSelection(
-        baseOffset: selectionStart,
-        extentOffset: selectionEnd,
-      ),
-      composing: TextRange.empty,
-    );
-    widget.controller.change(max: maxDouble);
-    if (maxDouble < minDouble) {
-      minDouble = maxDouble;
-      minController.text = minDouble.toStringAsFixed(0);
+  void _listenMin() {
+    double? minDouble = double.tryParse(minController.text);
+    if (minDouble != null) {
+      minDouble = minDouble.clamp(widget.min, widget.max);
       widget.controller.change(min: minDouble);
+      if (minDouble > (widget.controller.value.max ?? widget.max)) {
+        maxController.text = minDouble.toStringAsFixed(0);
+        widget.controller.change(max: minDouble);
+      }
     }
   }
 
-  _changeRange(RangeValues values) {
-    minController.text = values.start.toDouble().toStringAsFixed(0);
-    maxController.text = values.end.toInt().toStringAsFixed(0);
+  void _listenMax() {
+    double? maxDouble = double.tryParse(maxController.text);
+    if (maxDouble != null) {
+      maxDouble = maxDouble.clamp(widget.min, widget.max);
+      widget.controller.change(max: maxDouble);
+      if (maxDouble < (widget.controller.value.min ?? widget.min)) {
+        minController.text = maxDouble.toStringAsFixed(0);
+        widget.controller.change(min: maxDouble);
+      }
+    }
   }
 
-  _clearAll() {
+  void _changeRange(RangeValues values) {
+    minController.text = values.start.toStringAsFixed(0);
+    maxController.text = values.end.toStringAsFixed(0);
+    widget.controller.change(min: values.start, max: values.end);
+  }
+
+  void _clearAll() {
+    minController.text = widget.min.toStringAsFixed(0);
+    maxController.text = widget.max.toStringAsFixed(0);
     widget.controller.change(min: widget.min, max: widget.max);
   }
 
@@ -130,8 +112,7 @@ class _DoubleInputState extends State<DoubleInput> {
   Widget build(BuildContext context) {
     final themeCore = ThemeCore.of(context);
     bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
-    bool hasClearText =
-        widget.clearText != null && widget.clearText?.isNotEmpty == true;
+    bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
     bool hasLabelOrClearText = hasLabel || hasClearText;
 
     return Column(
@@ -167,11 +148,13 @@ class _DoubleInputState extends State<DoubleInput> {
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: _clearAll,
-                        child: Text(widget.clearText ?? '',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: themeCore.color.scheme.main,
-                            )),
+                        child: Text(
+                          widget.clearText ?? '',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: themeCore.color.scheme.main,
+                          ),
+                        ),
                       ),
                     )
                   ],
@@ -196,8 +179,7 @@ class _DoubleInputState extends State<DoubleInput> {
               ),
             ),
             Padding(
-              padding: widget.dividerPadding ??
-                  const EdgeInsets.symmetric(horizontal: 12),
+              padding: widget.dividerPadding ?? const EdgeInsets.symmetric(horizontal: 12),
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(themeCore.radius.small),
@@ -219,24 +201,25 @@ class _DoubleInputState extends State<DoubleInput> {
             ),
           ],
         ),
-        ValueListenableBuilder(
+        ValueListenableBuilder<DoubleValue>(
           valueListenable: widget.controller,
           builder: (context, value, child) {
             return Visibility(
               visible: widget.enabled,
               child: RangeSlider(
-                  activeColor: themeCore.color.scheme.main,
-                  values: RangeValues(
-                      value.min ?? widget.min, value.max ?? widget.max),
-                  min: widget.min,
-                  max: widget.max,
-                  onChanged: _changeRange),
+                activeColor: themeCore.color.scheme.main,
+                values: RangeValues(
+                  value.min ?? widget.min,
+                  value.max ?? widget.max,
+                ),
+                min: widget.min,
+                max: widget.max,
+                onChanged: _changeRange,
+              ),
             );
           },
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -246,8 +229,10 @@ class DoubleEditingController extends ValueNotifier<DoubleValue> {
   DoubleEditingController({DoubleValue? value}) : super(value ?? DoubleValue());
 
   void change({double? min, double? max}) {
-    value.min = min ?? value.min;
-    value.max = max ?? value.max;
+    value = DoubleValue(
+      min: min ?? value.min,
+      max: max ?? value.max,
+    );
     notifyListeners();
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 snackBarBuilder(BuildContext context, SnackBarOptions options) {
+  ScaffoldMessenger.of(context).removeCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       elevation: 12,

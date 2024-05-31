@@ -33,7 +33,7 @@ class BadgeScreen extends StatelessWidget {
                               type: type,
                               size: BadgeSize.small,
                               color: color,
-                              child: Text('Status text'),
+                              child: const Text('Status text'),
                             ),
                             const SizedBox(width: 10),
                             BadgeWidget(

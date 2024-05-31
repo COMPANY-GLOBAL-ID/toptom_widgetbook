@@ -18,7 +18,7 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
       'example 4 ',
       'example 5 '
     ];
-   
+
     final modalTitle = context.knobs.string(
         label: 'modal bottom sheet title', initialValue: 'Sort options');
 

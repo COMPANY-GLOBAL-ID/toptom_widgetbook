@@ -32,14 +32,16 @@ class ButtonIcon extends StatelessWidget {
       style: ButtonStyle(
         elevation: MaterialStatePropertyAll<double>(elevation),
         backgroundColor: backgroundColor ??
-            MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
               if (states.contains(MaterialState.disabled)) {
                 return type.backgroundDisable(color, context);
               }
               return type.background(color, context);
             }),
         foregroundColor: foregroundColor ??
-            MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
               if (states.contains(MaterialState.disabled)) {
                 return type.foregroundDisable(color, context);
               }
@@ -49,7 +51,8 @@ class ButtonIcon extends StatelessWidget {
               return type.foreground(color, context);
             }),
         overlayColor: overlayColor ??
-            MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
                 return type.backgroundPressed(color, context);
               }
@@ -78,7 +81,8 @@ class ButtonIcon extends StatelessWidget {
           );
         }),
         iconColor: foregroundColor ??
-            MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
               if (states.contains(MaterialState.disabled)) {
                 return type.foregroundDisable(color, context);
               }

@@ -7,7 +7,6 @@ class BadgeWidget extends StatelessWidget {
   final BadgeSize size;
   final Widget child;
 
-
   const BadgeWidget({
     super.key,
     this.color = BadgeColor.info,

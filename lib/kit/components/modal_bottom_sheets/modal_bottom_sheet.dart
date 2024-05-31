@@ -48,7 +48,8 @@ class ModalBottomSheet {
   }
 
   Future<T?> showSelectorModal<T>(
-      SelectorModalBottomSheetOptions<T> selectorModalBottomSheetOptions,) {
+    SelectorModalBottomSheetOptions<T> selectorModalBottomSheetOptions,
+  ) {
     final modalBottomSheetOptions =
         selectorModalBottomSheetOptions.modalBottomSheetOptions;
     return showModalBottomSheet<T>(

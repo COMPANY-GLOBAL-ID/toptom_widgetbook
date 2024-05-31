@@ -7,9 +7,12 @@ class StatusPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String title = context.knobs.string(label: 'status title' , initialValue: 'title');
-    final String description = context.knobs.string(label: 'status description' , initialValue: 'description');
-    final String text = context.knobs.string(label: 'status child' , initialValue: 'child');
+    final String title =
+        context.knobs.string(label: 'status title', initialValue: 'title');
+    final String description = context.knobs
+        .string(label: 'status description', initialValue: 'description');
+    final String text =
+        context.knobs.string(label: 'status child', initialValue: 'child');
     final Icon icon = context.knobs.list(
       label: 'icon',
       options: [

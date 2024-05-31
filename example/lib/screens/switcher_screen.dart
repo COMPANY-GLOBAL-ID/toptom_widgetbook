@@ -18,10 +18,9 @@ class SwitcherScreen extends StatelessWidget {
           children: [
             Text(description),
             NotificationSwitcher(
-              notificationDescription: 'Initial text',
-              valueNotifier: valueNotifier,
-              textStyle: TextStyle(color: Colors.black)
-            ),
+                notificationDescription: 'Initial text',
+                valueNotifier: valueNotifier,
+                textStyle: const TextStyle(color: Colors.black)),
           ],
         ),
       ),

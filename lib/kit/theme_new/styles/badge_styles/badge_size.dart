@@ -18,7 +18,7 @@ enum BadgeSize {
   }
 
   double toSizeIcon() {
-    return switch(this) {
+    return switch (this) {
       BadgeSize.primary => 18,
       BadgeSize.small => 18,
     };

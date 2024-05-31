@@ -47,7 +47,6 @@ final directories = [
         name: 'Drawer Item',
         builder: (context) => const DrawerItemScreen(),
       ),
-     
     ],
   ),
   WidgetbookComponent(
@@ -69,10 +68,11 @@ final directories = [
         name: 'Dragble modal bottom sheet',
         builder: (context) => const DraggableModalBottomSheetScreen(),
       ),
-       WidgetbookUseCase(
+      WidgetbookUseCase(
         name: 'Selector modal bottom sheet',
         builder: (context) => const SelectorModalBottomSheetScreen(),
-      ), WidgetbookUseCase(
+      ),
+      WidgetbookUseCase(
         name: 'Item selector widget',
         builder: (context) => const ItemSelectorScreen(),
       ),
@@ -147,5 +147,4 @@ final directories = [
       ),
     ],
   ),
-
 ];

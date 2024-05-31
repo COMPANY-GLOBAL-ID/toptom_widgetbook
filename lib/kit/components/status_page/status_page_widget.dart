@@ -7,14 +7,13 @@ class StatusPageWidget extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
   final Icon icon;
-  const StatusPageWidget({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.onPressed,
-    required this.child,
-    required this.icon
-  });
+  const StatusPageWidget(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.onPressed,
+      required this.child,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class StatusPageWidget extends StatelessWidget {
       padding: EdgeInsets.all(size.xl),
       child: Column(
         children: [
-           Center(
+          Center(
             child: icon,
           ),
           SizedBox(

@@ -12,7 +12,6 @@ class NotificationSwitcher extends StatelessWidget {
     required this.textStyle,
   });
 
-
   @override
   Widget build(BuildContext context) {
     final size = ThemeCore.of(context).padding;
@@ -33,7 +32,7 @@ class NotificationSwitcher extends StatelessWidget {
             return Switch(
               inactiveThumbColor: Colors.white,
               inactiveTrackColor:
-              ThemeCore.of(context).color.scheme.overlayAlpha,
+                  ThemeCore.of(context).color.scheme.overlayAlpha,
               activeTrackColor: ThemeCore.of(context).color.scheme.main,
               materialTapTargetSize: MaterialTapTargetSize.padded,
               trackOutlineColor: MaterialStateProperty.all(Colors.transparent),

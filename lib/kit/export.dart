@@ -1,7 +1,7 @@
 export 'components/appear/appear_widget.dart';
 export 'components/badge/badge_widget.dart';
 export 'components/buttons/button_icon.dart';
-export 'components/radio_button/radio_list_tile_widget.dart'; 
+export 'components/radio_button/radio_list_tile_widget.dart';
 export 'components/components.dart';
 export 'components/drawer/drawer_item.dart';
 export 'components/input/double_input.dart';

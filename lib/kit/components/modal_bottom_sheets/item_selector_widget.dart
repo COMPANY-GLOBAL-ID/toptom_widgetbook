@@ -14,7 +14,6 @@ class ItemSelectorWidget<T> extends StatefulWidget {
 }
 
 class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
-
   @override
   void initState() {
     super.initState();
@@ -48,7 +47,7 @@ class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
             ValueListenableBuilder<T?>(
               valueListenable: widget.options.controller,
               builder: (context, value, child) {
-                if(value == null) return Text(widget.options.title);
+                if (value == null) return Text(widget.options.title);
                 return widget.options.builderItem!(context, value);
               },
             ),

@@ -13,14 +13,15 @@ class GalleryWidget extends StatefulWidget {
       {super.key,
       required this.images,
       this.onBack,
-      this.initialImageIndex = 0});
+      this.initialImageIndex = 0,});
 
-  static Future view(BuildContext context, {List<String> images = const []}) {
+  static Future view(BuildContext context, {List<String> images = const [], int initialImageIndex = 0}) {
     return showDialog(
       context: context,
       builder: (context) => GalleryWidget(
         images: images,
         onBack: () => Navigator.of(context).pop(),
+        initialImageIndex: initialImageIndex
       ),
     );
   }

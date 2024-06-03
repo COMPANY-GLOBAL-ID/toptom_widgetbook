@@ -30,11 +30,15 @@ class DoubleInputScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           DoubleInput(
+            divider: SizedBox(height: 20,width: 2,child: ColoredBox(color: ThemeCore.of(context).color.scheme.overlaySecondary),),
             controller: DoubleEditingController(),
             label: label,
             min: min,
             max: max,
+            maxEnterLength: 3,
+            useDecoratedBox: false,
             minHintText: minHintText,
+            inputBorder: InputBorder.none,
             maxHintText: maxHintText,
             errorText: error,
             clearText: clear,

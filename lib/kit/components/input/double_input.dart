@@ -19,9 +19,12 @@ class DoubleInput extends StatefulWidget {
     this.label,
     this.clearText,
     this.errorText,
+    this.inputBorder,
+    this.maxEnterLength,
     required this.controller,
     required this.max,
     required this.min,
+    this.useDecoratedBox = true, // Новый параметр для использования DecoratedBox
   });
 
   final bool enabled;
@@ -37,9 +40,12 @@ class DoubleInput extends StatefulWidget {
   final String? label;
   final String? clearText;
   final String? errorText;
+  final int? maxEnterLength;
+  final InputBorder? inputBorder;
 
   final double max;
   final double min;
+  final bool useDecoratedBox; // Новый параметр для использования DecoratedBox
 
   @override
   State<DoubleInput> createState() => _DoubleInputState();
@@ -55,12 +61,10 @@ class _DoubleInputState extends State<DoubleInput> {
   void initState() {
     super.initState();
     minController = TextEditingController(
-      text: widget.controller.value.min?.toStringAsFixed(0) ??
-          widget.min.toStringAsFixed(0),
+      text: widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0),
     )..addListener(_listenMin);
     maxController = TextEditingController(
-      text: widget.controller.value.max?.toStringAsFixed(0) ??
-          widget.max.toStringAsFixed(0),
+      text: widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0),
     )..addListener(_listenMax);
   }
 
@@ -69,16 +73,18 @@ class _DoubleInputState extends State<DoubleInput> {
     super.didUpdateWidget(oldWidget);
     if (widget.controller.value.min != double.tryParse(minController.text) ||
         widget.controller.value.max != double.tryParse(maxController.text)) {
-      minController.text = widget.controller.value.min?.toStringAsFixed(0) ??
-          widget.min.toStringAsFixed(0);
-      maxController.text = widget.controller.value.max?.toStringAsFixed(0) ??
-          widget.max.toStringAsFixed(0);
+      minController.text = widget.controller.value.min?.toStringAsFixed(0) ?? widget.min.toStringAsFixed(0);
+      maxController.text = widget.controller.value.max?.toStringAsFixed(0) ?? widget.max.toStringAsFixed(0);
     }
   }
 
   void _listenMin() {
     double? minDouble = double.tryParse(minController.text);
     if (minDouble != null) {
+      if (minDouble > widget.max) {
+        minDouble = widget.max;
+        minController.text = minDouble.toStringAsFixed(0);
+      }
       minDouble = minDouble.clamp(widget.min, widget.max);
       widget.controller.change(min: minDouble);
       if (minDouble > (widget.controller.value.max ?? widget.max)) {
@@ -91,6 +97,10 @@ class _DoubleInputState extends State<DoubleInput> {
   void _listenMax() {
     double? maxDouble = double.tryParse(maxController.text);
     if (maxDouble != null) {
+      if (maxDouble > widget.max) {
+        maxDouble = widget.max;
+        maxController.text = maxDouble.toStringAsFixed(0);
+      }
       maxDouble = maxDouble.clamp(widget.min, widget.max);
       widget.controller.change(max: maxDouble);
       if (maxDouble < (widget.controller.value.min ?? widget.min)) {
@@ -116,9 +126,66 @@ class _DoubleInputState extends State<DoubleInput> {
   Widget build(BuildContext context) {
     final themeCore = ThemeCore.of(context);
     bool hasLabel = widget.label != null && widget.label?.isNotEmpty == true;
-    bool hasClearText =
-        widget.clearText != null && widget.clearText?.isNotEmpty == true;
+    bool hasClearText = widget.clearText != null && widget.clearText?.isNotEmpty == true;
     bool hasLabelOrClearText = hasLabel || hasClearText;
+
+    Widget content = Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: TextFieldWidget.number(
+              filled: true,
+              fillColor: widget.fillColor,
+              controller: minController,
+              isDense: widget.isDense,
+              enabled: widget.enabled,
+              hintStyle: widget.hintStyle,
+              hintText: widget.minHintText,
+              focusNode: _minFocus,
+              errorText: widget.errorText,
+              inputBorder: widget.inputBorder,
+            ),
+          ),
+          Padding(
+            padding: widget.dividerPadding ?? const EdgeInsets.symmetric(horizontal: 12),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(themeCore.radius.small),
+                color: themeCore.color.scheme.strokePrimary,
+              ),
+              child: widget.divider,
+            ),
+          ),
+          Expanded(
+            child: TextFieldWidget.number(
+              filled: true,
+              textAlign: TextAlign.end,
+              fillColor: widget.fillColor,
+              controller: maxController,
+              isDense: widget.isDense,
+              enabled: widget.enabled,
+              hintText: widget.maxHintText,
+              hintStyle: widget.hintStyle,
+              focusNode: _maxFocus,
+              errorText: widget.errorText,
+              inputBorder: widget.inputBorder,
+            ),
+          ),
+        ],
+      ),
+    );
+
+    if (widget.useDecoratedBox) {
+      content = DecoratedBox(
+        decoration: BoxDecoration(
+          color: themeCore.color.scheme.backgroundSecondary,
+          borderRadius: BorderRadius.circular(themeCore.radius.extraLarge2),
+        ),
+        child: content,
+      );
+    }
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -169,44 +236,7 @@ class _DoubleInputState extends State<DoubleInput> {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: TextFieldWidget.number(
-                controller: minController,
-                isDense: widget.isDense,
-                enabled: widget.enabled,
-                hintStyle: widget.hintStyle,
-                hintText: widget.minHintText,
-                focusNode: _minFocus,
-                errorText: widget.errorText,
-              ),
-            ),
-            Padding(
-              padding: widget.dividerPadding ??
-                  const EdgeInsets.symmetric(horizontal: 12),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(themeCore.radius.small),
-                  color: themeCore.color.scheme.strokePrimary,
-                ),
-                child: widget.divider,
-              ),
-            ),
-            Expanded(
-              child: TextFieldWidget.number(
-                controller: maxController,
-                isDense: widget.isDense,
-                enabled: widget.enabled,
-                hintText: widget.maxHintText,
-                hintStyle: widget.hintStyle,
-                focusNode: _maxFocus,
-                errorText: widget.errorText,
-              ),
-            ),
-          ],
-        ),
+        content,
         ValueListenableBuilder<DoubleValue>(
           valueListenable: widget.controller,
           builder: (context, value, child) {

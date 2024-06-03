@@ -37,7 +37,7 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
     final options = SelectorModalBottomSheetOptions<String>(
       title: modalTitle,
       values: example,
-      builder: (context, value, selectedValue, onChanged) =>
+      builder: (context, value, selectedValue, onChanged , ) =>
           RadioListTileWidget<String>(
         value: value,
         groupValue: selectedValue,
@@ -48,6 +48,7 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
       showButton: showButton,
       buttonText: buttonText,
       clearButtonText: clearButton,
+     
     );
 
     return Scaffold(

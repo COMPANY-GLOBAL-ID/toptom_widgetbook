@@ -34,7 +34,7 @@ class ItemSelectorScreen extends StatelessWidget {
     final options = SelectorModalBottomSheetOptions<String>(
       title: modalTitle,
       values: example,
-      builder: (context, value, selectedValue, onChanged) =>
+      builder: (context, value, selectedValue, onChanged , ) =>
           RadioListTileWidget<String>(
         value: value,
         groupValue: selectedValue,

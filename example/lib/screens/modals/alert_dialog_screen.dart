@@ -7,11 +7,13 @@ class AlertDialogScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String alertWithoutAction = context.knobs.string(label: 'without action bar' , initialValue: 'content');
-    final String alertWithAction = context.knobs.string(label: 'with action bar' , initialValue: 'content');
+    final String alertWithoutAction = context.knobs
+        .string(label: 'without action bar', initialValue: 'content');
+    final String alertWithAction =
+        context.knobs.string(label: 'with action bar', initialValue: 'content');
     return Scaffold(
       body: Padding(
-        padding:  EdgeInsets.all(ThemeCore.of(context).padding.xl),
+        padding: EdgeInsets.all(ThemeCore.of(context).padding.xl),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -21,9 +23,9 @@ class AlertDialogScreen extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return  AlertDialogWidget(
+                    return AlertDialogWidget(
                       borderRadius: 26,
-                      contentWidget:  Text(alertWithAction),
+                      contentWidget: Text(alertWithAction),
                       titleText: 'Alert dialog',
                       actionsWidget: const Row(
                         children: [
@@ -51,7 +53,7 @@ class AlertDialogScreen extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return  AlertDialogWidget(
+                    return AlertDialogWidget(
                       contentWidget: Text(alertWithoutAction),
                       titleText: 'Alert dialog',
                     );

@@ -13,7 +13,7 @@ class DatePickerScreen extends StatelessWidget {
     final ValueNotifier<String> updatedBirthday =
         ValueNotifier<String>(DateFormat('yyyy-MM-dd').format(DateTime.now()));
 
-    void _showDatePickerModal(BuildContext context) {
+    void showDatePickerModal(BuildContext context) {
       final BaseModalBottomSheetOptions options = BaseModalBottomSheetOptions(
         builder: (BuildContext innerContext) {
           return CustomDatePicker(updatedDate: updatedBirthday);
@@ -40,7 +40,7 @@ class DatePickerScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ButtonWidget(
-              onPressed: () => _showDatePickerModal(context),
+              onPressed: () => showDatePickerModal(context),
               child: Text(text),
             ),
           ],

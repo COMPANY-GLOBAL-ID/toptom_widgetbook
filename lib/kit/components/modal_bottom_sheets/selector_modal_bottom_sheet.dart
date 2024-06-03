@@ -13,13 +13,12 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
         Navigator.of(context).pop();
       };
 
-  _back(BuildContext context) => () {
-        if (options.onPressed != null) {
-          options.onPressed!();
+  _confirmSelection(BuildContext context) => () {
+        if (options.temporaryValue.value != null) {
+          options.controller.change(options.temporaryValue.value);
+          Navigator.of(context).pop();
         }
-        Navigator.of(context).pop();
       };
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,7 +42,7 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                     )
                   : TextButton(
                       onPressed: options.controller.clear,
-                      child: Text(options.clearButtonText!),
+                      child: Text(options.clearButtonText ?? ''),
                     ),
             ],
           ),
@@ -51,17 +50,18 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
             height: ThemeCore.of(context).padding.l,
           ),
           ValueListenableBuilder<T?>(
-            valueListenable: options.controller,
+            valueListenable: options.temporaryValue,
             builder: (context, value, child) {
               return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: options.values.length,
-                  itemBuilder: (context, index) => options.builder!(
-                        context,
-                        options.values[index],
-                        value,
-                        (val) => options.controller.change(val),
-                      ));
+                shrinkWrap: true,
+                itemCount: options.values.length,
+                itemBuilder: (context, index) => options.builder!(
+                  context,
+                  options.values[index],
+                  value,
+                  (val) => options.temporaryValue.value = val,
+                ),
+              );
             },
           ),
           SizedBox(
@@ -72,7 +72,7 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: ButtonWidget(
-                      onPressed: _back(context),
+                      onPressed: _confirmSelection(context),
                       child: Text(
                         options.buttonText!,
                         style: ThemeCore.of(context)

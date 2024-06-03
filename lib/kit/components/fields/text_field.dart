@@ -26,6 +26,8 @@ class TextFieldWidget extends StatelessWidget {
   final bool? isCollapsed;
   final FocusNode? focusNode;
   final String? obscureText;
+  final TextAlign textAlign;
+  final InputBorder? inputBorder;
 
   const TextFieldWidget({
     super.key,
@@ -41,6 +43,7 @@ class TextFieldWidget extends StatelessWidget {
     this.errorText,
     this.keyboardType,
     this.maxLines = 1,
+    this.textAlign = TextAlign.start,
     this.minLines = 1,
     this.inputFormatters,
     this.isDense = false,
@@ -50,6 +53,7 @@ class TextFieldWidget extends StatelessWidget {
     this.suffix,
     this.isCollapsed,
     this.focusNode,
+    this.inputBorder,
     this.obscureText,
   });
 
@@ -96,6 +100,7 @@ class TextFieldWidget extends StatelessWidget {
           const SizedBox(height: 5)
         ],
         TextField(
+          textAlign: textAlign,
           keyboardType: keyboardType,
           enabled: enabled,
           onSubmitted: onSubmit,
@@ -138,10 +143,10 @@ class TextFieldWidget extends StatelessWidget {
               ),
               borderSide: BorderSide.none,
             ),
-            enabledBorder: border,
-            focusedBorder: border,
-            focusedErrorBorder: border,
-            border: border,
+            enabledBorder: inputBorder ?? border,
+            focusedBorder: inputBorder ?? border,
+            focusedErrorBorder: inputBorder ?? border,
+            border: inputBorder ?? border,
           ),
         ),
       ],
@@ -249,6 +254,9 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    InputBorder? inputBorder,
+    List<TextInputFormatter>? inputFormatters,
+    TextAlign textAlign = TextAlign.start,
   }) {
     return TextFieldWidget(
       key: key,
@@ -258,17 +266,20 @@ class TextFieldWidget extends StatelessWidget {
       errorText: errorText,
       isRequired: isRequired,
       suffixIcon: suffixIcon,
+      textAlign: textAlign,
       prefixIcon: prefixIcon,
       onSubmit: onSubmit,
       keyboardType: TextInputType.number,
       enabled: enabled,
       maxLength: maxLength,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly,
+      ],
       filled: filled,
       isCollapsed: isCollapsed,
       isDense: isDense,
       fillColor: fillColor,
       focusNode: focusNode,
+      inputBorder: inputBorder,
     );
   }
 

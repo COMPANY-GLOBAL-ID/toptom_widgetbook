@@ -95,7 +95,7 @@ class _GalleryMaterialState extends State<GalleryWidget> {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.7),
+        color: ThemeCore.of(context).color.scheme.textPrimary.withOpacity(0.7),
       ),
       child: Stack(
         children: [

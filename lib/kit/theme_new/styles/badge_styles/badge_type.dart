@@ -19,7 +19,7 @@ enum BadgeType {
 
   Color toForeground(BuildContext context, BadgeColor color) {
     return switch (this) {
-      BadgeType.primary => Colors.white,
+      BadgeType.primary => ThemeCore.of(context).color.scheme.white,
       BadgeType.secondary => color.toColor(context),
       BadgeType.outlined => color.toColor(context),
     };

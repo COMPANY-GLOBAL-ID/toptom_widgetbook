@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+
+import '../../../toptom_widgetbook.dart';
 
 class CustomDatePicker extends StatelessWidget {
   final ValueNotifier<String> updatedDate;
@@ -13,7 +14,8 @@ class CustomDatePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(12)),
+          color: ThemeCore.of(context).color.scheme.white,
+          borderRadius: BorderRadius.circular(12)),
       height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
         children: [

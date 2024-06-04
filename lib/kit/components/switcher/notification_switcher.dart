@@ -30,7 +30,7 @@ class NotificationSwitcher extends StatelessWidget {
           valueListenable: valueNotifier,
           builder: (context, value, child) {
             return Switch(
-              inactiveThumbColor: Colors.white,
+              inactiveThumbColor: ThemeCore.of(context).color.scheme.white,
               inactiveTrackColor:
                   ThemeCore.of(context).color.scheme.overlayAlpha,
               activeTrackColor: ThemeCore.of(context).color.scheme.main,

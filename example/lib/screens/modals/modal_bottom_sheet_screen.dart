@@ -66,7 +66,7 @@ class ModalBottomSheetScreen extends StatelessWidget {
                 style: ThemeCore.of(context)
                     .typography
                     .paragraphMedium
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: ThemeCore.of(context).color.scheme.white),
               ),
             ),
           ),

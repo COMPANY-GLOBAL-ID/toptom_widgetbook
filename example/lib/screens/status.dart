@@ -13,7 +13,10 @@ class StatusPage extends StatelessWidget {
             height: 20,
           ),
           StatusWidget(
-            icon: const Icon(ToptomIcons.category, color: Colors.white),
+            icon: const Icon(
+              ToptomIcons.category,
+              color: ThemeCore.of(context).color.scheme.white,
+            ),
             title: "В данной категории отсуствую товары",
             description:
                 "К сожалению, ваша корзина пуста. Пожалуйста добавьте товары, чтобы завершить покупку",

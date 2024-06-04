@@ -29,7 +29,7 @@ class AlertDialogWidget extends StatelessWidget {
           insetPadding ?? EdgeInsets.all(ThemeCore.of(context).padding.xl),
       contentPadding:
           contentPadding ?? EdgeInsets.all(ThemeCore.of(context).padding.xl),
-      backgroundColor: Colors.white,
+      backgroundColor: ThemeCore.of(context).color.scheme.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           borderRadius ?? ThemeCore.of(context).radius.extraLarge4,

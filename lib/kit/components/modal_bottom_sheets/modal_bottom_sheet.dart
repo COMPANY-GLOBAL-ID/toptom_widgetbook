@@ -17,7 +17,8 @@ class ModalBottomSheet {
               ThemeCore.of(context).radius.extraLarge),
         ),
       ),
-      backgroundColor: baseOption?.backgroundColor ?? Colors.white,
+      backgroundColor: baseOption?.backgroundColor ??
+          ThemeCore.of(context).color.scheme.white,
       useRootNavigator: baseOption?.useRootNavigator ?? true,
       useSafeArea: baseOption?.useSafeArea ?? true,
       isScrollControlled: true,
@@ -38,7 +39,8 @@ class ModalBottomSheet {
           ),
         ),
       ),
-      backgroundColor: baseOption?.backgroundColor ?? Colors.white,
+      backgroundColor: baseOption?.backgroundColor ??
+          ThemeCore.of(context).color.scheme.white,
       useRootNavigator: baseOption?.useRootNavigator ?? true,
       useSafeArea: baseOption?.useSafeArea ?? true,
       isScrollControlled: baseOption?.isScrollControlled ?? true,

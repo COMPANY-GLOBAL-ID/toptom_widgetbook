@@ -27,8 +27,8 @@ enum NotificationColor {
       NotificationColor.success ||
       NotificationColor.error ||
       NotificationColor.warning =>
-        Colors.white,
-      NotificationColor.ghost => Colors.black,
+        ThemeCore.of(context).color.scheme.white,
+      NotificationColor.ghost => ThemeCore.of(context).color.scheme.textPrimary,
       NotificationColor.information => color.informationText,
     };
   }

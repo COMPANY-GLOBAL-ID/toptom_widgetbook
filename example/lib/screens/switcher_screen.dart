@@ -20,7 +20,8 @@ class SwitcherScreen extends StatelessWidget {
             NotificationSwitcher(
                 notificationDescription: 'Initial text',
                 valueNotifier: valueNotifier,
-                textStyle: const TextStyle(color: Colors.black)),
+                textStyle: const TextStyle(
+                    color: ThemeCore.of(context).color.scheme.textPrimary)),
           ],
         ),
       ),

@@ -247,7 +247,7 @@ class TextFieldWidget extends StatelessWidget {
     Function(String)? onSubmit,
     int? maxLength,
     bool? enabled,
-    bool? isDense = false,
+    bool? isDense = true,
     bool? isCollapsed = false,
     TextStyle? hintStyle,
     TextStyle? textStyle,
@@ -272,7 +272,8 @@ class TextFieldWidget extends StatelessWidget {
       keyboardType: TextInputType.number,
       enabled: enabled,
       maxLength: maxLength,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly,
+      inputFormatters: [
+        FilteringTextInputFormatter.digitsOnly,
       ],
       filled: filled,
       isCollapsed: isCollapsed,

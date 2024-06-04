@@ -13,7 +13,7 @@ class StatusPage extends StatelessWidget {
             height: 20,
           ),
           StatusWidget(
-            icon: const Icon(
+            icon: Icon(
               ToptomIcons.category,
               color: ThemeCore.of(context).color.scheme.white,
             ),

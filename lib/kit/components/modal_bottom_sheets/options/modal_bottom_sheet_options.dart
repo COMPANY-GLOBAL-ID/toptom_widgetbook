@@ -8,7 +8,7 @@ class ModalBottomSheetOptions<T> {
   final double? borderRadius;
 
   ModalBottomSheetOptions({
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
     this.isScrollControlled = true,
     this.useRootNavigator = true,
     this.useSafeArea = true,

@@ -19,6 +19,13 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
           Navigator.of(context).pop();
         }
       };
+
+  _clear() {
+    if (options.temporaryValue.value != null) {
+      options.temporaryValue.value = null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,7 +48,7 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
                       icon: const Icon(Icons.close),
                     )
                   : TextButton(
-                      onPressed: options.controller.clear,
+                      onPressed: _clear,
                       child: Text(options.clearButtonText ?? ''),
                     ),
             ],

@@ -18,6 +18,7 @@ class ColorSchemeKit {
   final Color backgroundAlpha;
   final Color overlayAlpha;
   final Color success;
+  final Color background;
 
   const ColorSchemeKit(
       {this.main = const Color.fromRGBO(250, 77, 30, 1),
@@ -36,5 +37,6 @@ class ColorSchemeKit {
       this.yellowStar = const Color.fromRGBO(248, 145, 51, 1),
       this.backgroundAlpha = const Color.fromRGBO(248, 248, 248, 1),
       this.success = const Color.fromRGBO(25, 175, 102, 1),
+      this.background = const Color.fromRGBO(251, 251, 251, 1),
       this.overlayAlpha = const Color.fromRGBO(206, 208, 212, 1)});
 }

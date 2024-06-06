@@ -13,7 +13,7 @@ class WidgetbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ThemeCore(
+    return ThemeSwitcher(
       child: Widgetbook.material(
         addons: [
           DeviceFrameAddon(

@@ -52,9 +52,9 @@ class ThemeDataCore {
 }
 
 class ThemeCore extends InheritedWidget {
-  final ThemeDataCore data;
+  ThemeDataCore data;
 
-  const ThemeCore({
+  ThemeCore({
     super.key,
     required super.child,
     this.data = const ThemeDataCore(),
@@ -67,6 +67,43 @@ class ThemeCore extends InheritedWidget {
     return result!;
   }
 
+  static void set(BuildContext context, ThemeDataCore data) {
+    context.dependOnInheritedWidgetOfExactType<ThemeCore>()?.data = data;
+  }
+
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
+  bool updateShouldNotify(ThemeCore oldWidget) => data != oldWidget.data;
+}
+
+class ThemeSwitcher extends StatefulWidget {
+  final ThemeDataCore startData;
+  final Widget child;
+
+  const ThemeSwitcher(
+      {super.key, required this.child, this.startData = const ThemeDataCore()});
+
+  @override
+  _ThemeSwitcherState createState() => _ThemeSwitcherState();
+
+  static _ThemeSwitcherState? of(BuildContext context) {
+    return context.findAncestorStateOfType<_ThemeSwitcherState>();
+  }
+}
+
+class _ThemeSwitcherState extends State<ThemeSwitcher> {
+  ThemeDataCore? _themeData;
+
+  void switchTheme(ThemeDataCore newTheme) {
+    setState(() {
+      _themeData = newTheme;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ThemeCore(
+      data: _themeData ?? widget.startData,
+      child: widget.child,
+    );
+  }
 }

@@ -8,6 +8,7 @@ import '../screens/fields/multi_select_input_screen.dart';
 import '../screens/fields/password_screen.dart';
 import '../screens/screens.dart';
 import '../screens/typography_screen.dart';
+import '../screens/update_theme_screen.dart';
 
 final directories = [
   WidgetbookComponent(
@@ -144,6 +145,15 @@ final directories = [
       WidgetbookUseCase(
         name: 'Badge',
         builder: (context) => const BadgeScreen(),
+      ),
+    ],
+  ),
+  WidgetbookComponent(
+    name: 'THEME',
+    useCases: [
+      WidgetbookUseCase(
+        name: 'Update Theme Screen',
+        builder: (context) => const UpdateThemeScreen(),
       ),
     ],
   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 export 'typography_kit.dart';
@@ -73,6 +74,50 @@ class ThemeCore extends InheritedWidget {
 
   @override
   bool updateShouldNotify(ThemeCore oldWidget) => data != oldWidget.data;
+}
+
+class ThemeController with ChangeNotifier {
+  ThemeDataCore darkTheme;
+  ThemeDataCore defaultTheme;
+  ValueNotifier<ThemeDataCore> _currentTheme;
+
+  ThemeController({required this.defaultTheme, required this.darkTheme})
+      : _currentTheme = ValueNotifier(defaultTheme);
+
+  ValueNotifier<ThemeDataCore> get currentTheme => _currentTheme;
+
+  void loadTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String themeKey = prefs.getString('themeKey') ?? 'default';
+    _currentTheme.value = _getThemeData(themeKey);
+  }
+
+  void switchTheme(String themeKey) async {
+    _currentTheme.value = _getThemeData(themeKey);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('themeKey', themeKey);
+    notifyListeners();
+  }
+
+  ThemeDataCore _getThemeData(String themeKey) {
+    return themeKey == 'dark' ? darkTheme : defaultTheme;
+  }
+}
+
+class ThemeControllerProvider extends InheritedWidget {
+  final ThemeController controller;
+  const ThemeControllerProvider(
+      {super.key, required super.child, required this.controller});
+
+  static ThemeController of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<ThemeControllerProvider>()!
+        .controller;
+  }
+
+  @override
+  bool updateShouldNotify(ThemeControllerProvider oldWidget) =>
+      controller != oldWidget.controller;
 }
 
 class ThemeSwitcher extends StatefulWidget {

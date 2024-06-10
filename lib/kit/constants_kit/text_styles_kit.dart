@@ -58,4 +58,11 @@ class TextStylesKit {
     height: 16 / 12,
     fontSize: 12,
   );
+
+  static const priceStyle = TextStyle(
+    color: ColorKit.colorTextPrimary,
+    fontWeight: FontWeight.w700,
+    fontSize: 18,
+    height: 28 / 18,
+  );
 }

@@ -10,26 +10,19 @@ class UpdateThemeScreen extends StatefulWidget {
 }
 
 class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
-  void _toggle(BuildContext context) {
+  VoidCallback _toggle(BuildContext context) => () {
     ThemeSwitcher.of(context)?.switchTheme(
       darkTheme(),
     );
-  }
+  };
 
   @override
   Widget build(BuildContext context) {
-    return ThemeSwitcher(
-      startData: defaultTheme(),
-      themes: [
-        darkTheme(),
-        defaultTheme(),
-      ],
-      child: Scaffold(
-        backgroundColor: ThemeCore.of(context).color.scheme.background,
-        body: ButtonWidget(
-          onPressed: () => _toggle(context),
-          child: const Text('Toggle Theme'),
-        ),
+    return Scaffold(
+      backgroundColor: ThemeCore.of(context).color.scheme.backgroundSecondary,
+      body: ButtonWidget(
+        onPressed: _toggle(context),
+        child: const Text('Toggle Theme'),
       ),
     );
   }

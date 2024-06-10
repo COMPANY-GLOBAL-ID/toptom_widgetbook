@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toptom_widgetbook/kit/constants_kit/app_const.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 export 'typography_kit.dart';
@@ -98,6 +97,8 @@ class ThemeSwitcher extends StatefulWidget {
 }
 
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
+  static const _themeKey = 'theme_hash';
+
   ThemeDataCore? _themeData;
 
   @override
@@ -109,7 +110,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
 
   void _loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    int storedThemeHash = prefs.getInt(AppConst.themeKey) ?? widget.startData.hashCode;
+    int storedThemeHash = prefs.getInt(_themeKey) ?? widget.startData.hashCode;
     ThemeDataCore? newThemeData = widget.themes.firstWhere(
       (theme) => theme.hashCode == storedThemeHash,
       orElse: () => widget.startData,
@@ -123,15 +124,15 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   }
 
   void switchTheme(ThemeDataCore newTheme) {
-      setState(() {
-        _themeData = newTheme;
-      });
+
+      _themeData = newTheme;
       _saveTheme(newTheme.hashCode);
+      setState(() {});
   }
 
   void _saveTheme(int themeHash) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(AppConst.themeKey, themeHash);
+    await prefs.setInt(_themeKey, themeHash);
   }
 
   @override

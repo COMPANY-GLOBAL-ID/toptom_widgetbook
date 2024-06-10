@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toptom_widgetbook/kit/constants_kit/app_const.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 export 'typography_kit.dart';
@@ -76,56 +77,17 @@ class ThemeCore extends InheritedWidget {
   bool updateShouldNotify(ThemeCore oldWidget) => data != oldWidget.data;
 }
 
-class ThemeController with ChangeNotifier {
-  ThemeDataCore darkTheme;
-  ThemeDataCore defaultTheme;
-  ValueNotifier<ThemeDataCore> _currentTheme;
-
-  ThemeController({required this.defaultTheme, required this.darkTheme})
-      : _currentTheme = ValueNotifier(defaultTheme);
-
-  ValueNotifier<ThemeDataCore> get currentTheme => _currentTheme;
-
-  void loadTheme() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String themeKey = prefs.getString('themeKey') ?? 'default';
-    _currentTheme.value = _getThemeData(themeKey);
-  }
-
-  void switchTheme(String themeKey) async {
-    _currentTheme.value = _getThemeData(themeKey);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('themeKey', themeKey);
-    notifyListeners();
-  }
-
-  ThemeDataCore _getThemeData(String themeKey) {
-    return themeKey == 'dark' ? darkTheme : defaultTheme;
-  }
-}
-
-class ThemeControllerProvider extends InheritedWidget {
-  final ThemeController controller;
-  const ThemeControllerProvider(
-      {super.key, required super.child, required this.controller});
-
-  static ThemeController of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<ThemeControllerProvider>()!
-        .controller;
-  }
-
-  @override
-  bool updateShouldNotify(ThemeControllerProvider oldWidget) =>
-      controller != oldWidget.controller;
-}
-
 class ThemeSwitcher extends StatefulWidget {
   final ThemeDataCore startData;
+  final List<ThemeDataCore> themes;
   final Widget child;
 
-  const ThemeSwitcher(
-      {super.key, required this.child, this.startData = const ThemeDataCore()});
+  const ThemeSwitcher({
+    super.key,
+    required this.child,
+    this.startData = const ThemeDataCore(),
+    this.themes = const [ThemeDataCore()],
+  });
 
   @override
   _ThemeSwitcherState createState() => _ThemeSwitcherState();
@@ -138,10 +100,38 @@ class ThemeSwitcher extends StatefulWidget {
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
   ThemeDataCore? _themeData;
 
+  @override
+  void initState() {
+    super.initState();
+    _themeData = widget.startData;
+    _loadTheme();
+  }
+
+  void _loadTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int storedThemeHash = prefs.getInt(AppConst.themeKey) ?? widget.startData.hashCode;
+    ThemeDataCore? newThemeData = widget.themes.firstWhere(
+      (theme) => theme.hashCode == storedThemeHash,
+      orElse: () => widget.startData,
+    );
+
+    if (mounted) {
+      setState(() {
+        _themeData = newThemeData;
+      });
+    }
+  }
+
   void switchTheme(ThemeDataCore newTheme) {
-    setState(() {
-      _themeData = newTheme;
-    });
+      setState(() {
+        _themeData = newTheme;
+      });
+      _saveTheme(newTheme.hashCode);
+  }
+
+  void _saveTheme(int themeHash) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(AppConst.themeKey, themeHash);
   }
 
   @override
@@ -152,3 +142,5 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
     );
   }
 }
+
+

@@ -1,3 +1,4 @@
+import 'package:example/core/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -14,6 +15,8 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeSwitcher(
+      startData: ThemeDataCore(),
+      themes: [ThemeDataCore(), defaultTheme(), darkTheme()],
       child: Widgetbook.material(
         addons: [
           DeviceFrameAddon(

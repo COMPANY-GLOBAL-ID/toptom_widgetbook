@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 defaultTheme() => const ThemeDataCore(
+      theme: 'default',
       color: ColorKit(
           scheme: ColorSchemeKit(
             main: Color.fromRGBO(84, 83, 249, 1),
@@ -29,6 +30,7 @@ defaultTheme() => const ThemeDataCore(
 darkTheme() {
   const typography = TypographyKit();
   return ThemeDataCore(
+      theme: 'dark',
       color: const ColorKit(
         scheme: ColorSchemeKit(
           main: Color.fromRGBO(84, 83, 249, 1),

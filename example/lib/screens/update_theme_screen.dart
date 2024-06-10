@@ -1,8 +1,6 @@
+import 'package:example/core/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:toptom_widgetbook/kit/components/buttons/button.dart';
-import 'package:toptom_widgetbook/kit/theme_new/theme_core.dart';
-
-import '../core/themes.dart';
+import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
 class UpdateThemeScreen extends StatefulWidget {
   const UpdateThemeScreen({super.key});
@@ -12,13 +10,9 @@ class UpdateThemeScreen extends StatefulWidget {
 }
 
 class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
-  void _toggle() {
-    ThemeDataCore currentTheme = ThemeCore.of(context);
-    if (currentTheme == defaultTheme()) {
-      return ThemeSwitcher.of(context)?.switchTheme(darkTheme());
-    }
-    return ThemeSwitcher.of(context)?.switchTheme(defaultTheme());
-  }
+  VoidCallback _toggle(ThemeDataCore theme, BuildContext context) =>(){
+    ThemeSwitcher.of(context)?.switchTheme(theme);
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +20,15 @@ class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
       backgroundColor: ThemeCore.of(context).color.scheme.backgroundSecondary,
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            ButtonWidget(
-              onPressed: _toggle,
-              child: const Text('Toggle'),
-            )
-          ],
+          children: ThemeSwitcher.data(context)?.themes.map((theme) {
+            return ButtonWidget(
+              onPressed: _toggle(theme, context),
+              child: Text('Theme ${theme.theme}'),
+            );
+          }).toList() ?? [],
+
         ),
-      ),
+      )
     );
   }
 }

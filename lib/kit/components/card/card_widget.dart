@@ -7,6 +7,7 @@ class CardWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final MainAxisSize mainAxisSize;
   final MainAxisAlignment mainAxisAlignment;
+  final Color? backgroundColor;
 
   const CardWidget({
     super.key,
@@ -15,16 +16,18 @@ class CardWidget extends StatelessWidget {
     this.mainAxisSize = MainAxisSize.min,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.padding,
+    this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
+    final defaultBackgroundColor = ThemeCore.of(context).color.scheme.white;
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
           ThemeCore.of(context).radius.extraLarge2,
         ),
-        color: ThemeCore.of(context).color.scheme.white,
+        color: backgroundColor ?? defaultBackgroundColor,
         border: Border.all(
           color: ThemeCore.of(context).color.scheme.overlayPrimary,
         ),

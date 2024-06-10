@@ -97,6 +97,10 @@ class ThemeSwitcher extends StatefulWidget {
   static _ThemeSwitcherState? of(BuildContext context) {
     return context.findAncestorStateOfType<_ThemeSwitcherState>();
   }
+
+  static ThemeSwitcher? data(BuildContext context) {
+    return context.findAncestorWidgetOfExactType<ThemeSwitcher>();
+  }
 }
 
 class _ThemeSwitcherState extends State<ThemeSwitcher> {

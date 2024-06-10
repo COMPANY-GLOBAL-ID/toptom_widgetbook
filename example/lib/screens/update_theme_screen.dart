@@ -10,24 +10,25 @@ class UpdateThemeScreen extends StatefulWidget {
 }
 
 class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
-  bool _isDarkTheme = false;  
-  VoidCallback _toggle(BuildContext context) =>(){
-    setState(() {
-      _isDarkTheme = !_isDarkTheme;  
-      ThemeSwitcher.of(context)?.switchTheme(
-        _isDarkTheme ? darkTheme() : defaultTheme(),
-      );
-    });
+  VoidCallback _toggle(ThemeDataCore theme, BuildContext context) =>(){
+    ThemeSwitcher.of(context)?.switchTheme(theme);
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeCore.of(context).color.scheme.backgroundSecondary,
-      body: ButtonWidget(
-        onPressed: _toggle(context),
-        child: const Text('Toggle Theme'),
-      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: ThemeSwitcher.data(context)?.themes.map((theme) {
+            return ButtonWidget(
+              onPressed: _toggle(theme, context),
+              child: Text('Theme ${theme.theme}'),
+            );
+          }).toList() ?? [],
+
+        ),
+      )
     );
   }
 }

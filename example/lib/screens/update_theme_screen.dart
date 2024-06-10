@@ -10,10 +10,14 @@ class UpdateThemeScreen extends StatefulWidget {
 }
 
 class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
-  VoidCallback _toggle(BuildContext context) => () {
-    ThemeSwitcher.of(context)?.switchTheme(
-      darkTheme(),
-    );
+  bool _isDarkTheme = false;  
+  VoidCallback _toggle(BuildContext context) =>(){
+    setState(() {
+      _isDarkTheme = !_isDarkTheme;  
+      ThemeSwitcher.of(context)?.switchTheme(
+        _isDarkTheme ? darkTheme() : defaultTheme(),
+      );
+    });
   };
 
   @override

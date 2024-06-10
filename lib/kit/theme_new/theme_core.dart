@@ -14,7 +14,7 @@ class ThemeDataCore {
   final BorderKit border;
   final RadiusKit radius;
   final PaddingKit padding;
-
+  final String theme;
   const ThemeDataCore({
     this.padding = const PaddingKit(),
     this.typography = const TypographyKit(),
@@ -35,6 +35,7 @@ class ThemeDataCore {
       ),
     ),
     this.radius = const RadiusKit(),
+    this.theme='default'
   });
 
   ThemeDataCore copyWith({
@@ -42,12 +43,14 @@ class ThemeDataCore {
     ColorKit? color,
     BorderKit? border,
     RadiusKit? radius,
+    String ?theme
   }) {
     return ThemeDataCore(
       typography: typography ?? this.typography,
       color: color ?? this.color,
       border: border ?? this.border,
       radius: radius ?? this.radius,
+      theme: theme??this.theme,
     );
   }
 }
@@ -84,8 +87,8 @@ class ThemeSwitcher extends StatefulWidget {
   const ThemeSwitcher({
     super.key,
     required this.child,
-    this.startData = const ThemeDataCore(),
-    this.themes = const [ThemeDataCore()],
+    this.startData = const ThemeDataCore(theme: 'default'),
+    this.themes = const [],
   });
 
   @override
@@ -97,7 +100,7 @@ class ThemeSwitcher extends StatefulWidget {
 }
 
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
-  static const _themeKey = 'theme_hash';
+  static const _themeKey = 'theme_name';
 
   ThemeDataCore? _themeData;
 
@@ -110,9 +113,9 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
 
   void _loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    int storedThemeHash = prefs.getInt(_themeKey) ?? widget.startData.hashCode;
+    String themeName = prefs.getString(_themeKey) ?? widget.startData.theme;
     ThemeDataCore? newThemeData = widget.themes.firstWhere(
-      (theme) => theme.hashCode == storedThemeHash,
+      (theme) => theme.theme== themeName,
       orElse: () => widget.startData,
     );
 
@@ -124,15 +127,17 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   }
 
   void switchTheme(ThemeDataCore newTheme) {
-
-      _themeData = newTheme;
-      _saveTheme(newTheme.hashCode);
-      setState(() {});
+    if (mounted) {
+      setState(() {
+        _themeData = newTheme;
+        _saveTheme(newTheme.theme);
+      });
+    }
   }
 
-  void _saveTheme(int themeHash) async {
+  void _saveTheme(String themeName) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(_themeKey, themeHash);
+    await prefs.setString(_themeKey, themeName);
   }
 
   @override
@@ -143,5 +148,3 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
     );
   }
 }
-
-

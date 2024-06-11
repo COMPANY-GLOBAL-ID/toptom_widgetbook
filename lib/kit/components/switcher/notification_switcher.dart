@@ -31,12 +31,13 @@ class NotificationSwitcher extends StatelessWidget {
           builder: (context, value, child) {
             return Switch(
               inactiveThumbColor: ThemeCore.of(context).color.scheme.white,
-              thumbColor: MaterialStateProperty.all(ThemeCore.of(context).color.scheme.white),
+              thumbColor: WidgetStateProperty.all(
+                  ThemeCore.of(context).color.scheme.white),
               inactiveTrackColor:
                   ThemeCore.of(context).color.scheme.overlayAlpha,
               activeTrackColor: ThemeCore.of(context).color.scheme.main,
               materialTapTargetSize: MaterialTapTargetSize.padded,
-              trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
+              trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
               value: value,
               onChanged: (newValue) {
                 valueNotifier.value = newValue;

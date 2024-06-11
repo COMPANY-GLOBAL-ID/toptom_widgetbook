@@ -22,7 +22,12 @@ class MultiSelectInputScreen extends StatelessWidget {
             hint: hint == null ? null : Text(hint),
             label: label,
             errorText: error,
-            items: const [Icons.access_time, Icons.add, Icons.access_alarm , Icons.abc],
+            items: const [
+              Icons.access_time,
+              Icons.add,
+              Icons.access_alarm,
+              Icons.abc
+            ],
             builder: (icon, hasError) {
               return DropdownMenuItem<IconData>(value: icon, child: Icon(icon));
             },

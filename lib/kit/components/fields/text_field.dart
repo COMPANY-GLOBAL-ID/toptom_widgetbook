@@ -28,6 +28,7 @@ class TextFieldWidget extends StatelessWidget {
   final String? obscureText;
   final TextAlign textAlign;
   final InputBorder? inputBorder;
+  final double? contentPadding;
 
   const TextFieldWidget({
     super.key,
@@ -55,6 +56,7 @@ class TextFieldWidget extends StatelessWidget {
     this.focusNode,
     this.inputBorder,
     this.obscureText,
+    this.contentPadding,
   });
 
   static final MaskTextInputFormatter _phoneMask = MaskTextInputFormatter(
@@ -136,7 +138,7 @@ class TextFieldWidget extends StatelessWidget {
             ),
             isDense: isDense,
             isCollapsed: isCollapsed,
-            contentPadding: EdgeInsets.all(ThemeCore.of(context).padding.l),
+            contentPadding: EdgeInsets.all(contentPadding ?? ThemeCore.of(context).padding.l),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                 radius,
@@ -173,6 +175,7 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    double? contentPadding
   }) {
     return TextFieldWidget(
       key: key,
@@ -191,6 +194,7 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       filled: filled,
       fillColor: fillColor,
+      contentPadding: contentPadding,
       focusNode: focusNode,
     );
   }
@@ -214,6 +218,7 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    double? contentPadding
   }) {
     return TextFieldWidget(
       key: key,
@@ -232,6 +237,7 @@ class TextFieldWidget extends StatelessWidget {
       isCollapsed: isCollapsed,
       isDense: isDense,
       focusNode: focusNode,
+      contentPadding: contentPadding,
     );
   }
 
@@ -257,6 +263,7 @@ class TextFieldWidget extends StatelessWidget {
     InputBorder? inputBorder,
     List<TextInputFormatter>? inputFormatters,
     TextAlign textAlign = TextAlign.start,
+    double? contentPadding
   }) {
     return TextFieldWidget(
       key: key,
@@ -281,6 +288,7 @@ class TextFieldWidget extends StatelessWidget {
       fillColor: fillColor,
       focusNode: focusNode,
       inputBorder: inputBorder,
+      contentPadding: contentPadding,
     );
   }
 
@@ -302,6 +310,7 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    double? contentPadding
   }) {
     return TextFieldWidget(
       key: key,
@@ -321,6 +330,7 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       fillColor: fillColor,
       focusNode: focusNode,
+      contentPadding: contentPadding,
     );
   }
 
@@ -342,6 +352,7 @@ class TextFieldWidget extends StatelessWidget {
     bool? filled,
     Color? fillColor,
     FocusNode? focusNode,
+    double? contentPadding
   }) {
     return TextFieldWidget(
       key: key,
@@ -361,6 +372,7 @@ class TextFieldWidget extends StatelessWidget {
       isDense: isDense,
       fillColor: fillColor,
       focusNode: focusNode,
+      contentPadding: contentPadding,
     );
   }
 
@@ -384,6 +396,7 @@ class TextFieldWidget extends StatelessWidget {
     Color? fillColor,
     FocusNode? focusNode,
     obscureText = '*',
+    double? contentPadding,
   }) {
     return TextFieldWidget(
       key: key,
@@ -404,6 +417,7 @@ class TextFieldWidget extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: TextInputType.visiblePassword,
       obscureText: obscureText,
+      contentPadding: contentPadding,
     );
   }
 }

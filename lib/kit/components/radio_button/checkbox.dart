@@ -55,8 +55,7 @@ class CheckboxListTileWidget extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         controlAffinity: ListTileControlAffinity.leading,
         checkColor: ThemeCore.of(context).color.scheme.white,
-        fillColor:
-            WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+        fillColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
           if (states.contains(WidgetState.selected)) {
             return ThemeCore.of(context).color.scheme.main;
           }

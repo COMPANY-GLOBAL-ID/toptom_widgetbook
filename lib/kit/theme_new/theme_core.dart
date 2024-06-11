@@ -79,8 +79,11 @@ class ThemeSwitcher extends StatefulWidget {
   final ThemeDataCore startData;
   final Widget child;
 
-  const ThemeSwitcher(
-      {super.key, required this.child, this.startData = const ThemeDataCore()});
+  const ThemeSwitcher({
+    super.key,
+    required this.child,
+    this.startData = const ThemeDataCore(),
+  });
 
   @override
   _ThemeSwitcherState createState() => _ThemeSwitcherState();
@@ -91,18 +94,17 @@ class ThemeSwitcher extends StatefulWidget {
 }
 
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
-  ThemeDataCore? _themeData;
+  ThemeDataCore? data;
 
   void switchTheme(ThemeDataCore newTheme) {
-    setState(() {
-      _themeData = newTheme;
-    });
+    data = newTheme;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return ThemeCore(
-      data: _themeData ?? widget.startData,
+      data: data ?? widget.startData,
       child: widget.child,
     );
   }

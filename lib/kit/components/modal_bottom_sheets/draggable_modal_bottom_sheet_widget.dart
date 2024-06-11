@@ -7,10 +7,10 @@ class DraggableModalBottomSheetWidget extends StatefulWidget {
 
   @override
   State<DraggableModalBottomSheetWidget> createState() =>
-      _DraggableModalBottomSheetWidgetState();
+      _DraggableModalBottomSheetMaterialState();
 }
 
-class _DraggableModalBottomSheetWidgetState
+class _DraggableModalBottomSheetMaterialState
     extends State<DraggableModalBottomSheetWidget> {
   late DraggableScrollableController _draggableScrollableController;
   final _sheet = GlobalKey();

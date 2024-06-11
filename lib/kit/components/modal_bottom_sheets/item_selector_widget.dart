@@ -10,10 +10,10 @@ class ItemSelectorWidget<T> extends StatefulWidget {
   });
 
   @override
-  _ItemSelectorWidgetState<T> createState() => _ItemSelectorWidgetState<T>();
+  _ItemSelectorMaterialState<T> createState() => _ItemSelectorMaterialState<T>();
 }
 
-class _ItemSelectorWidgetState<T> extends State<ItemSelectorWidget<T>> {
+class _ItemSelectorMaterialState<T> extends State<ItemSelectorWidget<T>> {
   @override
   void initState() {
     super.initState();

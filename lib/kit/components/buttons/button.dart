@@ -8,9 +8,9 @@ class ButtonWidget extends StatelessWidget {
   final ButtonType type;
   final ButtonColor color;
   final VoidCallback? onPressed;
-  final WidgetStateProperty<Color>? backgroundColor;
-  final WidgetStateProperty<Color>? foregroundColor;
-  final WidgetStateProperty<Color>? overlayColor;
+  final MaterialStateProperty<Color>? backgroundColor;
+  final MaterialStateProperty<Color>? foregroundColor;
+  final MaterialStateProperty<Color>? overlayColor;
   final double elevation;
   final bool? isLoading;
 
@@ -32,42 +32,42 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: isLoading == true ? () {} : onPressed,
       style: ButtonStyle(
-        elevation: WidgetStatePropertyAll<double>(elevation),
+        elevation: MaterialStatePropertyAll<double>(elevation),
         backgroundColor: backgroundColor ??
-            WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
-              if (states.contains(WidgetState.disabled)) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
                 return type.backgroundDisable(color, context);
               }
               return type.background(color, context);
             }),
         foregroundColor: foregroundColor ??
-            WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
-              if (states.contains(WidgetState.disabled)) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
                 return type.foregroundDisable(color, context);
               }
-              if (states.contains(WidgetState.pressed)) {
+              if (states.contains(MaterialState.pressed)) {
                 return type.foregroundPressed(color, context);
               }
               return type.foreground(color, context);
             }),
         overlayColor: overlayColor ??
-            WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
-              if (states.contains(WidgetState.pressed)) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
                 return type.backgroundPressed(color, context);
               }
-              if (states.contains(WidgetState.disabled)) {
+              if (states.contains(MaterialState.disabled)) {
                 return Colors.transparent;
               }
               return Colors.transparent;
             }),
-        shape: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+        shape: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
           late Color foregroundColor;
-          if (states.contains(WidgetState.pressed)) {
+          if (states.contains(MaterialState.pressed)) {
             foregroundColor = type.borderColorPressed(color, context);
-          } else if (states.contains(WidgetState.disabled)) {
+          } else if (states.contains(MaterialState.disabled)) {
             foregroundColor = type.disableBorderColor(color, context);
           } else {
             foregroundColor = type.borderColor(color, context);
@@ -81,20 +81,20 @@ class ButtonWidget extends StatelessWidget {
           );
         }),
         iconColor: foregroundColor ??
-            WidgetStateProperty.resolveWith<Color>(
-                (Set<WidgetState> states) {
-              if (states.contains(WidgetState.disabled)) {
+            MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
                 return type.foregroundDisable(color, context);
               }
-              if (states.contains(WidgetState.pressed)) {
+              if (states.contains(MaterialState.pressed)) {
                 return type.foregroundPressed(color, context);
               }
               return type.foreground(color, context);
             }),
-        iconSize: WidgetStatePropertyAll<double>(size.iconSize()),
-        textStyle: WidgetStatePropertyAll<TextStyle>(size.textStyle(context)),
+        iconSize: MaterialStatePropertyAll<double>(size.iconSize()),
+        textStyle: MaterialStatePropertyAll<TextStyle>(size.textStyle(context)),
         padding:
-            WidgetStatePropertyAll<EdgeInsetsGeometry>(size.padding(context)),
+            MaterialStatePropertyAll<EdgeInsetsGeometry>(size.padding(context)),
       ),
       child: isLoading == true
           ? CupertinoActivityIndicator(

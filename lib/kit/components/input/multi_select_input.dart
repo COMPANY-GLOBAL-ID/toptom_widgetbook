@@ -49,16 +49,20 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
 
   _listenController() {
     if (singleController.value == null) return;
-    if (widget.maxItemCount != null) {
-      if (widget.controller.value.length >= widget.maxItemCount!) {
-        snackBarBuilder(
-            context,
-            SnackBarOptions(
-              title: widget.snackBarText,
-            ));
-        singleController.clear();
-      }
+
+    if (widget.maxItemCount != null &&
+        widget.controller.value.length >= widget.maxItemCount!) {
+      snackBarBuilder(
+        context,
+        SnackBarOptions(
+          title: widget.snackBarText,
+        ),
+      );
+
+      singleController.clear();
+      return;
     }
+
     widget.controller.add(singleController.value as T);
     singleController.clear();
   }

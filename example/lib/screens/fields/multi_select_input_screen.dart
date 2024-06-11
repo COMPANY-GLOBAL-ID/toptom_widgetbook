@@ -18,10 +18,11 @@ class MultiSelectInputScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           MultiSelectInput(
+            maxItemCount: 2,
             hint: hint == null ? null : Text(hint),
             label: label,
             errorText: error,
-            items: const [Icons.access_time, Icons.add, Icons.access_alarm],
+            items: const [Icons.access_time, Icons.add, Icons.access_alarm , Icons.abc],
             builder: (icon, hasError) {
               return DropdownMenuItem<IconData>(value: icon, child: Icon(icon));
             },

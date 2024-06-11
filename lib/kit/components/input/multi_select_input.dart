@@ -9,20 +9,21 @@ class MultiSelectInput<T> extends StatefulWidget {
   final DropdownMenuItem<T> Function(T, bool hasError) builder;
   final Widget Function(T) builderChip;
   final String? errorText;
-
+  final int? maxItemCount;
   final MultiSelectController<T> controller;
-
-  const MultiSelectInput({
-    super.key,
-    required this.items,
-    required this.controller,
-    this.hint,
-    required this.builder,
-    required this.builderChip,
-    this.label,
-    this.clearText,
-    this.errorText,
-  });
+  final String snackBarText;
+  const MultiSelectInput(
+      {super.key,
+      required this.items,
+      required this.controller,
+      this.hint,
+      required this.builder,
+      required this.builderChip,
+      this.label,
+      this.clearText,
+      this.errorText,
+      this.maxItemCount,
+      this.snackBarText = ''});
 
   @override
   State<MultiSelectInput<T>> createState() => _MultiSelectInputState<T>();
@@ -48,6 +49,16 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
 
   _listenController() {
     if (singleController.value == null) return;
+    if (widget.maxItemCount != null) {
+      if (widget.controller.value.length >= widget.maxItemCount!) {
+        snackBarBuilder(
+            context,
+            SnackBarOptions(
+              title: widget.snackBarText,
+            ));
+        singleController.clear();
+      }
+    }
     widget.controller.add(singleController.value as T);
     singleController.clear();
   }

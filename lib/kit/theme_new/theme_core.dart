@@ -106,12 +106,12 @@ class ThemeSwitcher extends StatefulWidget {
 class _ThemeSwitcherState extends State<ThemeSwitcher> {
   static const _themeKey = 'theme_name';
 
-  ThemeDataCore? _themeData;
+  ThemeDataCore? data;
 
   @override
   void initState() {
     super.initState();
-    _themeData = widget.startData;
+    data = widget.startData;
     _loadTheme();
   }
 
@@ -125,7 +125,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
 
     if (mounted) {
       setState(() {
-        _themeData = newThemeData;
+        data = newThemeData;
       });
     }
   }
@@ -133,7 +133,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   void switchTheme(ThemeDataCore newTheme) {
     if (mounted) {
       setState(() {
-        _themeData = newTheme;
+        data = newTheme;
         _saveTheme(newTheme.theme);
       });
     }
@@ -147,7 +147,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   @override
   Widget build(BuildContext context) {
     return ThemeCore(
-      data: _themeData ?? widget.startData,
+      data: data ?? widget.startData,
       child: widget.child,
     );
   }

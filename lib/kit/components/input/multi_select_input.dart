@@ -74,8 +74,8 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
       children: [
         Visibility(
           visible: widget.errorText != null,
-          child: const SizedBox(
-            height: 8,
+          child:  SizedBox(
+            height: ThemeCore.of(context).padding.ms,
           ),
         ),
         ValueListenableBuilder(
@@ -135,10 +135,10 @@ class _MultiSelectInputState<T> extends State<MultiSelectInput<T>> {
                     controller: singleController,
                   ),
                 ),
-                const SizedBox(height: 8),
+                 SizedBox(height: ThemeCore.of(context).padding.ms),
                 Wrap(
                   crossAxisAlignment: WrapCrossAlignment.start,
-                  spacing: 8,
+                  spacing: ThemeCore.of(context).padding.ms,
                   children:
                       widget.controller.value.map(widget.builderChip).toList(),
                 )

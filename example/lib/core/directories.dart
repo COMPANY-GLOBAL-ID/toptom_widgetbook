@@ -1,4 +1,6 @@
 import 'package:example/screens/drawer_screen.dart';
+import 'package:example/screens/fields/inside_input_screen.dart';
+import 'package:example/screens/fields/multi_select_drop_down_screen.dart';
 import 'package:example/screens/gallery.dart';
 import 'package:example/screens/status_page_screen.dart';
 import 'package:example/screens/switcher_screen.dart';
@@ -137,6 +139,15 @@ final directories = [
         name: 'Double Input',
         builder: (context) => DoubleInputScreen(),
       ),
+      WidgetbookUseCase(
+        name: 'Mutli Select Drop Down',
+        builder: (context) => const MultiSelectDropDownScreen(),
+      ),
+        WidgetbookUseCase(
+        name: 'Inside Input ',
+        builder: (context) => const InsideInputScreen(),
+      ),
+      
     ],
   ),
   WidgetbookComponent(

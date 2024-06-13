@@ -52,13 +52,14 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
     final TextStyle paragraphSmall =
         ThemeCore.of(context).typography.paragraphSmall;
     final double radius = ThemeCore.of(context).radius.extraLarge;
+    final size = ThemeCore.of(context).padding;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Visibility(
           visible: hasErrorText,
-          child: const SizedBox(
-            height: 8,
+          child: SizedBox(
+            height: size.ms,
           ),
         ),
         DefaultTextStyle(
@@ -71,14 +72,14 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
             child: Column(
               children: [
                 widget.label ?? const Offstage(),
-                const SizedBox(height: 5),
+                SizedBox(height: size.s),
               ],
             ),
           ),
         ),
         ValueListenableBuilder(
           valueListenable: widget.controller,
-          builder: (context, value, child) {
+           builder: (context, value, child) {
             return DropdownButtonHideUnderline(
               child: DropdownButton2<T>(
                 selectedItemBuilder: (context) {
@@ -102,9 +103,9 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
                   child: widget.hint ?? const Offstage(),
                 ),
                 buttonStyleData: ButtonStyleData(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 5.5,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: size.m,
+                    vertical: size.s,
                   ),
                   elevation: 0,
                   decoration: BoxDecoration(
@@ -126,11 +127,11 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
                         ? colors.errorPrimary
                         : colors.textSecondary,
                   ),
-                  iconSize: 24,
+                  iconSize: size.xl2,
                 ),
                 dropdownStyleData: DropdownStyleData(
-                  maxHeight: 200,
-                  width: 200,
+                  maxHeight: size.xl6 * 5,
+                  width: size.xl6 * 5,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
                       radius,
@@ -142,14 +143,14 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
                   ),
                   offset: const Offset(0, 0),
                   scrollbarTheme: ScrollbarThemeData(
-                    radius: const Radius.circular(40),
+                    radius:  Radius.circular(ThemeCore.of(context).radius.extraLarge9),
                     thickness: MaterialStateProperty.all<double>(6),
                     thumbVisibility: MaterialStateProperty.all<bool>(true),
                   ),
                 ),
-                menuItemStyleData: const MenuItemStyleData(
-                  height: 40,
-                  padding: EdgeInsets.only(left: 14, right: 14),
+                menuItemStyleData:  MenuItemStyleData(
+                  height: size.xl6,
+                  padding: EdgeInsets.only(left: size.l, right: size.l),
                 ),
               ),
             );
@@ -158,9 +159,9 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
         Visibility(
           visible: hasErrorText,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 16,
+            padding: EdgeInsets.symmetric(
+              vertical: size.ms,
+              horizontal: size.l,
             ),
             child: Text(
               widget.errorText ?? '',

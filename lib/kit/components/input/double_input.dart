@@ -24,6 +24,7 @@ class DoubleInput extends StatefulWidget {
     required this.controller,
     required this.max,
     required this.min,
+    this.contentPadding,
     this.useDecoratedBox =
         true, // Новый параметр для использования DecoratedBox
   });
@@ -43,6 +44,7 @@ class DoubleInput extends StatefulWidget {
   final String? errorText;
   final int? maxEnterLength;
   final InputBorder? inputBorder;
+  final double? contentPadding;
 
   final double max;
   final double min;
@@ -150,6 +152,7 @@ class _DoubleInputState extends State<DoubleInput> {
               hintStyle: widget.hintStyle,
               hintText: widget.minHintText,
               focusNode: _minFocus,
+              contentPadding: widget.contentPadding,
               errorText: widget.errorText,
               inputBorder: widget.inputBorder,
             ),
@@ -175,6 +178,7 @@ class _DoubleInputState extends State<DoubleInput> {
               enabled: widget.enabled,
               hintText: widget.maxHintText,
               hintStyle: widget.hintStyle,
+              contentPadding: widget.contentPadding,
               focusNode: _maxFocus,
               errorText: widget.errorText,
               inputBorder: widget.inputBorder,

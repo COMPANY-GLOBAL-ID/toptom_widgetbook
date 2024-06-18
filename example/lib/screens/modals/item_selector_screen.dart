@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:toptom_widgetbook/kit/components/components.dart';
@@ -52,12 +53,12 @@ class ItemSelectorScreen extends StatelessWidget {
       clearButtonText: clearButton,
     );
 
-    return Scaffold(
-      body: Center(
-        child: ItemSelectorWidget(
+    return ScreenWidget(
+      children: [
+        ItemSelectorWidget(
           options: options,
         ),
-      ),
+      ],
     );
   }
 }

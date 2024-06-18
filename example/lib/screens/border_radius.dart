@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
+import '../helper/screen_widget.dart';
+
 class BorderRadiusScreen extends StatelessWidget {
   const BorderRadiusScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Border radius",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            ...ThemeCore.of(context).radius.values.map((e) {
-              return Column(
-                children: [
-                  _BorderRadiusWidget(
-                    radius: e,
-                    title: 'Radius: ${e}px',
-                  ),
-                  const SizedBox(height: 10),
-                ],
-              );
-            }),
-          ],
+    return ScreenWidget(
+      children: [
+        const Text(
+          "Border radius",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
+        const SizedBox(height: 10),
+        ...ThemeCore.of(context).radius.values.map((e) {
+          return Column(
+            children: [
+              _BorderRadiusWidget(
+                radius: e,
+                title: 'Radius: ${e}px',
+              ),
+              const SizedBox(height: 10),
+            ],
+          );
+        }),
+      ],
     );
   }
 }

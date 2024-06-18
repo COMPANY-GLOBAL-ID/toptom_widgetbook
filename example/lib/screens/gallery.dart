@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
+import '../helper/screen_widget.dart';
+
 class GalleryScreen extends StatelessWidget {
   const GalleryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     print(context);
-    return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return ScreenWidget(
       children: [
         ButtonWidget(
           onPressed: () {
@@ -26,6 +25,6 @@ class GalleryScreen extends StatelessWidget {
           child: const Text('ButtonWidget'),
         ),
       ],
-    ));
+    );
   }
 }

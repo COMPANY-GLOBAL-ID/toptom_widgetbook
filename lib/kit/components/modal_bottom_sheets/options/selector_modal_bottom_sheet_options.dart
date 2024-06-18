@@ -20,6 +20,7 @@ class SelectorModalBottomSheetOptions<T> {
   void Function(T?)? onChanged;
   ValueNotifier<T?> temporaryValue;
   ModalBottomSheetOptions? modalBottomSheetOptions;
+
   SelectorModalBottomSheetOptions({
     required this.title,
     this.builder,

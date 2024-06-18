@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -24,38 +25,30 @@ class NotificationScreen extends StatelessWidget {
       label: 'title',
       initialValue: 'Title',
     );
-    return Scaffold(
-      body: SnackBarScope(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Border radius",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 10),
-              ...SnackBarType.values.map((e) {
-                return ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: e.toBackgroundColor(context),
-                    foregroundColor: e.toForegroundColor(context),
-                  ),
-                  onPressed: _show(
-                      context,
-                      SnackBarOptions(
-                        type: e,
-                        title: title,
-                        message: message,
-                        hasIcon: hasIcon,
-                        hasClose: hasClose,
-                      )),
-                  child: Text('Show notification ${e.name}'),
-                );
-              }),
-            ],
-          ),
-        ),
-      ),
+    return ScreenWidget(
+      children: [
+        const Text("Border radius",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 10),
+        ...SnackBarType.values.map((e) {
+          return ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: e.toBackgroundColor(context),
+              foregroundColor: e.toForegroundColor(context),
+            ),
+            onPressed: _show(
+                context,
+                SnackBarOptions(
+                  type: e,
+                  title: title,
+                  message: message,
+                  hasIcon: hasIcon,
+                  hasClose: hasClose,
+                )),
+            child: Text('Show notification ${e.name}'),
+          );
+        }),
+      ],
     );
   }
 }

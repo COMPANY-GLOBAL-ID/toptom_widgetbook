@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -33,102 +34,96 @@ class InputScreen extends StatelessWidget {
     final int? maxLength = context.knobs.intOrNull.input(label: 'Max Length');
     final int? minLines = context.knobs.intOrNull.input(label: 'Min Lines');
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Input", style: ThemeCore.of(context).typography.h3),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "TextFieldWidget",
-                style: ThemeCore.of(context).typography.paragraphBig,
-              ),
-            ),
-            TextFieldWidget(
-              suffixIcon: prefixIcon,
-              prefixIcon: suffixIcon,
-              label: label,
-              hintText: hint,
-              enabled: enabled,
-              errorText: error,
-              maxLength: maxLength,
-              minLines: minLines,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "TextFieldWidget.description",
-                style: ThemeCore.of(context).typography.paragraphBig,
-              ),
-            ),
-            TextFieldWidget.description(
-              suffixIcon: suffixIcon,
-              prefixIcon: prefixIcon,
-              label: label,
-              hintText: hint,
-              enabled: enabled,
-              errorText: error,
-              maxLength: maxLength,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "TextFieldWidget.phone",
-                style: ThemeCore.of(context).typography.paragraphBig,
-              ),
-            ),
-            TextFieldWidget.phone(
-              hintText: hint,
-              label: label,
-              suffixIcon: suffixIcon,
-              prefixIcon: prefixIcon,
-              errorText: error,
-              enabled: enabled,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "TextFieldWidget.email",
-                style: ThemeCore.of(context).typography.paragraphBig,
-              ),
-            ),
-            TextFieldWidget.email(
-              suffixIcon: suffixIcon,
-              prefixIcon: prefixIcon,
-              hintText: hint,
-              errorText: error,
-              label: label,
-              enabled: enabled,
-              maxLength: maxLength,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "TextFieldWidget.number",
-                style: ThemeCore.of(context).typography.paragraphBig,
-              ),
-            ),
-            TextFieldWidget.number(
-              suffixIcon: suffixIcon,
-              prefixIcon: prefixIcon,
-              hintText: hint,
-              errorText: error,
-              label: label,
-              enabled: enabled,
-              maxLength: maxLength,
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-          ],
+    return ScreenWidget(
+      children: [
+        Text("Input", style: ThemeCore.of(context).typography.h3),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "TextFieldWidget",
+            style: ThemeCore.of(context).typography.paragraphBig,
+          ),
         ),
-      ),
+        TextFieldWidget(
+          suffixIcon: prefixIcon,
+          prefixIcon: suffixIcon,
+          label: label,
+          hintText: hint,
+          enabled: enabled,
+          errorText: error,
+          maxLength: maxLength,
+          minLines: minLines,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "TextFieldWidget.description",
+            style: ThemeCore.of(context).typography.paragraphBig,
+          ),
+        ),
+        TextFieldWidget.description(
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          label: label,
+          hintText: hint,
+          enabled: enabled,
+          errorText: error,
+          maxLength: maxLength,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "TextFieldWidget.phone",
+            style: ThemeCore.of(context).typography.paragraphBig,
+          ),
+        ),
+        TextFieldWidget.phone(
+          hintText: hint,
+          label: label,
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          errorText: error,
+          enabled: enabled,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "TextFieldWidget.email",
+            style: ThemeCore.of(context).typography.paragraphBig,
+          ),
+        ),
+        TextFieldWidget.email(
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          hintText: hint,
+          errorText: error,
+          label: label,
+          enabled: enabled,
+          maxLength: maxLength,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "TextFieldWidget.number",
+            style: ThemeCore.of(context).typography.paragraphBig,
+          ),
+        ),
+        TextFieldWidget.number(
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          hintText: hint,
+          errorText: error,
+          label: label,
+          enabled: enabled,
+          maxLength: maxLength,
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+      ],
     );
   }
 }

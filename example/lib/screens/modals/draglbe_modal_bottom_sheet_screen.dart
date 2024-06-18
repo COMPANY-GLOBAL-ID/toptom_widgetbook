@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -5,7 +6,7 @@ import 'package:widgetbook/widgetbook.dart';
 class DraggableModalBottomSheetScreen extends StatelessWidget {
   const DraggableModalBottomSheetScreen({super.key});
 
-  void _showDraggableSheet(BuildContext innerContext) {
+  VoidCallback _showDraggableSheet(BuildContext innerContext) => () {
     final DraggableModalBottomSheetOptions options =
         DraggableModalBottomSheetOptions(
       childBuilder: (context) => Column(
@@ -29,7 +30,7 @@ class DraggableModalBottomSheetScreen extends StatelessWidget {
       ),
     );
     ModalBottomSheet(innerContext).showDraggable(options);
-  }
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +38,13 @@ class DraggableModalBottomSheetScreen extends StatelessWidget {
       label: 'dragble modal bottom sheet',
       initialValue: 'show dragble modal bottom sheet ',
     );
-    return Scaffold(
-      body: Center(
-        child: ButtonWidget(
-          onPressed: () => _showDraggableSheet(context),
+    return ScreenWidget(
+      children: [
+        ButtonWidget(
+          onPressed: _showDraggableSheet(context),
           child: Text(text),
-        ),
-      ),
+        )
+      ],
     );
   }
 }

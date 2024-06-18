@@ -19,37 +19,52 @@ class _ItemSelectorMaterialState<T> extends State<ItemSelectorWidget<T>> {
     super.initState();
   }
 
-  void _showModalBottomSheet(BuildContext context) {
+  VoidCallback _showModalBottomSheet(BuildContext context) => () {
     ModalBottomSheet(context).showSelectorModal(widget.options);
-  }
+  };
 
   @override
   void dispose() {
     super.dispose();
   }
 
+  //border = OutlineInputBorder(
+  //       borderRadius: BorderRadius.circular(
+  //         radius,
+  //       ),
+  //       borderSide: BorderSide(
+  //         color: color,
+  //         width: 1,
+  //       ),
+  //     )
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _showModalBottomSheet(context),
+      onTap: _showModalBottomSheet(context),
       child: Container(
         padding: EdgeInsets.all(ThemeCore.of(context).padding.m),
         decoration: BoxDecoration(
           borderRadius:
               BorderRadius.circular(ThemeCore.of(context).radius.extraLarge),
           border: Border.all(
-            color: ThemeCore.of(context).color.scheme.strokePrimary,
+            color: ThemeCore.of(context).color.scheme.textSecondary,
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ValueListenableBuilder<T?>(
-              valueListenable: widget.options.controller,
-              builder: (context, value, child) {
-                if (value == null) return Text(widget.options.title);
-                return widget.options.builderItem!(context, value);
-              },
+            DefaultTextStyle(
+              style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
+              child: ValueListenableBuilder<T?>(
+                valueListenable: widget.options.controller,
+                builder: (context, value, child) {
+                  if (value == null) return Text(widget.options.title,);
+                  return widget.options.builderItem!(context, value);
+                },
+              ),
             ),
             Icon(
               Icons.keyboard_arrow_down_outlined,

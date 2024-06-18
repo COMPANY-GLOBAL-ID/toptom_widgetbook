@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -52,26 +53,21 @@ class ModalBottomSheetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Center(
-            child: ButtonWidget(
-              type: ButtonType.primary,
-              size: ButtonSize.l,
-              onPressed: () => _showModalSheet(context),
-              child: Text(
-                'default modal',
-                style: ThemeCore.of(context)
-                    .typography
-                    .paragraphMedium
-                    .copyWith(color: ThemeCore.of(context).color.scheme.white),
-              ),
-            ),
+    return ScreenWidget(
+      children: [
+        ButtonWidget(
+          type: ButtonType.primary,
+          size: ButtonSize.l,
+          onPressed: () => _showModalSheet(context),
+          child: Text(
+            'default modal',
+            style: ThemeCore.of(context)
+                .typography
+                .paragraphMedium
+                .copyWith(color: ThemeCore.of(context).color.scheme.white),
           ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }

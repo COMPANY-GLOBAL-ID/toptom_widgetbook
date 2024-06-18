@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 import 'package:widgetbook/widgetbook.dart';
 
+import '../helper/screen_widget.dart';
+
 class StatusPageScreen extends StatelessWidget {
   const StatusPageScreen({super.key});
 
@@ -19,17 +21,16 @@ class StatusPageScreen extends StatelessWidget {
         const Icon(Icons.access_time),
       ],
     );
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: StatusPageWidget(
+    return ScreenWidget(
+      children: [
+        StatusPageWidget(
           title: title,
           description: description,
           onPressed: () {},
           icon: icon,
           child: Text(text),
         ),
-      ),
+      ]
     );
   }
 }

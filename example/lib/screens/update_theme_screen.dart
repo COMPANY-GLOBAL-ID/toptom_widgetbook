@@ -2,6 +2,8 @@ import 'package:example/core/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 
+import '../helper/screen_widget.dart';
+
 class UpdateThemeScreen extends StatefulWidget {
   const UpdateThemeScreen({super.key});
 
@@ -16,19 +18,14 @@ class _UpdateThemeScreenState extends State<UpdateThemeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ThemeCore.of(context).color.scheme.backgroundSecondary,
-      body: SingleChildScrollView(
-        child: Column(
-          children: ThemeSwitcher.data(context)?.themes.map((theme) {
-            return ButtonWidget(
-              onPressed: _toggle(theme, context),
-              child: Text('Theme ${theme.theme}'),
-            );
-          }).toList() ?? [],
+    return ScreenWidget(
+      children: ThemeSwitcher.data(context)?.themes.map((theme) {
+        return ButtonWidget(
+          onPressed: _toggle(theme, context),
+          child: Text('Theme ${theme.theme}'),
+        );
+      }).toList() ?? [],
 
-        ),
-      )
     );
   }
 }

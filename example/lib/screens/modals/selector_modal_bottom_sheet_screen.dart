@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -8,6 +9,7 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
   void showSortModalSheet(BuildContext context,
           SelectorModalBottomSheetOptions<String> options) =>
       ModalBottomSheet(context).showSelectorModal(options);
+
   @override
   Widget build(BuildContext context) {
     final SelectorController<String> controller = SelectorController<String>();
@@ -55,9 +57,9 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
       clearButtonText: clearButton,
     );
 
-    return Scaffold(
-      body: Center(
-        child: ButtonWidget(
+    return ScreenWidget(
+      children: [
+        ButtonWidget(
           type: ButtonType.primary,
           size: ButtonSize.l,
           onPressed: () => showSortModalSheet(context, options),
@@ -68,8 +70,8 @@ class SelectorModalBottomSheetScreen extends StatelessWidget {
                 .paragraphMedium
                 .copyWith(color: ThemeCore.of(context).color.scheme.white),
           ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }

@@ -29,71 +29,70 @@ class SelectorModalBottomSheetWidget<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(ThemeCore.of(context).padding.xl),
+      padding: EdgeInsets.all(ThemeCore.of(context).padding.l),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                options.title,
-                style: ThemeCore.of(context).typography.paragraphMedium,
-              ),
-              options.showCancelButton == true &&
-                      options.clearButtonText != null
-                  ? IconButton(
-                      onPressed: _cancel(context),
-                      icon: const Icon(Icons.close),
-                    )
-                  : TextButton(
-                      onPressed: _clear,
-                      child: Text(options.clearButtonText ?? ''),
-                    ),
-            ],
-          ),
-          SizedBox(
-            height: ThemeCore.of(context).padding.l,
-          ),
-          ValueListenableBuilder<T?>(
-            valueListenable: options.temporaryValue,
-            builder: (context, value, child) {
-              return ListView.builder(
-                shrinkWrap: true,
-                itemCount: options.values.length,
-                itemBuilder: (context, index) => options.builder!(
-                  context,
-                  options.values[index],
-                  value,
-                  (val) => options.temporaryValue.value = val,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  options.title,
+                  style: ThemeCore.of(context).typography.paragraphMedium,
                 ),
-              );
-            },
-          ),
-          SizedBox(
-            height: ThemeCore.of(context).padding.l,
-          ),
-          options.showButton == true && options.buttonText != null
-              ? SafeArea(
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ButtonWidget(
-                      onPressed: _confirmSelection(context),
-                      child: Text(
-                        options.buttonText!,
-                        style: ThemeCore.of(context)
-                            .typography
-                            .paragraphSmall
-                            .copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
+                options.showCancelButton == true &&
+                    options.clearButtonText != null
+                    ? IconButton(
+                  onPressed: _cancel(context),
+                  icon: const Icon(Icons.close),
+                )
+                    : TextButton(
+                  onPressed: _clear,
+                  child: Text(options.clearButtonText ?? ''),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: ThemeCore.of(context).padding.l,
+            ),
+            ValueListenableBuilder<T?>(
+              valueListenable: options.temporaryValue,
+              builder: (context, value, child) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: options.values.length,
+                  itemBuilder: (context, index) => options.builder!(
+                    context,
+                    options.values[index],
+                    value,
+                        (val) => options.temporaryValue.value = val,
+                  ),
+                );
+              },
+            ),
+            SizedBox(
+              height: ThemeCore.of(context).padding.l,
+            ),
+            options.showButton == true && options.buttonText != null
+                ? SafeArea(
+              child: SizedBox(
+                width: double.infinity,
+                child: ButtonWidget(
+                  onPressed: _confirmSelection(context),
+                  child: Text(
+                    options.buttonText!,
+                    style: ThemeCore.of(context)
+                        .typography
+                        .paragraphSmall
+                        .copyWith(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                )
-              : const SizedBox(),
-        ],
+                ),
+              ),
+            )
+                : const SizedBox(),
+          ]
       ),
     );
   }

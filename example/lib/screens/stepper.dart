@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
+import '../helper/screen_widget.dart';
+
 class StepperPage extends StatelessWidget {
   StepperPage({super.key});
   final StepperController controller = StepperController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              StepperWidget(
-                controller: controller,
-              ),
-            ],
-          )
-        ],
-      ),
+    return ScreenWidget(
+      children: [
+        StepperWidget(
+          controller: controller,
+        ),
+      ],
     );
   }
 }

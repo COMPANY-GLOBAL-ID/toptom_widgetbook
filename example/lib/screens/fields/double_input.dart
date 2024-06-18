@@ -1,3 +1,4 @@
+import 'package:example/helper/screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/toptom_widgetbook.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -25,30 +26,27 @@ class DoubleInputScreen extends StatelessWidget {
     final bool enabled =
         context.knobs.boolean(label: 'Enabled', initialValue: true);
 
-    return Scaffold(
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          DoubleInput(
-            divider: SizedBox(
-              height: 20,
-              width: 2,
-              child: ColoredBox(
-                  color: ThemeCore.of(context).color.scheme.overlaySecondary),
-            ),
-            controller: DoubleEditingController(),
-            label: label,
-            min: min,
-            max: max,
-            minHintText: minHintText,
-            inputBorder: InputBorder.none,
-            maxHintText: maxHintText,
-            errorText: error,
-            clearText: clear,
-            enabled: enabled,
+    return ScreenWidget(
+      children: [
+        DoubleInput(
+          divider: SizedBox(
+            height: 20,
+            width: 2,
+            child: ColoredBox(
+                color: ThemeCore.of(context).color.scheme.overlaySecondary,),
           ),
-        ],
-      ),
+          controller: DoubleEditingController(),
+          label: label,
+          min: min,
+          max: max,
+          minHintText: minHintText,
+          inputBorder: InputBorder.none,
+          maxHintText: maxHintText,
+          errorText: error,
+          clearText: clear,
+          enabled: enabled,
+        ),
+      ],
     );
   }
 }

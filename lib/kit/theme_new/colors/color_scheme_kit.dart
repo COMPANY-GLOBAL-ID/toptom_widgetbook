@@ -19,7 +19,7 @@ class ColorSchemeKit {
   final Color overlayAlpha;
   final Color success;
   final Color background;
-
+  final Color borderPrimary;
   const ColorSchemeKit(
       {this.main = const Color.fromRGBO(250, 77, 30, 1),
       this.textPrimary = const Color.fromRGBO(15, 14, 20, 1),
@@ -38,5 +38,8 @@ class ColorSchemeKit {
       this.backgroundAlpha = const Color.fromRGBO(248, 248, 248, 1),
       this.success = const Color.fromRGBO(25, 175, 102, 1),
       this.background = const Color.fromRGBO(251, 251, 251, 1),
-      this.overlayAlpha = const Color.fromRGBO(206, 208, 212, 1)});
+      this.overlayAlpha = const Color.fromRGBO(206, 208, 212, 1) , 
+      this.borderPrimary=const Color.fromRGBO(208, 213, 221, 1),
+      
+      });
 }

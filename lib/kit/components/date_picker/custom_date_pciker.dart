@@ -42,7 +42,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     return Container(
       decoration: BoxDecoration(
           color: ThemeCore.of(context).color.scheme.background,
-          borderRadius: BorderRadius.circular(12),),
+          borderRadius: BorderRadius.circular(ThemeCore.of(context).radius.extraLarge2),),
       height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
         children: [
@@ -64,7 +64,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
             ],
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height:MediaQuery.sizeOf(context).height*0.2 , 
             child: CupertinoTheme(
               data: CupertinoThemeData(
                 textTheme: CupertinoTextThemeData(

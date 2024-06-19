@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../toptom_widgetbook.dart';
 
@@ -9,7 +10,12 @@ class CustomDatePicker extends StatefulWidget {
   final String cancelText;
   final String submitText;
 
-  const CustomDatePicker({required this.initialDate, this.minDate, this.maxDate, this.cancelText = 'Cancel', this.submitText = 'Submit'});
+  const CustomDatePicker(
+      {required this.initialDate,
+      this.minDate,
+      this.maxDate,
+      this.cancelText = 'Cancel',
+      this.submitText = 'Submit'});
 
   @override
   State<CustomDatePicker> createState() => _CustomDatePickerState();
@@ -17,7 +23,6 @@ class CustomDatePicker extends StatefulWidget {
 
 class _CustomDatePickerState extends State<CustomDatePicker> {
   late DateTime? date;
-
 
   void _pop() {
     Navigator.of(context).pop(date);
@@ -41,8 +46,10 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: ThemeCore.of(context).color.scheme.background,
-          borderRadius: BorderRadius.circular(ThemeCore.of(context).radius.extraLarge2),),
+        color: ThemeCore.of(context).color.scheme.background,
+        borderRadius:
+            BorderRadius.circular(ThemeCore.of(context).radius.extraLarge2),
+      ),
       height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
         children: [
@@ -51,33 +58,49 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
             children: [
               CupertinoButton(
                 onPressed: _cancel,
-                child: Text(widget.cancelText,style: TextStyle(
-                    color:  ThemeCore.of(context).color.scheme.textPrimary
-                ),),
+                child: Text(
+                  widget.cancelText,
+                  style: TextStyle(
+                      color: ThemeCore.of(context).color.scheme.textPrimary),
+                ),
               ),
               CupertinoButton(
                 onPressed: _pop,
-                child: Text(widget.submitText, style: TextStyle(
-                  color:  ThemeCore.of(context).color.scheme.textPrimary
-                ),),
+                child: Text(
+                  widget.submitText,
+                  style: TextStyle(
+                      color: ThemeCore.of(context).color.scheme.textPrimary),
+                ),
               )
             ],
           ),
           SizedBox(
-            height:MediaQuery.sizeOf(context).height*0.2 , 
+            height: MediaQuery.sizeOf(context).height * 0.2,
             child: CupertinoTheme(
               data: CupertinoThemeData(
                 textTheme: CupertinoTextThemeData(
-                  dateTimePickerTextStyle: ThemeCore.of(context).typography.paragraphBig,
-
+                  dateTimePickerTextStyle:
+                      ThemeCore.of(context).typography.paragraphBig,
                 ),
               ),
-              child: CupertinoDatePicker(
-                minimumDate: widget.minDate,
-                maximumDate: widget.maxDate,
-                initialDateTime: widget.initialDate ?? DateTime.now(),
-                mode: CupertinoDatePickerMode.date,
-                onDateTimeChanged: _change,
+              child: CupertinoTheme(
+                data: CupertinoThemeData(
+                  textTheme: CupertinoTextThemeData(
+                      dateTimePickerTextStyle: ThemeCore.of(context)
+                          .typography
+                          .paragraphMedium
+                          .copyWith(
+                              color: Colors
+                                  .black) 
+                      ),
+                ),
+                child: CupertinoDatePicker(
+                  minimumDate: widget.minDate,
+                  maximumDate: widget.maxDate,
+                  initialDateTime: widget.initialDate ?? DateTime.now(),
+                  mode: CupertinoDatePickerMode.date,
+                  onDateTimeChanged: _change,
+                ),
               ),
             ),
           ),

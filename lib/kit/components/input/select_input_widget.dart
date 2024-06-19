@@ -115,7 +115,7 @@ class _SelectInputMaterialState<T> extends State<SelectInputWidget<T>> {
                     border: Border.all(
                       color: hasErrorText
                           ? colors.errorPrimary
-                          : colors.borderPrimary,
+                          : colors.textSecondary,
                       width: 1,
                     ),
                   ),

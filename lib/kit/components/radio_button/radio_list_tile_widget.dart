@@ -7,6 +7,7 @@ class RadioListTileWidget<T> extends StatelessWidget {
   final void Function(T?)? onChanged;
   final String title;
   final Color? focusColor;
+  final TextStyle? textStyle;
   const RadioListTileWidget({
     super.key,
     required this.onChanged,
@@ -14,6 +15,7 @@ class RadioListTileWidget<T> extends StatelessWidget {
     required this.value,
     this.groupValue,
     this.focusColor,
+    this.textStyle,
   });
 
   @override
@@ -31,7 +33,7 @@ class RadioListTileWidget<T> extends StatelessWidget {
         SizedBox(width: ThemeCore.of(context).padding.ms),
         Text(
           title,
-          style: ThemeCore.of(context).typography.paragraphSmall.copyWith(
+          style: textStyle?? ThemeCore.of(context).typography.paragraphSmall.copyWith(
                 fontWeight: FontWeight.w600,
               ),
         ),

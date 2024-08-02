@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toptom_widgetbook/kit/export.dart';
 
 class MultiSelectInput<T> extends StatefulWidget {
-  final List<T> items;
+  final List<dynamic> items;
   final String? label;
   final Widget? hint;
   final String? clearText;

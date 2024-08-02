@@ -15,7 +15,7 @@ class SelectInputController<T> extends ValueNotifier<T?> {
 }
 
 class SelectInputWidget<T> extends StatefulWidget {
-  final List<T> items;
+  final List<dynamic> items;
   final Widget? hint;
   final Widget? label;
   final DropdownMenuItem<T> Function(T item, bool hasError) builder;

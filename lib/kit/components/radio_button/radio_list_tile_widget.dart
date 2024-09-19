@@ -31,12 +31,14 @@ class RadioListTileWidget<T> extends StatelessWidget {
           onChanged: onChanged,
         ),
         SizedBox(width: ThemeCore.of(context).padding.ms),
-        Text(
-          title,
-          style: textStyle?? ThemeCore.of(context).typography.paragraphSmall.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-        ),
+        Expanded(
+          child: Text(
+            title,
+            style: textStyle?? ThemeCore.of(context).typography.paragraphSmall.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        )
       ],
     );
   }
